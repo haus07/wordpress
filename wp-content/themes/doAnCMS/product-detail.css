@@ -1,0 +1,314 @@
+/* ==========================================================================
+   RESET & BODY
+   ========================================================================== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body.single-product {
+    font-family: 'Poppins', Arial, sans-serif;
+    color: #333;
+    background-color: #f4f6f8;
+    line-height: 1.6;
+}
+
+/* ==========================================================================
+   LAYOUT CHÍNH
+   ========================================================================== */
+.product-section {
+    max-width: 1200px;
+    margin: 40px auto;
+    padding: 30px;
+    background-color: #fff;
+    border-radius: 12px;
+    display: flex;
+    gap: 50px;
+    flex-wrap: wrap;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+}
+
+.product-gallery {
+    flex: 1 1 450px;
+}
+
+.product-info {
+    flex: 1 1 450px;
+}
+
+/* ==========================================================================
+   GALLERY ẢNH
+   ========================================================================== */
+body.single-product .woocommerce-product-gallery {
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+}
+
+body.single-product .woocommerce-product-gallery img {
+    width: 100%;
+    height: auto;
+    border-radius: 12px;
+    transition: transform 0.4s;
+}
+
+body.single-product .woocommerce-product-gallery img:hover {
+    transform: scale(1.05);
+}
+
+/* Thumbnails */
+body.single-product .woocommerce-product-gallery .flex-control-nav {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    margin-top: 15px;
+}
+
+body.single-product .woocommerce-product-gallery .flex-control-nav li img {
+    width: 70px;
+    height: 70px;
+    object-fit: cover;
+    border: 2px solid #ddd;
+    border-radius: 8px;
+    cursor: pointer;
+    opacity: 0.8;
+    transition: all 0.3s;
+}
+
+body.single-product .woocommerce-product-gallery .flex-control-nav li img:hover,
+body.single-product .woocommerce-product-gallery .flex-control-nav li img.flex-active {
+    border-color: #6b9d3e;
+    opacity: 1;
+}
+
+/* ==========================================================================
+   THÔNG TIN SẢN PHẨM
+   ========================================================================== */
+body.single-product h1.product_title {
+    font-size: 32px;
+    font-weight: 700;
+    margin-bottom: 20px;
+}
+
+body.single-product p.price .woocommerce-Price-amount {
+    font-size: 36px;
+    color: #6b9d3e;
+    font-weight: 700;
+}
+
+body.single-product form.cart {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin: 20px 0;
+}
+
+body.single-product form.cart .quantity .input-text.qty {
+    width: 80px;
+    padding: 12px;
+    font-size: 16px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    text-align: center;
+}
+
+body.single-product form.cart .single_add_to_cart_button {
+    background: linear-gradient(135deg,#6b9d3e,#a0c05a);
+    color: #fff;
+    padding: 14px 30px;
+    border-radius: 8px;
+    font-weight: 700;
+    border: none;
+    cursor: pointer;
+    transition: all 0.3s;
+    font-size: 16px;
+}
+
+body.single-product form.cart .single_add_to_cart_button:hover {
+    background: linear-gradient(135deg,#557c2a,#8bb135);
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+body.single-product p.stock.out-of-stock {
+    background-color: #fff0f0;
+    color: #e74c3c;
+    border: 1px solid #e74c3c;
+    padding: 10px 15px;
+    border-radius: 8px;
+    font-weight: 600;
+}
+
+/* Meta */
+body.single-product .product_meta {
+    margin-top: 20px;
+    background-color: #f9f9f9;
+    padding: 15px 20px;
+    border-radius: 8px;
+    font-size: 14px;
+}
+
+body.single-product .product_meta a {
+    color: #6b9d3e;
+    text-decoration: none;
+    font-weight: 500;
+}
+body.single-product .product_meta a:hover {
+    text-decoration: underline;
+}
+
+/* ==========================================================================
+   TABS MÔ TẢ & ĐÁNH GIÁ
+   ========================================================================== */
+body.single-product .woocommerce-tabs {
+    margin-top: 50px;
+    background: #fff;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.05);
+}
+
+body.single-product .woocommerce-tabs ul.tabs {
+    display: flex;
+    border-bottom: 2px solid #e0e0e0;
+    padding: 0 30px;
+    list-style: none;
+}
+
+body.single-product .woocommerce-tabs ul.tabs li a {
+    padding: 18px 25px;
+    font-size: 16px;
+    color: #666;
+    border-bottom: 3px solid transparent;
+    font-weight: 500;
+    transition: all 0.3s;
+}
+
+body.single-product .woocommerce-tabs ul.tabs li.active a {
+    color: #6b9d3e;
+    border-bottom-color: #6b9d3e;
+    font-weight: 700;
+}
+
+body.single-product .woocommerce-tabs .panel {
+    padding: 30px;
+    font-size: 15px;
+    color: #555;
+}
+
+/* ==========================================================================
+   SẢN PHẨM LIÊN QUAN
+   ========================================================================== */
+/* Related Products đẹp full width */
+/* ===================== Related Products nâng cấp ===================== */
+body.single-product .related.products {
+    max-width: 1200px;
+    margin: 50px auto;
+    padding: 0 15px;
+}
+
+body.single-product .related.products > h2 {
+    font-size: 28px;
+    text-align: center;
+    margin-bottom: 40px;
+    color: #333;
+    font-weight: 700;
+}
+
+/* Grid */
+body.single-product .related.products ul.products {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 25px;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    width: 100%;
+}
+
+/* Card sản phẩm */
+body.single-product .related.products ul.products li.product {
+    background-color: #fff;
+    border-radius: 12px;
+    overflow: hidden;
+    border: 1px solid #eee;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+    transition: transform 0.3s, box-shadow 0.3s;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+/* Hover card */
+body.single-product .related.products ul.products li.product:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.12);
+}
+
+/* Ảnh sản phẩm */
+body.single-product .related.products ul.products li.product img {
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+    border-bottom: 1px solid #eee;
+}
+
+/* Nội dung card: tên + giá */
+body.single-product .related.products ul.products li.product .woocommerce-loop-product__title {
+    font-size: 16px;
+    font-weight: 600;
+    color: #333;
+    margin: 15px;
+    line-height: 1.4;
+}
+
+body.single-product .related.products ul.products li.product .price {
+    color: #6b9d3e;
+    font-weight: 700;
+    font-size: 15px;
+    margin: 0 15px 15px;
+}
+
+/* Nút Add to cart */
+body.single-product .related.products ul.products li.product .button {
+    margin: 0 15px 15px;
+    text-align: center;
+    display: block;
+    background: linear-gradient(135deg,#6b9d3e,#a0c05a);
+    color: #fff;
+    padding: 10px 0;
+    border-radius: 8px;
+    font-size: 14px;
+    font-weight: 700;
+    text-decoration: none;
+    transition: all 0.3s;
+}
+
+body.single-product .related.products ul.products li.product .button:hover {
+    background: linear-gradient(135deg,#557c2a,#8bb135);
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+/* Responsive */
+@media (max-width: 1200px) {
+    body.single-product .related.products ul.products {
+        grid-template-columns: repeat(4, 1fr);
+    }
+}
+@media (max-width: 992px) {
+    body.single-product .related.products ul.products {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+@media (max-width: 768px) {
+    body.single-product .related.products ul.products {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+@media (max-width: 480px) {
+    body.single-product .related.products ul.products {
+        grid-template-columns: 1fr;
+    }
+}

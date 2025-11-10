@@ -1,0 +1,73 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/theme.json",
+  "title": "Purple",
+  "version": 2,
+  "settings": {
+    "color": {
+		"palette": [
+			{
+				"color": "#D89752",
+				"name": "Accent",
+				"slug": "accent"
+			},
+			{
+				"color": "#CC275C",
+				"name": "Secaccent",
+				"slug": "secaccent"
+			},
+			{
+				"color": "#E0DF4C",
+				"name": "Thirdaccent",
+				"slug": "thirdaccent"
+			},
+			{
+				"color": "#FFF8ED",
+				"name": "Fourthaccent",
+				"slug": "fourthaccent"
+			},
+			{
+				"color": "#412E2E",
+				"name": "Fifthaccent",
+				"slug": "fifthaccent"
+			},
+			{
+				"color": "#fff",
+				"name": "Background",
+				"slug": "background"
+			},
+			{
+				"color": "#f5fafd",
+				"name": "Fourground",
+				"slug": "fourground"
+			},
+			{
+				"color": "#ebf3ff",
+				"name": "Secbackground",
+				"slug": "secbackground"
+			},
+			{
+				"color": "#000000",
+				"name": "primary",
+				"slug": "primary"
+			},
+			{
+				"color": "#fff",
+				"name": "Secondary",
+				"slug": "secondary"
+			},
+			{
+				"color": "#121212",
+				"name": "tertiary",
+				"slug": "tertiary"
+			}
+		],
+		"gradients": [
+			{
+			"slug": "primary-gradient",
+			"gradient": "linear-gradient(269.97deg, #FF0000 0.02%, #D60511 47.46%, #BD081C 99.97%);",
+			"name": "Primary Gradient"
+			}
+		]
+    }
+  }
+}
