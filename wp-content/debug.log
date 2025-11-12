@@ -1,0 +1,231 @@
+[12-Nov-2025 01:12:03 UTC] PHP Deprecated:  File Theme without sidebar.php is <strong>deprecated</strong> since version 3.0.0 with no alternative available. Please include a sidebar.php template in your theme. in D:\wamp64\www\wordpress\wp-includes\functions.php on line 6121
+[12-Nov-2025 01:12:03 UTC] PHP Stack trace:
+[12-Nov-2025 01:12:03 UTC] PHP   1. {main}() D:\wamp64\www\wordpress\index.php:0
+[12-Nov-2025 01:12:03 UTC] PHP   2. require() D:\wamp64\www\wordpress\index.php:17
+[12-Nov-2025 01:12:03 UTC] PHP   3. require_once() D:\wamp64\www\wordpress\wp-blog-header.php:19
+[12-Nov-2025 01:12:03 UTC] PHP   4. include() D:\wamp64\www\wordpress\wp-includes\template-loader.php:106
+[12-Nov-2025 01:12:03 UTC] PHP   5. do_action($hook_name = 'woocommerce_sidebar') D:\wamp64\www\wordpress\wp-content\plugins\woocommerce\templates\archive-product.php:95
+[12-Nov-2025 01:12:03 UTC] PHP   6. WP_Hook->do_action($args = [0 => '']) D:\wamp64\www\wordpress\wp-includes\plugin.php:517
+[12-Nov-2025 01:12:03 UTC] PHP   7. WP_Hook->apply_filters($value = '', $args = [0 => '']) D:\wamp64\www\wordpress\wp-includes\class-wp-hook.php:348
+[12-Nov-2025 01:12:03 UTC] PHP   8. woocommerce_get_sidebar('') D:\wamp64\www\wordpress\wp-includes\class-wp-hook.php:324
+[12-Nov-2025 01:12:03 UTC] PHP   9. wc_get_template($template_name = 'global/sidebar.php', $args = *uninitialized*, $template_path = *uninitialized*, $default_path = *uninitialized*) D:\wamp64\www\wordpress\wp-content\plugins\woocommerce\includes\wc-template-functions.php:1077
+[12-Nov-2025 01:12:03 UTC] PHP  10. include() D:\wamp64\www\wordpress\wp-content\plugins\woocommerce\includes\wc-core-functions.php:346
+[12-Nov-2025 01:12:03 UTC] PHP  11. get_sidebar($name = 'shop', $args = *uninitialized*) D:\wamp64\www\wordpress\wp-content\plugins\woocommerce\templates\global\sidebar.php:22
+[12-Nov-2025 01:12:03 UTC] PHP  12. locate_template($template_names = [0 => 'sidebar-shop.php', 1 => 'sidebar.php'], $load = TRUE, $load_once = TRUE, $args = []) D:\wamp64\www\wordpress\wp-includes\general-template.php:136
+[12-Nov-2025 01:12:03 UTC] PHP  13. load_template($_template_file = 'D:\\wamp64\\www\\wordpress/wp-includes/theme-compat/sidebar.php', $load_once = TRUE, $args = []) D:\wamp64\www\wordpress\wp-includes\template.php:745
+[12-Nov-2025 01:12:03 UTC] PHP  14. require_once() D:\wamp64\www\wordpress\wp-includes\template.php:810
+[12-Nov-2025 01:12:03 UTC] PHP  15. _deprecated_file($file = 'Theme without sidebar.php', $version = '3.0.0', $replacement = NULL, $message = 'Please include a sidebar.php template in your theme.') D:\wamp64\www\wordpress\wp-includes\theme-compat\sidebar.php:9
+[12-Nov-2025 01:12:03 UTC] PHP  16. wp_trigger_error($function_name = '', $message = 'File Theme without sidebar.php is <strong>deprecated</strong> since version 3.0.0 with no alternative available. Please include a sidebar.php template in your theme.', $error_level = 16384) D:\wamp64\www\wordpress\wp-includes\functions.php:5831
+[12-Nov-2025 01:12:03 UTC] PHP  17. trigger_error($message = 'File Theme without sidebar.php is <strong>deprecated</strong> since version 3.0.0 with no alternative available. Please include a sidebar.php template in your theme.', $error_level = 16384) D:\wamp64\www\wordpress\wp-includes\functions.php:6121
+[12-Nov-2025 01:12:12 UTC] PHP Deprecated:  File Theme without sidebar.php is <strong>deprecated</strong> since version 3.0.0 with no alternative available. Please include a sidebar.php template in your theme. in D:\wamp64\www\wordpress\wp-includes\functions.php on line 6121
+[12-Nov-2025 01:12:12 UTC] PHP Stack trace:
+[12-Nov-2025 01:12:12 UTC] PHP   1. {main}() D:\wamp64\www\wordpress\index.php:0
+[12-Nov-2025 01:12:12 UTC] PHP   2. require() D:\wamp64\www\wordpress\index.php:17
+[12-Nov-2025 01:12:12 UTC] PHP   3. require_once() D:\wamp64\www\wordpress\wp-blog-header.php:19
+[12-Nov-2025 01:12:12 UTC] PHP   4. include() D:\wamp64\www\wordpress\wp-includes\template-loader.php:106
+[12-Nov-2025 01:12:12 UTC] PHP   5. do_action($hook_name = 'woocommerce_sidebar') D:\wamp64\www\wordpress\wp-content\plugins\woocommerce\templates\archive-product.php:95
+[12-Nov-2025 01:12:12 UTC] PHP   6. WP_Hook->do_action($args = [0 => '']) D:\wamp64\www\wordpress\wp-includes\plugin.php:517
+[12-Nov-2025 01:12:12 UTC] PHP   7. WP_Hook->apply_filters($value = '', $args = [0 => '']) D:\wamp64\www\wordpress\wp-includes\class-wp-hook.php:348
+[12-Nov-2025 01:12:12 UTC] PHP   8. woocommerce_get_sidebar('') D:\wamp64\www\wordpress\wp-includes\class-wp-hook.php:324
+[12-Nov-2025 01:12:12 UTC] PHP   9. wc_get_template($template_name = 'global/sidebar.php', $args = *uninitialized*, $template_path = *uninitialized*, $default_path = *uninitialized*) D:\wamp64\www\wordpress\wp-content\plugins\woocommerce\includes\wc-template-functions.php:1077
+[12-Nov-2025 01:12:12 UTC] PHP  10. include() D:\wamp64\www\wordpress\wp-content\plugins\woocommerce\includes\wc-core-functions.php:346
+[12-Nov-2025 01:12:12 UTC] PHP  11. get_sidebar($name = 'shop', $args = *uninitialized*) D:\wamp64\www\wordpress\wp-content\plugins\woocommerce\templates\global\sidebar.php:22
+[12-Nov-2025 01:12:12 UTC] PHP  12. locate_template($template_names = [0 => 'sidebar-shop.php', 1 => 'sidebar.php'], $load = TRUE, $load_once = TRUE, $args = []) D:\wamp64\www\wordpress\wp-includes\general-template.php:136
+[12-Nov-2025 01:12:12 UTC] PHP  13. load_template($_template_file = 'D:\\wamp64\\www\\wordpress/wp-includes/theme-compat/sidebar.php', $load_once = TRUE, $args = []) D:\wamp64\www\wordpress\wp-includes\template.php:745
+[12-Nov-2025 01:12:12 UTC] PHP  14. require_once() D:\wamp64\www\wordpress\wp-includes\template.php:810
+[12-Nov-2025 01:12:12 UTC] PHP  15. _deprecated_file($file = 'Theme without sidebar.php', $version = '3.0.0', $replacement = NULL, $message = 'Please include a sidebar.php template in your theme.') D:\wamp64\www\wordpress\wp-includes\theme-compat\sidebar.php:9
+[12-Nov-2025 01:12:12 UTC] PHP  16. wp_trigger_error($function_name = '', $message = 'File Theme without sidebar.php is <strong>deprecated</strong> since version 3.0.0 with no alternative available. Please include a sidebar.php template in your theme.', $error_level = 16384) D:\wamp64\www\wordpress\wp-includes\functions.php:5831
+[12-Nov-2025 01:12:12 UTC] PHP  17. trigger_error($message = 'File Theme without sidebar.php is <strong>deprecated</strong> since version 3.0.0 with no alternative available. Please include a sidebar.php template in your theme.', $error_level = 16384) D:\wamp64\www\wordpress\wp-includes\functions.php:6121
+[12-Nov-2025 01:12:23 UTC] PHP Deprecated:  File Theme without sidebar.php is <strong>deprecated</strong> since version 3.0.0 with no alternative available. Please include a sidebar.php template in your theme. in D:\wamp64\www\wordpress\wp-includes\functions.php on line 6121
+[12-Nov-2025 01:12:23 UTC] PHP Stack trace:
+[12-Nov-2025 01:12:23 UTC] PHP   1. {main}() D:\wamp64\www\wordpress\index.php:0
+[12-Nov-2025 01:12:23 UTC] PHP   2. require() D:\wamp64\www\wordpress\index.php:17
+[12-Nov-2025 01:12:23 UTC] PHP   3. require_once() D:\wamp64\www\wordpress\wp-blog-header.php:19
+[12-Nov-2025 01:12:23 UTC] PHP   4. include() D:\wamp64\www\wordpress\wp-includes\template-loader.php:106
+[12-Nov-2025 01:12:23 UTC] PHP   5. do_action($hook_name = 'woocommerce_sidebar') D:\wamp64\www\wordpress\wp-content\plugins\woocommerce\templates\archive-product.php:95
+[12-Nov-2025 01:12:23 UTC] PHP   6. WP_Hook->do_action($args = [0 => '']) D:\wamp64\www\wordpress\wp-includes\plugin.php:517
+[12-Nov-2025 01:12:23 UTC] PHP   7. WP_Hook->apply_filters($value = '', $args = [0 => '']) D:\wamp64\www\wordpress\wp-includes\class-wp-hook.php:348
+[12-Nov-2025 01:12:23 UTC] PHP   8. woocommerce_get_sidebar('') D:\wamp64\www\wordpress\wp-includes\class-wp-hook.php:324
+[12-Nov-2025 01:12:23 UTC] PHP   9. wc_get_template($template_name = 'global/sidebar.php', $args = *uninitialized*, $template_path = *uninitialized*, $default_path = *uninitialized*) D:\wamp64\www\wordpress\wp-content\plugins\woocommerce\includes\wc-template-functions.php:1077
+[12-Nov-2025 01:12:23 UTC] PHP  10. include() D:\wamp64\www\wordpress\wp-content\plugins\woocommerce\includes\wc-core-functions.php:346
+[12-Nov-2025 01:12:23 UTC] PHP  11. get_sidebar($name = 'shop', $args = *uninitialized*) D:\wamp64\www\wordpress\wp-content\plugins\woocommerce\templates\global\sidebar.php:22
+[12-Nov-2025 01:12:23 UTC] PHP  12. locate_template($template_names = [0 => 'sidebar-shop.php', 1 => 'sidebar.php'], $load = TRUE, $load_once = TRUE, $args = []) D:\wamp64\www\wordpress\wp-includes\general-template.php:136
+[12-Nov-2025 01:12:23 UTC] PHP  13. load_template($_template_file = 'D:\\wamp64\\www\\wordpress/wp-includes/theme-compat/sidebar.php', $load_once = TRUE, $args = []) D:\wamp64\www\wordpress\wp-includes\template.php:745
+[12-Nov-2025 01:12:23 UTC] PHP  14. require_once() D:\wamp64\www\wordpress\wp-includes\template.php:810
+[12-Nov-2025 01:12:23 UTC] PHP  15. _deprecated_file($file = 'Theme without sidebar.php', $version = '3.0.0', $replacement = NULL, $message = 'Please include a sidebar.php template in your theme.') D:\wamp64\www\wordpress\wp-includes\theme-compat\sidebar.php:9
+[12-Nov-2025 01:12:23 UTC] PHP  16. wp_trigger_error($function_name = '', $message = 'File Theme without sidebar.php is <strong>deprecated</strong> since version 3.0.0 with no alternative available. Please include a sidebar.php template in your theme.', $error_level = 16384) D:\wamp64\www\wordpress\wp-includes\functions.php:5831
+[12-Nov-2025 01:12:23 UTC] PHP  17. trigger_error($message = 'File Theme without sidebar.php is <strong>deprecated</strong> since version 3.0.0 with no alternative available. Please include a sidebar.php template in your theme.', $error_level = 16384) D:\wamp64\www\wordpress\wp-includes\functions.php:6121
+[12-Nov-2025 01:56:03 UTC] Automatic updates starting...
+[12-Nov-2025 01:56:03 UTC]   Automatic plugin updates starting...
+[12-Nov-2025 01:56:03 UTC]   Automatic plugin updates complete.
+[12-Nov-2025 01:56:04 UTC]   Automatic theme updates starting...
+[12-Nov-2025 01:56:04 UTC]   Automatic theme updates complete.
+[12-Nov-2025 01:56:04 UTC] Automatic updates complete.
+[12-Nov-2025 02:00:15 UTC] PHP Warning:  Undefined global variable $product in D:\wamp64\www\wordpress\wp-content\plugins\woocommerce\includes\wc-template-functions.php on line 2029
+[12-Nov-2025 02:00:15 UTC] PHP Stack trace:
+[12-Nov-2025 02:00:15 UTC] PHP   1. {main}() D:\wamp64\www\wordpress\index.php:0
+[12-Nov-2025 02:00:15 UTC] PHP   2. require() D:\wamp64\www\wordpress\index.php:17
+[12-Nov-2025 02:00:15 UTC] PHP   3. require_once() D:\wamp64\www\wordpress\wp-blog-header.php:19
+[12-Nov-2025 02:00:15 UTC] PHP   4. include() D:\wamp64\www\wordpress\wp-includes\template-loader.php:106
+[12-Nov-2025 02:00:15 UTC] PHP   5. the_content($more_link_text = *uninitialized*, $strip_teaser = *uninitialized*) D:\wamp64\www\wordpress\wp-content\themes\doAnCMS\page.php:12
+[12-Nov-2025 02:00:15 UTC] PHP   6. apply_filters($hook_name = 'the_content', $value = '<!-- wp:shortcode -->\n[woocommerce_cart]\n<!-- /wp:shortcode -->\n\n<!-- wp:paragraph -->\n<p></p>\n<!-- /wp:paragraph -->') D:\wamp64\www\wordpress\wp-includes\post-template.php:256
+[12-Nov-2025 02:00:15 UTC] PHP   7. WP_Hook->apply_filters($value = '<!-- wp:shortcode -->\n[woocommerce_cart]\n<!-- /wp:shortcode -->\n\n<!-- wp:paragraph -->\n<p></p>\n<!-- /wp:paragraph -->', $args = [0 => '<!-- wp:shortcode -->\n[woocommerce_cart]\n<!-- /wp:shortcode -->\n\n<!-- wp:paragraph -->\n<p></p>\n<!-- /wp:paragraph -->']) D:\wamp64\www\wordpress\wp-includes\plugin.php:205
+[12-Nov-2025 02:00:15 UTC] PHP   8. do_shortcode($content = '[woocommerce_cart]\n\n\n\n<p></p>\n', $ignore_html = *uninitialized*) D:\wamp64\www\wordpress\wp-includes\class-wp-hook.php:324
+[12-Nov-2025 02:00:15 UTC] PHP   9. preg_replace_callback($pattern = '/\\[(\\[?)(woocommerce_cart)(?![\\w-])([^\\]\\/]*(?:\\/(?!\\])[^\\]\\/]*)*?)(?:(\\/)\\]|\\](?:([^\\[]*+(?:\\[(?!\\/\\2\\])[^\\[]*+)*+)\\[\\/\\2\\])?)(\\]?)/', $callback = 'do_shortcode_tag', $subject = '[woocommerce_cart]\n\n\n\n<p></p>\n') D:\wamp64\www\wordpress\wp-includes\shortcodes.php:273
+[12-Nov-2025 02:00:15 UTC] PHP  10. do_shortcode_tag($m = [0 => '[woocommerce_cart]', 1 => '', 2 => 'woocommerce_cart', 3 => '', 4 => '', 5 => '', 6 => '']) D:\wamp64\www\wordpress\wp-includes\shortcodes.php:273
+[12-Nov-2025 02:00:15 UTC] PHP  11. WC_Shortcodes::cart([], '', 'woocommerce_cart') D:\wamp64\www\wordpress\wp-includes\shortcodes.php:434
+[12-Nov-2025 02:00:15 UTC] PHP  12. WC_Shortcodes::shortcode_wrapper($function = [0 => 'WC_Shortcode_Cart', 1 => 'output'], $atts = *uninitialized*, $wrapper = *uninitialized*) D:\wamp64\www\wordpress\wp-content\plugins\woocommerce\includes\class-wc-shortcodes.php:88
+[12-Nov-2025 02:00:15 UTC] PHP  13. WC_Shortcode_Cart::output($atts = []) D:\wamp64\www\wordpress\wp-content\plugins\woocommerce\includes\class-wc-shortcodes.php:75
+[12-Nov-2025 02:00:15 UTC] PHP  14. wc_get_template($template_name = 'cart/cart.php', $args = *uninitialized*, $template_path = *uninitialized*, $default_path = *uninitialized*) D:\wamp64\www\wordpress\wp-content\plugins\woocommerce\includes\shortcodes\class-wc-shortcode-cart.php:101
+[12-Nov-2025 02:00:15 UTC] PHP  15. include() D:\wamp64\www\wordpress\wp-content\plugins\woocommerce\includes\wc-core-functions.php:346
+[12-Nov-2025 02:00:15 UTC] PHP  16. woocommerce_quantity_input($args = ['input_name' => 'cart[42a0e188f5033bc65bf8d78622277c4e][qty]', 'input_value' => 4, 'max_value' => -1, 'min_value' => 0], $product = *uninitialized*, $echo = *uninitialized*) D:\wamp64\www\wordpress\wp-content\themes\doAnCMS\woocommerce\cart\cart.php:59
+[12-Nov-2025 02:00:15 UTC] PHP Warning:  Undefined global variable $product in D:\wamp64\www\wordpress\wp-content\plugins\woocommerce\includes\wc-template-functions.php on line 2029
+[12-Nov-2025 02:00:15 UTC] PHP Stack trace:
+[12-Nov-2025 02:00:15 UTC] PHP   1. {main}() D:\wamp64\www\wordpress\index.php:0
+[12-Nov-2025 02:00:15 UTC] PHP   2. require() D:\wamp64\www\wordpress\index.php:17
+[12-Nov-2025 02:00:15 UTC] PHP   3. require_once() D:\wamp64\www\wordpress\wp-blog-header.php:19
+[12-Nov-2025 02:00:15 UTC] PHP   4. include() D:\wamp64\www\wordpress\wp-includes\template-loader.php:106
+[12-Nov-2025 02:00:15 UTC] PHP   5. the_content($more_link_text = *uninitialized*, $strip_teaser = *uninitialized*) D:\wamp64\www\wordpress\wp-content\themes\doAnCMS\page.php:12
+[12-Nov-2025 02:00:15 UTC] PHP   6. apply_filters($hook_name = 'the_content', $value = '<!-- wp:shortcode -->\n[woocommerce_cart]\n<!-- /wp:shortcode -->\n\n<!-- wp:paragraph -->\n<p></p>\n<!-- /wp:paragraph -->') D:\wamp64\www\wordpress\wp-includes\post-template.php:256
+[12-Nov-2025 02:00:15 UTC] PHP   7. WP_Hook->apply_filters($value = '<!-- wp:shortcode -->\n[woocommerce_cart]\n<!-- /wp:shortcode -->\n\n<!-- wp:paragraph -->\n<p></p>\n<!-- /wp:paragraph -->', $args = [0 => '<!-- wp:shortcode -->\n[woocommerce_cart]\n<!-- /wp:shortcode -->\n\n<!-- wp:paragraph -->\n<p></p>\n<!-- /wp:paragraph -->']) D:\wamp64\www\wordpress\wp-includes\plugin.php:205
+[12-Nov-2025 02:00:15 UTC] PHP   8. do_shortcode($content = '[woocommerce_cart]\n\n\n\n<p></p>\n', $ignore_html = *uninitialized*) D:\wamp64\www\wordpress\wp-includes\class-wp-hook.php:324
+[12-Nov-2025 02:00:15 UTC] PHP   9. preg_replace_callback($pattern = '/\\[(\\[?)(woocommerce_cart)(?![\\w-])([^\\]\\/]*(?:\\/(?!\\])[^\\]\\/]*)*?)(?:(\\/)\\]|\\](?:([^\\[]*+(?:\\[(?!\\/\\2\\])[^\\[]*+)*+)\\[\\/\\2\\])?)(\\]?)/', $callback = 'do_shortcode_tag', $subject = '[woocommerce_cart]\n\n\n\n<p></p>\n') D:\wamp64\www\wordpress\wp-includes\shortcodes.php:273
+[12-Nov-2025 02:00:15 UTC] PHP  10. do_shortcode_tag($m = [0 => '[woocommerce_cart]', 1 => '', 2 => 'woocommerce_cart', 3 => '', 4 => '', 5 => '', 6 => '']) D:\wamp64\www\wordpress\wp-includes\shortcodes.php:273
+[12-Nov-2025 02:00:15 UTC] PHP  11. WC_Shortcodes::cart([], '', 'woocommerce_cart') D:\wamp64\www\wordpress\wp-includes\shortcodes.php:434
+[12-Nov-2025 02:00:15 UTC] PHP  12. WC_Shortcodes::shortcode_wrapper($function = [0 => 'WC_Shortcode_Cart', 1 => 'output'], $atts = *uninitialized*, $wrapper = *uninitialized*) D:\wamp64\www\wordpress\wp-content\plugins\woocommerce\includes\class-wc-shortcodes.php:88
+[12-Nov-2025 02:00:15 UTC] PHP  13. WC_Shortcode_Cart::output($atts = []) D:\wamp64\www\wordpress\wp-content\plugins\woocommerce\includes\class-wc-shortcodes.php:75
+[12-Nov-2025 02:00:15 UTC] PHP  14. wc_get_template($template_name = 'cart/cart.php', $args = *uninitialized*, $template_path = *uninitialized*, $default_path = *uninitialized*) D:\wamp64\www\wordpress\wp-content\plugins\woocommerce\includes\shortcodes\class-wc-shortcode-cart.php:101
+[12-Nov-2025 02:00:15 UTC] PHP  15. include() D:\wamp64\www\wordpress\wp-content\plugins\woocommerce\includes\wc-core-functions.php:346
+[12-Nov-2025 02:00:15 UTC] PHP  16. woocommerce_quantity_input($args = ['input_name' => 'cart[013d407166ec4fa56eb1e1f8cbe183b9][qty]', 'input_value' => 1, 'max_value' => -1, 'min_value' => 0], $product = *uninitialized*, $echo = *uninitialized*) D:\wamp64\www\wordpress\wp-content\themes\doAnCMS\woocommerce\cart\cart.php:59
+[12-Nov-2025 02:41:20 UTC] PHP Fatal error:  Uncaught TypeError: call_user_func_array(): Argument #1 ($callback) must be a valid callback, function "theme_enqueue_styles" not found or invalid function name in D:\wamp64\www\wordpress\wp-includes\class-wp-hook.php:324
+Stack trace:
+#0 D:\wamp64\www\wordpress\wp-includes\class-wp-hook.php(348): WP_Hook->apply_filters(NULL, Array)
+#1 D:\wamp64\www\wordpress\wp-includes\plugin.php(517): WP_Hook->do_action(Array)
+#2 D:\wamp64\www\wordpress\wp-includes\script-loader.php(2299): do_action('wp_enqueue_scri...')
+#3 D:\wamp64\www\wordpress\wp-includes\class-wp-hook.php(324): wp_enqueue_scripts('')
+#4 D:\wamp64\www\wordpress\wp-includes\class-wp-hook.php(348): WP_Hook->apply_filters(NULL, Array)
+#5 D:\wamp64\www\wordpress\wp-includes\plugin.php(517): WP_Hook->do_action(Array)
+#6 D:\wamp64\www\wordpress\wp-includes\general-template.php(3192): do_action('wp_head')
+#7 D:\wamp64\www\wordpress\wp-content\themes\doAnCMS\header.php(7): wp_head()
+#8 D:\wamp64\www\wordpress\wp-includes\template.php(810): require_once('D:\\wamp64\\www\\w...')
+#9 D:\wamp64\www\wordpress\wp-includes\template.php(745): load_template('D:\\wamp64\\www\\w...', true, Array)
+#10 D:\wamp64\www\wordpress\wp-includes\general-template.php(48): locate_template(Array, true, true, Array)
+#11 D:\wamp64\www\wordpress\wp-content\themes\doAnCMS\page.php(1): get_header()
+#12 D:\wamp64\www\wordpress\wp-includes\template-loader.php(106): include('D:\\wamp64\\www\\w...')
+#13 D:\wamp64\www\wordpress\wp-blog-header.php(19): require_once('D:\\wamp64\\www\\w...')
+#14 D:\wamp64\www\wordpress\index.php(17): require('D:\\wamp64\\www\\w...')
+#15 {main}
+  thrown in D:\wamp64\www\wordpress\wp-includes\class-wp-hook.php on line 324
+[12-Nov-2025 02:57:00 UTC] PHP Parse error:  Unclosed '{' on line 58 in D:\wamp64\www\wordpress\wp-content\themes\doAnCMS\functions.php on line 225
+[12-Nov-2025 02:57:00 UTC] PHP Notice:  Function _load_textdomain_just_in_time was called <strong>incorrectly</strong>. Translation loading for the <code>woocommerce</code> domain was triggered too early. This is usually an indicator for some code in the plugin or theme running too early. Translations should be loaded at the <code>init</code> action or later. Please see <a href="https://developer.wordpress.org/advanced-administration/debug/debug-wordpress/">Debugging in WordPress</a> for more information. (This message was added in version 6.7.0.) in D:\wamp64\www\wordpress\wp-includes\functions.php on line 6121
+[12-Nov-2025 02:57:00 UTC] PHP Stack trace:
+[12-Nov-2025 02:57:00 UTC] PHP   1. WooCommerce->log_errors() D:\wamp64\www\wordpress\wp-content\plugins\woocommerce\includes\class-woocommerce.php:0
+[12-Nov-2025 02:57:00 UTC] PHP   2. WC_Logger->critical($message = 'Unclosed \'{\' on line 58', $context = ['source' => 'fatal-errors', 'error' => ['type' => 4, 'file' => 'D:\\wamp64\\www\\wordpress\\wp-content\\themes\\doAnCMS\\functions.php', 'line' => 225], 'remote-logging' => TRUE, 'backtrace' => TRUE]) D:\wamp64\www\wordpress\wp-content\plugins\woocommerce\includes\class-woocommerce.php:452
+[12-Nov-2025 02:57:00 UTC] PHP   3. WC_Logger->log($level = 'critical', $message = 'Unclosed \'{\' on line 58', $context = ['source' => 'fatal-errors', 'error' => ['type' => 4, 'file' => 'D:\\wamp64\\www\\wordpress\\wp-content\\themes\\doAnCMS\\functions.php', 'line' => 225], 'remote-logging' => TRUE, 'backtrace' => TRUE]) D:\wamp64\www\wordpress\wp-content\plugins\woocommerce\includes\class-wc-logger.php:236
+[12-Nov-2025 02:57:00 UTC] PHP   4. Automattic\WooCommerce\Internal\Logging\RemoteLogger->handle($timestamp = 1762916220, $level = 'critical', $message = 'Unclosed \'{\' on line 58', $context = ['source' => 'fatal-errors', 'error' => ['type' => 4, 'file' => 'D:\\wamp64\\www\\wordpress\\wp-content\\themes\\doAnCMS\\functions.php', 'line' => 225], 'remote-logging' => TRUE, 'backtrace' => TRUE]) D:\wamp64\www\wordpress\wp-content\plugins\woocommerce\includes\class-wc-logger.php:189
+[12-Nov-2025 02:57:00 UTC] PHP   5. Automattic\WooCommerce\Internal\Logging\RemoteLogger->should_handle($level = 'critical', $message = 'Unclosed \'{\' on line 58', $context = ['source' => 'fatal-errors', 'error' => ['type' => 4, 'file' => 'D:\\wamp64\\www\\wordpress\\wp-content\\themes\\doAnCMS\\functions.php', 'line' => 225], 'remote-logging' => TRUE, 'backtrace' => TRUE]) D:\wamp64\www\wordpress\wp-content\plugins\woocommerce\src\Internal\Logging\RemoteLogger.php:46
+[12-Nov-2025 02:57:00 UTC] PHP   6. Automattic\WooCommerce\Internal\Logging\RemoteLogger->is_remote_logging_allowed() D:\wamp64\www\wordpress\wp-content\plugins\woocommerce\src\Internal\Logging\RemoteLogger.php:177
+[12-Nov-2025 02:57:00 UTC] PHP   7. Automattic\WooCommerce\Utilities\FeaturesUtil::feature_is_enabled($feature_id = 'remote_logging') D:\wamp64\www\wordpress\wp-content\plugins\woocommerce\src\Internal\Logging\RemoteLogger.php:147
+[12-Nov-2025 02:57:00 UTC] PHP   8. Automattic\WooCommerce\Internal\Features\FeaturesController->feature_is_enabled($feature_id = 'remote_logging') D:\wamp64\www\wordpress\wp-content\plugins\woocommerce\src\Utilities\FeaturesUtil.php:42
+[12-Nov-2025 02:57:00 UTC] PHP   9. Automattic\WooCommerce\Internal\Features\FeaturesController->feature_exists($feature_id = 'remote_logging') D:\wamp64\www\wordpress\wp-content\plugins\woocommerce\src\Internal\Features\FeaturesController.php:765
+[12-Nov-2025 02:57:00 UTC] PHP  10. Automattic\WooCommerce\Internal\Features\FeaturesController->get_feature_definitions() D:\wamp64\www\wordpress\wp-content\plugins\woocommerce\src\Internal\Features\FeaturesController.php:936
+[12-Nov-2025 02:57:00 UTC] PHP  11. Automattic\WooCommerce\Internal\Features\FeaturesController->init_feature_definitions() D:\wamp64\www\wordpress\wp-content\plugins\woocommerce\src\Internal\Features\FeaturesController.php:279
+[12-Nov-2025 02:57:00 UTC] PHP  12. __($text = 'Analytics', $domain = 'woocommerce') D:\wamp64\www\wordpress\wp-content\plugins\woocommerce\src\Internal\Features\FeaturesController.php:313
+[12-Nov-2025 02:57:00 UTC] PHP  13. translate($text = 'Analytics', $domain = 'woocommerce') D:\wamp64\www\wordpress\wp-includes\l10n.php:307
+[12-Nov-2025 02:57:00 UTC] PHP  14. get_translations_for_domain($domain = 'woocommerce') D:\wamp64\www\wordpress\wp-includes\l10n.php:195
+[12-Nov-2025 02:57:00 UTC] PHP  15. _load_textdomain_just_in_time($domain = 'woocommerce') D:\wamp64\www\wordpress\wp-includes\l10n.php:1409
+[12-Nov-2025 02:57:00 UTC] PHP  16. _doing_it_wrong($function_name = '_load_textdomain_just_in_time', $message = 'Translation loading for the <code>woocommerce</code> domain was triggered too early. This is usually an indicator for some code in the plugin or theme running too early. Translations should be loaded at the <code>init</code> action or later.', $version = '6.7.0') D:\wamp64\www\wordpress\wp-includes\l10n.php:1371
+[12-Nov-2025 02:57:00 UTC] PHP  17. wp_trigger_error($function_name = '', $message = 'Function _load_textdomain_just_in_time was called <strong>incorrectly</strong>. Translation loading for the <code>woocommerce</code> domain was triggered too early. This is usually an indicator for some code in the plugin or theme running too early. Translations should be loaded at the <code>init</code> action or later. Please see <a href="https://developer.wordpress.org/advanced-administration/debug/debug-wordpress/">Debugging in WordPress</a> for more information. (This message was added in version 6.7.0.'..., $error_level = *uninitialized*) D:\wamp64\www\wordpress\wp-includes\functions.php:6061
+[12-Nov-2025 02:57:00 UTC] PHP  18. trigger_error($message = 'Function _load_textdomain_just_in_time was called <strong>incorrectly</strong>. Translation loading for the <code>woocommerce</code> domain was triggered too early. This is usually an indicator for some code in the plugin or theme running too early. Translations should be loaded at the <code>init</code> action or later. Please see <a href="https://developer.wordpress.org/advanced-administration/debug/debug-wordpress/">Debugging in WordPress</a> for more information. (This message was added in version 6.7.0.'..., $error_level = 1024) D:\wamp64\www\wordpress\wp-includes\functions.php:6121
+[12-Nov-2025 02:57:05 UTC] PHP Parse error:  Unclosed '{' on line 58 in D:\wamp64\www\wordpress\wp-content\themes\doAnCMS\functions.php on line 225
+[12-Nov-2025 02:57:05 UTC] PHP Notice:  Function _load_textdomain_just_in_time was called <strong>incorrectly</strong>. Translation loading for the <code>woocommerce</code> domain was triggered too early. This is usually an indicator for some code in the plugin or theme running too early. Translations should be loaded at the <code>init</code> action or later. Please see <a href="https://developer.wordpress.org/advanced-administration/debug/debug-wordpress/">Debugging in WordPress</a> for more information. (This message was added in version 6.7.0.) in D:\wamp64\www\wordpress\wp-includes\functions.php on line 6121
+[12-Nov-2025 02:57:05 UTC] PHP Stack trace:
+[12-Nov-2025 02:57:05 UTC] PHP   1. WooCommerce->log_errors() D:\wamp64\www\wordpress\wp-content\plugins\woocommerce\includes\class-woocommerce.php:0
+[12-Nov-2025 02:57:05 UTC] PHP   2. WC_Logger->critical($message = 'Unclosed \'{\' on line 58', $context = ['source' => 'fatal-errors', 'error' => ['type' => 4, 'file' => 'D:\\wamp64\\www\\wordpress\\wp-content\\themes\\doAnCMS\\functions.php', 'line' => 225], 'remote-logging' => TRUE, 'backtrace' => TRUE]) D:\wamp64\www\wordpress\wp-content\plugins\woocommerce\includes\class-woocommerce.php:452
+[12-Nov-2025 02:57:05 UTC] PHP   3. WC_Logger->log($level = 'critical', $message = 'Unclosed \'{\' on line 58', $context = ['source' => 'fatal-errors', 'error' => ['type' => 4, 'file' => 'D:\\wamp64\\www\\wordpress\\wp-content\\themes\\doAnCMS\\functions.php', 'line' => 225], 'remote-logging' => TRUE, 'backtrace' => TRUE]) D:\wamp64\www\wordpress\wp-content\plugins\woocommerce\includes\class-wc-logger.php:236
+[12-Nov-2025 02:57:05 UTC] PHP   4. Automattic\WooCommerce\Internal\Logging\RemoteLogger->handle($timestamp = 1762916225, $level = 'critical', $message = 'Unclosed \'{\' on line 58', $context = ['source' => 'fatal-errors', 'error' => ['type' => 4, 'file' => 'D:\\wamp64\\www\\wordpress\\wp-content\\themes\\doAnCMS\\functions.php', 'line' => 225], 'remote-logging' => TRUE, 'backtrace' => TRUE]) D:\wamp64\www\wordpress\wp-content\plugins\woocommerce\includes\class-wc-logger.php:189
+[12-Nov-2025 02:57:05 UTC] PHP   5. Automattic\WooCommerce\Internal\Logging\RemoteLogger->should_handle($level = 'critical', $message = 'Unclosed \'{\' on line 58', $context = ['source' => 'fatal-errors', 'error' => ['type' => 4, 'file' => 'D:\\wamp64\\www\\wordpress\\wp-content\\themes\\doAnCMS\\functions.php', 'line' => 225], 'remote-logging' => TRUE, 'backtrace' => TRUE]) D:\wamp64\www\wordpress\wp-content\plugins\woocommerce\src\Internal\Logging\RemoteLogger.php:46
+[12-Nov-2025 02:57:05 UTC] PHP   6. Automattic\WooCommerce\Internal\Logging\RemoteLogger->is_remote_logging_allowed() D:\wamp64\www\wordpress\wp-content\plugins\woocommerce\src\Internal\Logging\RemoteLogger.php:177
+[12-Nov-2025 02:57:05 UTC] PHP   7. Automattic\WooCommerce\Utilities\FeaturesUtil::feature_is_enabled($feature_id = 'remote_logging') D:\wamp64\www\wordpress\wp-content\plugins\woocommerce\src\Internal\Logging\RemoteLogger.php:147
+[12-Nov-2025 02:57:05 UTC] PHP   8. Automattic\WooCommerce\Internal\Features\FeaturesController->feature_is_enabled($feature_id = 'remote_logging') D:\wamp64\www\wordpress\wp-content\plugins\woocommerce\src\Utilities\FeaturesUtil.php:42
+[12-Nov-2025 02:57:05 UTC] PHP   9. Automattic\WooCommerce\Internal\Features\FeaturesController->feature_exists($feature_id = 'remote_logging') D:\wamp64\www\wordpress\wp-content\plugins\woocommerce\src\Internal\Features\FeaturesController.php:765
+[12-Nov-2025 02:57:05 UTC] PHP  10. Automattic\WooCommerce\Internal\Features\FeaturesController->get_feature_definitions() D:\wamp64\www\wordpress\wp-content\plugins\woocommerce\src\Internal\Features\FeaturesController.php:936
+[12-Nov-2025 02:57:05 UTC] PHP  11. Automattic\WooCommerce\Internal\Features\FeaturesController->init_feature_definitions() D:\wamp64\www\wordpress\wp-content\plugins\woocommerce\src\Internal\Features\FeaturesController.php:279
+[12-Nov-2025 02:57:05 UTC] PHP  12. __($text = 'Analytics', $domain = 'woocommerce') D:\wamp64\www\wordpress\wp-content\plugins\woocommerce\src\Internal\Features\FeaturesController.php:313
+[12-Nov-2025 02:57:05 UTC] PHP  13. translate($text = 'Analytics', $domain = 'woocommerce') D:\wamp64\www\wordpress\wp-includes\l10n.php:307
+[12-Nov-2025 02:57:05 UTC] PHP  14. get_translations_for_domain($domain = 'woocommerce') D:\wamp64\www\wordpress\wp-includes\l10n.php:195
+[12-Nov-2025 02:57:05 UTC] PHP  15. _load_textdomain_just_in_time($domain = 'woocommerce') D:\wamp64\www\wordpress\wp-includes\l10n.php:1409
+[12-Nov-2025 02:57:05 UTC] PHP  16. _doing_it_wrong($function_name = '_load_textdomain_just_in_time', $message = 'Translation loading for the <code>woocommerce</code> domain was triggered too early. This is usually an indicator for some code in the plugin or theme running too early. Translations should be loaded at the <code>init</code> action or later.', $version = '6.7.0') D:\wamp64\www\wordpress\wp-includes\l10n.php:1371
+[12-Nov-2025 02:57:05 UTC] PHP  17. wp_trigger_error($function_name = '', $message = 'Function _load_textdomain_just_in_time was called <strong>incorrectly</strong>. Translation loading for the <code>woocommerce</code> domain was triggered too early. This is usually an indicator for some code in the plugin or theme running too early. Translations should be loaded at the <code>init</code> action or later. Please see <a href="https://developer.wordpress.org/advanced-administration/debug/debug-wordpress/">Debugging in WordPress</a> for more information. (This message was added in version 6.7.0.'..., $error_level = *uninitialized*) D:\wamp64\www\wordpress\wp-includes\functions.php:6061
+[12-Nov-2025 02:57:05 UTC] PHP  18. trigger_error($message = 'Function _load_textdomain_just_in_time was called <strong>incorrectly</strong>. Translation loading for the <code>woocommerce</code> domain was triggered too early. This is usually an indicator for some code in the plugin or theme running too early. Translations should be loaded at the <code>init</code> action or later. Please see <a href="https://developer.wordpress.org/advanced-administration/debug/debug-wordpress/">Debugging in WordPress</a> for more information. (This message was added in version 6.7.0.'..., $error_level = 1024) D:\wamp64\www\wordpress\wp-includes\functions.php:6121
+[12-Nov-2025 02:57:06 UTC] PHP Parse error:  Unclosed '{' on line 58 in D:\wamp64\www\wordpress\wp-content\themes\doAnCMS\functions.php on line 225
+[12-Nov-2025 02:57:06 UTC] PHP Notice:  Function _load_textdomain_just_in_time was called <strong>incorrectly</strong>. Translation loading for the <code>woocommerce</code> domain was triggered too early. This is usually an indicator for some code in the plugin or theme running too early. Translations should be loaded at the <code>init</code> action or later. Please see <a href="https://developer.wordpress.org/advanced-administration/debug/debug-wordpress/">Debugging in WordPress</a> for more information. (This message was added in version 6.7.0.) in D:\wamp64\www\wordpress\wp-includes\functions.php on line 6121
+[12-Nov-2025 02:57:06 UTC] PHP Stack trace:
+[12-Nov-2025 02:57:06 UTC] PHP   1. WooCommerce->log_errors() D:\wamp64\www\wordpress\wp-content\plugins\woocommerce\includes\class-woocommerce.php:0
+[12-Nov-2025 02:57:06 UTC] PHP   2. WC_Logger->critical($message = 'Unclosed \'{\' on line 58', $context = ['source' => 'fatal-errors', 'error' => ['type' => 4, 'file' => 'D:\\wamp64\\www\\wordpress\\wp-content\\themes\\doAnCMS\\functions.php', 'line' => 225], 'remote-logging' => TRUE, 'backtrace' => TRUE]) D:\wamp64\www\wordpress\wp-content\plugins\woocommerce\includes\class-woocommerce.php:452
+[12-Nov-2025 02:57:06 UTC] PHP   3. WC_Logger->log($level = 'critical', $message = 'Unclosed \'{\' on line 58', $context = ['source' => 'fatal-errors', 'error' => ['type' => 4, 'file' => 'D:\\wamp64\\www\\wordpress\\wp-content\\themes\\doAnCMS\\functions.php', 'line' => 225], 'remote-logging' => TRUE, 'backtrace' => TRUE]) D:\wamp64\www\wordpress\wp-content\plugins\woocommerce\includes\class-wc-logger.php:236
+[12-Nov-2025 02:57:06 UTC] PHP   4. Automattic\WooCommerce\Internal\Logging\RemoteLogger->handle($timestamp = 1762916226, $level = 'critical', $message = 'Unclosed \'{\' on line 58', $context = ['source' => 'fatal-errors', 'error' => ['type' => 4, 'file' => 'D:\\wamp64\\www\\wordpress\\wp-content\\themes\\doAnCMS\\functions.php', 'line' => 225], 'remote-logging' => TRUE, 'backtrace' => TRUE]) D:\wamp64\www\wordpress\wp-content\plugins\woocommerce\includes\class-wc-logger.php:189
+[12-Nov-2025 02:57:06 UTC] PHP   5. Automattic\WooCommerce\Internal\Logging\RemoteLogger->should_handle($level = 'critical', $message = 'Unclosed \'{\' on line 58', $context = ['source' => 'fatal-errors', 'error' => ['type' => 4, 'file' => 'D:\\wamp64\\www\\wordpress\\wp-content\\themes\\doAnCMS\\functions.php', 'line' => 225], 'remote-logging' => TRUE, 'backtrace' => TRUE]) D:\wamp64\www\wordpress\wp-content\plugins\woocommerce\src\Internal\Logging\RemoteLogger.php:46
+[12-Nov-2025 02:57:06 UTC] PHP   6. Automattic\WooCommerce\Internal\Logging\RemoteLogger->is_remote_logging_allowed() D:\wamp64\www\wordpress\wp-content\plugins\woocommerce\src\Internal\Logging\RemoteLogger.php:177
+[12-Nov-2025 02:57:06 UTC] PHP   7. Automattic\WooCommerce\Utilities\FeaturesUtil::feature_is_enabled($feature_id = 'remote_logging') D:\wamp64\www\wordpress\wp-content\plugins\woocommerce\src\Internal\Logging\RemoteLogger.php:147
+[12-Nov-2025 02:57:06 UTC] PHP   8. Automattic\WooCommerce\Internal\Features\FeaturesController->feature_is_enabled($feature_id = 'remote_logging') D:\wamp64\www\wordpress\wp-content\plugins\woocommerce\src\Utilities\FeaturesUtil.php:42
+[12-Nov-2025 02:57:06 UTC] PHP   9. Automattic\WooCommerce\Internal\Features\FeaturesController->feature_exists($feature_id = 'remote_logging') D:\wamp64\www\wordpress\wp-content\plugins\woocommerce\src\Internal\Features\FeaturesController.php:765
+[12-Nov-2025 02:57:06 UTC] PHP  10. Automattic\WooCommerce\Internal\Features\FeaturesController->get_feature_definitions() D:\wamp64\www\wordpress\wp-content\plugins\woocommerce\src\Internal\Features\FeaturesController.php:936
+[12-Nov-2025 02:57:06 UTC] PHP  11. Automattic\WooCommerce\Internal\Features\FeaturesController->init_feature_definitions() D:\wamp64\www\wordpress\wp-content\plugins\woocommerce\src\Internal\Features\FeaturesController.php:279
+[12-Nov-2025 02:57:06 UTC] PHP  12. __($text = 'Analytics', $domain = 'woocommerce') D:\wamp64\www\wordpress\wp-content\plugins\woocommerce\src\Internal\Features\FeaturesController.php:313
+[12-Nov-2025 02:57:06 UTC] PHP  13. translate($text = 'Analytics', $domain = 'woocommerce') D:\wamp64\www\wordpress\wp-includes\l10n.php:307
+[12-Nov-2025 02:57:06 UTC] PHP  14. get_translations_for_domain($domain = 'woocommerce') D:\wamp64\www\wordpress\wp-includes\l10n.php:195
+[12-Nov-2025 02:57:06 UTC] PHP  15. _load_textdomain_just_in_time($domain = 'woocommerce') D:\wamp64\www\wordpress\wp-includes\l10n.php:1409
+[12-Nov-2025 02:57:06 UTC] PHP  16. _doing_it_wrong($function_name = '_load_textdomain_just_in_time', $message = 'Translation loading for the <code>woocommerce</code> domain was triggered too early. This is usually an indicator for some code in the plugin or theme running too early. Translations should be loaded at the <code>init</code> action or later.', $version = '6.7.0') D:\wamp64\www\wordpress\wp-includes\l10n.php:1371
+[12-Nov-2025 02:57:06 UTC] PHP  17. wp_trigger_error($function_name = '', $message = 'Function _load_textdomain_just_in_time was called <strong>incorrectly</strong>. Translation loading for the <code>woocommerce</code> domain was triggered too early. This is usually an indicator for some code in the plugin or theme running too early. Translations should be loaded at the <code>init</code> action or later. Please see <a href="https://developer.wordpress.org/advanced-administration/debug/debug-wordpress/">Debugging in WordPress</a> for more information. (This message was added in version 6.7.0.'..., $error_level = *uninitialized*) D:\wamp64\www\wordpress\wp-includes\functions.php:6061
+[12-Nov-2025 02:57:06 UTC] PHP  18. trigger_error($message = 'Function _load_textdomain_just_in_time was called <strong>incorrectly</strong>. Translation loading for the <code>woocommerce</code> domain was triggered too early. This is usually an indicator for some code in the plugin or theme running too early. Translations should be loaded at the <code>init</code> action or later. Please see <a href="https://developer.wordpress.org/advanced-administration/debug/debug-wordpress/">Debugging in WordPress</a> for more information. (This message was added in version 6.7.0.'..., $error_level = 1024) D:\wamp64\www\wordpress\wp-includes\functions.php:6121
+[12-Nov-2025 03:14:39 UTC] Cart page detected: enqueue woocommerce-cart.css
+[12-Nov-2025 03:34:27 UTC] PHP Warning:  Undefined variable $title in D:\wamp64\www\wordpress\wp-content\themes\doAnCMS\functions.php on line 126
+[12-Nov-2025 03:34:27 UTC] PHP Stack trace:
+[12-Nov-2025 03:34:27 UTC] PHP   1. {main}() D:\wamp64\www\wordpress\index.php:0
+[12-Nov-2025 03:34:27 UTC] PHP   2. require() D:\wamp64\www\wordpress\index.php:17
+[12-Nov-2025 03:34:27 UTC] PHP   3. require_once() D:\wamp64\www\wordpress\wp-blog-header.php:13
+[12-Nov-2025 03:34:27 UTC] PHP   4. require_once() D:\wamp64\www\wordpress\wp-load.php:50
+[12-Nov-2025 03:34:27 UTC] PHP   5. require_once() D:\wamp64\www\wordpress\wp-config.php:106
+[12-Nov-2025 03:34:27 UTC] PHP   6. include() D:\wamp64\www\wordpress\wp-settings.php:695
+[12-Nov-2025 03:34:27 UTC] PHP Deprecated:  strip_tags(): Passing null to parameter #1 ($string) of type string is deprecated in D:\wamp64\www\wordpress\wp-content\themes\doAnCMS\functions.php on line 126
+[12-Nov-2025 03:34:27 UTC] PHP Stack trace:
+[12-Nov-2025 03:34:27 UTC] PHP   1. {main}() D:\wamp64\www\wordpress\index.php:0
+[12-Nov-2025 03:34:27 UTC] PHP   2. require() D:\wamp64\www\wordpress\index.php:17
+[12-Nov-2025 03:34:27 UTC] PHP   3. require_once() D:\wamp64\www\wordpress\wp-blog-header.php:13
+[12-Nov-2025 03:34:27 UTC] PHP   4. require_once() D:\wamp64\www\wordpress\wp-load.php:50
+[12-Nov-2025 03:34:27 UTC] PHP   5. require_once() D:\wamp64\www\wordpress\wp-config.php:106
+[12-Nov-2025 03:34:27 UTC] PHP   6. include() D:\wamp64\www\wordpress\wp-settings.php:695
+[12-Nov-2025 03:34:27 UTC] PHP   7. strip_tags($string = NULL) D:\wamp64\www\wordpress\wp-content\themes\doAnCMS\functions.php:126
+[12-Nov-2025 03:34:28 UTC] PHP Warning:  Undefined variable $title in D:\wamp64\www\wordpress\wp-content\themes\doAnCMS\functions.php on line 126
+[12-Nov-2025 03:34:28 UTC] PHP Stack trace:
+[12-Nov-2025 03:34:28 UTC] PHP   1. {main}() D:\wamp64\www\wordpress\wp-cron.php:0
+[12-Nov-2025 03:34:28 UTC] PHP   2. require_once() D:\wamp64\www\wordpress\wp-cron.php:46
+[12-Nov-2025 03:34:28 UTC] PHP   3. require_once() D:\wamp64\www\wordpress\wp-load.php:50
+[12-Nov-2025 03:34:28 UTC] PHP   4. require_once() D:\wamp64\www\wordpress\wp-config.php:106
+[12-Nov-2025 03:34:28 UTC] PHP   5. include() D:\wamp64\www\wordpress\wp-settings.php:695
+[12-Nov-2025 03:34:28 UTC] PHP Deprecated:  strip_tags(): Passing null to parameter #1 ($string) of type string is deprecated in D:\wamp64\www\wordpress\wp-content\themes\doAnCMS\functions.php on line 126
+[12-Nov-2025 03:34:28 UTC] PHP Stack trace:
+[12-Nov-2025 03:34:28 UTC] PHP   1. {main}() D:\wamp64\www\wordpress\wp-cron.php:0
+[12-Nov-2025 03:34:28 UTC] PHP   2. require_once() D:\wamp64\www\wordpress\wp-cron.php:46
+[12-Nov-2025 03:34:28 UTC] PHP   3. require_once() D:\wamp64\www\wordpress\wp-load.php:50
+[12-Nov-2025 03:34:28 UTC] PHP   4. require_once() D:\wamp64\www\wordpress\wp-config.php:106
+[12-Nov-2025 03:34:28 UTC] PHP   5. include() D:\wamp64\www\wordpress\wp-settings.php:695
+[12-Nov-2025 03:34:28 UTC] PHP   6. strip_tags($string = NULL) D:\wamp64\www\wordpress\wp-content\themes\doAnCMS\functions.php:126
+[12-Nov-2025 03:34:33 UTC] PHP Warning:  Undefined variable $title in D:\wamp64\www\wordpress\wp-content\themes\doAnCMS\functions.php on line 126
+[12-Nov-2025 03:34:33 UTC] PHP Stack trace:
+[12-Nov-2025 03:34:33 UTC] PHP   1. {main}() D:\wamp64\www\wordpress\index.php:0
+[12-Nov-2025 03:34:33 UTC] PHP   2. require() D:\wamp64\www\wordpress\index.php:17
+[12-Nov-2025 03:34:33 UTC] PHP   3. require_once() D:\wamp64\www\wordpress\wp-blog-header.php:13
+[12-Nov-2025 03:34:33 UTC] PHP   4. require_once() D:\wamp64\www\wordpress\wp-load.php:50
+[12-Nov-2025 03:34:33 UTC] PHP   5. require_once() D:\wamp64\www\wordpress\wp-config.php:106
+[12-Nov-2025 03:34:33 UTC] PHP   6. include() D:\wamp64\www\wordpress\wp-settings.php:695
+[12-Nov-2025 03:34:33 UTC] PHP Deprecated:  strip_tags(): Passing null to parameter #1 ($string) of type string is deprecated in D:\wamp64\www\wordpress\wp-content\themes\doAnCMS\functions.php on line 126
+[12-Nov-2025 03:34:33 UTC] PHP Stack trace:
+[12-Nov-2025 03:34:33 UTC] PHP   1. {main}() D:\wamp64\www\wordpress\index.php:0
+[12-Nov-2025 03:34:33 UTC] PHP   2. require() D:\wamp64\www\wordpress\index.php:17
+[12-Nov-2025 03:34:33 UTC] PHP   3. require_once() D:\wamp64\www\wordpress\wp-blog-header.php:13
+[12-Nov-2025 03:34:33 UTC] PHP   4. require_once() D:\wamp64\www\wordpress\wp-load.php:50
+[12-Nov-2025 03:34:33 UTC] PHP   5. require_once() D:\wamp64\www\wordpress\wp-config.php:106
+[12-Nov-2025 03:34:33 UTC] PHP   6. include() D:\wamp64\www\wordpress\wp-settings.php:695
+[12-Nov-2025 03:34:33 UTC] PHP   7. strip_tags($string = NULL) D:\wamp64\www\wordpress\wp-content\themes\doAnCMS\functions.php:126

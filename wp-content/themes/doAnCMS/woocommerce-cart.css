@@ -1,0 +1,89 @@
+/* ============================= */
+/* WooCommerce Cart Page Styles  */
+/* ============================= */
+
+/* Chỉnh bảng cart */
+.woocommerce-cart-form table.shop_table {
+    width: 100%;
+    border-collapse: collapse;
+    border: 1px solid #ddd;
+    font-family: 'Arial', sans-serif;
+    background-color: #fff;
+}
+
+/* Các ô bảng */
+.woocommerce-cart-form table.shop_table th,
+.woocommerce-cart-form table.shop_table td {
+    padding: 12px 10px;
+    border: 1px solid #ddd;
+    text-align: left;
+}
+
+/* Header bảng */
+.woocommerce-cart-form table.shop_table th {
+    background-color: #f7f7f7;
+    font-weight: 600;
+    font-size: 14px;
+    color: #333;
+}
+
+/* Link sản phẩm */
+.woocommerce-cart-form table.shop_table td.product-name a {
+    text-decoration: none;
+    /* bỏ gạch chân */
+    color: #007cba;
+    /* màu xanh nhẹ */
+    font-weight: 500;
+    font-size: 15px;
+}
+
+/* Link hover */
+.woocommerce-cart-form table.shop_table td.product-name a:hover {
+    color: #005177;
+}
+
+/* Nút remove (x) */
+.woocommerce-cart-form table.shop_table td.product-remove a {
+    color: #c00;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+/* Input số lượng */
+.woocommerce-cart-form .quantity input[type="number"] {
+    width: 60px;
+    padding: 5px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    text-align: center;
+}
+
+/* Tổng tiền */
+.woocommerce-cart-form td.product-subtotal {
+    font-weight: 600;
+    color: #222;
+}
+
+/* Nút Update Cart và Apply Coupon */
+.woocommerce-cart-form .actions .button {
+    background-color: #007cba;
+    color: #fff;
+    border: none;
+    padding: 8px 14px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+.woocommerce-cart-form .actions .button:hover {
+    background-color: #005177;
+}
+
+/* Coupon input */
+.woocommerce-cart-form .coupon input.input-text {
+    padding: 6px 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    width: auto;
+    margin-right: 6px;
+}

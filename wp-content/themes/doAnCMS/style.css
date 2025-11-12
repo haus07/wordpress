@@ -198,7 +198,7 @@ body {
 
 .product-card:hover {
     transform: translateY(-5px);
-    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
 }
 
 .badge {
@@ -363,3 +363,17 @@ body {
 }
 
 
+    /* =============================
+   WooCommerce Cart Custom Styles
+   ============================= */
+    /* woocommerce-cart.css */
+    .woocommerce-cart-form table {
+        border: 1px solid #ccc;
+    }
+
+    .woocommerce-cart-form a {
+        text-decoration: none !important;
+        color: #333 !important;
+        font-family: 'Arial', sans-serif;
+    }
+}

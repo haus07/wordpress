@@ -1,0 +1,17 @@
+/* Chỉ áp dụng cho trang Cart */
+.woocommerce-cart .cart_item {
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    padding: 10px;
+    margin-bottom: 5px;
+}
+
+/* Ẩn link sản phẩm (a) và hiển thị text */
+.woocommerce-cart .cart_item .product-name a {
+    pointer-events: none;
+    /* không click được */
+    color: #000;
+    /* màu text */
+    text-decoration: none;
+    cursor: default;
+}
