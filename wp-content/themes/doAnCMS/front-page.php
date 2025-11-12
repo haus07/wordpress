@@ -1,116 +1,128 @@
 <?php get_header(); ?>
 
+<!-- ===================== BANNER KHUYẾN MÃI ===================== -->
 <div class="banner">
     <div class="banner-container">
-      <div class="sidebar">
-    <?php
-    wp_list_categories([
-        'title_li'   => '',
-        'taxonomy'   => 'product_cat', // <-- Đây là mấu chốt
-        'show_count' => 1,             // Tùy chọn: Hiển thị số lượng sản phẩm
-        'hierarchical' => 1            // Tùy chọn: Hiển thị theo cấp bậc cha-con
-    ]);
-    ?>
-</div>
-<div class="banner-slider">
-    <?php
-echo do_shortcode('[smartslider3 slider="3"]');
-?>
-</div>
+        <!-- Sidebar danh mục sản phẩm -->
+        <div class="sidebar">
+            <?php
+            wp_list_categories([
+                'title_li'     => '',
+                'taxonomy'     => 'product_cat',
+                'show_count'   => 1,
+                'hierarchical' => 1
+            ]);
+            ?>
+        </div>
+
+        <!-- Slider banner chính -->
+        <div class="banner-slider">
+            <?php echo do_shortcode('[smartslider3 slider="3"]'); ?>
+        </div>
     </div>
 </div>
 
+<!-- ===================== DANH MỤC CHA ===================== -->
 <div class="container">
-
-    <div class="category-grid"> <?php
+    <div class="category-grid">
+        <?php
         $args = [
             'taxonomy'   => 'product_cat',
             'orderby'    => 'name',
-            'parent'     => 0, // Chỉ lấy danh mục cha
-            'hide_empty' => false // Bro có thể đổi thành true nếu muốn ẩn danh mục trống
+            'parent'     => 0,
+            'hide_empty' => false
         ];
 
-        // Lấy tất cả danh mục sản phẩm
         $product_categories = get_terms($args);
 
-        if ( ! empty($product_categories) && ! is_wp_error($product_categories) ) {
-            foreach ($product_categories as $category) {
-                // Lấy ảnh thumbnail của danh mục
+        if (!empty($product_categories) && !is_wp_error($product_categories)) :
+            foreach ($product_categories as $category) :
                 $thumbnail_id = get_term_meta($category->term_id, 'thumbnail_id', true);
                 $image_url = wp_get_attachment_url($thumbnail_id);
-                // Nếu không có ảnh, dùng placeholder
-                if ( ! $image_url ) {
-                    $image_url = wc_placeholder_img_src(); // Lấy ảnh placeholder của WC
-                }
+                if (!$image_url) $image_url = wc_placeholder_img_src();
 
-                // Lấy link của danh mục
                 $category_link = get_term_link($category);
-                ?>
-                
+        ?>
                 <a href="<?php echo esc_url($category_link); ?>" class="category-card">
-                    <img src="<?php echo esc_url($image_url); ?>" alt="<?php echo esc_attr($category->name); ?>" class="category-image">
+                    <img src="<?php echo esc_url($image_url); ?>" alt="<?php echo esc_attr($category->name); ?>"
+                        class="category-image">
                     <h3 class="category-name"><?php echo esc_html($category->name); ?></h3>
                 </a>
-
-                <?php
-            }
-        }
-        ?>
-    </div>
-</div>  
-    </div>
-
-
-<div class="container">
-    <h2 class="section-title">Sản phẩm nổi bật</h2>
-    <div class="product-grid">
         <?php
-$products = new WP_Query([
-    'post_type' => 'product',
-    'posts_per_page' => 5,
-    'orderby' => 'rand'
-]);
-
-if ($products->have_posts()) :
-    while ($products->have_posts()) : $products->the_post();
-    
-        // Cần phải lấy product object để dùng hàm của WC
-        // Cách dễ nhất là dùng global $product
-        global $product;
-        
-        // Hoặc dùng cách rõ ràng hơn:
-        // $product = wc_get_product( get_the_ID() );
-
-        // Đảm bảo rằng $product là một đối tượng hợp lệ
-        if ( ! is_a( $product, 'WC_Product' ) ) {
-            continue; // Bỏ qua nếu không phải sản phẩm
-        }
-?>
-
-        <div class="product-card">
-            <?php if (has_post_thumbnail()) : ?>
-                <?php the_post_thumbnail('medium', ['class' => 'product-image']); ?>
-            <?php endif; ?>
-            <div class="product-info">
-                <div class="product-name"><?php the_title(); ?></div>
-
-                <div class="product-price">
-                    <?php echo $product->get_price_html(); ?>
-                </div>
-
-            </div>
-        </div>
-
-<?php
-    endwhile;
-    wp_reset_postdata();
-endif;
-?>
+            endforeach;
+        endif;
+        ?>
     </div>
 </div>
 
+<!-- ===================== SẢN PHẨM NỔI BẬT ===================== -->
+<div class="container">
+    <h2 class="section-title">Sản phẩm nổi bật</h2>
+    <div class="product-scroll-wrapper">
+        <div class="product-grid product-grid-scroll">
+            <?php
+            // Lấy sản phẩm nổi bật có giảm giá
+            $featured_products = wc_get_products([
+                'status'         => 'publish',
+                'limit'          => 8,
+                'orderby'        => 'date',
+                'order'          => 'DESC',
+                'featured'       => true,
+                'meta_query'     => [
+                    [
+                        'key'     => '_sale_price',
+                        'value'   => 0,
+                        'compare' => '>',
+                        'type'    => 'NUMERIC'
+                    ]
+                ]
+            ]);
+
+            if (!empty($featured_products)) :
+                foreach ($featured_products as $product) :
+                    $product_id = $product->get_id();
+                    $image_url = get_the_post_thumbnail_url($product_id, 'medium') ?: wc_placeholder_img_src();
+                    $regular_price = (float) $product->get_regular_price();
+                    $sale_price = (float) $product->get_sale_price();
+                    $discount = 0;
+                    if ($regular_price > 0 && $sale_price > 0) {
+                        $discount = round((($regular_price - $sale_price) / $regular_price) * 100);
+                    }
+            ?>
+                    <div class="product-card">
+                        <div class="product-thumb">
+                            <a href="<?php echo esc_url(get_permalink($product_id)); ?>">
+                                <img src="<?php echo esc_url($image_url); ?>"
+                                    alt="<?php echo esc_attr($product->get_name()); ?>" class="product-image">
+                                <?php if ($discount > 0): ?>
+                                    <span class="custom-sale-badge">-<?php echo esc_html($discount); ?>%</span>
+                                <?php endif; ?>
+                            </a>
+                        </div>
+                        <div class="product-info">
+                            <h3 class="product-name">
+                                <a href="<?php echo esc_url(get_permalink($product_id)); ?>">
+                                    <?php echo esc_html($product->get_name()); ?>
+                                </a>
+                            </h3>
+                            <div class="product-price">
+                                <?php echo $product->get_price_html(); ?>
+                            </div>
+                        </div>
+                    </div>
+            <?php
+                endforeach;
+            else :
+                echo '<p>Chưa có sản phẩm nổi bật đang giảm giá.</p>';
+            endif;
+            ?>
+        </div>
+    </div>
+</div>
+
+
+<!-- ===================== CÁC NHÓM SẢN PHẨM KHÁC ===================== -->
 <?php
-// Tạo một mảng chứa tất cả các mục mà bro muốn hiển thị
 $product_sections = [
     [
         'title' => 'Sản phẩm hữu cơ',
@@ -129,17 +141,15 @@ $product_sections = [
         'slug'  => 'nui-mi-huu-co'
     ],
     [
-        'title' => 'Các loại thực phầm hữu cơ',
+        'title' => 'Các loại thực phẩm hữu cơ',
         'slug'  => 'thuc-pham-huu-co'
     ]
-    // Thêm bao nhiêu mục tùy thích...
 ];
 
-// Dùng vòng lặp để gọi template part cho mỗi mục
+// Gọi template part cho từng nhóm
 foreach ($product_sections as $section) {
     get_template_part('template-parts/product-row', null, $section);
 }
 ?>
-
 
 <?php get_footer(); ?>
