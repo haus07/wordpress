@@ -1,8 +1,6 @@
-Template Name: Contact Page<?php
-                            /**
-                             * Template Name: Contact Page
-                             */
-                            get_header(); ?>
+<?php
+get_header();
+?>
 
 <style>
     /* ====== Contact Page Container ====== */
@@ -153,7 +151,15 @@ Template Name: Contact Page<?php
     <!-- Contact Form -->
     <div class="contact-form">
         <h2>Liên hệ với chúng tôi</h2>
+
+        <?php if (isset($_GET['status']) && $_GET['status'] === 'success') : ?>
+            <p style="color:green;">✅ Cảm ơn bạn! Chúng tôi đã nhận được liên hệ.</p>
+        <?php elseif (isset($_GET['status']) && $_GET['status'] === 'error') : ?>
+            <p style="color:red;">❌ Vui lòng điền đầy đủ thông tin.</p>
+        <?php endif; ?>
+
         <form method="post" action="<?php echo esc_url(admin_url('admin-post.php')); ?>">
+            <?php wp_nonce_field('contact_form_action', 'contact_form_nonce'); ?>
             <input type="text" name="contact_name" placeholder="Họ và tên" required>
             <input type="email" name="contact_email" placeholder="Email" required>
             <textarea name="contact_message" placeholder="Tin nhắn" required></textarea>
@@ -166,12 +172,20 @@ Template Name: Contact Page<?php
     <div class="contact-info">
         <h2>Thông tin liên hệ</h2>
         <div><span>📞 Phone:</span> 0934 919 897</div>
-        <div><span>📧 Email:</span> contact@organicshop.com</div>
-        <div><span>🏠 Địa chỉ:</span> 123 Đường ABC, Quận 1, TP.HCM</div>
+        <div><span>📧 Email:</span> thanhdo062305@gmail.com</div>
+        <div><span>🏠 Địa chỉ:</span> 53 Võ Văn Ngân, Linh Chiểu, Thủ Đức, TP.HCM</div>
 
         <!-- Newsletter Form -->
         <h2>Đăng ký nhận tin sản phẩm mới</h2>
+
+        <?php if (isset($_GET['newsletter']) && $_GET['newsletter'] === 'success') : ?>
+            <p style="color:green;">✅ Cảm ơn bạn đã đăng ký!</p>
+        <?php elseif (isset($_GET['newsletter']) && $_GET['newsletter'] === 'invalid') : ?>
+            <p style="color:red;">❌ Email không hợp lệ!</p>
+        <?php endif; ?>
+
         <form method="post" action="<?php echo esc_url(admin_url('admin-post.php')); ?>">
+            <?php wp_nonce_field('newsletter_form_action', 'newsletter_form_nonce'); ?>
             <input type="email" name="newsletter_email" placeholder="Email của bạn" required>
             <button type="submit">Đăng ký</button>
             <input type="hidden" name="action" value="submit_newsletter_email">

@@ -44,11 +44,11 @@
 
                 $category_link = get_term_link($category);
         ?>
-                <a href="<?php echo esc_url($category_link); ?>" class="category-card">
-                    <img src="<?php echo esc_url($image_url); ?>" alt="<?php echo esc_attr($category->name); ?>"
-                        class="category-image">
-                    <h3 class="category-name"><?php echo esc_html($category->name); ?></h3>
-                </a>
+        <a href="<?php echo esc_url($category_link); ?>" class="category-card">
+            <img src="<?php echo esc_url($image_url); ?>" alt="<?php echo esc_attr($category->name); ?>"
+                class="category-image">
+            <h3 class="category-name"><?php echo esc_html($category->name); ?></h3>
+        </a>
         <?php
             endforeach;
         endif;
@@ -90,27 +90,27 @@
                         $discount = round((($regular_price - $sale_price) / $regular_price) * 100);
                     }
             ?>
-                    <div class="product-card">
-                        <div class="product-thumb">
-                            <a href="<?php echo esc_url(get_permalink($product_id)); ?>">
-                                <img src="<?php echo esc_url($image_url); ?>"
-                                    alt="<?php echo esc_attr($product->get_name()); ?>" class="product-image">
-                                <?php if ($discount > 0): ?>
-                                    <span class="custom-sale-badge">-<?php echo esc_html($discount); ?>%</span>
-                                <?php endif; ?>
-                            </a>
-                        </div>
-                        <div class="product-info">
-                            <h3 class="product-name">
-                                <a href="<?php echo esc_url(get_permalink($product_id)); ?>">
-                                    <?php echo esc_html($product->get_name()); ?>
-                                </a>
-                            </h3>
-                            <div class="product-price">
-                                <?php echo $product->get_price_html(); ?>
-                            </div>
-                        </div>
+            <div class="product-card">
+                <div class="product-thumb">
+                    <a href="<?php echo esc_url(get_permalink($product_id)); ?>">
+                        <img src="<?php echo esc_url($image_url); ?>"
+                            alt="<?php echo esc_attr($product->get_name()); ?>" class="product-image">
+                        <?php if ($discount > 0): ?>
+                        <span class="custom-sale-badge">-<?php echo esc_html($discount); ?>%</span>
+                        <?php endif; ?>
+                    </a>
+                </div>
+                <div class="product-info">
+                    <h3 class="product-name">
+                        <a href="<?php echo esc_url(get_permalink($product_id)); ?>">
+                            <?php echo esc_html($product->get_name()); ?>
+                        </a>
+                    </h3>
+                    <div class="product-price">
+                        <?php echo $product->get_price_html(); ?>
                     </div>
+                </div>
+            </div>
             <?php
                 endforeach;
             else :
