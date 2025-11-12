@@ -30,7 +30,8 @@
             'taxonomy'   => 'product_cat',
             'orderby'    => 'name',
             'parent'     => 0,
-            'hide_empty' => false
+            'hide_empty' => false,
+            'exclude'    => [get_option('default_product_cat')]
         ];
 
         $product_categories = get_terms($args);

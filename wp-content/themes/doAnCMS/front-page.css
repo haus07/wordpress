@@ -551,6 +551,17 @@ body {
         height: 250px !important;
     }
 }
+.category-card {
+    text-decoration: none; /* tắt gạch dưới */
+    color: #000;           /* chữ màu đen */
+    display: block;        /* toàn bộ thẻ a là block */
+    transition: color 0.2s; /* tùy chọn: hiệu ứng nhẹ khi hover */
+}
+
+.category-card:hover {
+    text-decoration: none; /* vẫn không gạch dưới khi hover */
+    color: #000;           /* giữ chữ đen khi hover */
+}
 
 
 
