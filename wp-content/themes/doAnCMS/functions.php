@@ -4,17 +4,11 @@ if (!defined('ABSPATH')) exit;
 // =======================
 // Load CSS cho theme
 // =======================
-function doAnCMS_enqueue_styles()
-{
+function doAnCMS_enqueue_styles() {
     // Base CSS: luôn load cho toàn site
-    wp_enqueue_style(
-        'doAnCMS-base-style',
-        get_stylesheet_uri(),
-        array(),
-        '1.0.1'
-    );
+    wp_enqueue_style('doAnCMS-base-style', get_stylesheet_uri(), array(), '1.0.1');
 
-    // Chỉ load CSS WooCommerce khi WooCommerce active và trang WooCommerce
+    // WooCommerce CSS
     if (function_exists('is_woocommerce') && is_woocommerce()) {
 
         // WooCommerce chung
@@ -54,84 +48,38 @@ function doAnCMS_enqueue_styles()
                 '1.0.1'
             );
         }
-    }
-}
-add_action('wp_enqueue_scripts', 'doAnCMS_enqueue_styles', 99); // ưu tiên load cuối cùng
 
-// =======================
-// Hiển thị tên sản phẩm trong Cart dưới dạng text thuần, không link
-// =======================
-add_filter('woocommerce_cart_item_name', function ($product_name, $cart_item, $cart_item_key) {
-    $product = $cart_item['data'];
-    return $product->get_name(); // trả về tên thuần
-}, 10, 3);
-// =======================
-// Hiển thị Cart Totals thuần text
-// =======================
-
-// Subtotal
-add_filter('woocommerce_cart_subtotal', function ($subtotal, $compound, $cart) {
-    // Loại bỏ bất kỳ HTML nào, chỉ giữ text và giá
-    $subtotal_text = strip_tags($subtotal);
-    return $subtotal_text;
-}, 10, 3);
-
-// Shipping
-add_filter('woocommerce_cart_totals_shipping_html', function ($html, $shipping_rate) {
-    // Nếu có nhiều phương thức vận chuyển, hiển thị từng phương thức
-    if (is_array($shipping_rate)) {
-        $lines = [];
-        foreach ($shipping_rate as $rate) {
-            $label = isset($rate->label) ? $rate->label : 'Shipping';
-            $cost  = isset($rate->cost) ? wc_price($rate->cost) : 'Free';
-            $lines[] = $label . ': ' . $cost;
+        // Product category page
+        if (is_tax('product_cat')) {
+            wp_enqueue_style(
+                'taxonomy-product-cat',
+                get_template_directory_uri() . '/taxonomy-product_cat.css',
+                array('doAnCMS-woocommerce-style'),
+                '1.0.1'
+            );
         }
-        return implode("\n", $lines);
-    } else {
-        $label = isset($shipping_rate->label) ? $shipping_rate->label : 'Shipping';
-        $cost  = isset($shipping_rate->cost) ? wc_price($shipping_rate->cost) : 'Free';
-        return $label . ': ' . $cost;
     }
-}, 10, 2);
 
-// Total
-add_filter('woocommerce_cart_total', function ($total) {
-    // Chỉ giữ text và giá
-    $total_text = strip_tags($total);
-    return $total_text;
-});
-
-// Tắt link "Calculate shipping" và form điền postcode/city
-add_filter('woocommerce_shipping_calculator_enable_city', '__return_false');
-add_filter('woocommerce_shipping_calculator_enable_postcode', '__return_false');
-
-// Tùy chọn vận chuyển (Shipping options) hiển thị text
-add_filter('woocommerce_shipping_method_title', function ($title) {
-    return strip_tags($title); // bỏ bất kỳ HTML nào
-});
-
-
-// =======================
-// Custom related products
-// =======================
-function doAnCMS_change_related_products_args($args)
-{
-    $args['posts_per_page'] = 5; // 5 sản phẩm liên quan
-    $args['columns'] = 5;        // 5 cột
-    return $args;
+    // Front page
+    if (is_front_page()) {
+        wp_enqueue_style(
+            'doAnCMS-front-page-style',
+            get_template_directory_uri() . '/front-page.css',
+            array('doAnCMS-base-style'),
+            '1.0.1'
+        );
+    }
 }
-add_filter('woocommerce_output_related_products_args', 'doAnCMS_change_related_products_args', 20);
+add_action('wp_enqueue_scripts', 'doAnCMS_enqueue_styles', 99);
 
 // =======================
 // Theme setup
 // =======================
-function doAnCMS_setup()
-{
+function doAnCMS_setup() {
     add_theme_support('title-tag');
     add_theme_support('post-thumbnails');
     add_theme_support('woocommerce');
 
-    // Menu
     register_nav_menus(array(
         'primary' => __('Main Menu', 'doAnCMS'),
     ));
@@ -139,21 +87,178 @@ function doAnCMS_setup()
 add_action('after_setup_theme', 'doAnCMS_setup');
 
 // =======================
+// Related products args
+// =======================
+function doAnCMS_change_related_products_args($args) {
+    $args['posts_per_page'] = 5;
+    $args['columns'] = 5;
+    return $args;
+}
+add_filter('woocommerce_output_related_products_args', 'doAnCMS_change_related_products_args', 20);
+
+// =======================
+// Sale badge CSS + functions
+// =======================
+add_action('wp_head', function () { ?>
+<style>
+.woocommerce ul.products li.product,
+.product-card,
+.product-thumb { position: relative; }
+.custom-sale-badge {
+    position: absolute;
+    top: 10px; left: 10px;
+    background: #e74c3c;
+    color: #fff;
+    padding: 5px 10px;
+    border-radius: 5px;
+    font-weight: bold;
+    z-index: 10;
+    box-shadow: 0 2px 5px rgba(0,0,0,.15);
+}
+.custom-sale-single {
+    font-size: 16px;
+    color: #e74c3c;
+    margin-bottom: 10px;
+}
+</style>
+<?php });
+
+add_action('woocommerce_before_shop_loop_item_title', 'doAnCMS_show_sale_badge', 9);
+function doAnCMS_show_sale_badge() {
+    global $product;
+    if (!$product || !$product->is_on_sale()) return;
+    $regular_price = (float)$product->get_regular_price();
+    $sale_price = (float)$product->get_sale_price();
+    if ($regular_price > 0 && $sale_price > 0) {
+        $percentage = round((($regular_price - $sale_price) / $regular_price) * 100);
+        echo '<span class="custom-sale-badge">-' . esc_html($percentage) . '%</span>';
+    }
+}
+
+add_action('woocommerce_single_product_summary', 'doAnCMS_show_sale_percentage_single', 6);
+function doAnCMS_show_sale_percentage_single() {
+    global $product;
+    if (!$product || !$product->is_on_sale()) return;
+    $regular_price = (float)$product->get_regular_price();
+    $sale_price = (float)$product->get_sale_price();
+    if ($regular_price > 0 && $sale_price > 0) {
+        $percentage = round((($regular_price - $sale_price) / $regular_price) * 100);
+        echo '<p class="custom-sale-single">Giảm <strong>-' . esc_html($percentage) . '%</strong></p>';
+    }
+}
+
+// ===============================
+// FORM LIÊN HỆ
+// ===============================
+add_action('admin_post_nopriv_submit_contact_form', 'handle_contact_form');
+add_action('admin_post_submit_contact_form', 'handle_contact_form');
+function handle_contact_form() {
+    if (!isset($_POST['contact_form_nonce']) || !wp_verify_nonce($_POST['contact_form_nonce'], 'contact_form_action')) {
+        wp_redirect(home_url('/contact/?status=error'));
+        exit;
+    }
+    $name = sanitize_text_field($_POST['contact_name'] ?? '');
+    $email = sanitize_email($_POST['contact_email'] ?? '');
+    $message = sanitize_textarea_field($_POST['contact_message'] ?? '');
+    if (empty($name) || empty($email) || empty($message)) {
+        wp_redirect(home_url('/contact/?status=error'));
+        exit;
+    }
+    $from_email = 'thanhdo062305@gmail.com';
+    $to = $email;
+    $subject = "Cảm ơn bạn đã liên hệ - Organic Food Shop";
+    $body = "Xin chào {$name},\n\nCảm ơn bạn đã liên hệ với chúng tôi. Nội dung bạn gửi:\n\n{$message}\n\nTrân trọng,\nĐội ngũ Đô Web.";
+    $headers = array(
+        'Content-Type: text/plain; charset=UTF-8',
+        'From: Admin Organic Food Shop <' . $from_email . '>',
+        'Reply-To: ' . $from_email,
+    );
+    wp_mail($to, $subject, $body, $headers);
+
+    $admin_email = get_option('admin_email');
+    $admin_subject = "Liên hệ mới từ {$name}";
+    $admin_body = "Tên: {$name}\nEmail: {$email}\nNội dung:\n{$message}";
+    $admin_headers = array(
+        'Content-Type: text/plain; charset=UTF-8',
+        'From: Employee Organic Food Shop <' . $from_email . '>',
+        'Reply-To: ' . $email,
+    );
+    wp_mail($admin_email, $admin_subject, $admin_body, $admin_headers);
+
+    wp_redirect(home_url('/contact/?status=success'));
+    exit;
+}
+
+// ===============================
+// Newsletter handlers
+// ===============================
+add_action('admin_post_nopriv_submit_newsletter_email', 'handle_newsletter_form');
+add_action('admin_post_submit_newsletter_email', 'handle_newsletter_form');
+function handle_newsletter_form() {
+    if (!isset($_POST['newsletter_form_nonce']) || !wp_verify_nonce($_POST['newsletter_form_nonce'], 'newsletter_form_action')) {
+        wp_redirect(home_url('/contact/?newsletter=invalid'));
+        exit;
+    }
+    $email = sanitize_email($_POST['newsletter_email'] ?? '');
+    if (!is_email($email)) {
+        wp_redirect(home_url('/contact/?newsletter=invalid'));
+        exit;
+    }
+    $emails = get_option('newsletter_subscribers', array());
+    if (!in_array($email, $emails)) {
+        $emails[] = $email;
+        update_option('newsletter_subscribers', $emails);
+    }
+    wp_mail(get_option('admin_email'), 'Đăng ký nhận tin mới', "Email mới đăng ký: {$email}");
+    wp_redirect(home_url('/contact/?newsletter=success'));
+    exit;
+}
+
+// ===============================
+// Gửi mail khi có sản phẩm mới
+// ===============================
+add_action('woocommerce_new_product', 'send_newsletter_on_new_product', 10, 1);
+function send_newsletter_on_new_product($post_id) {
+    $emails = get_option('newsletter_subscribers', array());
+    if (empty($emails)) return;
+    $product = wc_get_product($post_id);
+    if (!$product) return;
+    $product_name = $product->get_name();
+    $product_link = get_permalink($post_id);
+    $price = $product->get_sale_price() ?: $product->get_regular_price();
+    $product_price = wc_price($price);
+    $thumbnail = get_the_post_thumbnail_url($post_id, 'medium') ?: wc_placeholder_img_src('medium');
+    $subject = "🛒 Sản phẩm mới: {$product_name}";
+    $body = "
+        <h2>Chào bạn,</h2>
+        <p>Chúng tôi vừa thêm sản phẩm mới trong cửa hàng:</p>
+        <div style='text-align:center;'>
+            <img src='{$thumbnail}' alt='{$product_name}' style='max-width:250px;border-radius:8px;'>
+        </div>
+        <h3>{$product_name}</h3>
+        <p>Giá: {$product_price}</p>
+        <p><a href='{$product_link}' style='color:#6b9d3e;font-weight:bold;'>Xem chi tiết sản phẩm tại đây</a></p>
+        <br>
+        <p>Trân trọng,<br><strong>Đội ngũ Organic Food Shop</strong></p>
+    ";
+    $headers = array('Content-Type: text/html; charset=UTF-8');
+    foreach ($emails as $email) {
+        wp_mail($email, $subject, $body, $headers);
+    }
+}
+
+// =======================
 // Optional: Session start
 // =======================
-function doAnCMS_start_session()
-{
-    if (!session_id()) {
-        session_start();
-    }
+function doAnCMS_start_session() {
+    if (!session_id()) session_start();
 }
 add_action('init', 'doAnCMS_start_session');
 
 // =======================
-// Thêm sản phẩm vào giỏ hàng WooCommerce
+// Thêm sản phẩm vào giỏ hàng qua URL
 // =======================
-function doAnCMS_add_to_cart_woo()
-{
+function doAnCMS_add_to_cart_woo() {
     if (isset($_GET['add_to_cart'])) {
         $product_id = intval($_GET['add_to_cart']);
         if ($product_id > 0) {
