@@ -86,6 +86,17 @@ $nav_prev_class = 'swiper-button-prev-' . esc_attr($category_slug);
                                         <span class="custom-sale-badge">-<?php echo esc_html($discount); ?>%</span>
                                     <?php endif; ?>
                                 </a>
+                                <div class="product-actions">
+                <a href="?add-to-cart=<?php echo $product->get_id(); ?>" 
+                   class="btn-add-to-cart" 
+                   aria-label="Thêm <?php echo esc_attr(get_the_title()); ?> vào giỏ">
+                    🛒
+                </a>
+                <a href="#" 
+                    class="btn-quick-view" 
+                    data-product-id="<?php echo $product->get_id(); ?>"> 👁️
+                    </a>
+                </div>
                             </div>
 
                             <div class="product-info">
