@@ -551,16 +551,21 @@ body {
         height: 250px !important;
     }
 }
+/* chữ đen không gạch dưới */
 .category-card {
-    text-decoration: none; /* tắt gạch dưới */
-    color: #000;           /* chữ màu đen */
-    display: block;        /* toàn bộ thẻ a là block */
-    transition: color 0.2s; /* tùy chọn: hiệu ứng nhẹ khi hover */
+    color: inherit !important;
+    text-decoration: none !important;
 }
 
-.category-card:hover {
-    text-decoration: none; /* vẫn không gạch dưới khi hover */
-    color: #000;           /* giữ chữ đen khi hover */
+.category-card .category-name {
+    color: #000 !important;
+    text-decoration: none !important;
+}
+
+.category-card:hover,
+.category-card:hover .category-name {
+    color: #000 !important;
+    text-decoration: none !important;
 }
 
 
