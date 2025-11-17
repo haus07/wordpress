@@ -38,22 +38,22 @@
             foreach ($product_categories as $category) :
                 if ($category->slug === 'uncategorized') {
                     continue; // bỏ qua
-                }   
+                }
                 $thumbnail_id = get_term_meta($category->term_id, 'thumbnail_id', true);
                 $image_url = wp_get_attachment_url($thumbnail_id);
                 if (!$image_url) $image_url = wc_placeholder_img_src();
 
                 $category_link = get_term_link($category);
         ?>
-        <a href="<?php echo esc_url($category_link); ?>" class="category-card"
-            style="text-decoration: none; color: #000;">
-            <img src="<?php echo esc_url($image_url); ?>" alt="<?php echo esc_attr($category->name); ?>"
-                class="category-image">
+                <a href="<?php echo esc_url($category_link); ?>" class="category-card"
+                    style="text-decoration: none; color: #000;">
+                    <img src="<?php echo esc_url($image_url); ?>" alt="<?php echo esc_attr($category->name); ?>"
+                        class="category-image">
 
-            <h3 class="category-name" style="color: #000; text-decoration: none; margin: 10px 0 0;">
-                <?php echo esc_html($category->name); ?>
-            </h3>
-        </a>
+                    <h3 class="category-name" style="color: #000; text-decoration: none; margin: 10px 0 0;">
+                        <?php echo esc_html($category->name); ?>
+                    </h3>
+                </a>
         <?php endforeach;
         endif; ?>
     </div>
@@ -95,34 +95,34 @@
                         $discount = round((($regular_price - $sale_price) / $regular_price) * 100);
                     }
             ?>
-            <div class="swiper-slide">
-                <div class="product-card">
-                    <div class="product-thumb">
-                        <a href="<?php echo esc_url(get_permalink($product_id)); ?>">
-                            <img src="<?php echo esc_url($image_url); ?>" class="product-image">
+                    <div class="swiper-slide">
+                        <div class="product-card">
+                            <div class="product-thumb">
+                                <a href="<?php echo esc_url(get_permalink($product_id)); ?>">
+                                    <img src="<?php echo esc_url($image_url); ?>" class="product-image">
 
-                            <?php if ($discount > 0): ?>
-                            <span class="custom-sale-badge">-<?php echo esc_html($discount); ?>%</span>
-                            <?php endif; ?>
-                        </a>
-                    </div>
+                                    <?php if ($discount > 0): ?>
+                                        <span class="custom-sale-badge">-<?php echo esc_html($discount); ?>%</span>
+                                    <?php endif; ?>
+                                </a>
+                            </div>
 
-                    <div class="product-info">
-                        <h3 class="product-name">
-                            <a href="<?php echo esc_url(get_permalink($product_id)); ?>">
-                                <?php echo esc_html($product->get_name()); ?>
-                            </a>
-                        </h3>
+                            <div class="product-info">
+                                <h3 class="product-name">
+                                    <a href="<?php echo esc_url(get_permalink($product_id)); ?>">
+                                        <?php echo esc_html($product->get_name()); ?>
+                                    </a>
+                                </h3>
 
-                        <div class="product-price">
-                            <?php echo $product->get_price_html(); ?>
+                                <div class="product-price">
+                                    <?php echo $product->get_price_html(); ?>
+                                </div>
+                            </div>
                         </div>
                     </div>
-                </div>
-            </div>
-            <?php endforeach;
+                <?php endforeach;
             else : ?>
-            <p>Không có sản phẩm giảm giá.</p>
+                <p>Không có sản phẩm giảm giá.</p>
             <?php endif; ?>
 
         </div>
@@ -155,31 +155,31 @@
                     $image_url  = get_the_post_thumbnail_url($product_id, 'medium') ?: wc_placeholder_img_src();
             ?>
 
-            <div class="swiper-slide">
-                <div class="product-card">
-                    <div class="product-thumb">
-                        <a href="<?php echo esc_url(get_permalink($product_id)); ?>">
-                            <img src="<?php echo esc_url($image_url); ?>" class="product-image">
-                        </a>
-                    </div>
+                    <div class="swiper-slide">
+                        <div class="product-card">
+                            <div class="product-thumb">
+                                <a href="<?php echo esc_url(get_permalink($product_id)); ?>">
+                                    <img src="<?php echo esc_url($image_url); ?>" class="product-image">
+                                </a>
+                            </div>
 
-                    <div class="product-info">
-                        <h3 class="product-name">
-                            <a href="<?php echo esc_url(get_permalink($product_id)); ?>">
-                                <?php echo esc_html($product->get_name()); ?>
-                            </a>
-                        </h3>
+                            <div class="product-info">
+                                <h3 class="product-name">
+                                    <a href="<?php echo esc_url(get_permalink($product_id)); ?>">
+                                        <?php echo esc_html($product->get_name()); ?>
+                                    </a>
+                                </h3>
 
-                        <div class="product-price">
-                            <?php echo $product->get_price_html(); ?>
+                                <div class="product-price">
+                                    <?php echo $product->get_price_html(); ?>
+                                </div>
+                            </div>
                         </div>
                     </div>
-                </div>
-            </div>
 
-            <?php endforeach;
+                <?php endforeach;
             else : ?>
-            <p>Không có sản phẩm nổi bật.</p>
+                <p>Không có sản phẩm nổi bật.</p>
             <?php endif; ?>
 
         </div>

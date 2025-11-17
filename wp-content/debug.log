@@ -3388,3 +3388,319 @@ Stack trace:
 [17-Nov-2025 08:21:15 UTC] PHP  16. _doing_it_wrong($function_name = '_load_textdomain_just_in_time', $message = 'Translation loading for the <code>woocommerce</code> domain was triggered too early. This is usually an indicator for some code in the plugin or theme running too early. Translations should be loaded at the <code>init</code> action or later.', $version = '6.7.0') D:\wamp64\www\wordpress\wp-includes\l10n.php:1371
 [17-Nov-2025 08:21:15 UTC] PHP  17. wp_trigger_error($function_name = '', $message = 'Function _load_textdomain_just_in_time was called <strong>incorrectly</strong>. Translation loading for the <code>woocommerce</code> domain was triggered too early. This is usually an indicator for some code in the plugin or theme running too early. Translations should be loaded at the <code>init</code> action or later. Please see <a href="https://developer.wordpress.org/advanced-administration/debug/debug-wordpress/">Debugging in WordPress</a> for more information. (This message was added in version 6.7.0.'..., $error_level = *uninitialized*) D:\wamp64\www\wordpress\wp-includes\functions.php:6061
 [17-Nov-2025 08:21:15 UTC] PHP  18. trigger_error($message = 'Function _load_textdomain_just_in_time was called <strong>incorrectly</strong>. Translation loading for the <code>woocommerce</code> domain was triggered too early. This is usually an indicator for some code in the plugin or theme running too early. Translations should be loaded at the <code>init</code> action or later. Please see <a href="https://developer.wordpress.org/advanced-administration/debug/debug-wordpress/">Debugging in WordPress</a> for more information. (This message was added in version 6.7.0.'..., $error_level = 1024) D:\wamp64\www\wordpress\wp-includes\functions.php:6121
+[17-Nov-2025 09:03:04 UTC] PHP Warning:  Undefined variable $title in D:\wamp64\www\wordpress\wp-content\themes\doAnCMS\functions.php on line 503
+[17-Nov-2025 09:03:04 UTC] PHP Stack trace:
+[17-Nov-2025 09:03:04 UTC] PHP   1. {main}() D:\wamp64\www\wordpress\wp-admin\admin-ajax.php:0
+[17-Nov-2025 09:03:04 UTC] PHP   2. require_once() D:\wamp64\www\wordpress\wp-admin\admin-ajax.php:22
+[17-Nov-2025 09:03:04 UTC] PHP   3. require_once() D:\wamp64\www\wordpress\wp-load.php:50
+[17-Nov-2025 09:03:04 UTC] PHP   4. require_once() D:\wamp64\www\wordpress\wp-config.php:106
+[17-Nov-2025 09:03:04 UTC] PHP   5. include() D:\wamp64\www\wordpress\wp-settings.php:695
+[17-Nov-2025 09:03:04 UTC] Creating post: 
+[17-Nov-2025 09:03:04 UTC] PHP Warning:  Undefined variable $post_id in D:\wamp64\www\wordpress\wp-content\themes\doAnCMS\functions.php on line 504
+[17-Nov-2025 09:03:04 UTC] PHP Stack trace:
+[17-Nov-2025 09:03:04 UTC] PHP   1. {main}() D:\wamp64\www\wordpress\wp-admin\admin-ajax.php:0
+[17-Nov-2025 09:03:04 UTC] PHP   2. require_once() D:\wamp64\www\wordpress\wp-admin\admin-ajax.php:22
+[17-Nov-2025 09:03:04 UTC] PHP   3. require_once() D:\wamp64\www\wordpress\wp-load.php:50
+[17-Nov-2025 09:03:04 UTC] PHP   4. require_once() D:\wamp64\www\wordpress\wp-config.php:106
+[17-Nov-2025 09:03:04 UTC] PHP   5. include() D:\wamp64\www\wordpress\wp-settings.php:695
+[17-Nov-2025 09:03:04 UTC] Post ID: 
+[17-Nov-2025 09:03:12 UTC] PHP Warning:  Undefined variable $title in D:\wamp64\www\wordpress\wp-content\themes\doAnCMS\functions.php on line 503
+[17-Nov-2025 09:03:12 UTC] PHP Stack trace:
+[17-Nov-2025 09:03:12 UTC] PHP   1. {main}() D:\wamp64\www\wordpress\wp-admin\edit.php:0
+[17-Nov-2025 09:03:12 UTC] PHP   2. require_once() D:\wamp64\www\wordpress\wp-admin\edit.php:10
+[17-Nov-2025 09:03:12 UTC] PHP   3. require_once() D:\wamp64\www\wordpress\wp-admin\admin.php:35
+[17-Nov-2025 09:03:12 UTC] PHP   4. require_once() D:\wamp64\www\wordpress\wp-load.php:50
+[17-Nov-2025 09:03:12 UTC] PHP   5. require_once() D:\wamp64\www\wordpress\wp-config.php:106
+[17-Nov-2025 09:03:12 UTC] PHP   6. include() D:\wamp64\www\wordpress\wp-settings.php:695
+[17-Nov-2025 09:03:12 UTC] Creating post: 
+[17-Nov-2025 09:03:12 UTC] PHP Warning:  Undefined variable $post_id in D:\wamp64\www\wordpress\wp-content\themes\doAnCMS\functions.php on line 504
+[17-Nov-2025 09:03:12 UTC] PHP Stack trace:
+[17-Nov-2025 09:03:12 UTC] PHP   1. {main}() D:\wamp64\www\wordpress\wp-admin\edit.php:0
+[17-Nov-2025 09:03:12 UTC] PHP   2. require_once() D:\wamp64\www\wordpress\wp-admin\edit.php:10
+[17-Nov-2025 09:03:12 UTC] PHP   3. require_once() D:\wamp64\www\wordpress\wp-admin\admin.php:35
+[17-Nov-2025 09:03:12 UTC] PHP   4. require_once() D:\wamp64\www\wordpress\wp-load.php:50
+[17-Nov-2025 09:03:12 UTC] PHP   5. require_once() D:\wamp64\www\wordpress\wp-config.php:106
+[17-Nov-2025 09:03:12 UTC] PHP   6. include() D:\wamp64\www\wordpress\wp-settings.php:695
+[17-Nov-2025 09:03:12 UTC] Post ID: 
+[17-Nov-2025 09:03:12 UTC] PHP Warning:  session_start(): Session cannot be started after headers have already been sent in D:\wamp64\www\wordpress\wp-content\themes\doAnCMS\functions.php on line 403
+[17-Nov-2025 09:03:12 UTC] PHP Stack trace:
+[17-Nov-2025 09:03:12 UTC] PHP   1. {main}() D:\wamp64\www\wordpress\wp-admin\edit.php:0
+[17-Nov-2025 09:03:12 UTC] PHP   2. require_once() D:\wamp64\www\wordpress\wp-admin\edit.php:10
+[17-Nov-2025 09:03:12 UTC] PHP   3. require_once() D:\wamp64\www\wordpress\wp-admin\admin.php:35
+[17-Nov-2025 09:03:12 UTC] PHP   4. require_once() D:\wamp64\www\wordpress\wp-load.php:50
+[17-Nov-2025 09:03:12 UTC] PHP   5. require_once() D:\wamp64\www\wordpress\wp-config.php:106
+[17-Nov-2025 09:03:12 UTC] PHP   6. do_action($hook_name = 'init') D:\wamp64\www\wordpress\wp-settings.php:727
+[17-Nov-2025 09:03:12 UTC] PHP   7. WP_Hook->do_action($args = [0 => '']) D:\wamp64\www\wordpress\wp-includes\plugin.php:517
+[17-Nov-2025 09:03:12 UTC] PHP   8. WP_Hook->apply_filters($value = '', $args = [0 => '']) D:\wamp64\www\wordpress\wp-includes\class-wp-hook.php:348
+[17-Nov-2025 09:03:12 UTC] PHP   9. doAnCMS_start_session('') D:\wamp64\www\wordpress\wp-includes\class-wp-hook.php:324
+[17-Nov-2025 09:03:12 UTC] PHP  10. session_start() D:\wamp64\www\wordpress\wp-content\themes\doAnCMS\functions.php:403
+[17-Nov-2025 09:03:12 UTC] PHP Warning:  Cannot modify header information - headers already sent by (output started at D:\wamp64\www\wordpress\wp-content\themes\doAnCMS\functions.php:504) in D:\wamp64\www\wordpress\wp-includes\functions.php on line 7168
+[17-Nov-2025 09:03:12 UTC] PHP Stack trace:
+[17-Nov-2025 09:03:12 UTC] PHP   1. {main}() D:\wamp64\www\wordpress\wp-admin\edit.php:0
+[17-Nov-2025 09:03:12 UTC] PHP   2. require_once() D:\wamp64\www\wordpress\wp-admin\edit.php:10
+[17-Nov-2025 09:03:12 UTC] PHP   3. do_action($hook_name = 'admin_init') D:\wamp64\www\wordpress\wp-admin\admin.php:176
+[17-Nov-2025 09:03:12 UTC] PHP   4. WP_Hook->do_action($args = [0 => '']) D:\wamp64\www\wordpress\wp-includes\plugin.php:517
+[17-Nov-2025 09:03:12 UTC] PHP   5. WP_Hook->apply_filters($value = '', $args = [0 => '']) D:\wamp64\www\wordpress\wp-includes\class-wp-hook.php:348
+[17-Nov-2025 09:03:12 UTC] PHP   6. wp_admin_headers('') D:\wamp64\www\wordpress\wp-includes\class-wp-hook.php:324
+[17-Nov-2025 09:03:12 UTC] PHP   7. header($header = 'Referrer-Policy: strict-origin-when-cross-origin') D:\wamp64\www\wordpress\wp-includes\functions.php:7168
+[17-Nov-2025 09:03:12 UTC] PHP Warning:  Cannot modify header information - headers already sent by (output started at D:\wamp64\www\wordpress\wp-content\themes\doAnCMS\functions.php:504) in D:\wamp64\www\wordpress\wp-includes\functions.php on line 7144
+[17-Nov-2025 09:03:12 UTC] PHP Stack trace:
+[17-Nov-2025 09:03:12 UTC] PHP   1. {main}() D:\wamp64\www\wordpress\wp-admin\edit.php:0
+[17-Nov-2025 09:03:12 UTC] PHP   2. require_once() D:\wamp64\www\wordpress\wp-admin\edit.php:10
+[17-Nov-2025 09:03:12 UTC] PHP   3. do_action($hook_name = 'admin_init') D:\wamp64\www\wordpress\wp-admin\admin.php:176
+[17-Nov-2025 09:03:12 UTC] PHP   4. WP_Hook->do_action($args = [0 => '']) D:\wamp64\www\wordpress\wp-includes\plugin.php:517
+[17-Nov-2025 09:03:12 UTC] PHP   5. WP_Hook->apply_filters($value = '', $args = [0 => '']) D:\wamp64\www\wordpress\wp-includes\class-wp-hook.php:348
+[17-Nov-2025 09:03:12 UTC] PHP   6. send_frame_options_header() D:\wamp64\www\wordpress\wp-includes\class-wp-hook.php:322
+[17-Nov-2025 09:03:12 UTC] PHP   7. header($header = 'X-Frame-Options: SAMEORIGIN') D:\wamp64\www\wordpress\wp-includes\functions.php:7144
+[17-Nov-2025 09:03:12 UTC] PHP Warning:  Cannot modify header information - headers already sent by (output started at D:\wamp64\www\wordpress\wp-content\themes\doAnCMS\functions.php:504) in D:\wamp64\www\wordpress\wp-admin\admin-header.php on line 14
+[17-Nov-2025 09:03:12 UTC] PHP Stack trace:
+[17-Nov-2025 09:03:12 UTC] PHP   1. {main}() D:\wamp64\www\wordpress\wp-admin\edit.php:0
+[17-Nov-2025 09:03:12 UTC] PHP   2. require_once() D:\wamp64\www\wordpress\wp-admin\edit.php:411
+[17-Nov-2025 09:03:12 UTC] PHP   3. header($header = 'Content-Type: text/html; charset=UTF-8') D:\wamp64\www\wordpress\wp-admin\admin-header.php:14
+[17-Nov-2025 09:03:13 UTC] PHP Warning:  Undefined variable $title in D:\wamp64\www\wordpress\wp-content\themes\doAnCMS\functions.php on line 503
+[17-Nov-2025 09:03:13 UTC] PHP Stack trace:
+[17-Nov-2025 09:03:13 UTC] PHP   1. {main}() D:\wamp64\www\wordpress\wp-admin\admin-ajax.php:0
+[17-Nov-2025 09:03:13 UTC] PHP   2. require_once() D:\wamp64\www\wordpress\wp-admin\admin-ajax.php:22
+[17-Nov-2025 09:03:13 UTC] PHP   3. require_once() D:\wamp64\www\wordpress\wp-load.php:50
+[17-Nov-2025 09:03:13 UTC] PHP   4. require_once() D:\wamp64\www\wordpress\wp-config.php:106
+[17-Nov-2025 09:03:13 UTC] PHP   5. include() D:\wamp64\www\wordpress\wp-settings.php:695
+[17-Nov-2025 09:03:13 UTC] Creating post: 
+[17-Nov-2025 09:03:13 UTC] PHP Warning:  Undefined variable $post_id in D:\wamp64\www\wordpress\wp-content\themes\doAnCMS\functions.php on line 504
+[17-Nov-2025 09:03:13 UTC] PHP Stack trace:
+[17-Nov-2025 09:03:13 UTC] PHP   1. {main}() D:\wamp64\www\wordpress\wp-admin\admin-ajax.php:0
+[17-Nov-2025 09:03:13 UTC] PHP   2. require_once() D:\wamp64\www\wordpress\wp-admin\admin-ajax.php:22
+[17-Nov-2025 09:03:13 UTC] PHP   3. require_once() D:\wamp64\www\wordpress\wp-load.php:50
+[17-Nov-2025 09:03:13 UTC] PHP   4. require_once() D:\wamp64\www\wordpress\wp-config.php:106
+[17-Nov-2025 09:03:13 UTC] PHP   5. include() D:\wamp64\www\wordpress\wp-settings.php:695
+[17-Nov-2025 09:03:13 UTC] Post ID: 
+[17-Nov-2025 09:03:23 UTC] PHP Warning:  Undefined variable $title in D:\wamp64\www\wordpress\wp-content\themes\doAnCMS\functions.php on line 503
+[17-Nov-2025 09:03:23 UTC] PHP Stack trace:
+[17-Nov-2025 09:03:23 UTC] PHP   1. {main}() D:\wamp64\www\wordpress\wp-admin\admin-ajax.php:0
+[17-Nov-2025 09:03:23 UTC] PHP   2. require_once() D:\wamp64\www\wordpress\wp-admin\admin-ajax.php:22
+[17-Nov-2025 09:03:23 UTC] PHP   3. require_once() D:\wamp64\www\wordpress\wp-load.php:50
+[17-Nov-2025 09:03:23 UTC] PHP   4. require_once() D:\wamp64\www\wordpress\wp-config.php:106
+[17-Nov-2025 09:03:23 UTC] PHP   5. include() D:\wamp64\www\wordpress\wp-settings.php:695
+[17-Nov-2025 09:03:23 UTC] Creating post: 
+[17-Nov-2025 09:03:23 UTC] PHP Warning:  Undefined variable $post_id in D:\wamp64\www\wordpress\wp-content\themes\doAnCMS\functions.php on line 504
+[17-Nov-2025 09:03:23 UTC] PHP Stack trace:
+[17-Nov-2025 09:03:23 UTC] PHP   1. {main}() D:\wamp64\www\wordpress\wp-admin\admin-ajax.php:0
+[17-Nov-2025 09:03:23 UTC] PHP   2. require_once() D:\wamp64\www\wordpress\wp-admin\admin-ajax.php:22
+[17-Nov-2025 09:03:23 UTC] PHP   3. require_once() D:\wamp64\www\wordpress\wp-load.php:50
+[17-Nov-2025 09:03:23 UTC] PHP   4. require_once() D:\wamp64\www\wordpress\wp-config.php:106
+[17-Nov-2025 09:03:23 UTC] PHP   5. include() D:\wamp64\www\wordpress\wp-settings.php:695
+[17-Nov-2025 09:03:23 UTC] Post ID: 
+[17-Nov-2025 09:03:33 UTC] PHP Warning:  Undefined variable $title in D:\wamp64\www\wordpress\wp-content\themes\doAnCMS\functions.php on line 503
+[17-Nov-2025 09:03:33 UTC] PHP Stack trace:
+[17-Nov-2025 09:03:33 UTC] PHP   1. {main}() D:\wamp64\www\wordpress\wp-admin\admin-ajax.php:0
+[17-Nov-2025 09:03:33 UTC] PHP   2. require_once() D:\wamp64\www\wordpress\wp-admin\admin-ajax.php:22
+[17-Nov-2025 09:03:33 UTC] PHP   3. require_once() D:\wamp64\www\wordpress\wp-load.php:50
+[17-Nov-2025 09:03:33 UTC] PHP   4. require_once() D:\wamp64\www\wordpress\wp-config.php:106
+[17-Nov-2025 09:03:33 UTC] PHP   5. include() D:\wamp64\www\wordpress\wp-settings.php:695
+[17-Nov-2025 09:03:33 UTC] Creating post: 
+[17-Nov-2025 09:03:33 UTC] PHP Warning:  Undefined variable $post_id in D:\wamp64\www\wordpress\wp-content\themes\doAnCMS\functions.php on line 504
+[17-Nov-2025 09:03:33 UTC] PHP Stack trace:
+[17-Nov-2025 09:03:33 UTC] PHP   1. {main}() D:\wamp64\www\wordpress\wp-admin\admin-ajax.php:0
+[17-Nov-2025 09:03:33 UTC] PHP   2. require_once() D:\wamp64\www\wordpress\wp-admin\admin-ajax.php:22
+[17-Nov-2025 09:03:33 UTC] PHP   3. require_once() D:\wamp64\www\wordpress\wp-load.php:50
+[17-Nov-2025 09:03:33 UTC] PHP   4. require_once() D:\wamp64\www\wordpress\wp-config.php:106
+[17-Nov-2025 09:03:33 UTC] PHP   5. include() D:\wamp64\www\wordpress\wp-settings.php:695
+[17-Nov-2025 09:03:33 UTC] Post ID: 
+[17-Nov-2025 09:04:04 UTC] PHP Warning:  Undefined variable $title in D:\wamp64\www\wordpress\wp-content\themes\doAnCMS\functions.php on line 503
+[17-Nov-2025 09:04:04 UTC] PHP Stack trace:
+[17-Nov-2025 09:04:04 UTC] PHP   1. {main}() D:\wamp64\www\wordpress\wp-admin\admin-ajax.php:0
+[17-Nov-2025 09:04:04 UTC] PHP   2. require_once() D:\wamp64\www\wordpress\wp-admin\admin-ajax.php:22
+[17-Nov-2025 09:04:04 UTC] PHP   3. require_once() D:\wamp64\www\wordpress\wp-load.php:50
+[17-Nov-2025 09:04:04 UTC] PHP   4. require_once() D:\wamp64\www\wordpress\wp-config.php:106
+[17-Nov-2025 09:04:04 UTC] PHP   5. include() D:\wamp64\www\wordpress\wp-settings.php:695
+[17-Nov-2025 09:04:04 UTC] Creating post: 
+[17-Nov-2025 09:04:04 UTC] PHP Warning:  Undefined variable $post_id in D:\wamp64\www\wordpress\wp-content\themes\doAnCMS\functions.php on line 504
+[17-Nov-2025 09:04:04 UTC] PHP Stack trace:
+[17-Nov-2025 09:04:04 UTC] PHP   1. {main}() D:\wamp64\www\wordpress\wp-admin\admin-ajax.php:0
+[17-Nov-2025 09:04:04 UTC] PHP   2. require_once() D:\wamp64\www\wordpress\wp-admin\admin-ajax.php:22
+[17-Nov-2025 09:04:04 UTC] PHP   3. require_once() D:\wamp64\www\wordpress\wp-load.php:50
+[17-Nov-2025 09:04:04 UTC] PHP   4. require_once() D:\wamp64\www\wordpress\wp-config.php:106
+[17-Nov-2025 09:04:04 UTC] PHP   5. include() D:\wamp64\www\wordpress\wp-settings.php:695
+[17-Nov-2025 09:04:04 UTC] Post ID: 
+[17-Nov-2025 09:04:04 UTC] PHP Warning:  Undefined variable $title in D:\wamp64\www\wordpress\wp-content\themes\doAnCMS\functions.php on line 503
+[17-Nov-2025 09:04:04 UTC] PHP Stack trace:
+[17-Nov-2025 09:04:04 UTC] PHP   1. {main}() D:\wamp64\www\wordpress\wp-cron.php:0
+[17-Nov-2025 09:04:04 UTC] PHP   2. require_once() D:\wamp64\www\wordpress\wp-cron.php:46
+[17-Nov-2025 09:04:04 UTC] PHP   3. require_once() D:\wamp64\www\wordpress\wp-load.php:50
+[17-Nov-2025 09:04:04 UTC] PHP   4. require_once() D:\wamp64\www\wordpress\wp-config.php:106
+[17-Nov-2025 09:04:04 UTC] PHP   5. include() D:\wamp64\www\wordpress\wp-settings.php:695
+[17-Nov-2025 09:04:04 UTC] Creating post: 
+[17-Nov-2025 09:04:04 UTC] PHP Warning:  Undefined variable $post_id in D:\wamp64\www\wordpress\wp-content\themes\doAnCMS\functions.php on line 504
+[17-Nov-2025 09:04:04 UTC] PHP Stack trace:
+[17-Nov-2025 09:04:04 UTC] PHP   1. {main}() D:\wamp64\www\wordpress\wp-cron.php:0
+[17-Nov-2025 09:04:04 UTC] PHP   2. require_once() D:\wamp64\www\wordpress\wp-cron.php:46
+[17-Nov-2025 09:04:04 UTC] PHP   3. require_once() D:\wamp64\www\wordpress\wp-load.php:50
+[17-Nov-2025 09:04:04 UTC] PHP   4. require_once() D:\wamp64\www\wordpress\wp-config.php:106
+[17-Nov-2025 09:04:04 UTC] PHP   5. include() D:\wamp64\www\wordpress\wp-settings.php:695
+[17-Nov-2025 09:04:04 UTC] Post ID: 
+[17-Nov-2025 09:04:04 UTC] PHP Warning:  session_start(): Session cannot be started after headers have already been sent in D:\wamp64\www\wordpress\wp-content\themes\doAnCMS\functions.php on line 403
+[17-Nov-2025 09:04:04 UTC] PHP Stack trace:
+[17-Nov-2025 09:04:04 UTC] PHP   1. {main}() D:\wamp64\www\wordpress\wp-cron.php:0
+[17-Nov-2025 09:04:04 UTC] PHP   2. require_once() D:\wamp64\www\wordpress\wp-cron.php:46
+[17-Nov-2025 09:04:04 UTC] PHP   3. require_once() D:\wamp64\www\wordpress\wp-load.php:50
+[17-Nov-2025 09:04:04 UTC] PHP   4. require_once() D:\wamp64\www\wordpress\wp-config.php:106
+[17-Nov-2025 09:04:04 UTC] PHP   5. do_action($hook_name = 'init') D:\wamp64\www\wordpress\wp-settings.php:727
+[17-Nov-2025 09:04:04 UTC] PHP   6. WP_Hook->do_action($args = [0 => '']) D:\wamp64\www\wordpress\wp-includes\plugin.php:517
+[17-Nov-2025 09:04:04 UTC] PHP   7. WP_Hook->apply_filters($value = '', $args = [0 => '']) D:\wamp64\www\wordpress\wp-includes\class-wp-hook.php:348
+[17-Nov-2025 09:04:04 UTC] PHP   8. doAnCMS_start_session('') D:\wamp64\www\wordpress\wp-includes\class-wp-hook.php:324
+[17-Nov-2025 09:04:04 UTC] PHP   9. session_start() D:\wamp64\www\wordpress\wp-content\themes\doAnCMS\functions.php:403
+[17-Nov-2025 09:04:14 UTC] PHP Warning:  Undefined variable $title in D:\wamp64\www\wordpress\wp-content\themes\doAnCMS\functions.php on line 503
+[17-Nov-2025 09:04:14 UTC] PHP Stack trace:
+[17-Nov-2025 09:04:14 UTC] PHP   1. {main}() D:\wamp64\www\wordpress\wp-admin\admin-ajax.php:0
+[17-Nov-2025 09:04:14 UTC] PHP   2. require_once() D:\wamp64\www\wordpress\wp-admin\admin-ajax.php:22
+[17-Nov-2025 09:04:14 UTC] PHP   3. require_once() D:\wamp64\www\wordpress\wp-load.php:50
+[17-Nov-2025 09:04:14 UTC] PHP   4. require_once() D:\wamp64\www\wordpress\wp-config.php:106
+[17-Nov-2025 09:04:14 UTC] PHP   5. include() D:\wamp64\www\wordpress\wp-settings.php:695
+[17-Nov-2025 09:04:14 UTC] Creating post: 
+[17-Nov-2025 09:04:14 UTC] PHP Warning:  Undefined variable $post_id in D:\wamp64\www\wordpress\wp-content\themes\doAnCMS\functions.php on line 504
+[17-Nov-2025 09:04:14 UTC] PHP Stack trace:
+[17-Nov-2025 09:04:14 UTC] PHP   1. {main}() D:\wamp64\www\wordpress\wp-admin\admin-ajax.php:0
+[17-Nov-2025 09:04:14 UTC] PHP   2. require_once() D:\wamp64\www\wordpress\wp-admin\admin-ajax.php:22
+[17-Nov-2025 09:04:14 UTC] PHP   3. require_once() D:\wamp64\www\wordpress\wp-load.php:50
+[17-Nov-2025 09:04:14 UTC] PHP   4. require_once() D:\wamp64\www\wordpress\wp-config.php:106
+[17-Nov-2025 09:04:14 UTC] PHP   5. include() D:\wamp64\www\wordpress\wp-settings.php:695
+[17-Nov-2025 09:04:14 UTC] Post ID: 
+[17-Nov-2025 09:04:17 UTC] PHP Warning:  Undefined variable $title in D:\wamp64\www\wordpress\wp-content\themes\doAnCMS\functions.php on line 503
+[17-Nov-2025 09:04:17 UTC] PHP Stack trace:
+[17-Nov-2025 09:04:17 UTC] PHP   1. {main}() D:\wamp64\www\wordpress\wp-admin\edit.php:0
+[17-Nov-2025 09:04:17 UTC] PHP   2. require_once() D:\wamp64\www\wordpress\wp-admin\edit.php:10
+[17-Nov-2025 09:04:17 UTC] PHP   3. require_once() D:\wamp64\www\wordpress\wp-admin\admin.php:35
+[17-Nov-2025 09:04:17 UTC] PHP   4. require_once() D:\wamp64\www\wordpress\wp-load.php:50
+[17-Nov-2025 09:04:17 UTC] PHP   5. require_once() D:\wamp64\www\wordpress\wp-config.php:106
+[17-Nov-2025 09:04:17 UTC] PHP   6. include() D:\wamp64\www\wordpress\wp-settings.php:695
+[17-Nov-2025 09:04:17 UTC] Creating post: 
+[17-Nov-2025 09:04:17 UTC] PHP Warning:  Undefined variable $post_id in D:\wamp64\www\wordpress\wp-content\themes\doAnCMS\functions.php on line 504
+[17-Nov-2025 09:04:17 UTC] PHP Stack trace:
+[17-Nov-2025 09:04:17 UTC] PHP   1. {main}() D:\wamp64\www\wordpress\wp-admin\edit.php:0
+[17-Nov-2025 09:04:17 UTC] PHP   2. require_once() D:\wamp64\www\wordpress\wp-admin\edit.php:10
+[17-Nov-2025 09:04:17 UTC] PHP   3. require_once() D:\wamp64\www\wordpress\wp-admin\admin.php:35
+[17-Nov-2025 09:04:17 UTC] PHP   4. require_once() D:\wamp64\www\wordpress\wp-load.php:50
+[17-Nov-2025 09:04:17 UTC] PHP   5. require_once() D:\wamp64\www\wordpress\wp-config.php:106
+[17-Nov-2025 09:04:17 UTC] PHP   6. include() D:\wamp64\www\wordpress\wp-settings.php:695
+[17-Nov-2025 09:04:17 UTC] Post ID: 
+[17-Nov-2025 09:04:17 UTC] PHP Warning:  session_start(): Session cannot be started after headers have already been sent in D:\wamp64\www\wordpress\wp-content\themes\doAnCMS\functions.php on line 403
+[17-Nov-2025 09:04:17 UTC] PHP Stack trace:
+[17-Nov-2025 09:04:17 UTC] PHP   1. {main}() D:\wamp64\www\wordpress\wp-admin\edit.php:0
+[17-Nov-2025 09:04:17 UTC] PHP   2. require_once() D:\wamp64\www\wordpress\wp-admin\edit.php:10
+[17-Nov-2025 09:04:17 UTC] PHP   3. require_once() D:\wamp64\www\wordpress\wp-admin\admin.php:35
+[17-Nov-2025 09:04:17 UTC] PHP   4. require_once() D:\wamp64\www\wordpress\wp-load.php:50
+[17-Nov-2025 09:04:17 UTC] PHP   5. require_once() D:\wamp64\www\wordpress\wp-config.php:106
+[17-Nov-2025 09:04:17 UTC] PHP   6. do_action($hook_name = 'init') D:\wamp64\www\wordpress\wp-settings.php:727
+[17-Nov-2025 09:04:17 UTC] PHP   7. WP_Hook->do_action($args = [0 => '']) D:\wamp64\www\wordpress\wp-includes\plugin.php:517
+[17-Nov-2025 09:04:17 UTC] PHP   8. WP_Hook->apply_filters($value = '', $args = [0 => '']) D:\wamp64\www\wordpress\wp-includes\class-wp-hook.php:348
+[17-Nov-2025 09:04:17 UTC] PHP   9. doAnCMS_start_session('') D:\wamp64\www\wordpress\wp-includes\class-wp-hook.php:324
+[17-Nov-2025 09:04:17 UTC] PHP  10. session_start() D:\wamp64\www\wordpress\wp-content\themes\doAnCMS\functions.php:403
+[17-Nov-2025 09:04:17 UTC] PHP Warning:  Cannot modify header information - headers already sent by (output started at D:\wamp64\www\wordpress\wp-content\themes\doAnCMS\functions.php:504) in D:\wamp64\www\wordpress\wp-includes\functions.php on line 7168
+[17-Nov-2025 09:04:17 UTC] PHP Stack trace:
+[17-Nov-2025 09:04:17 UTC] PHP   1. {main}() D:\wamp64\www\wordpress\wp-admin\edit.php:0
+[17-Nov-2025 09:04:17 UTC] PHP   2. require_once() D:\wamp64\www\wordpress\wp-admin\edit.php:10
+[17-Nov-2025 09:04:17 UTC] PHP   3. do_action($hook_name = 'admin_init') D:\wamp64\www\wordpress\wp-admin\admin.php:176
+[17-Nov-2025 09:04:17 UTC] PHP   4. WP_Hook->do_action($args = [0 => '']) D:\wamp64\www\wordpress\wp-includes\plugin.php:517
+[17-Nov-2025 09:04:17 UTC] PHP   5. WP_Hook->apply_filters($value = '', $args = [0 => '']) D:\wamp64\www\wordpress\wp-includes\class-wp-hook.php:348
+[17-Nov-2025 09:04:17 UTC] PHP   6. wp_admin_headers('') D:\wamp64\www\wordpress\wp-includes\class-wp-hook.php:324
+[17-Nov-2025 09:04:17 UTC] PHP   7. header($header = 'Referrer-Policy: strict-origin-when-cross-origin') D:\wamp64\www\wordpress\wp-includes\functions.php:7168
+[17-Nov-2025 09:04:17 UTC] PHP Warning:  Cannot modify header information - headers already sent by (output started at D:\wamp64\www\wordpress\wp-content\themes\doAnCMS\functions.php:504) in D:\wamp64\www\wordpress\wp-includes\functions.php on line 7144
+[17-Nov-2025 09:04:17 UTC] PHP Stack trace:
+[17-Nov-2025 09:04:17 UTC] PHP   1. {main}() D:\wamp64\www\wordpress\wp-admin\edit.php:0
+[17-Nov-2025 09:04:17 UTC] PHP   2. require_once() D:\wamp64\www\wordpress\wp-admin\edit.php:10
+[17-Nov-2025 09:04:17 UTC] PHP   3. do_action($hook_name = 'admin_init') D:\wamp64\www\wordpress\wp-admin\admin.php:176
+[17-Nov-2025 09:04:17 UTC] PHP   4. WP_Hook->do_action($args = [0 => '']) D:\wamp64\www\wordpress\wp-includes\plugin.php:517
+[17-Nov-2025 09:04:17 UTC] PHP   5. WP_Hook->apply_filters($value = '', $args = [0 => '']) D:\wamp64\www\wordpress\wp-includes\class-wp-hook.php:348
+[17-Nov-2025 09:04:17 UTC] PHP   6. send_frame_options_header() D:\wamp64\www\wordpress\wp-includes\class-wp-hook.php:322
+[17-Nov-2025 09:04:17 UTC] PHP   7. header($header = 'X-Frame-Options: SAMEORIGIN') D:\wamp64\www\wordpress\wp-includes\functions.php:7144
+[17-Nov-2025 09:04:17 UTC] PHP Warning:  Cannot modify header information - headers already sent by (output started at D:\wamp64\www\wordpress\wp-content\themes\doAnCMS\functions.php:504) in D:\wamp64\www\wordpress\wp-admin\admin-header.php on line 14
+[17-Nov-2025 09:04:17 UTC] PHP Stack trace:
+[17-Nov-2025 09:04:17 UTC] PHP   1. {main}() D:\wamp64\www\wordpress\wp-admin\edit.php:0
+[17-Nov-2025 09:04:17 UTC] PHP   2. require_once() D:\wamp64\www\wordpress\wp-admin\edit.php:411
+[17-Nov-2025 09:04:17 UTC] PHP   3. header($header = 'Content-Type: text/html; charset=UTF-8') D:\wamp64\www\wordpress\wp-admin\admin-header.php:14
+[17-Nov-2025 09:06:07 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function wp_create_category() in D:\wamp64\www\wordpress\wp-content\themes\doAnCMS\functions.php:434
+Stack trace:
+#0 D:\wamp64\www\wordpress\wp-content\themes\doAnCMS\functions.php(499): doAnCMS_create_sample_blog_posts()
+#1 D:\wamp64\www\wordpress\wp-settings.php(695): include('D:\\wamp64\\www\\w...')
+#2 D:\wamp64\www\wordpress\wp-config.php(106): require_once('D:\\wamp64\\www\\w...')
+#3 D:\wamp64\www\wordpress\wp-load.php(50): require_once('D:\\wamp64\\www\\w...')
+#4 D:\wamp64\www\wordpress\wp-admin\admin-ajax.php(22): require_once('D:\\wamp64\\www\\w...')
+#5 {main}
+  thrown in D:\wamp64\www\wordpress\wp-content\themes\doAnCMS\functions.php on line 434
+[17-Nov-2025 09:06:07 UTC] PHP Notice:  Function _load_textdomain_just_in_time was called <strong>incorrectly</strong>. Translation loading for the <code>woocommerce</code> domain was triggered too early. This is usually an indicator for some code in the plugin or theme running too early. Translations should be loaded at the <code>init</code> action or later. Please see <a href="https://developer.wordpress.org/advanced-administration/debug/debug-wordpress/">Debugging in WordPress</a> for more information. (This message was added in version 6.7.0.) in D:\wamp64\www\wordpress\wp-includes\functions.php on line 6121
+[17-Nov-2025 09:06:07 UTC] PHP Stack trace:
+[17-Nov-2025 09:06:07 UTC] PHP   1. WooCommerce->log_errors() D:\wamp64\www\wordpress\wp-content\plugins\woocommerce\includes\class-woocommerce.php:0
+[17-Nov-2025 09:06:07 UTC] PHP   2. WC_Logger->critical($message = 'Uncaught Error: Call to undefined function wp_create_category() in D:\\wamp64\\www\\wordpress\\wp-content\\themes\\doAnCMS\\functions.php:434', $context = ['source' => 'fatal-errors', 'error' => ['type' => 1, 'file' => 'D:\\wamp64\\www\\wordpress\\wp-content\\themes\\doAnCMS\\functions.php', 'line' => 434], 'remote-logging' => TRUE, 'backtrace' => [0 => '#0 D:\\wamp64\\www\\wordpress\\wp-content\\themes\\doAnCMS\\functions.php(499): doAnCMS_create_sample_blog_posts()\n#1 D:\\wamp64\\www\\wordpress\\wp-settings.php(695): include(\'D:\\\\wamp64\\\\www\\\\w...\')\n#2 D:\\wamp64\\www\\wordpress\\wp-config.php(106): require_once(\'D:\\\\wamp64\\\\www\\\\w...\')\n#3 D:\\wamp64\\www\\wordpress\\wp-load.php(50): require_once(\'D:\\\\wamp64\\\\www\\\\w...\')\n#4 D:\\wamp64\\www\\wordpress\\wp-admin\\admin-ajax.php(22): require_once(\'D:\\\\wamp64\\\\www\\\\w...\')\n#5 {main}\n  thrown']]) D:\wamp64\www\wordpress\wp-content\plugins\woocommerce\includes\class-woocommerce.php:452
+[17-Nov-2025 09:06:07 UTC] PHP   3. WC_Logger->log($level = 'critical', $message = 'Uncaught Error: Call to undefined function wp_create_category() in D:\\wamp64\\www\\wordpress\\wp-content\\themes\\doAnCMS\\functions.php:434', $context = ['source' => 'fatal-errors', 'error' => ['type' => 1, 'file' => 'D:\\wamp64\\www\\wordpress\\wp-content\\themes\\doAnCMS\\functions.php', 'line' => 434], 'remote-logging' => TRUE, 'backtrace' => [0 => '#0 D:\\wamp64\\www\\wordpress\\wp-content\\themes\\doAnCMS\\functions.php(499): doAnCMS_create_sample_blog_posts()\n#1 D:\\wamp64\\www\\wordpress\\wp-settings.php(695): include(\'D:\\\\wamp64\\\\www\\\\w...\')\n#2 D:\\wamp64\\www\\wordpress\\wp-config.php(106): require_once(\'D:\\\\wamp64\\\\www\\\\w...\')\n#3 D:\\wamp64\\www\\wordpress\\wp-load.php(50): require_once(\'D:\\\\wamp64\\\\www\\\\w...\')\n#4 D:\\wamp64\\www\\wordpress\\wp-admin\\admin-ajax.php(22): require_once(\'D:\\\\wamp64\\\\www\\\\w...\')\n#5 {main}\n  thrown']]) D:\wamp64\www\wordpress\wp-content\plugins\woocommerce\includes\class-wc-logger.php:236
+[17-Nov-2025 09:06:07 UTC] PHP   4. Automattic\WooCommerce\Internal\Logging\RemoteLogger->handle($timestamp = 1763370367, $level = 'critical', $message = 'Uncaught Error: Call to undefined function wp_create_category() in D:\\wamp64\\www\\wordpress\\wp-content\\themes\\doAnCMS\\functions.php:434', $context = ['source' => 'fatal-errors', 'error' => ['type' => 1, 'file' => 'D:\\wamp64\\www\\wordpress\\wp-content\\themes\\doAnCMS\\functions.php', 'line' => 434], 'remote-logging' => TRUE, 'backtrace' => [0 => '#0 D:\\wamp64\\www\\wordpress\\wp-content\\themes\\doAnCMS\\functions.php(499): doAnCMS_create_sample_blog_posts()\n#1 D:\\wamp64\\www\\wordpress\\wp-settings.php(695): include(\'D:\\\\wamp64\\\\www\\\\w...\')\n#2 D:\\wamp64\\www\\wordpress\\wp-config.php(106): require_once(\'D:\\\\wamp64\\\\www\\\\w...\')\n#3 D:\\wamp64\\www\\wordpress\\wp-load.php(50): require_once(\'D:\\\\wamp64\\\\www\\\\w...\')\n#4 D:\\wamp64\\www\\wordpress\\wp-admin\\admin-ajax.php(22): require_once(\'D:\\\\wamp64\\\\www\\\\w...\')\n#5 {main}\n  thrown']]) D:\wamp64\www\wordpress\wp-content\plugins\woocommerce\includes\class-wc-logger.php:189
+[17-Nov-2025 09:06:07 UTC] PHP   5. Automattic\WooCommerce\Internal\Logging\RemoteLogger->should_handle($level = 'critical', $message = 'Uncaught Error: Call to undefined function wp_create_category() in D:\\wamp64\\www\\wordpress\\wp-content\\themes\\doAnCMS\\functions.php:434', $context = ['source' => 'fatal-errors', 'error' => ['type' => 1, 'file' => 'D:\\wamp64\\www\\wordpress\\wp-content\\themes\\doAnCMS\\functions.php', 'line' => 434], 'remote-logging' => TRUE, 'backtrace' => [0 => '#0 D:\\wamp64\\www\\wordpress\\wp-content\\themes\\doAnCMS\\functions.php(499): doAnCMS_create_sample_blog_posts()\n#1 D:\\wamp64\\www\\wordpress\\wp-settings.php(695): include(\'D:\\\\wamp64\\\\www\\\\w...\')\n#2 D:\\wamp64\\www\\wordpress\\wp-config.php(106): require_once(\'D:\\\\wamp64\\\\www\\\\w...\')\n#3 D:\\wamp64\\www\\wordpress\\wp-load.php(50): require_once(\'D:\\\\wamp64\\\\www\\\\w...\')\n#4 D:\\wamp64\\www\\wordpress\\wp-admin\\admin-ajax.php(22): require_once(\'D:\\\\wamp64\\\\www\\\\w...\')\n#5 {main}\n  thrown']]) D:\wamp64\www\wordpress\wp-content\plugins\woocommerce\src\Internal\Logging\RemoteLogger.php:46
+[17-Nov-2025 09:06:07 UTC] PHP   6. Automattic\WooCommerce\Internal\Logging\RemoteLogger->is_remote_logging_allowed() D:\wamp64\www\wordpress\wp-content\plugins\woocommerce\src\Internal\Logging\RemoteLogger.php:177
+[17-Nov-2025 09:06:07 UTC] PHP   7. Automattic\WooCommerce\Utilities\FeaturesUtil::feature_is_enabled($feature_id = 'remote_logging') D:\wamp64\www\wordpress\wp-content\plugins\woocommerce\src\Internal\Logging\RemoteLogger.php:147
+[17-Nov-2025 09:06:07 UTC] PHP   8. Automattic\WooCommerce\Internal\Features\FeaturesController->feature_is_enabled($feature_id = 'remote_logging') D:\wamp64\www\wordpress\wp-content\plugins\woocommerce\src\Utilities\FeaturesUtil.php:42
+[17-Nov-2025 09:06:07 UTC] PHP   9. Automattic\WooCommerce\Internal\Features\FeaturesController->feature_exists($feature_id = 'remote_logging') D:\wamp64\www\wordpress\wp-content\plugins\woocommerce\src\Internal\Features\FeaturesController.php:765
+[17-Nov-2025 09:06:07 UTC] PHP  10. Automattic\WooCommerce\Internal\Features\FeaturesController->get_feature_definitions() D:\wamp64\www\wordpress\wp-content\plugins\woocommerce\src\Internal\Features\FeaturesController.php:936
+[17-Nov-2025 09:06:07 UTC] PHP  11. Automattic\WooCommerce\Internal\Features\FeaturesController->init_feature_definitions() D:\wamp64\www\wordpress\wp-content\plugins\woocommerce\src\Internal\Features\FeaturesController.php:279
+[17-Nov-2025 09:06:07 UTC] PHP  12. __($text = 'Analytics', $domain = 'woocommerce') D:\wamp64\www\wordpress\wp-content\plugins\woocommerce\src\Internal\Features\FeaturesController.php:313
+[17-Nov-2025 09:06:07 UTC] PHP  13. translate($text = 'Analytics', $domain = 'woocommerce') D:\wamp64\www\wordpress\wp-includes\l10n.php:307
+[17-Nov-2025 09:06:07 UTC] PHP  14. get_translations_for_domain($domain = 'woocommerce') D:\wamp64\www\wordpress\wp-includes\l10n.php:195
+[17-Nov-2025 09:06:07 UTC] PHP  15. _load_textdomain_just_in_time($domain = 'woocommerce') D:\wamp64\www\wordpress\wp-includes\l10n.php:1409
+[17-Nov-2025 09:06:07 UTC] PHP  16. _doing_it_wrong($function_name = '_load_textdomain_just_in_time', $message = 'Translation loading for the <code>woocommerce</code> domain was triggered too early. This is usually an indicator for some code in the plugin or theme running too early. Translations should be loaded at the <code>init</code> action or later.', $version = '6.7.0') D:\wamp64\www\wordpress\wp-includes\l10n.php:1371
+[17-Nov-2025 09:06:07 UTC] PHP  17. wp_trigger_error($function_name = '', $message = 'Function _load_textdomain_just_in_time was called <strong>incorrectly</strong>. Translation loading for the <code>woocommerce</code> domain was triggered too early. This is usually an indicator for some code in the plugin or theme running too early. Translations should be loaded at the <code>init</code> action or later. Please see <a href="https://developer.wordpress.org/advanced-administration/debug/debug-wordpress/">Debugging in WordPress</a> for more information. (This message was added in version 6.7.0.'..., $error_level = *uninitialized*) D:\wamp64\www\wordpress\wp-includes\functions.php:6061
+[17-Nov-2025 09:06:07 UTC] PHP  18. trigger_error($message = 'Function _load_textdomain_just_in_time was called <strong>incorrectly</strong>. Translation loading for the <code>woocommerce</code> domain was triggered too early. This is usually an indicator for some code in the plugin or theme running too early. Translations should be loaded at the <code>init</code> action or later. Please see <a href="https://developer.wordpress.org/advanced-administration/debug/debug-wordpress/">Debugging in WordPress</a> for more information. (This message was added in version 6.7.0.'..., $error_level = 1024) D:\wamp64\www\wordpress\wp-includes\functions.php:6121
+[17-Nov-2025 09:06:08 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function wp_create_category() in D:\wamp64\www\wordpress\wp-content\themes\doAnCMS\functions.php:434
+Stack trace:
+#0 D:\wamp64\www\wordpress\wp-content\themes\doAnCMS\functions.php(499): doAnCMS_create_sample_blog_posts()
+#1 D:\wamp64\www\wordpress\wp-settings.php(695): include('D:\\wamp64\\www\\w...')
+#2 D:\wamp64\www\wordpress\wp-config.php(106): require_once('D:\\wamp64\\www\\w...')
+#3 D:\wamp64\www\wordpress\wp-load.php(50): require_once('D:\\wamp64\\www\\w...')
+#4 D:\wamp64\www\wordpress\wp-admin\admin.php(35): require_once('D:\\wamp64\\www\\w...')
+#5 D:\wamp64\www\wordpress\wp-admin\edit.php(10): require_once('D:\\wamp64\\www\\w...')
+#6 {main}
+  thrown in D:\wamp64\www\wordpress\wp-content\themes\doAnCMS\functions.php on line 434
+[17-Nov-2025 09:06:08 UTC] PHP Notice:  Function _load_textdomain_just_in_time was called <strong>incorrectly</strong>. Translation loading for the <code>woocommerce</code> domain was triggered too early. This is usually an indicator for some code in the plugin or theme running too early. Translations should be loaded at the <code>init</code> action or later. Please see <a href="https://developer.wordpress.org/advanced-administration/debug/debug-wordpress/">Debugging in WordPress</a> for more information. (This message was added in version 6.7.0.) in D:\wamp64\www\wordpress\wp-includes\functions.php on line 6121
+[17-Nov-2025 09:06:08 UTC] PHP Stack trace:
+[17-Nov-2025 09:06:08 UTC] PHP   1. WooCommerce->log_errors() D:\wamp64\www\wordpress\wp-content\plugins\woocommerce\includes\class-woocommerce.php:0
+[17-Nov-2025 09:06:08 UTC] PHP   2. WC_Logger->critical($message = 'Uncaught Error: Call to undefined function wp_create_category() in D:\\wamp64\\www\\wordpress\\wp-content\\themes\\doAnCMS\\functions.php:434', $context = ['source' => 'fatal-errors', 'error' => ['type' => 1, 'file' => 'D:\\wamp64\\www\\wordpress\\wp-content\\themes\\doAnCMS\\functions.php', 'line' => 434], 'remote-logging' => TRUE, 'backtrace' => [0 => '#0 D:\\wamp64\\www\\wordpress\\wp-content\\themes\\doAnCMS\\functions.php(499): doAnCMS_create_sample_blog_posts()\n#1 D:\\wamp64\\www\\wordpress\\wp-settings.php(695): include(\'D:\\\\wamp64\\\\www\\\\w...\')\n#2 D:\\wamp64\\www\\wordpress\\wp-config.php(106): require_once(\'D:\\\\wamp64\\\\www\\\\w...\')\n#3 D:\\wamp64\\www\\wordpress\\wp-load.php(50): require_once(\'D:\\\\wamp64\\\\www\\\\w...\')\n#4 D:\\wamp64\\www\\wordpress\\wp-admin\\admin.php(35): require_once(\'D:\\\\wamp64\\\\www\\\\w...\')\n#5 D:\\wamp64\\www\\wordpress\\wp-admin\\edit.php(10): require_once(\'D:'...]]) D:\wamp64\www\wordpress\wp-content\plugins\woocommerce\includes\class-woocommerce.php:452
+[17-Nov-2025 09:06:08 UTC] PHP   3. WC_Logger->log($level = 'critical', $message = 'Uncaught Error: Call to undefined function wp_create_category() in D:\\wamp64\\www\\wordpress\\wp-content\\themes\\doAnCMS\\functions.php:434', $context = ['source' => 'fatal-errors', 'error' => ['type' => 1, 'file' => 'D:\\wamp64\\www\\wordpress\\wp-content\\themes\\doAnCMS\\functions.php', 'line' => 434], 'remote-logging' => TRUE, 'backtrace' => [0 => '#0 D:\\wamp64\\www\\wordpress\\wp-content\\themes\\doAnCMS\\functions.php(499): doAnCMS_create_sample_blog_posts()\n#1 D:\\wamp64\\www\\wordpress\\wp-settings.php(695): include(\'D:\\\\wamp64\\\\www\\\\w...\')\n#2 D:\\wamp64\\www\\wordpress\\wp-config.php(106): require_once(\'D:\\\\wamp64\\\\www\\\\w...\')\n#3 D:\\wamp64\\www\\wordpress\\wp-load.php(50): require_once(\'D:\\\\wamp64\\\\www\\\\w...\')\n#4 D:\\wamp64\\www\\wordpress\\wp-admin\\admin.php(35): require_once(\'D:\\\\wamp64\\\\www\\\\w...\')\n#5 D:\\wamp64\\www\\wordpress\\wp-admin\\edit.php(10): require_once(\'D:'...]]) D:\wamp64\www\wordpress\wp-content\plugins\woocommerce\includes\class-wc-logger.php:236
+[17-Nov-2025 09:06:08 UTC] PHP   4. Automattic\WooCommerce\Internal\Logging\RemoteLogger->handle($timestamp = 1763370368, $level = 'critical', $message = 'Uncaught Error: Call to undefined function wp_create_category() in D:\\wamp64\\www\\wordpress\\wp-content\\themes\\doAnCMS\\functions.php:434', $context = ['source' => 'fatal-errors', 'error' => ['type' => 1, 'file' => 'D:\\wamp64\\www\\wordpress\\wp-content\\themes\\doAnCMS\\functions.php', 'line' => 434], 'remote-logging' => TRUE, 'backtrace' => [0 => '#0 D:\\wamp64\\www\\wordpress\\wp-content\\themes\\doAnCMS\\functions.php(499): doAnCMS_create_sample_blog_posts()\n#1 D:\\wamp64\\www\\wordpress\\wp-settings.php(695): include(\'D:\\\\wamp64\\\\www\\\\w...\')\n#2 D:\\wamp64\\www\\wordpress\\wp-config.php(106): require_once(\'D:\\\\wamp64\\\\www\\\\w...\')\n#3 D:\\wamp64\\www\\wordpress\\wp-load.php(50): require_once(\'D:\\\\wamp64\\\\www\\\\w...\')\n#4 D:\\wamp64\\www\\wordpress\\wp-admin\\admin.php(35): require_once(\'D:\\\\wamp64\\\\www\\\\w...\')\n#5 D:\\wamp64\\www\\wordpress\\wp-admin\\edit.php(10): require_once(\'D:'...]]) D:\wamp64\www\wordpress\wp-content\plugins\woocommerce\includes\class-wc-logger.php:189
+[17-Nov-2025 09:06:08 UTC] PHP   5. Automattic\WooCommerce\Internal\Logging\RemoteLogger->should_handle($level = 'critical', $message = 'Uncaught Error: Call to undefined function wp_create_category() in D:\\wamp64\\www\\wordpress\\wp-content\\themes\\doAnCMS\\functions.php:434', $context = ['source' => 'fatal-errors', 'error' => ['type' => 1, 'file' => 'D:\\wamp64\\www\\wordpress\\wp-content\\themes\\doAnCMS\\functions.php', 'line' => 434], 'remote-logging' => TRUE, 'backtrace' => [0 => '#0 D:\\wamp64\\www\\wordpress\\wp-content\\themes\\doAnCMS\\functions.php(499): doAnCMS_create_sample_blog_posts()\n#1 D:\\wamp64\\www\\wordpress\\wp-settings.php(695): include(\'D:\\\\wamp64\\\\www\\\\w...\')\n#2 D:\\wamp64\\www\\wordpress\\wp-config.php(106): require_once(\'D:\\\\wamp64\\\\www\\\\w...\')\n#3 D:\\wamp64\\www\\wordpress\\wp-load.php(50): require_once(\'D:\\\\wamp64\\\\www\\\\w...\')\n#4 D:\\wamp64\\www\\wordpress\\wp-admin\\admin.php(35): require_once(\'D:\\\\wamp64\\\\www\\\\w...\')\n#5 D:\\wamp64\\www\\wordpress\\wp-admin\\edit.php(10): require_once(\'D:'...]]) D:\wamp64\www\wordpress\wp-content\plugins\woocommerce\src\Internal\Logging\RemoteLogger.php:46
+[17-Nov-2025 09:06:08 UTC] PHP   6. Automattic\WooCommerce\Internal\Logging\RemoteLogger->is_remote_logging_allowed() D:\wamp64\www\wordpress\wp-content\plugins\woocommerce\src\Internal\Logging\RemoteLogger.php:177
+[17-Nov-2025 09:06:08 UTC] PHP   7. Automattic\WooCommerce\Utilities\FeaturesUtil::feature_is_enabled($feature_id = 'remote_logging') D:\wamp64\www\wordpress\wp-content\plugins\woocommerce\src\Internal\Logging\RemoteLogger.php:147
+[17-Nov-2025 09:06:08 UTC] PHP   8. Automattic\WooCommerce\Internal\Features\FeaturesController->feature_is_enabled($feature_id = 'remote_logging') D:\wamp64\www\wordpress\wp-content\plugins\woocommerce\src\Utilities\FeaturesUtil.php:42
+[17-Nov-2025 09:06:08 UTC] PHP   9. Automattic\WooCommerce\Internal\Features\FeaturesController->feature_exists($feature_id = 'remote_logging') D:\wamp64\www\wordpress\wp-content\plugins\woocommerce\src\Internal\Features\FeaturesController.php:765
+[17-Nov-2025 09:06:08 UTC] PHP  10. Automattic\WooCommerce\Internal\Features\FeaturesController->get_feature_definitions() D:\wamp64\www\wordpress\wp-content\plugins\woocommerce\src\Internal\Features\FeaturesController.php:936
+[17-Nov-2025 09:06:08 UTC] PHP  11. Automattic\WooCommerce\Internal\Features\FeaturesController->init_feature_definitions() D:\wamp64\www\wordpress\wp-content\plugins\woocommerce\src\Internal\Features\FeaturesController.php:279
+[17-Nov-2025 09:06:08 UTC] PHP  12. __($text = 'Analytics', $domain = 'woocommerce') D:\wamp64\www\wordpress\wp-content\plugins\woocommerce\src\Internal\Features\FeaturesController.php:313
+[17-Nov-2025 09:06:08 UTC] PHP  13. translate($text = 'Analytics', $domain = 'woocommerce') D:\wamp64\www\wordpress\wp-includes\l10n.php:307
+[17-Nov-2025 09:06:08 UTC] PHP  14. get_translations_for_domain($domain = 'woocommerce') D:\wamp64\www\wordpress\wp-includes\l10n.php:195
+[17-Nov-2025 09:06:08 UTC] PHP  15. _load_textdomain_just_in_time($domain = 'woocommerce') D:\wamp64\www\wordpress\wp-includes\l10n.php:1409
+[17-Nov-2025 09:06:08 UTC] PHP  16. _doing_it_wrong($function_name = '_load_textdomain_just_in_time', $message = 'Translation loading for the <code>woocommerce</code> domain was triggered too early. This is usually an indicator for some code in the plugin or theme running too early. Translations should be loaded at the <code>init</code> action or later.', $version = '6.7.0') D:\wamp64\www\wordpress\wp-includes\l10n.php:1371
+[17-Nov-2025 09:06:08 UTC] PHP  17. wp_trigger_error($function_name = '', $message = 'Function _load_textdomain_just_in_time was called <strong>incorrectly</strong>. Translation loading for the <code>woocommerce</code> domain was triggered too early. This is usually an indicator for some code in the plugin or theme running too early. Translations should be loaded at the <code>init</code> action or later. Please see <a href="https://developer.wordpress.org/advanced-administration/debug/debug-wordpress/">Debugging in WordPress</a> for more information. (This message was added in version 6.7.0.'..., $error_level = *uninitialized*) D:\wamp64\www\wordpress\wp-includes\functions.php:6061
+[17-Nov-2025 09:06:08 UTC] PHP  18. trigger_error($message = 'Function _load_textdomain_just_in_time was called <strong>incorrectly</strong>. Translation loading for the <code>woocommerce</code> domain was triggered too early. This is usually an indicator for some code in the plugin or theme running too early. Translations should be loaded at the <code>init</code> action or later. Please see <a href="https://developer.wordpress.org/advanced-administration/debug/debug-wordpress/">Debugging in WordPress</a> for more information. (This message was added in version 6.7.0.'..., $error_level = 1024) D:\wamp64\www\wordpress\wp-includes\functions.php:6121
+[17-Nov-2025 09:13:04 UTC] PHP Deprecated:  Function the_block_template_skip_link is <strong>deprecated</strong> since version 6.4.0! Use wp_enqueue_block_template_skip_link() instead. in D:\wamp64\www\wordpress\wp-includes\functions.php on line 6121
+[17-Nov-2025 09:13:04 UTC] PHP Stack trace:
+[17-Nov-2025 09:13:04 UTC] PHP   1. {main}() D:\wamp64\www\wordpress\index.php:0
+[17-Nov-2025 09:13:04 UTC] PHP   2. require() D:\wamp64\www\wordpress\index.php:17
+[17-Nov-2025 09:13:04 UTC] PHP   3. require_once() D:\wamp64\www\wordpress\wp-blog-header.php:19
+[17-Nov-2025 09:13:04 UTC] PHP   4. include() D:\wamp64\www\wordpress\wp-includes\template-loader.php:106
+[17-Nov-2025 09:13:04 UTC] PHP   5. get_footer($name = *uninitialized*, $args = *uninitialized*) D:\wamp64\www\wordpress\wp-content\themes\doAnCMS\front-page.php:207
+[17-Nov-2025 09:13:04 UTC] PHP   6. locate_template($template_names = [0 => 'footer.php'], $load = TRUE, $load_once = TRUE, $args = []) D:\wamp64\www\wordpress\wp-includes\general-template.php:92
+[17-Nov-2025 09:13:04 UTC] PHP   7. load_template($_template_file = 'D:\\wamp64\\www\\wordpress/wp-content/themes/doAnCMS/footer.php', $load_once = TRUE, $args = []) D:\wamp64\www\wordpress\wp-includes\template.php:745
+[17-Nov-2025 09:13:04 UTC] PHP   8. require_once() D:\wamp64\www\wordpress\wp-includes\template.php:810
+[17-Nov-2025 09:13:04 UTC] PHP   9. wp_footer() D:\wamp64\www\wordpress\wp-content\themes\doAnCMS\footer.php:41
+[17-Nov-2025 09:13:04 UTC] PHP  10. do_action($hook_name = 'wp_footer') D:\wamp64\www\wordpress\wp-includes\general-template.php:3208
+[17-Nov-2025 09:13:04 UTC] PHP  11. WP_Hook->do_action($args = [0 => '']) D:\wamp64\www\wordpress\wp-includes\plugin.php:517
+[17-Nov-2025 09:13:04 UTC] PHP  12. WP_Hook->apply_filters($value = '', $args = [0 => '']) D:\wamp64\www\wordpress\wp-includes\class-wp-hook.php:348
+[17-Nov-2025 09:13:04 UTC] PHP  13. the_block_template_skip_link('') D:\wamp64\www\wordpress\wp-includes\class-wp-hook.php:324
+[17-Nov-2025 09:13:04 UTC] PHP  14. _deprecated_function($function_name = 'the_block_template_skip_link', $version = '6.4.0', $replacement = 'wp_enqueue_block_template_skip_link()') D:\wamp64\www\wordpress\wp-includes\deprecated.php:6149
+[17-Nov-2025 09:13:04 UTC] PHP  15. wp_trigger_error($function_name = '', $message = 'Function the_block_template_skip_link is <strong>deprecated</strong> since version 6.4.0! Use wp_enqueue_block_template_skip_link() instead.', $error_level = 16384) D:\wamp64\www\wordpress\wp-includes\functions.php:5586
+[17-Nov-2025 09:13:04 UTC] PHP  16. trigger_error($message = 'Function the_block_template_skip_link is <strong>deprecated</strong> since version 6.4.0! Use wp_enqueue_block_template_skip_link() instead.', $error_level = 16384) D:\wamp64\www\wordpress\wp-includes\functions.php:6121
+[17-Nov-2025 09:22:48 UTC] Created post: Lợi ích của rau hữu cơ, ID: 1657
+[17-Nov-2025 09:22:54 UTC] Created post: Cách chọn thực phẩm hữu cơ, ID: 1659
+[17-Nov-2025 09:22:59 UTC] Created post: Thực phẩm hữu cơ cho bé, ID: 1661
+[17-Nov-2025 09:23:01 UTC] Created post: Top 5 loại trái cây organic, ID: 1663
+[17-Nov-2025 09:23:02 UTC] Created post: Organic vs Thực phẩm thông thường, ID: 1665
+[17-Nov-2025 09:23:02 UTC] Created post: Cách trồng rau hữu cơ tại nhà, ID: 1667
+[17-Nov-2025 09:23:03 UTC] Created post: Smoothie healthy từ organic, ID: 1669
+[17-Nov-2025 09:23:04 UTC] Created post: Các loại hạt hữu cơ tốt cho sức khỏe, ID: 1671
+[17-Nov-2025 09:23:05 UTC] Created post: Chế độ ăn organic giảm cân, ID: 1673
+[17-Nov-2025 09:23:05 UTC] Created post: Organic food: Xu hướng 2025, ID: 1675

@@ -369,223 +369,236 @@ function send_newsletter_on_new_product($post_id)
             wp_mail($email, $subject, $body, $headers);
         }
     }
-
-    // Hàm tối ưu hình ảnh
-    function optimize_image_for_email($image_path)
-    {
-        $info = getimagesize($image_path);
-
-        if (!$info) return false;
-
-        $mime_type = $info['mime'];
-
-        // Tạo image resource
-        switch ($mime_type) {
-            case 'image/jpeg':
-                $image = imagecreatefromjpeg($image_path);
-                break;
-            case 'image/png':
-                $image = imagecreatefrompng($image_path);
-                break;
-            case 'image/gif':
-                $image = imagecreatefromgif($image_path);
-                break;
-            default;
-        }
-    }
-
-    // =======================
-    // Optional: Session start
-    // =======================
-    function doAnCMS_start_session()
-    {
-        if (!session_id()) session_start();
-    }
-    add_action('init', 'doAnCMS_start_session');
-
-    // =======================
-    // Thêm sản phẩm vào giỏ hàng qua URL
-    // =======================
-    function doAnCMS_add_to_cart_woo()
-    {
-        // Chỉ thực hiện khi là trang WooCommerce (shop, single product) và có add_to_cart
-        if (isset($_GET['add_to_cart']) && is_woocommerce()) {
-            $product_id = intval($_GET['add_to_cart']);
-            if ($product_id > 0) {
-                WC()->cart->add_to_cart($product_id);
-                // Chỉ redirect khi thêm thành công
-                wp_safe_redirect(wc_get_cart_url());
-                exit;
-            }
-        }
-    }
-    add_action('template_redirect', 'doAnCMS_add_to_cart_woo');
-
-    // =======================
-    // Tạo 10 bài viết mẫu (chỉ chạy 1 lần)
-    // =======================
-    function doAnCMS_create_sample_blog_posts()
-    {
-        if (get_option('doAnCMS_sample_blog_posts_created')) return; // chỉ chạy 1 lần
-
-        $titles = [
-            'Lợi ích của rau hữu cơ',
-            'Cách chọn thực phẩm hữu cơ',
-            'Thực phẩm hữu cơ cho bé',
-            'Top 5 loại trái cây organic',
-            'Organic vs Thực phẩm thông thường',
-            'Cách trồng rau hữu cơ tại nhà',
-            'Smoothie healthy từ organic',
-            'Các loại hạt hữu cơ tốt cho sức khỏe',
-            'Chế độ ăn organic giảm cân',
-            'Organic food: Xu hướng 2025'
-        ];
-
-        foreach ($titles as $index => $title) {
-            $content = "Đây là nội dung mẫu cho bài viết: $title. Thông tin về organic food, sức khỏe và cách chọn thực phẩm hữu cơ.";
-
-            $post_id = wp_insert_post([
-                'post_title'    => $title,
-                'post_content'  => $content,
-                'post_status'   => 'publish',
-                'post_author'   => 1,
-                'post_category' => [1], // category ID = 1 (Bạn có thể đổi)
-            ]);
-
-            if ($post_id) {
-                // Gắn ảnh thumbnail
-                $image_path = get_template_directory() . '/assets/images/blog/blog' . ($index + 1) . '.jpg';
-                if (file_exists($image_path)) {
-                    $upload_dir = wp_upload_dir();
-                    $image_data = file_get_contents($image_path);
-                    $filename = basename($image_path);
-
-                    if (wp_mkdir_p($upload_dir['path'])) {
-                        $file = $upload_dir['path'] . '/' . $filename;
-                    } else {
-                        $file = $upload_dir['basedir'] . '/' . $filename;
-                    }
-
-                    file_put_contents($file, $image_data);
-
-                    $wp_filetype = wp_check_filetype($filename, null);
-                    $attachment = [
-                        'post_mime_type' => $wp_filetype['type'],
-                        'post_title'     => sanitize_file_name($filename),
-                        'post_content'   => '',
-                        'post_status'    => 'inherit'
-                    ];
-
-                    $attach_id = wp_insert_attachment($attachment, $file, $post_id);
-                    require_once(ABSPATH . 'wp-admin/includes/image.php');
-                    $attach_data = wp_generate_attachment_metadata($attach_id, $file);
-                    wp_update_attachment_metadata($attach_id, $attach_data);
-                    set_post_thumbnail($post_id, $attach_id);
-                }
-            }
-        }
-
-        update_option('doAnCMS_sample_blog_posts_created', 1);
-    }
-    // add_action('after_setup_theme', 'doAnCMS_create_sample_blog_posts');
-    add_action('init', 'doAnCMS_create_sample_blog_posts');
-
-
-    // =======================
-    // Shortcode hiển thị bài viết gần đây
-    // =======================
-    function doAnCMS_recent_posts_shortcode($atts)
-    {
-        $atts = shortcode_atts(array(
-            'posts' => 6,
-        ), $atts, 'recent-posts');
-
-        $paged = (get_query_var('paged')) ? get_query_var('paged') : 1;
-
-        $query = new WP_Query(array(
-            'post_type'      => 'post',
-            'posts_per_page' => intval($atts['posts']),
-            'paged'          => $paged,
-        ));
-
-        $output = '<div class="doAnCMS-blog-list" style="display:grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap:30px;">';
-
-        if ($query->have_posts()) {
-            while ($query->have_posts()) {
-                $query->the_post();
-
-                $thumbnail = has_post_thumbnail() ? get_the_post_thumbnail_url(get_the_ID(), 'full') : 'https://via.placeholder.com/400x250?text=No+Image';
-                $output .= '<div class="doAnCMS-blog-item" style="border:1px solid #eee; border-radius:10px; overflow:hidden; box-shadow:0 4px 8px rgba(0,0,0,0.1); transition: transform 0.3s;">';
-                $output .= '<a href="' . get_permalink() . '"><img src="' . $thumbnail . '" alt="' . get_the_title() . '" style="width:100%; height:200px; object-fit:cover;"></a>';
-                $output .= '<div style="padding:15px;">';
-                $output .= '<h3 style="margin-bottom:10px;"><a href="' . get_permalink() . '" style="text-decoration:none; color:#333;">' . get_the_title() . '</a></h3>';
-                $output .= '<p style="color:#666; font-size:14px;">' . wp_trim_words(get_the_content(), 25) . '</p>';
-                $output .= '<a href="' . get_permalink() . '" style="display:inline-block; margin-top:10px; color:#6b9d3e; font-weight:bold;">Xem thêm →</a>';
-                $output .= '</div></div>';
-            }
-
-            $output .= '<div class="doAnCMS-pagination" style="grid-column:1/-1; text-align:center;">';
-            $output .= paginate_links(array(
-                'total' => $query->max_num_pages,
-            ));
-            $output .= '</div>';
-
-            wp_reset_postdata();
-        } else {
-            $output .= '<p>Chưa có bài viết nào.</p>';
-        }
-
-        $output .= '</div>';
-        return $output;
-    }
-
-    add_shortcode('recent-posts', 'doAnCMS_recent_posts_shortcode');
-    // function doAnCMS_delete_all_posts()
-    // {
-    //     $paged = 1;
-    //     $posts_per_page = 50; // xóa 50 bài một lần, tránh lỗi memory
-
-    //     do {
-    //         $query = new WP_Query([
-    //             'post_type'      => 'post',
-    //             'posts_per_page' => $posts_per_page,
-    //             'paged'          => $paged,
-    //             'post_status'    => 'any', // lấy tất cả trạng thái bài viết
-    //         ]);
-
-    //         if ($query->have_posts()) {
-    //             foreach ($query->posts as $post) {
-    //                 wp_delete_post($post->ID, true); // true = xóa vĩnh viễn
-    //             }
-    //         }
-
-    //         $paged++;
-    //         $max_pages = $query->max_num_pages;
-    //         wp_reset_postdata();
-    //     } while ($paged <= $max_pages);
-
-    //     // Xóa tùy chọn blog mẫu nếu có
-    //     delete_option('doAnCMS_sample_blog_posts_created');
-
-    //     echo "Đã xóa tất cả bài viết!";
-    // }
-
-    // // Gọi hàm 1 lần duy nhất
-    // doAnCMS_delete_all_posts();
-    // Slide
-    function theme_enqueue_swiper()
-    {
-        // CSS
-        wp_enqueue_style('swiper-css', 'https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css');
-
-        // JS
-        wp_enqueue_script('swiper-js', 'https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js', [], false, true);
-    }
-    add_action('wp_enqueue_scripts', 'theme_enqueue_swiper');
-    // Phân trang
-    add_action('pre_get_posts', function ($query) {
-        if (!is_admin() && $query->is_main_query() && is_tax('product_cat')) {
-            $query->set('posts_per_page', 5);
-        }
-    });
 }
+
+// Hàm tối ưu hình ảnh
+function optimize_image_for_email($image_path)
+{
+    $info = getimagesize($image_path);
+
+    if (!$info) return false;
+
+    $mime_type = $info['mime'];
+
+    // Tạo image resource
+    switch ($mime_type) {
+        case 'image/jpeg':
+            $image = imagecreatefromjpeg($image_path);
+            break;
+        case 'image/png':
+            $image = imagecreatefrompng($image_path);
+            break;
+        case 'image/gif':
+            $image = imagecreatefromgif($image_path);
+            break;
+        default;
+    }
+}
+
+// =======================
+// Optional: Session start
+// =======================
+function doAnCMS_start_session()
+{
+    if (!session_id()) session_start();
+}
+add_action('init', 'doAnCMS_start_session');
+
+// =======================
+// Thêm sản phẩm vào giỏ hàng qua URL
+// =======================
+function doAnCMS_add_to_cart_woo()
+{
+    // Chỉ thực hiện khi là trang WooCommerce (shop, single product) và có add_to_cart
+    if (isset($_GET['add_to_cart']) && is_woocommerce()) {
+        $product_id = intval($_GET['add_to_cart']);
+        if ($product_id > 0) {
+            WC()->cart->add_to_cart($product_id);
+            // Chỉ redirect khi thêm thành công
+            wp_safe_redirect(wc_get_cart_url());
+            exit;
+        }
+    }
+}
+add_action('template_redirect', 'doAnCMS_add_to_cart_woo');
+
+function doAnCMS_create_sample_blog_posts()
+{
+    // Chỉ chạy 1 lần
+    if (get_option('doAnCMS_sample_blog_posts_created')) return;
+
+    // Kiểm tra hoặc tạo category 'Blog Mẫu'
+    $category_name = 'Blog Mẫu';
+    $category_id = get_cat_ID($category_name);
+    if ($category_id == 0) {
+        $category_id = wp_create_category($category_name);
+    }
+
+    $titles = [
+        'Lợi ích của rau hữu cơ',
+        'Cách chọn thực phẩm hữu cơ',
+        'Thực phẩm hữu cơ cho bé',
+        'Top 5 loại trái cây organic',
+        'Organic vs Thực phẩm thông thường',
+        'Cách trồng rau hữu cơ tại nhà',
+        'Smoothie healthy từ organic',
+        'Các loại hạt hữu cơ tốt cho sức khỏe',
+        'Chế độ ăn organic giảm cân',
+        'Organic food: Xu hướng 2025'
+    ];
+
+    foreach ($titles as $index => $title) {
+        $content = "Đây là nội dung mẫu cho bài viết: $title. Thông tin về organic food, sức khỏe và cách chọn thực phẩm hữu cơ.";
+
+        // Tạo bài viết
+        $post_id = wp_insert_post([
+            'post_title'    => $title,
+            'post_content'  => $content,
+            'post_status'   => 'publish',
+            'post_author'   => 1,
+            'post_category' => [$category_id],
+            'post_type'     => 'post', // <- bắt buộc
+        ]);
+        if ($post_id) {
+            error_log("Created post: $title, ID: $post_id");
+        }
+
+        if ($post_id) {
+            // Gắn ảnh thumbnail nếu có
+            $image_path = get_template_directory() . '/assets/images/blog/blog' . ($index + 1) . '.jpg';
+
+            if (file_exists($image_path)) {
+                $upload_dir = wp_upload_dir();
+                $filename = basename($image_path);
+                $new_file = $upload_dir['path'] . '/' . $filename;
+                copy($image_path, $new_file);
+
+                $wp_filetype = wp_check_filetype($filename, null);
+                $attachment = [
+                    'post_mime_type' => $wp_filetype['type'],
+                    'post_title'     => sanitize_file_name($filename),
+                    'post_content'   => '',
+                    'post_status'    => 'inherit'
+                ];
+
+                $attach_id = wp_insert_attachment($attachment, $new_file, $post_id);
+                require_once(ABSPATH . 'wp-admin/includes/image.php');
+                $attach_data = wp_generate_attachment_metadata($attach_id, $new_file);
+                wp_update_attachment_metadata($attach_id, $attach_data);
+                set_post_thumbnail($post_id, $attach_id);
+            }
+        }
+    }
+
+    // Đánh dấu đã tạo xong
+    update_option('doAnCMS_sample_blog_posts_created', 1);
+}
+
+add_action('admin_init', function () {
+    if (isset($_GET['create_sample_posts']) && current_user_can('administrator')) {
+        doAnCMS_create_sample_blog_posts();
+        add_action('admin_notices', function () {
+            echo '<div class="notice notice-success is-dismissible"><p>✅ 10 bài viết mẫu đã được tạo!</p></div>';
+        });
+    }
+});
+
+
+
+// =======================
+// Shortcode hiển thị bài viết gần đây
+// =======================
+function doAnCMS_recent_posts_shortcode($atts)
+{
+    $atts = shortcode_atts(array(
+        'posts' => 6,
+    ), $atts, 'recent-posts');
+
+    $paged = (get_query_var('paged')) ? get_query_var('paged') : 1;
+
+    $query = new WP_Query(array(
+        'post_type'      => 'post',
+        'posts_per_page' => intval($atts['posts']),
+        'paged'          => $paged,
+    ));
+
+    $output = '<div class="doAnCMS-blog-list" style="display:grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap:30px;">';
+
+    if ($query->have_posts()) {
+        while ($query->have_posts()) {
+            $query->the_post();
+
+            $thumbnail = has_post_thumbnail() ? get_the_post_thumbnail_url(get_the_ID(), 'full') : 'https://via.placeholder.com/400x250?text=No+Image';
+            $output .= '<div class="doAnCMS-blog-item" style="border:1px solid #eee; border-radius:10px; overflow:hidden; box-shadow:0 4px 8px rgba(0,0,0,0.1); transition: transform 0.3s;">';
+            $output .= '<a href="' . get_permalink() . '"><img src="' . $thumbnail . '" alt="' . get_the_title() . '" style="width:100%; height:200px; object-fit:cover;"></a>';
+            $output .= '<div style="padding:15px;">';
+            $output .= '<h3 style="margin-bottom:10px;"><a href="' . get_permalink() . '" style="text-decoration:none; color:#333;">' . get_the_title() . '</a></h3>';
+            $output .= '<p style="color:#666; font-size:14px;">' . wp_trim_words(get_the_content(), 25) . '</p>';
+            $output .= '<a href="' . get_permalink() . '" style="display:inline-block; margin-top:10px; color:#6b9d3e; font-weight:bold;">Xem thêm →</a>';
+            $output .= '</div></div>';
+        }
+
+        $output .= '<div class="doAnCMS-pagination" style="grid-column:1/-1; text-align:center;">';
+        $output .= paginate_links(array(
+            'total' => $query->max_num_pages,
+        ));
+        $output .= '</div>';
+
+        wp_reset_postdata();
+    } else {
+        $output .= '<p>Chưa có bài viết nào.</p>';
+    }
+
+    $output .= '</div>';
+    return $output;
+}
+
+add_shortcode('recent-posts', 'doAnCMS_recent_posts_shortcode');
+// function doAnCMS_delete_all_posts()
+// {
+//     $paged = 1;
+//     $posts_per_page = 50; // xóa 50 bài một lần, tránh lỗi memory
+
+//     do {
+//         $query = new WP_Query([
+//             'post_type'      => 'post',
+//             'posts_per_page' => $posts_per_page,
+//             'paged'          => $paged,
+//             'post_status'    => 'any', // lấy tất cả trạng thái bài viết
+//         ]);
+
+//         if ($query->have_posts()) {
+//             foreach ($query->posts as $post) {
+//                 wp_delete_post($post->ID, true); // true = xóa vĩnh viễn
+//             }
+//         }
+
+//         $paged++;
+//         $max_pages = $query->max_num_pages;
+//         wp_reset_postdata();
+//     } while ($paged <= $max_pages);
+
+//     // Xóa tùy chọn blog mẫu nếu có
+//     delete_option('doAnCMS_sample_blog_posts_created');
+
+//     echo "Đã xóa tất cả bài viết!";
+// }
+
+// // Gọi hàm 1 lần duy nhất
+// doAnCMS_delete_all_posts();
+// Slide
+function theme_enqueue_swiper()
+{
+    // CSS
+    wp_enqueue_style('swiper-css', 'https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css');
+
+    // JS
+    wp_enqueue_script('swiper-js', 'https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js', [], false, true);
+}
+add_action('wp_enqueue_scripts', 'theme_enqueue_swiper');
+// Phân trang
+add_action('pre_get_posts', function ($query) {
+    if (!is_admin() && $query->is_main_query() && is_tax('product_cat')) {
+        $query->set('posts_per_page', 5);
+    }
+});
