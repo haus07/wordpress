@@ -551,6 +551,22 @@ body {
         height: 250px !important;
     }
 }
+/* chữ đen không gạch dưới */
+.category-card {
+    color: inherit !important;
+    text-decoration: none !important;
+}
+
+.category-card .category-name {
+    color: #000 !important;
+    text-decoration: none !important;
+}
+
+.category-card:hover,
+.category-card:hover .category-name {
+    color: #000 !important;
+    text-decoration: none !important;
+}
 
 
 
