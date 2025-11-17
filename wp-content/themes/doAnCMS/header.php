@@ -321,22 +321,7 @@
                         </svg>
                     </a>
                 </div>
-                <div class="nav-toggle" id="nav-toggle">☰ Menu</div>
-            </div>
-
-        </div>
-    </div>
-
-    <!-- Navigation -->
-    <div class="nav">
-        <div class="nav-container" id="nav-container">
-            <a href="<?php echo esc_url(home_url('/')); ?>">HOME</a>
-            <a href="<?php echo esc_url(home_url('/#organic')); ?>">VỀ ORGANIC SHOP</a>
-            <a href="<?php echo esc_url(home_url('/#blog')); ?>">BLOGS ORGANIC</a>
-            <a href="<?php echo esc_url(home_url('/contact')); ?>">LIÊN HỆ</a>
-        </div>
-        <div class="nav-toggle" id="nav-toggle">☰ Menu</div>
-        <div class="login-btn">
+               <div class="login-btn">
 
           <?php if (is_user_logged_in()) : ?>
 
@@ -366,6 +351,20 @@
           <?php endif; ?>
 
         </div>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- Navigation -->
+    <div class="nav">
+        <div class="nav-container" id="nav-container">
+            <a href="<?php echo esc_url(home_url('/')); ?>">HOME</a>
+            <a href="<?php echo esc_url(home_url('/#organic')); ?>">VỀ ORGANIC SHOP</a>
+            <a href="<?php echo esc_url(home_url('/#blog')); ?>">BLOGS ORGANIC</a>
+            <a href="<?php echo esc_url(home_url('/contact')); ?>">LIÊN HỆ</a>
+        </div>
+        
 
       </div>
 
@@ -373,14 +372,7 @@
   </div>
 
   <!-- Navigation -->
-  <div class="nav">
-    <div class="nav-container" id="nav-container">
-      <a href="<?php echo home_url('/'); ?>">HOME</a>
-      <a href="<?php echo home_url('/#organic'); ?>">VỀ ORGANIC SHOP</a>
-      <a href="<?php echo home_url('/blog-page'); ?>">BLOGS ORGANIC</a>
-      <a href="<?php echo home_url('/contact'); ?>">LIÊN HỆ</a>
-    </div>
-  </div>
+
 
     <script>
     // Mobile menu toggle

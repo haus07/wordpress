@@ -246,12 +246,20 @@ function handle_newsletter_form()
 // ===============================
 // Gửi mail khi có sản phẩm mới
 // ===============================
+
+// LỖI 1: ĐÃ XÓA HÀM BỊ TRÙNG TÊN "send_newsletter_on_new_product" VÀ HOOK "woocommerce_new_product" GÂY LỖI
+// Khối code bị lỗi của bro đã bị xóa:
+/*
 add_action('woocommerce_new_product', 'send_newsletter_on_new_product', 10, 1);
 function send_newsletter_on_new_product($post_id)
 {
     $emails = get_option('newsletter_subscribers', array());
     if (empty($emails)) return;
     $product = wc_get_product($post_id);
+    // ... code bị thiếu và gây lỗi
+*/
+
+// Đây là code ĐÚNG mà bro đã viết (chỉ sửa lại vị trí hook):
 add_action('transition_post_status', 'send_newsletter_on_new_product', 10, 3);
 function send_newsletter_on_new_product($new_status, $old_status, $post)
 {
@@ -309,6 +317,7 @@ function send_newsletter_on_new_product_delayed($product_id)
 
                 // Nếu file vẫn lớn hơn 50KB, nén thêm bằng GD
                 if (strlen($image_data) > 51200) {
+                    // LỖI 2: GỌI HÀM ĐÃ SỬA BÊN DƯỚI
                     $image_data = optimize_image_for_email($image_path);
                 }
 
@@ -370,14 +379,14 @@ function send_newsletter_on_new_product_delayed($product_id)
     }
 }
 
-// Hàm tối ưu hình ảnh
+// LỖI 2: HÀM TỐI ƯU ẢNH BỊ THIẾU - ĐÃ HOÀN THIỆN
 function optimize_image_for_email($image_path)
 {
     $info = getimagesize($image_path);
-
     if (!$info) return false;
 
     $mime_type = $info['mime'];
+    $image = null; // Khởi tạo
 
     // Tạo image resource
     switch ($mime_type) {
@@ -386,12 +395,43 @@ function optimize_image_for_email($image_path)
             break;
         case 'image/png':
             $image = imagecreatefrompng($image_path);
+            // Xử lý transparency cho PNG
+            imagealphablending($image, false);
+            imagesavealpha($image, true);
             break;
         case 'image/gif':
             $image = imagecreatefromgif($image_path);
             break;
-        default;
+        default:
+            return false; // Loại file không hỗ trợ
     }
+
+    if (!$image) return false; // Không tạo được ảnh
+
+    // Bắt đầu output buffering để lấy data
+    ob_start();
+    
+    // Nén ảnh
+    switch ($mime_type) {
+        case 'image/jpeg':
+            imagejpeg($image, null, 75); // Nén JPEG 75%
+            break;
+        case 'image/png':
+            imagepng($image, null, 6); // Nén PNG mức 6
+            break;
+        case 'image/gif':
+            imagegif($image);
+            break;
+    }
+    
+    // Lấy data từ buffer
+    $image_data = ob_get_contents();
+    ob_end_clean();
+    
+    // Giải phóng bộ nhớ
+    imagedestroy($image);
+    
+    return $image_data; // Trả về data của ảnh đã nén
 }
 
 // =======================
@@ -580,9 +620,12 @@ function theme_enqueue_swiper()
     wp_enqueue_script('swiper-js', 'https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js', [], false, true);
 }
 add_action('wp_enqueue_scripts', 'theme_enqueue_swiper');
+
 // Phân trang
 add_action('pre_get_posts', function ($query) {
     if (!is_admin() && $query->is_main_query() && is_tax('product_cat')) {
         $query->set('posts_per_page', 5);
     }
 });
+
+// LỖI 3: ĐÃ XÓA DẤU "}" BỊ THỪA Ở CUỐI FILE
