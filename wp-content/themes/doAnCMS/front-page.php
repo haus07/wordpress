@@ -3,7 +3,6 @@
 <!-- ===================== BANNER KHUYẾN MÃI ===================== -->
 <div class="banner">
     <div class="banner-container">
-        <!-- Sidebar danh mục sản phẩm -->
         <div class="sidebar">
             <?php
             wp_list_categories([
@@ -15,7 +14,6 @@
             ?>
         </div>
 
-        <!-- Slider banner chính -->
         <div class="banner-slider">
             <?php echo do_shortcode('[smartslider3 slider="3"]'); ?>
         </div>
@@ -38,38 +36,43 @@
 
         if (!empty($product_categories) && !is_wp_error($product_categories)) :
             foreach ($product_categories as $category) :
+                if ($category->slug === 'uncategorized') {
+                    continue; // bỏ qua
+                }   
                 $thumbnail_id = get_term_meta($category->term_id, 'thumbnail_id', true);
                 $image_url = wp_get_attachment_url($thumbnail_id);
                 if (!$image_url) $image_url = wc_placeholder_img_src();
 
                 $category_link = get_term_link($category);
         ?>
-        <a href="<?php echo esc_url($category_link); ?>" class="category-card">
+        <a href="<?php echo esc_url($category_link); ?>" class="category-card"
+            style="text-decoration: none; color: #000;">
             <img src="<?php echo esc_url($image_url); ?>" alt="<?php echo esc_attr($category->name); ?>"
                 class="category-image">
-            <h3 class="category-name"><?php echo esc_html($category->name); ?></h3>
+
+            <h3 class="category-name" style="color: #000; text-decoration: none; margin: 10px 0 0;">
+                <?php echo esc_html($category->name); ?>
+            </h3>
         </a>
-        <?php
-            endforeach;
-        endif;
-        ?>
+        <?php endforeach;
+        endif; ?>
     </div>
 </div>
 
-<!-- ===================== SẢN PHẨM NỔI BẬT ===================== -->
+<!-- ===================== SẢN PHẨM GIẢM GIÁ ===================== -->
 <div class="container">
-    <h2 class="section-title">Sản phẩm nổi bật</h2>
-    <div class="product-scroll-wrapper">
-        <div class="product-grid product-grid-scroll">
+    <h2 class="section-title">Sản phẩm đang giảm giá</h2>
+
+    <div class="swiper product-swiper-sale">
+        <div class="swiper-wrapper">
+
             <?php
-            // Lấy sản phẩm nổi bật có giảm giá
-            $featured_products = wc_get_products([
-                'status'         => 'publish',
-                'limit'          => 8,
-                'orderby'        => 'date',
-                'order'          => 'DESC',
-                'featured'       => true,
-                'meta_query'     => [
+            $sale_products = wc_get_products([
+                'status'     => 'publish',
+                'limit'      => 8,
+                'orderby'    => 'date',
+                'order'      => 'DESC',
+                'meta_query' => [
                     [
                         'key'     => '_sale_price',
                         'value'   => 0,
@@ -79,45 +82,111 @@
                 ]
             ]);
 
-            if (!empty($featured_products)) :
-                foreach ($featured_products as $product) :
-                    $product_id = $product->get_id();
-                    $image_url = get_the_post_thumbnail_url($product_id, 'medium') ?: wc_placeholder_img_src();
+            if (!empty($sale_products)) :
+                foreach ($sale_products as $product) :
+                    $product_id    = $product->get_id();
+                    $image_url     = get_the_post_thumbnail_url($product_id, 'medium') ?: wc_placeholder_img_src();
+
                     $regular_price = (float) $product->get_regular_price();
-                    $sale_price = (float) $product->get_sale_price();
+                    $sale_price    = (float) $product->get_sale_price();
+
                     $discount = 0;
                     if ($regular_price > 0 && $sale_price > 0) {
                         $discount = round((($regular_price - $sale_price) / $regular_price) * 100);
                     }
             ?>
-            <div class="product-card">
-                <div class="product-thumb">
-                    <a href="<?php echo esc_url(get_permalink($product_id)); ?>">
-                        <img src="<?php echo esc_url($image_url); ?>"
-                            alt="<?php echo esc_attr($product->get_name()); ?>" class="product-image">
-                        <?php if ($discount > 0): ?>
-                        <span class="custom-sale-badge">-<?php echo esc_html($discount); ?>%</span>
-                        <?php endif; ?>
-                    </a>
-                </div>
-                <div class="product-info">
-                    <h3 class="product-name">
+            <div class="swiper-slide">
+                <div class="product-card">
+                    <div class="product-thumb">
                         <a href="<?php echo esc_url(get_permalink($product_id)); ?>">
-                            <?php echo esc_html($product->get_name()); ?>
+                            <img src="<?php echo esc_url($image_url); ?>" class="product-image">
+
+                            <?php if ($discount > 0): ?>
+                            <span class="custom-sale-badge">-<?php echo esc_html($discount); ?>%</span>
+                            <?php endif; ?>
                         </a>
-                    </h3>
-                    <div class="product-price">
-                        <?php echo $product->get_price_html(); ?>
+                    </div>
+
+                    <div class="product-info">
+                        <h3 class="product-name">
+                            <a href="<?php echo esc_url(get_permalink($product_id)); ?>">
+                                <?php echo esc_html($product->get_name()); ?>
+                            </a>
+                        </h3>
+
+                        <div class="product-price">
+                            <?php echo $product->get_price_html(); ?>
+                        </div>
                     </div>
                 </div>
             </div>
-            <?php
-                endforeach;
-            else :
-                echo '<p>Chưa có sản phẩm nổi bật đang giảm giá.</p>';
-            endif;
-            ?>
+            <?php endforeach;
+            else : ?>
+            <p>Không có sản phẩm giảm giá.</p>
+            <?php endif; ?>
+
         </div>
+
+        <!-- navigation buttons -->
+        <div class="swiper-button-next swiper-button-next-sale"></div>
+        <div class="swiper-button-prev swiper-button-prev-sale"></div>
+    </div>
+</div>
+
+<!-- ===================== SẢN PHẨM NỔI BẬT ===================== -->
+<div class="container">
+    <h2 class="section-title">Sản phẩm nổi bật</h2>
+
+    <div class="swiper product-swiper-featured">
+        <div class="swiper-wrapper">
+
+            <?php
+            $featured_products = wc_get_products([
+                'status'   => 'publish',
+                'limit'    => 8,
+                'orderby'  => 'date',
+                'order'    => 'DESC',
+                'featured' => true
+            ]);
+
+            if (!empty($featured_products)) :
+                foreach ($featured_products as $product) :
+                    $product_id = $product->get_id();
+                    $image_url  = get_the_post_thumbnail_url($product_id, 'medium') ?: wc_placeholder_img_src();
+            ?>
+
+            <div class="swiper-slide">
+                <div class="product-card">
+                    <div class="product-thumb">
+                        <a href="<?php echo esc_url(get_permalink($product_id)); ?>">
+                            <img src="<?php echo esc_url($image_url); ?>" class="product-image">
+                        </a>
+                    </div>
+
+                    <div class="product-info">
+                        <h3 class="product-name">
+                            <a href="<?php echo esc_url(get_permalink($product_id)); ?>">
+                                <?php echo esc_html($product->get_name()); ?>
+                            </a>
+                        </h3>
+
+                        <div class="product-price">
+                            <?php echo $product->get_price_html(); ?>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <?php endforeach;
+            else : ?>
+            <p>Không có sản phẩm nổi bật.</p>
+            <?php endif; ?>
+
+        </div>
+
+        <!-- navigation -->
+        <div class="swiper-button-next swiper-button-next-featured"></div>
+        <div class="swiper-button-prev swiper-button-prev-featured"></div>
     </div>
 </div>
 
@@ -125,29 +194,13 @@
 <!-- ===================== CÁC NHÓM SẢN PHẨM KHÁC ===================== -->
 <?php
 $product_sections = [
-    [
-        'title' => 'Sản phẩm hữu cơ',
-        'slug'  => 'san-pham-huu-co'
-    ],
-    [
-        'title' => 'Ngũ cốc dinh dưỡng hữu cơ',
-        'slug'  => 'ngu-coc-dinh-duong-huu-co'
-    ],
-    [
-        'title' => 'Các loại hạt và đậu hữu cơ',
-        'slug'  => 'dau-va-hat-huu-co'
-    ],
-    [
-        'title' => 'Nui và mì hữu cơ',
-        'slug'  => 'nui-mi-huu-co'
-    ],
-    [
-        'title' => 'Các loại thực phẩm hữu cơ',
-        'slug'  => 'thuc-pham-huu-co'
-    ]
+    ['title' => 'Sản phẩm hữu cơ', 'slug' => 'san-pham-huu-co'],
+    ['title' => 'Ngũ cốc dinh dưỡng hữu cơ', 'slug' => 'ngu-coc-dinh-duong-huu-co'],
+    ['title' => 'Các loại hạt và đậu hữu cơ', 'slug' => 'dau-va-hat-huu-co'],
+    ['title' => 'Nui và mì hữu cơ', 'slug' => 'nui-mi-huu-co'],
+    ['title' => 'Các loại thực phẩm hữu cơ', 'slug' => 'thuc-pham-huu-co']
 ];
 
-// Gọi template part cho từng nhóm
 foreach ($product_sections as $section) {
     get_template_part('template-parts/product-row', null, $section);
 }

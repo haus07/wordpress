@@ -113,27 +113,43 @@ a {
     color: #6b9d3e;
 }
 
-/* ===================== PAGINATION ===================== */
-.pagination {
-    margin-top: 20px;
-    text-align: center;
+/* ===== Custom Pagination ===== */
+.pagination .nav-links {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 30px;
 }
 
 .pagination .page-numbers {
     display: inline-block;
-    margin: 0 5px;
-    padding: 5px 12px;
+    padding: 8px 14px;
     border: 1px solid #ccc;
-    border-radius: 4px;
-    color: #000;
+    border-radius: 8px;
+    background-color: #f9f9f9;
+    color: #333;
     text-decoration: none;
+    transition: all 0.3s ease;
 }
 
-.pagination .current {
-    background-color: #6b9d3e;
+.pagination .page-numbers:hover {
+    background-color: #0073aa;
     color: #fff;
-    border-color: #6b9d3e;
+    border-color: #0073aa;
 }
+
+.pagination .page-numbers.current {
+    background-color: #0073aa;
+    color: #fff;
+    border-color: #0073aa;
+    font-weight: bold;
+}
+
+.pagination .page-numbers.next,
+.pagination .page-numbers.prev {
+    font-weight: bold;
+}
+
 
 /* ===================== RESPONSIVE ===================== */
 @media (max-width: 1024px) {
