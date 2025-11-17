@@ -3999,3 +3999,89 @@ Stack trace:
 [17-Nov-2025 10:15:32 UTC] ✅ Post "Chế độ ăn organic giảm cân" được tạo với ID: 1768
 [17-Nov-2025 10:15:32 UTC] ✅ Post "Organic food: Xu hướng 2025" được tạo với ID: 1770
 [17-Nov-2025 10:15:32 UTC] ✅ Hoàn tất tạo 10 bài viết mẫu với ảnh và content dài.
+[17-Nov-2025 10:38:10 UTC] PHP Fatal error:  Uncaught Error: Call to a member function is_on_sale() on null in C:\wamp64\www\wordpress\wp-content\plugins\woocommerce\templates\single-product\sale-flash.php:25
+Stack trace:
+#0 C:\wamp64\www\wordpress\wp-content\plugins\woocommerce\includes\wc-core-functions.php(346): include()
+#1 C:\wamp64\www\wordpress\wp-content\plugins\woocommerce\includes\wc-template-functions.php(1905): wc_get_template('single-product/...')
+#2 C:\wamp64\www\wordpress\wp-includes\class-wp-hook.php(324): woocommerce_show_product_sale_flash('')
+#3 C:\wamp64\www\wordpress\wp-includes\class-wp-hook.php(348): WP_Hook->apply_filters(NULL, Array)
+#4 C:\wamp64\www\wordpress\wp-includes\plugin.php(517): WP_Hook->do_action(Array)
+#5 C:\wamp64\www\wordpress\wp-content\plugins\woocommerce\templates\content-single-product.php(43): do_action('woocommerce_bef...')
+#6 C:\wamp64\www\wordpress\wp-content\plugins\woocommerce\includes\wc-core-functions.php(346): include('C:\\wamp64\\www\\w...')
+#7 C:\wamp64\www\wordpress\wp-content\themes\doAnCMS\functions.php(623): wc_get_template('content-single-...')
+#8 C:\wamp64\www\wordpress\wp-includes\class-wp-hook.php(324): doAnCMS_load_product_quick_view('')
+#9 C:\wamp64\www\wordpress\wp-includes\class-wp-hook.php(348): WP_Hook->apply_filters('', Array)
+#10 C:\wamp64\www\wordpress\wp-includes\plugin.php(517): WP_Hook->do_action(Array)
+#11 C:\wamp64\www\wordpress\wp-admin\admin-ajax.php(192): do_action('wp_ajax_load_pr...')
+#12 {main}
+  thrown in C:\wamp64\www\wordpress\wp-content\plugins\woocommerce\templates\single-product\sale-flash.php on line 25
+[17-Nov-2025 10:41:21 UTC] PHP Fatal error:  Uncaught Error: Call to a member function get_id() on null in C:\wamp64\www\wordpress\wp-content\themes\doAnCMS\functions.php:628
+Stack trace:
+#0 C:\wamp64\www\wordpress\wp-includes\class-wp-hook.php(324): doAnCMS_load_product_quick_view('')
+#1 C:\wamp64\www\wordpress\wp-includes\class-wp-hook.php(348): WP_Hook->apply_filters('', Array)
+#2 C:\wamp64\www\wordpress\wp-includes\plugin.php(517): WP_Hook->do_action(Array)
+#3 C:\wamp64\www\wordpress\wp-admin\admin-ajax.php(192): do_action('wp_ajax_load_pr...')
+#4 {main}
+  thrown in C:\wamp64\www\wordpress\wp-content\themes\doAnCMS\functions.php on line 628
+[17-Nov-2025 10:41:40 UTC] PHP Fatal error:  Uncaught Error: Call to a member function get_id() on null in C:\wamp64\www\wordpress\wp-content\themes\doAnCMS\functions.php:628
+Stack trace:
+#0 C:\wamp64\www\wordpress\wp-includes\class-wp-hook.php(324): doAnCMS_load_product_quick_view('')
+#1 C:\wamp64\www\wordpress\wp-includes\class-wp-hook.php(348): WP_Hook->apply_filters('', Array)
+#2 C:\wamp64\www\wordpress\wp-includes\plugin.php(517): WP_Hook->do_action(Array)
+#3 C:\wamp64\www\wordpress\wp-admin\admin-ajax.php(192): do_action('wp_ajax_load_pr...')
+#4 {main}
+  thrown in C:\wamp64\www\wordpress\wp-content\themes\doAnCMS\functions.php on line 628
+[17-Nov-2025 10:42:09 UTC] PHP Fatal error:  Uncaught Error: Call to a member function get_id() on null in C:\wamp64\www\wordpress\wp-content\themes\doAnCMS\functions.php:628
+Stack trace:
+#0 C:\wamp64\www\wordpress\wp-includes\class-wp-hook.php(324): doAnCMS_load_product_quick_view('')
+#1 C:\wamp64\www\wordpress\wp-includes\class-wp-hook.php(348): WP_Hook->apply_filters('', Array)
+#2 C:\wamp64\www\wordpress\wp-includes\plugin.php(517): WP_Hook->do_action(Array)
+#3 C:\wamp64\www\wordpress\wp-admin\admin-ajax.php(192): do_action('wp_ajax_load_pr...')
+#4 {main}
+  thrown in C:\wamp64\www\wordpress\wp-content\themes\doAnCMS\functions.php on line 628
+[17-Nov-2025 10:42:43 UTC] PHP Fatal error:  Uncaught Error: Call to a member function get_id() on null in C:\wamp64\www\wordpress\wp-content\themes\doAnCMS\functions.php:628
+Stack trace:
+#0 C:\wamp64\www\wordpress\wp-includes\class-wp-hook.php(324): doAnCMS_load_product_quick_view('')
+#1 C:\wamp64\www\wordpress\wp-includes\class-wp-hook.php(348): WP_Hook->apply_filters('', Array)
+#2 C:\wamp64\www\wordpress\wp-includes\plugin.php(517): WP_Hook->do_action(Array)
+#3 C:\wamp64\www\wordpress\wp-admin\admin-ajax.php(192): do_action('wp_ajax_load_pr...')
+#4 {main}
+  thrown in C:\wamp64\www\wordpress\wp-content\themes\doAnCMS\functions.php on line 628
+[17-Nov-2025 10:45:05 UTC] PHP Fatal error:  Uncaught Error: Call to a member function get_id() on null in C:\wamp64\www\wordpress\wp-content\themes\doAnCMS\functions.php:629
+Stack trace:
+#0 C:\wamp64\www\wordpress\wp-includes\class-wp-hook.php(324): doAnCMS_load_product_quick_view('')
+#1 C:\wamp64\www\wordpress\wp-includes\class-wp-hook.php(348): WP_Hook->apply_filters('', Array)
+#2 C:\wamp64\www\wordpress\wp-includes\plugin.php(517): WP_Hook->do_action(Array)
+#3 C:\wamp64\www\wordpress\wp-admin\admin-ajax.php(192): do_action('wp_ajax_load_pr...')
+#4 {main}
+  thrown in C:\wamp64\www\wordpress\wp-content\themes\doAnCMS\functions.php on line 629
+[17-Nov-2025 10:45:19 UTC] PHP Fatal error:  Uncaught Error: Call to a member function get_id() on null in C:\wamp64\www\wordpress\wp-content\themes\doAnCMS\functions.php:629
+Stack trace:
+#0 C:\wamp64\www\wordpress\wp-includes\class-wp-hook.php(324): doAnCMS_load_product_quick_view('')
+#1 C:\wamp64\www\wordpress\wp-includes\class-wp-hook.php(348): WP_Hook->apply_filters('', Array)
+#2 C:\wamp64\www\wordpress\wp-includes\plugin.php(517): WP_Hook->do_action(Array)
+#3 C:\wamp64\www\wordpress\wp-admin\admin-ajax.php(192): do_action('wp_ajax_load_pr...')
+#4 {main}
+  thrown in C:\wamp64\www\wordpress\wp-content\themes\doAnCMS\functions.php on line 629
+[17-Nov-2025 11:21:16 UTC] Cron unschedule event error for hook: do_pings, Error code: could_not_set, Error message: The cron event list could not be saved., Data: {"schedule":false,"args":[]}
+[17-Nov-2025 11:47:59 UTC] PHP Deprecated:  File Theme without sidebar.php is <strong>deprecated</strong> since version 3.0.0 with no alternative available. Please include a sidebar.php template in your theme. in C:\wamp64\www\wordpress\wp-includes\functions.php on line 6121
+[17-Nov-2025 11:47:59 UTC] PHP Stack trace:
+[17-Nov-2025 11:47:59 UTC] PHP   1. {main}() C:\wamp64\www\wordpress\index.php:0
+[17-Nov-2025 11:47:59 UTC] PHP   2. require() C:\wamp64\www\wordpress\index.php:17
+[17-Nov-2025 11:47:59 UTC] PHP   3. require_once() C:\wamp64\www\wordpress\wp-blog-header.php:19
+[17-Nov-2025 11:47:59 UTC] PHP   4. include() C:\wamp64\www\wordpress\wp-includes\template-loader.php:106
+[17-Nov-2025 11:47:59 UTC] PHP   5. wc_get_template($template_name = 'archive-product.php', $args = *uninitialized*, $template_path = *uninitialized*, $default_path = *uninitialized*) C:\wamp64\www\wordpress\wp-content\plugins\woocommerce\templates\taxonomy-product-tag.php:22
+[17-Nov-2025 11:47:59 UTC] PHP   6. include() C:\wamp64\www\wordpress\wp-content\plugins\woocommerce\includes\wc-core-functions.php:346
+[17-Nov-2025 11:47:59 UTC] PHP   7. do_action($hook_name = 'woocommerce_sidebar') C:\wamp64\www\wordpress\wp-content\plugins\woocommerce\templates\archive-product.php:95
+[17-Nov-2025 11:47:59 UTC] PHP   8. WP_Hook->do_action($args = [0 => '']) C:\wamp64\www\wordpress\wp-includes\plugin.php:517
+[17-Nov-2025 11:47:59 UTC] PHP   9. WP_Hook->apply_filters($value = '', $args = [0 => '']) C:\wamp64\www\wordpress\wp-includes\class-wp-hook.php:348
+[17-Nov-2025 11:47:59 UTC] PHP  10. woocommerce_get_sidebar('') C:\wamp64\www\wordpress\wp-includes\class-wp-hook.php:324
+[17-Nov-2025 11:47:59 UTC] PHP  11. wc_get_template($template_name = 'global/sidebar.php', $args = *uninitialized*, $template_path = *uninitialized*, $default_path = *uninitialized*) C:\wamp64\www\wordpress\wp-content\plugins\woocommerce\includes\wc-template-functions.php:1077
+[17-Nov-2025 11:47:59 UTC] PHP  12. include() C:\wamp64\www\wordpress\wp-content\plugins\woocommerce\includes\wc-core-functions.php:346
+[17-Nov-2025 11:47:59 UTC] PHP  13. get_sidebar($name = 'shop', $args = *uninitialized*) C:\wamp64\www\wordpress\wp-content\plugins\woocommerce\templates\global\sidebar.php:22
+[17-Nov-2025 11:47:59 UTC] PHP  14. locate_template($template_names = [0 => 'sidebar-shop.php', 1 => 'sidebar.php'], $load = TRUE, $load_once = TRUE, $args = []) C:\wamp64\www\wordpress\wp-includes\general-template.php:136
+[17-Nov-2025 11:47:59 UTC] PHP  15. load_template($_template_file = 'C:\\wamp64\\www\\wordpress/wp-includes/theme-compat/sidebar.php', $load_once = TRUE, $args = []) C:\wamp64\www\wordpress\wp-includes\template.php:745
+[17-Nov-2025 11:47:59 UTC] PHP  16. require_once() C:\wamp64\www\wordpress\wp-includes\template.php:810
+[17-Nov-2025 11:47:59 UTC] PHP  17. _deprecated_file($file = 'Theme without sidebar.php', $version = '3.0.0', $replacement = NULL, $message = 'Please include a sidebar.php template in your theme.') C:\wamp64\www\wordpress\wp-includes\theme-compat\sidebar.php:9
+[17-Nov-2025 11:47:59 UTC] PHP  18. wp_trigger_error($function_name = '', $message = 'File Theme without sidebar.php is <strong>deprecated</strong> since version 3.0.0 with no alternative available. Please include a sidebar.php template in your theme.', $error_level = 16384) C:\wamp64\www\wordpress\wp-includes\functions.php:5831
+[17-Nov-2025 11:47:59 UTC] PHP  19. trigger_error($message = 'File Theme without sidebar.php is <strong>deprecated</strong> since version 3.0.0 with no alternative available. Please include a sidebar.php template in your theme.', $error_level = 16384) C:\wamp64\www\wordpress\wp-includes\functions.php:6121
