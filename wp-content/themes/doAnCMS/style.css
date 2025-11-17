@@ -487,3 +487,25 @@ body {
 .doAnCMS-blog-item h2 a:hover {
     color: #6b9d3e;
 }
+
+.nav-wrapper {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    /* menu bên trái, login bên phải */
+    align-items: center;
+    /* thẳng hàng theo chiều dọc */
+    flex-wrap: wrap;
+}
+
+.nav-container {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.login-btn {
+    display: flex;
+    align-items: center;
+}

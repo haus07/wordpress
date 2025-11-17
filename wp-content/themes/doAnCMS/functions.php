@@ -252,88 +252,88 @@ function send_newsletter_on_new_product($post_id)
     $emails = get_option('newsletter_subscribers', array());
     if (empty($emails)) return;
     $product = wc_get_product($post_id);
-add_action('transition_post_status', 'send_newsletter_on_new_product', 10, 3);
-function send_newsletter_on_new_product($new_status, $old_status, $post)
-{
-    // Chỉ xử lý với post type product
-    if ($post->post_type !== 'product') return;
+    add_action('transition_post_status', 'send_newsletter_on_new_product', 10, 3);
+    function send_newsletter_on_new_product($new_status, $old_status, $post)
+    {
+        // Chỉ xử lý với post type product
+        if ($post->post_type !== 'product') return;
 
-    // Chỉ gửi mail khi sản phẩm mới được publish (từ draft/pending → publish)
-    if ($new_status !== 'publish' || $old_status === 'publish') return;
+        // Chỉ gửi mail khi sản phẩm mới được publish (từ draft/pending → publish)
+        if ($new_status !== 'publish' || $old_status === 'publish') return;
 
-    // Delay 5 giây để đảm bảo metadata đã được lưu
-    wp_schedule_single_event(time() + 5, 'send_newsletter_delayed', [$post->ID]);
-}
-
-add_action('send_newsletter_delayed', 'send_newsletter_on_new_product_delayed');
-function send_newsletter_on_new_product_delayed($product_id)
-{
-    $product = wc_get_product($product_id);
-    if (!$product) return;
-
-    $emails = get_option('newsletter_subscribers', []);
-    if (empty($emails)) return;
-
-    $product_name = $product->get_name();
-    $product_link = get_permalink($product_id);
-
-    $price = $product->get_sale_price();
-    if (!$price) {
-        $price = $product->get_regular_price();
+        // Delay 5 giây để đảm bảo metadata đã được lưu
+        wp_schedule_single_event(time() + 5, 'send_newsletter_delayed', [$post->ID]);
     }
-    $product_price = $price ? wc_price($price) : 'Liên hệ';
 
-    // Lấy hình ảnh và tối ưu
-    $image_tag = '';
-    $image_id = $product->get_image_id();
+    add_action('send_newsletter_delayed', 'send_newsletter_on_new_product_delayed');
+    function send_newsletter_on_new_product_delayed($product_id)
+    {
+        $product = wc_get_product($product_id);
+        if (!$product) return;
 
-    if ($image_id) {
-        // Lấy thumbnail size thay vì medium để nhẹ hơn
-        $image_data_array = wp_get_attachment_image_src($image_id, 'thumbnail'); // 150x150
+        $emails = get_option('newsletter_subscribers', []);
+        if (empty($emails)) return;
 
-        if (!$image_data_array) {
-            // Fallback sang medium nếu không có thumbnail
-            $image_data_array = wp_get_attachment_image_src($image_id, 'medium');
+        $product_name = $product->get_name();
+        $product_link = get_permalink($product_id);
+
+        $price = $product->get_sale_price();
+        if (!$price) {
+            $price = $product->get_regular_price();
         }
+        $product_price = $price ? wc_price($price) : 'Liên hệ';
 
-        if ($image_data_array) {
-            $image_url = $image_data_array[0];
-            $upload_dir = wp_upload_dir();
-            $image_path = str_replace($upload_dir['baseurl'], $upload_dir['basedir'], $image_url);
+        // Lấy hình ảnh và tối ưu
+        $image_tag = '';
+        $image_id = $product->get_image_id();
 
-            // Đổi dấu / thành \ cho Windows
-            $image_path = str_replace('/', DIRECTORY_SEPARATOR, $image_path);
+        if ($image_id) {
+            // Lấy thumbnail size thay vì medium để nhẹ hơn
+            $image_data_array = wp_get_attachment_image_src($image_id, 'thumbnail'); // 150x150
 
-            if (file_exists($image_path)) {
-                $image_data = file_get_contents($image_path);
+            if (!$image_data_array) {
+                // Fallback sang medium nếu không có thumbnail
+                $image_data_array = wp_get_attachment_image_src($image_id, 'medium');
+            }
 
-                // Nếu file vẫn lớn hơn 50KB, nén thêm bằng GD
-                if (strlen($image_data) > 51200) {
-                    $image_data = optimize_image_for_email($image_path);
-                }
+            if ($image_data_array) {
+                $image_url = $image_data_array[0];
+                $upload_dir = wp_upload_dir();
+                $image_path = str_replace($upload_dir['baseurl'], $upload_dir['basedir'], $image_url);
 
-                if ($image_data) {
-                    $finfo = finfo_open(FILEINFO_MIME_TYPE);
-                    $mime_type = finfo_file($finfo, $image_path);
-                    finfo_close($finfo);
+                // Đổi dấu / thành \ cho Windows
+                $image_path = str_replace('/', DIRECTORY_SEPARATOR, $image_path);
 
-                    $base64_image = base64_encode($image_data);
-                    $image_tag = "<img src='data:{$mime_type};base64,{$base64_image}' alt='{$product_name}' style='max-width:250px;height:auto;border-radius:8px;display:block;margin:0 auto;' />";
+                if (file_exists($image_path)) {
+                    $image_data = file_get_contents($image_path);
 
-                    error_log('Base64 length: ' . strlen($base64_image) . ' characters');
+                    // Nếu file vẫn lớn hơn 50KB, nén thêm bằng GD
+                    if (strlen($image_data) > 51200) {
+                        $image_data = optimize_image_for_email($image_path);
+                    }
+
+                    if ($image_data) {
+                        $finfo = finfo_open(FILEINFO_MIME_TYPE);
+                        $mime_type = finfo_file($finfo, $image_path);
+                        finfo_close($finfo);
+
+                        $base64_image = base64_encode($image_data);
+                        $image_tag = "<img src='data:{$mime_type};base64,{$base64_image}' alt='{$product_name}' style='max-width:250px;height:auto;border-radius:8px;display:block;margin:0 auto;' />";
+
+                        error_log('Base64 length: ' . strlen($base64_image) . ' characters');
+                    }
                 }
             }
         }
-    }
 
-    // Fallback placeholder
-    if (!$image_tag) {
-        $image_tag = "<div style='background:#f0f0f0;padding:60px 20px;border-radius:8px;text-align:center;color:#999;'>📦 Không có hình ảnh</div>";
-    }
+        // Fallback placeholder
+        if (!$image_tag) {
+            $image_tag = "<div style='background:#f0f0f0;padding:60px 20px;border-radius:8px;text-align:center;color:#999;'>📦 Không có hình ảnh</div>";
+        }
 
-    $subject = "🛒 Sản phẩm mới: {$product_name}";
+        $subject = "🛒 Sản phẩm mới: {$product_name}";
 
-    $body = "
+        $body = "
         <!DOCTYPE html>
         <html>
         <head>
@@ -363,10 +363,11 @@ function send_newsletter_on_new_product_delayed($product_id)
         </html>
     ";
 
-    $headers = ['Content-Type: text/html; charset=UTF-8'];
+        $headers = ['Content-Type: text/html; charset=UTF-8'];
 
-    foreach ($emails as $email) {
-        wp_mail($email, $subject, $body, $headers);
+        foreach ($emails as $email) {
+            wp_mail($email, $subject, $body, $headers);
+        }
     }
 }
 
@@ -421,12 +422,17 @@ function doAnCMS_add_to_cart_woo()
 }
 add_action('template_redirect', 'doAnCMS_add_to_cart_woo');
 
-// =======================
-// Tạo 10 bài viết mẫu (chỉ chạy 1 lần)
-// =======================
 function doAnCMS_create_sample_blog_posts()
 {
-    if (get_option('doAnCMS_sample_blog_posts_created')) return; // chỉ chạy 1 lần
+    // Chỉ chạy 1 lần
+    if (get_option('doAnCMS_sample_blog_posts_created')) return;
+
+    // Kiểm tra hoặc tạo category 'Blog Mẫu'
+    $category_name = 'Blog Mẫu';
+    $category_id = get_cat_ID($category_name);
+    if ($category_id == 0) {
+        $category_id = wp_create_category($category_name);
+    }
 
     $titles = [
         'Lợi ích của rau hữu cơ',
@@ -444,29 +450,28 @@ function doAnCMS_create_sample_blog_posts()
     foreach ($titles as $index => $title) {
         $content = "Đây là nội dung mẫu cho bài viết: $title. Thông tin về organic food, sức khỏe và cách chọn thực phẩm hữu cơ.";
 
+        // Tạo bài viết
         $post_id = wp_insert_post([
             'post_title'    => $title,
             'post_content'  => $content,
             'post_status'   => 'publish',
             'post_author'   => 1,
-            'post_category' => [1], // category ID = 1 (Bạn có thể đổi)
+            'post_category' => [$category_id],
+            'post_type'     => 'post', // <- bắt buộc
         ]);
+        if ($post_id) {
+            error_log("Created post: $title, ID: $post_id");
+        }
 
         if ($post_id) {
-            // Gắn ảnh thumbnail
+            // Gắn ảnh thumbnail nếu có
             $image_path = get_template_directory() . '/assets/images/blog/blog' . ($index + 1) . '.jpg';
+
             if (file_exists($image_path)) {
                 $upload_dir = wp_upload_dir();
-                $image_data = file_get_contents($image_path);
                 $filename = basename($image_path);
-
-                if (wp_mkdir_p($upload_dir['path'])) {
-                    $file = $upload_dir['path'] . '/' . $filename;
-                } else {
-                    $file = $upload_dir['basedir'] . '/' . $filename;
-                }
-
-                file_put_contents($file, $image_data);
+                $new_file = $upload_dir['path'] . '/' . $filename;
+                copy($image_path, $new_file);
 
                 $wp_filetype = wp_check_filetype($filename, null);
                 $attachment = [
@@ -476,18 +481,29 @@ function doAnCMS_create_sample_blog_posts()
                     'post_status'    => 'inherit'
                 ];
 
-                $attach_id = wp_insert_attachment($attachment, $file, $post_id);
+                $attach_id = wp_insert_attachment($attachment, $new_file, $post_id);
                 require_once(ABSPATH . 'wp-admin/includes/image.php');
-                $attach_data = wp_generate_attachment_metadata($attach_id, $file);
+                $attach_data = wp_generate_attachment_metadata($attach_id, $new_file);
                 wp_update_attachment_metadata($attach_id, $attach_data);
                 set_post_thumbnail($post_id, $attach_id);
             }
         }
     }
 
+    // Đánh dấu đã tạo xong
     update_option('doAnCMS_sample_blog_posts_created', 1);
 }
-// add_action('after_setup_theme', 'doAnCMS_create_sample_blog_posts');
+
+add_action('admin_init', function () {
+    if (isset($_GET['create_sample_posts']) && current_user_can('administrator')) {
+        doAnCMS_create_sample_blog_posts();
+        add_action('admin_notices', function () {
+            echo '<div class="notice notice-success is-dismissible"><p>✅ 10 bài viết mẫu đã được tạo!</p></div>';
+        });
+    }
+});
+
+
 
 // =======================
 // Shortcode hiển thị bài viết gần đây
