@@ -188,34 +188,34 @@
         <div class="nav-toggle" id="nav-toggle">☰ Menu</div>
         <div class="login-btn">
 
-    <?php if ( is_user_logged_in() ) : ?>
+          <?php if (is_user_logged_in()) : ?>
 
-        <?php 
+            <?php
             $user = wp_get_current_user();
             $username = $user->display_name ?: $user->user_login;
-        ?>
+            ?>
 
-        <div class="user-menu">
-            <span class="username">Xin chào, <?php echo esc_html($username); ?> 👋</span>
-            <div class="menu-toggle" id="userMenuToggle">⋮</div>
+            <div class="user-menu">
+              <span class="username">Xin chào, <?php echo esc_html($username); ?> 👋</span>
+              <div class="menu-toggle" id="userMenuToggle">⋮</div>
 
-            <div class="user-dropdown" id="userDropdown">
+              <div class="user-dropdown" id="userDropdown">
                 <a href="<?php echo wc_get_cart_url(); ?>">🛒 Giỏ hàng</a>
-                <a href="<?php echo wp_logout_url( home_url() ); ?>">🚪 Đăng xuất</a>
+                <a href="<?php echo wp_logout_url(home_url()); ?>">🚪 Đăng xuất</a>
+              </div>
             </div>
-        </div>
 
-    <?php else : ?>
+          <?php else : ?>
 
-        <a href="<?php echo esc_url( home_url('/tai-khoan/') ); ?>"
-           style="border:1px solid #6b9d3e; padding:8px 14px; border-radius:6px;
+            <a href="<?php echo esc_url(home_url('/tai-khoan/')); ?>"
+              style="border:1px solid #6b9d3e; padding:8px 14px; border-radius:6px;
                   color:#6b9d3e; font-weight:600; text-decoration:none; background:#fff;">
-            Đăng nhập
-        </a>
+              Đăng nhập
+            </a>
 
-    <?php endif; ?>
+          <?php endif; ?>
 
-</div>
+        </div>
 
       </div>
 
@@ -227,7 +227,7 @@
     <div class="nav-container" id="nav-container">
       <a href="<?php echo home_url('/'); ?>">HOME</a>
       <a href="<?php echo home_url('/#organic'); ?>">VỀ ORGANIC SHOP</a>
-      <a href="<?php echo home_url('/#blog'); ?>">BLOGS ORGANIC</a>
+      <a href="<?php echo home_url('/blog-page'); ?>">BLOGS ORGANIC</a>
       <a href="<?php echo home_url('/contact'); ?>">LIÊN HỆ</a>
     </div>
   </div>
@@ -245,24 +245,24 @@
 
 
   <script>
-  document.addEventListener("DOMContentLoaded", function () {
-    const toggle = document.getElementById("userMenuToggle");
-    const dropdown = document.getElementById("userDropdown");
+    document.addEventListener("DOMContentLoaded", function() {
+      const toggle = document.getElementById("userMenuToggle");
+      const dropdown = document.getElementById("userDropdown");
 
-    if (toggle && dropdown) {
-      toggle.addEventListener("click", () => {
-        dropdown.style.display =
-          dropdown.style.display === "block" ? "none" : "block";
-      });
+      if (toggle && dropdown) {
+        toggle.addEventListener("click", () => {
+          dropdown.style.display =
+            dropdown.style.display === "block" ? "none" : "block";
+        });
 
-      document.addEventListener("click", function (e) {
-        if (!toggle.contains(e.target) && !dropdown.contains(e.target)) {
-          dropdown.style.display = "none";
-        }
-      });
-    }
-  });
-</script>
+        document.addEventListener("click", function(e) {
+          if (!toggle.contains(e.target) && !dropdown.contains(e.target)) {
+            dropdown.style.display = "none";
+          }
+        });
+      }
+    });
+  </script>
 
 </body>
 
