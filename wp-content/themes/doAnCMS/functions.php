@@ -718,3 +718,32 @@ add_action('wp_head', function() {
 </style>
     <?php }
 });
+
+
+function my_custom_add_to_cart_text($text, $product) {
+    if ($product->is_type('variable')) {
+        return __('Tuỳ chọn', 'html_cms'); // Chữ cho sản phẩm có biến thể
+    }
+    
+    if ($product->is_type('simple')) {
+        return __('Thêm vào giỏ hàng', 'html_cms'); // Chữ cho sản phẩm đơn
+    }
+
+    return $text; // Giữ nguyên cho các loại khác
+}
+add_filter('woocommerce_product_add_to_cart_text', 'my_custom_add_to_cart_text', 10, 2);
+
+
+
+function html_cms_widgets_init() {
+    register_sidebar( array(
+        'name'          => esc_html__( 'Shop Sidebar', 'html_cms' ),
+        'id'            => 'shop-sidebar',
+        'description'   => esc_html__( 'Thêm các widget lọc sản phẩm vào đây.', 'html_cms' ),
+        'before_widget' => '<div id="%1$s" class="widget %2$s">',
+        'after_widget'  => '</div>',
+        'before_title'  => '<h4 class="widget-title">',
+        'after_title'   => '</h4>',
+    ) );
+}
+add_action( 'widgets_init', 'html_cms_widgets_init' );

@@ -4200,3 +4200,22 @@ Stack trace:
 [17-Nov-2025 13:22:42 UTC] ✅ Post "Chế độ ăn organic giảm cân" được tạo với ID: 2009
 [17-Nov-2025 13:22:42 UTC] ✅ Post "Organic food: Xu hướng 2025" được tạo với ID: 2011
 [17-Nov-2025 13:22:42 UTC] ✅ Hoàn tất tạo 10 bài viết mẫu với ảnh và content dài.
+[17-Nov-2025 13:59:00 UTC] Automatic updates starting...
+[17-Nov-2025 13:59:02 UTC]   Automatic plugin updates starting...
+[17-Nov-2025 13:59:02 UTC]   Automatic plugin updates complete.
+[17-Nov-2025 13:59:03 UTC]   Automatic theme updates starting...
+[17-Nov-2025 13:59:03 UTC]   Automatic theme updates complete.
+[17-Nov-2025 13:59:03 UTC] Automatic updates complete.
+[17-Nov-2025 14:35:37 UTC] PHP Parse error:  syntax error, unexpected token "]" in C:\wamp64\www\wordpress\wp-content\themes\doAnCMS\woocommerce\taxonomy-product_cat.php on line 25
+[17-Nov-2025 15:08:26 UTC] PHP Notice:  Function wp_enqueue_script() was called <strong>incorrectly</strong>. "wp-editor" script should not be enqueued together with the new widgets editor (wp-edit-widgets or wp-customize-widgets). Please see <a href="https://developer.wordpress.org/advanced-administration/debug/debug-wordpress/">Debugging in WordPress</a> for more information. (This message was added in version 5.8.0.) in C:\wamp64\www\wordpress\wp-includes\functions.php on line 6121
+[17-Nov-2025 15:08:26 UTC] PHP Stack trace:
+[17-Nov-2025 15:08:26 UTC] PHP   1. {main}() C:\wamp64\www\wordpress\wp-admin\widgets.php:0
+[17-Nov-2025 15:08:26 UTC] PHP   2. require() C:\wamp64\www\wordpress\wp-admin\widgets.php:32
+[17-Nov-2025 15:08:26 UTC] PHP   3. require_once() C:\wamp64\www\wordpress\wp-admin\widgets-form-blocks.php:88
+[17-Nov-2025 15:08:26 UTC] PHP   4. do_action($hook_name = 'admin_head') C:\wamp64\www\wordpress\wp-admin\admin-header.php:168
+[17-Nov-2025 15:08:26 UTC] PHP   5. WP_Hook->do_action($args = [0 => '']) C:\wamp64\www\wordpress\wp-includes\plugin.php:517
+[17-Nov-2025 15:08:26 UTC] PHP   6. WP_Hook->apply_filters($value = '', $args = [0 => '']) C:\wamp64\www\wordpress\wp-includes\class-wp-hook.php:348
+[17-Nov-2025 15:08:26 UTC] PHP   7. wp_check_widget_editor_deps('') C:\wamp64\www\wordpress\wp-includes\class-wp-hook.php:324
+[17-Nov-2025 15:08:26 UTC] PHP   8. _doing_it_wrong($function_name = 'wp_enqueue_script()', $message = '"wp-editor" script should not be enqueued together with the new widgets editor (wp-edit-widgets or wp-customize-widgets).', $version = '5.8.0') C:\wamp64\www\wordpress\wp-includes\widgets.php:2102
+[17-Nov-2025 15:08:26 UTC] PHP   9. wp_trigger_error($function_name = '', $message = 'Function wp_enqueue_script() was called <strong>incorrectly</strong>. "wp-editor" script should not be enqueued together with the new widgets editor (wp-edit-widgets or wp-customize-widgets). Please see <a href="https://developer.wordpress.org/advanced-administration/debug/debug-wordpress/">Debugging in WordPress</a> for more information. (This message was added in version 5.8.0.)', $error_level = *uninitialized*) C:\wamp64\www\wordpress\wp-includes\functions.php:6061
+[17-Nov-2025 15:08:26 UTC] PHP  10. trigger_error($message = 'Function wp_enqueue_script() was called <strong>incorrectly</strong>. "wp-editor" script should not be enqueued together with the new widgets editor (wp-edit-widgets or wp-customize-widgets). Please see <a href="https://developer.wordpress.org/advanced-administration/debug/debug-wordpress/">Debugging in WordPress</a> for more information. (This message was added in version 5.8.0.)', $error_level = 1024) C:\wamp64\www\wordpress\wp-includes\functions.php:6121
