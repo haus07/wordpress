@@ -252,28 +252,145 @@ function send_newsletter_on_new_product($post_id)
     $emails = get_option('newsletter_subscribers', array());
     if (empty($emails)) return;
     $product = wc_get_product($post_id);
+add_action('transition_post_status', 'send_newsletter_on_new_product', 10, 3);
+function send_newsletter_on_new_product($new_status, $old_status, $post)
+{
+    // Chỉ xử lý với post type product
+    if ($post->post_type !== 'product') return;
+
+    // Chỉ gửi mail khi sản phẩm mới được publish (từ draft/pending → publish)
+    if ($new_status !== 'publish' || $old_status === 'publish') return;
+
+    // Delay 5 giây để đảm bảo metadata đã được lưu
+    wp_schedule_single_event(time() + 5, 'send_newsletter_delayed', [$post->ID]);
+}
+
+add_action('send_newsletter_delayed', 'send_newsletter_on_new_product_delayed');
+function send_newsletter_on_new_product_delayed($product_id)
+{
+    $product = wc_get_product($product_id);
     if (!$product) return;
+
+    $emails = get_option('newsletter_subscribers', []);
+    if (empty($emails)) return;
+
     $product_name = $product->get_name();
-    $product_link = get_permalink($post_id);
-    $price = $product->get_sale_price() ?: $product->get_regular_price();
-    $product_price = wc_price($price);
-    $thumbnail = get_the_post_thumbnail_url($post_id, 'medium') ?: wc_placeholder_img_src('medium');
+    $product_link = get_permalink($product_id);
+
+    $price = $product->get_sale_price();
+    if (!$price) {
+        $price = $product->get_regular_price();
+    }
+    $product_price = $price ? wc_price($price) : 'Liên hệ';
+
+    // Lấy hình ảnh và tối ưu
+    $image_tag = '';
+    $image_id = $product->get_image_id();
+
+    if ($image_id) {
+        // Lấy thumbnail size thay vì medium để nhẹ hơn
+        $image_data_array = wp_get_attachment_image_src($image_id, 'thumbnail'); // 150x150
+
+        if (!$image_data_array) {
+            // Fallback sang medium nếu không có thumbnail
+            $image_data_array = wp_get_attachment_image_src($image_id, 'medium');
+        }
+
+        if ($image_data_array) {
+            $image_url = $image_data_array[0];
+            $upload_dir = wp_upload_dir();
+            $image_path = str_replace($upload_dir['baseurl'], $upload_dir['basedir'], $image_url);
+
+            // Đổi dấu / thành \ cho Windows
+            $image_path = str_replace('/', DIRECTORY_SEPARATOR, $image_path);
+
+            if (file_exists($image_path)) {
+                $image_data = file_get_contents($image_path);
+
+                // Nếu file vẫn lớn hơn 50KB, nén thêm bằng GD
+                if (strlen($image_data) > 51200) {
+                    $image_data = optimize_image_for_email($image_path);
+                }
+
+                if ($image_data) {
+                    $finfo = finfo_open(FILEINFO_MIME_TYPE);
+                    $mime_type = finfo_file($finfo, $image_path);
+                    finfo_close($finfo);
+
+                    $base64_image = base64_encode($image_data);
+                    $image_tag = "<img src='data:{$mime_type};base64,{$base64_image}' alt='{$product_name}' style='max-width:250px;height:auto;border-radius:8px;display:block;margin:0 auto;' />";
+
+                    error_log('Base64 length: ' . strlen($base64_image) . ' characters');
+                }
+            }
+        }
+    }
+
+    // Fallback placeholder
+    if (!$image_tag) {
+        $image_tag = "<div style='background:#f0f0f0;padding:60px 20px;border-radius:8px;text-align:center;color:#999;'>📦 Không có hình ảnh</div>";
+    }
+
     $subject = "🛒 Sản phẩm mới: {$product_name}";
+
     $body = "
-        <h2>Chào bạn,</h2>
-        <p>Chúng tôi vừa thêm sản phẩm mới trong cửa hàng:</p>
-        <div style='text-align:center;'>
-            <img src='{$thumbnail}' alt='{$product_name}' style='max-width:250px;border-radius:8px;'>
-        </div>
-        <h3>{$product_name}</h3>
-        <p>Giá: {$product_price}</p>
-        <p><a href='{$product_link}' style='color:#6b9d3e;font-weight:bold;'>Xem chi tiết sản phẩm tại đây</a></p>
-        <br>
-        <p>Trân trọng,<br><strong>Đội ngũ Organic Food Shop</strong></p>
+        <!DOCTYPE html>
+        <html>
+        <head>
+            <meta charset='UTF-8'>
+        </head>
+        <body style='font-family:Arial,sans-serif;background:#f5f5f5;padding:20px;'>
+            <div style='max-width:600px;margin:0 auto;background:#fff;padding:30px;border-radius:10px;box-shadow:0 2px 4px rgba(0,0,0,0.1);'>
+                <h2 style='color:#6b9d3e;margin-top:0;'>Chào bạn,</h2>
+                <p style='color:#666;line-height:1.6;'>Sản phẩm mới đã được thêm vào cửa hàng:</p>
+                <div style='text-align:center;margin:30px 0;'>
+                    {$image_tag}
+                </div>
+                <h3 style='text-align:center;color:#333;margin:20px 0;'>{$product_name}</h3>
+                <p style='text-align:center;font-size:24px;color:#6b9d3e;font-weight:bold;margin:15px 0;'>
+                    {$product_price}
+                </p>
+                <p style='text-align:center;margin:30px 0;'>
+                    <a href='{$product_link}' style='background:#6b9d3e;color:#fff;padding:15px 40px;text-decoration:none;border-radius:5px;display:inline-block;font-weight:bold;'>Xem chi tiết sản phẩm</a>
+                </p>
+                <hr style='border:none;border-top:1px solid #eee;margin:30px 0;'>
+                <p style='color:#999;font-size:14px;text-align:center;margin:0;'>
+                    Trân trọng,<br>
+                    <strong style='color:#6b9d3e;'>Organic Food Shop</strong>
+                </p>
+            </div>
+        </body>
+        </html>
     ";
-    $headers = array('Content-Type: text/html; charset=UTF-8');
+
+    $headers = ['Content-Type: text/html; charset=UTF-8'];
+
     foreach ($emails as $email) {
         wp_mail($email, $subject, $body, $headers);
+    }
+}
+
+// Hàm tối ưu hình ảnh
+function optimize_image_for_email($image_path)
+{
+    $info = getimagesize($image_path);
+
+    if (!$info) return false;
+
+    $mime_type = $info['mime'];
+
+    // Tạo image resource
+    switch ($mime_type) {
+        case 'image/jpeg':
+            $image = imagecreatefromjpeg($image_path);
+            break;
+        case 'image/png':
+            $image = imagecreatefrompng($image_path);
+            break;
+        case 'image/gif':
+            $image = imagecreatefromgif($image_path);
+            break;
+        default;
     }
 }
 
@@ -453,3 +570,19 @@ add_shortcode('recent-posts', 'doAnCMS_recent_posts_shortcode');
 
 // // Gọi hàm 1 lần duy nhất
 // doAnCMS_delete_all_posts();
+// Slide
+function theme_enqueue_swiper()
+{
+    // CSS
+    wp_enqueue_style('swiper-css', 'https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css');
+
+    // JS
+    wp_enqueue_script('swiper-js', 'https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js', [], false, true);
+}
+add_action('wp_enqueue_scripts', 'theme_enqueue_swiper');
+// Phân trang
+add_action('pre_get_posts', function ($query) {
+    if (!is_admin() && $query->is_main_query() && is_tax('product_cat')) {
+        $query->set('posts_per_page', 5);
+    }
+});
