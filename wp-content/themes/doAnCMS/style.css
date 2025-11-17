@@ -509,3 +509,77 @@ body {
     display: flex;
     align-items: center;
 }
+
+
+/* ===================== PRODUCT CARD ACTIONS (Ý TƯỞNG 1) ===================== */
+
+/* Ẩn nút đi bình thường */
+.product-card .product-actions {
+    position: absolute;
+    bottom: 10px; /* Hiện ở gần đáy card */
+    left: 50%;
+    transform: translateX(-50%);
+    opacity: 0; /* Ẩn đi */
+    transition: all 0.3s ease;
+    z-index: 10;
+}
+
+/* Khi hover vào card thì cho nút hiện ra */
+.product-card:hover .product-actions {
+    opacity: 1;
+    bottom: 15px; /* Hiệu ứng trượt lên 1 chút */
+}
+
+/* Style cho cái nút 🛒 */
+.btn-add-to-cart {
+    display: block;
+    background: #fff;
+    color: #6b9d3e;
+    border: 2px solid #6b9d3e;
+    border-radius: 50%; /* Nút tròn */
+    width: 45px;
+    height: 45px;
+    font-size: 20px;
+    text-decoration: none;
+    
+    /* Căn icon 🛒 vào giữa nút */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    transition: all 0.3s ease;
+}
+
+.btn-add-to-cart:hover {
+    background: #c3e8a3;
+    color: #fff;
+    transform: scale(1.1); /* Phóng to 1 chút */
+}
+
+.swiper-button-next,
+.swiper-button-prev {
+    background: rgba(255, 255, 255, 0.8);
+    border: 1px solid #e0e0e0;
+    color: #6b9d3e !important; /* Màu xanh lá của theme */
+    width: 45px !important;
+    height: 45px !important;
+    border-radius: 50% !important;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    transition: all 0.3s ease;
+}
+
+/* Đổi kích thước icon mũi tên bên trong */
+.swiper-button-next::after,
+.swiper-button-prev::after {
+    font-size: 20px !important;
+    font-weight: 900 !important;
+}
+
+/* Hiệu ứng hover */
+.swiper-button-next:hover,
+.swiper-button-prev:hover {
+    background: #6b9d3e !important;
+    color: #fff !important;
+    border-color: #6b9d3e;
+}
