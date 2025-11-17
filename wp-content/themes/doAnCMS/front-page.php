@@ -1,24 +1,50 @@
 <?php get_header(); ?>
 
 <!-- ===================== BANNER KHUYẾN MÃI ===================== -->
-<div class="banner">
-    <div class="banner-container">
-        <div class="sidebar">
-            <?php
-            wp_list_categories([
-                'title_li'     => '',
-                'taxonomy'     => 'product_cat',
-                'show_count'   => 1,
-                'hierarchical' => 1
-            ]);
-            ?>
-        </div>
-
-        <div class="banner-slider">
+<div class="container">
+    
+      <div class="top-banner-grid">
+        
+        <!-- CỘT TRÁI: SLIDER CHÍNH (Giữ nguyên) -->
+        <div class="main-slider-wrapper">
             <?php echo do_shortcode('[smartslider3 slider="3"]'); ?>
         </div>
+
+        <!-- CỘT PHẢI: 2 BANNER DỌC (ĐÃ THAY ẢNH THẬT) -->
+        <div class="side-banner-stack">
+            <a href="#" class="side-banner-item">
+                <img src="<?php echo get_template_directory_uri(); ?>/assets/images/banners/banner6.jpg" alt="Banner Phụ 1">
+            </a>
+            <a href="#" class="side-banner-item">
+                <!-- 
+                  Bro có cả banner7.png và banner7.jpg
+                  Tui đang dùng banner7.jpg, bro đổi lại nếu muốn nhé
+                -->
+                <img src="<?php echo get_template_directory_uri(); ?>/assets/images/banners/banner7.jpg" alt="Banner Phụ 2">
+            </a>
+        </div>
+
+    </div> <!-- Hết .top-banner-grid -->
+
+    <!-- HÀNG 2: 4 BANNER NHỎ (ĐÃ THAY ẢNH THẬT) -->
+    <div class="small-banner-grid">
+        <a href="#" class="small-banner-item">
+            <img src="<?php echo get_template_directory_uri(); ?>/assets/images/banners/banner8.jpg" alt="Banner 8">
+        </a>
+        <a href="#" class="small-banner-item">
+            <img src="<?php echo get_template_directory_uri(); ?>/assets/images/banners/banner9.jpg" alt="Banner 9">
+        </a>
+        <a href="#" class="small-banner-item">
+            <img src="<?php echo get_template_directory_uri(); ?>/assets/images/banners/banner10.jpg" alt="Banner 10">
+        </a>
+        <a href="#" class="small-banner-item">
+            <img src="<?php echo get_template_directory_uri(); ?>/assets/images/banners/banner11.jpg" alt="Banner 11">
+        </a>
     </div>
-</div>
+
+</div> 
+
+
 
 </div> 
 

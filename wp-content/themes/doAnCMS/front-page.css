@@ -1183,3 +1183,137 @@ body {
     0% { transform: rotate(0deg); }
     100% { transform: rotate(360deg); }
 }
+
+/* new banner */
+
+.top-banner-grid {
+    display: grid;
+    /* Chia 2 cột:
+      - Cột trái (slider) chiếm 2/3 (2fr)
+      - Cột phải (banner) chiếm 1/3 (1fr)
+    */
+    grid-template-columns: 2fr 1fr;
+    gap: 20px;
+    margin-bottom: 20px; /* Khoảng cách với hàng 2 */
+}
+
+.main-slider-wrapper {
+    border-radius: 10px;
+    overflow: hidden; /* Bo góc cho slider */
+    height: 450px; /* Chiều cao tối thiểu */
+    background: #ffffff; /* Màu nền lót */
+}
+
+/* Cột phải: 2 banner xếp dọc */
+.side-banner-stack {
+    display: flex;
+    flex-direction: column; /* Xếp dọc */
+    gap: 20px;
+}
+.side-banner-item {
+    display: block;
+    border-radius: 10px;
+    overflow: hidden;
+    line-height: 0; /* Bỏ khoảng trắng thừa của ảnh */
+}
+.side-banner-item img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+.side-banner-item:hover img {
+    transform: scale(1.05); /* Hiệu ứng zoom */
+}
+
+
+/* HÀNG 2: 4 BANNER NHỎ */
+.small-banner-grid {
+    display: grid;
+    /* Chia 4 cột bằng nhau */
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+}
+.small-banner-item {
+    display: block;
+    border-radius: 10px;
+    overflow: hidden;
+    line-height: 0;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+}
+.small-banner-item img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+.small-banner-item:hover img {
+    transform: scale(1.05);
+    box-shadow: 0 6px 15px rgba(0,0,0,0.1);
+}
+
+
+/* HÀNG 3: DẢI ICON */
+.quick-icons-section {
+    background: #fff;
+    padding: 20px 0;
+    margin-top: 20px;
+    border-top: 1px solid #f0f0f0;
+    border-bottom: 1px solid #f0f0f0;
+}
+.quick-icons-grid {
+    display: grid;
+    /* 10 cột, tự động co giãn */
+    grid-template-columns: repeat(10, minmax(0, 1fr));
+    gap: 10px;
+}
+.quick-icon-item {
+    display: flex;
+    flex-direction: column; /* Icon trên, chữ dưới */
+    align-items: center; /* Căn giữa */
+    text-decoration: none;
+    color: #333;
+    font-size: 13px;
+    text-align: center;
+    gap: 8px; /* Khoảng cách giữa icon và chữ */
+    transition: color 0.3s ease;
+}
+.quick-icon-item img {
+    width: 60px;
+    height: 60px;
+    border-radius: 10px;
+    object-fit: cover;
+    background: #f8f8f8;
+    transition: transform 0.3s ease;
+}
+.quick-icon-item:hover img {
+    transform: scale(1.1);
+}
+.quick-icon-item:hover span {
+    color: #6b9d3e; /* Đổi màu chữ khi hover */
+}
+
+
+/* =====================
+   RESPONSIVE (Cho Mobile)
+   =====================
+*/
+@media (max-width: 992px) {
+    /* HÀNG 1: Xếp 1 cột */
+    .top-banner-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 768px) {
+    /* HÀNG 2: 2 cột */
+    .small-banner-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    /* HÀNG 3: 5 cột */
+    .quick-icons-grid {
+        grid-template-columns: repeat(5, 1fr);
+        gap: 20px; /* Tăng gap cho mobile */
+    }
+}
