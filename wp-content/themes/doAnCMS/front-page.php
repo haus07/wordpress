@@ -206,4 +206,55 @@ foreach ($product_sections as $section) {
 }
 ?>
 
+
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+    
+    // Tìm tất cả các Swiper container có class bắt đầu bằng 'product-swiper-'
+    const swiperContainers = document.querySelectorAll('[class*="product-swiper-"]');
+
+    swiperContainers.forEach(function(swiperContainer) {
+        
+        let uniqueSuffix = '';
+        
+        // Lấy ra cái đuôi duy nhất (ví dụ: 'sale', 'featured', 'san-pham-huu-co')
+        swiperContainer.classList.forEach(function(className) {
+            if (className.startsWith('product-swiper-')) {
+                uniqueSuffix = className.replace('product-swiper-', '');
+            }
+        });
+
+        if (uniqueSuffix) {
+            // Khởi tạo Swiper cho container này
+            new Swiper(swiperContainer, {
+                slidesPerView: 2, // Mobile: 2 cột
+                spaceBetween: 20,
+                
+                // Responsive breakpoints
+                breakpoints: {
+                    640: { // Tablet nhỏ
+                        slidesPerView: 3,
+                        spaceBetween: 20,
+                    },
+                    768: { // Tablet
+                        slidesPerView: 4,
+                        spaceBetween: 20,
+                    },
+                    1024: { // Desktop
+                        slidesPerView: 5,
+                        spaceBetween: 20,
+                    },
+                },
+                
+                // Kích hoạt 2 nút điều hướng
+                navigation: {
+                    nextEl: '.swiper-button-next-' + uniqueSuffix,
+                    prevEl: '.swiper-button-prev-' + uniqueSuffix,
+                },
+            });
+        }
+    });
+});
+</script>
+
 <?php get_footer(); ?>
