@@ -4085,3 +4085,118 @@ Stack trace:
 [17-Nov-2025 11:47:59 UTC] PHP  17. _deprecated_file($file = 'Theme without sidebar.php', $version = '3.0.0', $replacement = NULL, $message = 'Please include a sidebar.php template in your theme.') C:\wamp64\www\wordpress\wp-includes\theme-compat\sidebar.php:9
 [17-Nov-2025 11:47:59 UTC] PHP  18. wp_trigger_error($function_name = '', $message = 'File Theme without sidebar.php is <strong>deprecated</strong> since version 3.0.0 with no alternative available. Please include a sidebar.php template in your theme.', $error_level = 16384) C:\wamp64\www\wordpress\wp-includes\functions.php:5831
 [17-Nov-2025 11:47:59 UTC] PHP  19. trigger_error($message = 'File Theme without sidebar.php is <strong>deprecated</strong> since version 3.0.0 with no alternative available. Please include a sidebar.php template in your theme.', $error_level = 16384) C:\wamp64\www\wordpress\wp-includes\functions.php:6121
+[17-Nov-2025 12:52:57 UTC] 🔹 Current User ID: 1
+[17-Nov-2025 12:53:03 UTC] ✅ Post "Lợi ích của rau hữu cơ" được tạo với ID: 1793
+[17-Nov-2025 12:53:09 UTC] ✅ Post "Cách chọn thực phẩm hữu cơ" được tạo với ID: 1795
+[17-Nov-2025 12:53:12 UTC] ✅ Post "Thực phẩm hữu cơ cho bé" được tạo với ID: 1797
+[17-Nov-2025 12:53:13 UTC] ✅ Post "Top 5 loại trái cây organic" được tạo với ID: 1799
+[17-Nov-2025 12:53:13 UTC] ✅ Post "Organic vs Thực phẩm thông thường" được tạo với ID: 1801
+[17-Nov-2025 12:53:14 UTC] ✅ Post "Cách trồng rau hữu cơ tại nhà" được tạo với ID: 1803
+[17-Nov-2025 12:53:15 UTC] ✅ Post "Smoothie healthy từ organic" được tạo với ID: 1805
+[17-Nov-2025 12:53:16 UTC] ✅ Post "Các loại hạt hữu cơ tốt cho sức khỏe" được tạo với ID: 1807
+[17-Nov-2025 12:53:16 UTC] ✅ Post "Chế độ ăn organic giảm cân" được tạo với ID: 1809
+[17-Nov-2025 12:53:17 UTC] ✅ Post "Organic food: Xu hướng 2025" được tạo với ID: 1811
+[17-Nov-2025 12:53:17 UTC] ✅ Hoàn tất tạo 10 bài viết mẫu với ảnh và content dài.
+[17-Nov-2025 12:55:13 UTC] 🔹 Current User ID: 1
+[17-Nov-2025 12:55:18 UTC] ✅ Post "Lợi ích của rau hữu cơ" được tạo với ID: 1823
+[17-Nov-2025 12:55:25 UTC] ✅ Post "Cách chọn thực phẩm hữu cơ" được tạo với ID: 1825
+[17-Nov-2025 12:55:28 UTC] ✅ Post "Thực phẩm hữu cơ cho bé" được tạo với ID: 1827
+[17-Nov-2025 12:55:28 UTC] ✅ Post "Top 5 loại trái cây organic" được tạo với ID: 1829
+[17-Nov-2025 12:55:29 UTC] ✅ Post "Organic vs Thực phẩm thông thường" được tạo với ID: 1831
+[17-Nov-2025 12:55:30 UTC] ✅ Post "Cách trồng rau hữu cơ tại nhà" được tạo với ID: 1833
+[17-Nov-2025 12:55:31 UTC] ✅ Post "Smoothie healthy từ organic" được tạo với ID: 1835
+[17-Nov-2025 12:55:32 UTC] ✅ Post "Các loại hạt hữu cơ tốt cho sức khỏe" được tạo với ID: 1837
+[17-Nov-2025 12:55:32 UTC] ✅ Post "Chế độ ăn organic giảm cân" được tạo với ID: 1839
+[17-Nov-2025 12:55:33 UTC] ✅ Post "Organic food: Xu hướng 2025" được tạo với ID: 1841
+[17-Nov-2025 12:55:33 UTC] ✅ Hoàn tất tạo 10 bài viết mẫu với ảnh và content dài.
+[17-Nov-2025 12:59:57 UTC] 🔹 Current User ID: 1
+[17-Nov-2025 13:00:02 UTC] ✅ Post "Lợi ích của rau hữu cơ" được tạo với ID: 1853
+[17-Nov-2025 13:00:09 UTC] ✅ Post "Cách chọn thực phẩm hữu cơ" được tạo với ID: 1855
+[17-Nov-2025 13:00:12 UTC] ✅ Post "Thực phẩm hữu cơ cho bé" được tạo với ID: 1857
+[17-Nov-2025 13:00:13 UTC] ✅ Post "Top 5 loại trái cây organic" được tạo với ID: 1859
+[17-Nov-2025 13:00:13 UTC] ✅ Post "Organic vs Thực phẩm thông thường" được tạo với ID: 1861
+[17-Nov-2025 13:00:14 UTC] ✅ Post "Cách trồng rau hữu cơ tại nhà" được tạo với ID: 1863
+[17-Nov-2025 13:00:15 UTC] ✅ Post "Smoothie healthy từ organic" được tạo với ID: 1865
+[17-Nov-2025 13:00:16 UTC] ✅ Post "Các loại hạt hữu cơ tốt cho sức khỏe" được tạo với ID: 1867
+[17-Nov-2025 13:00:17 UTC] ✅ Post "Chế độ ăn organic giảm cân" được tạo với ID: 1869
+[17-Nov-2025 13:00:17 UTC] ✅ Post "Organic food: Xu hướng 2025" được tạo với ID: 1871
+[17-Nov-2025 13:00:17 UTC] ✅ Hoàn tất tạo 10 bài viết mẫu với ảnh và content dài.
+[17-Nov-2025 13:08:36 UTC] 🔹 Current User ID: 1
+[17-Nov-2025 13:08:41 UTC] ✅ Post "Lợi ích của rau hữu cơ" được tạo với ID: 1883
+[17-Nov-2025 13:08:47 UTC] ✅ Post "Cách chọn thực phẩm hữu cơ" được tạo với ID: 1885
+[17-Nov-2025 13:08:50 UTC] ✅ Post "Thực phẩm hữu cơ cho bé" được tạo với ID: 1887
+[17-Nov-2025 13:08:51 UTC] ✅ Post "Top 5 loại trái cây organic" được tạo với ID: 1889
+[17-Nov-2025 13:08:52 UTC] ✅ Post "Organic vs Thực phẩm thông thường" được tạo với ID: 1891
+[17-Nov-2025 13:08:52 UTC] ✅ Post "Cách trồng rau hữu cơ tại nhà" được tạo với ID: 1893
+[17-Nov-2025 13:08:53 UTC] ✅ Post "Smoothie healthy từ organic" được tạo với ID: 1895
+[17-Nov-2025 13:08:55 UTC] ✅ Post "Các loại hạt hữu cơ tốt cho sức khỏe" được tạo với ID: 1897
+[17-Nov-2025 13:08:55 UTC] ✅ Post "Chế độ ăn organic giảm cân" được tạo với ID: 1899
+[17-Nov-2025 13:08:55 UTC] ✅ Post "Organic food: Xu hướng 2025" được tạo với ID: 1901
+[17-Nov-2025 13:08:55 UTC] ✅ Hoàn tất tạo 10 bài viết mẫu với ảnh và content dài.
+[17-Nov-2025 13:10:47 UTC] 🔹 Current User ID: 1
+[17-Nov-2025 13:10:52 UTC] ✅ Post "Lợi ích của rau hữu cơ" được tạo với ID: 1913
+[17-Nov-2025 13:10:58 UTC] ✅ Post "Cách chọn thực phẩm hữu cơ" được tạo với ID: 1915
+[17-Nov-2025 13:11:01 UTC] ✅ Post "Thực phẩm hữu cơ cho bé" được tạo với ID: 1917
+[17-Nov-2025 13:11:01 UTC] ✅ Post "Top 5 loại trái cây organic" được tạo với ID: 1919
+[17-Nov-2025 13:11:02 UTC] ✅ Post "Organic vs Thực phẩm thông thường" được tạo với ID: 1921
+[17-Nov-2025 13:11:03 UTC] ✅ Post "Cách trồng rau hữu cơ tại nhà" được tạo với ID: 1923
+[17-Nov-2025 13:11:04 UTC] ✅ Post "Smoothie healthy từ organic" được tạo với ID: 1925
+[17-Nov-2025 13:11:05 UTC] ✅ Post "Các loại hạt hữu cơ tốt cho sức khỏe" được tạo với ID: 1927
+[17-Nov-2025 13:11:05 UTC] ✅ Post "Chế độ ăn organic giảm cân" được tạo với ID: 1929
+[17-Nov-2025 13:11:06 UTC] ✅ Post "Organic food: Xu hướng 2025" được tạo với ID: 1931
+[17-Nov-2025 13:11:06 UTC] ✅ Hoàn tất tạo 10 bài viết mẫu với ảnh và content dài.
+[17-Nov-2025 13:13:35 UTC] PHP Deprecated:  File Theme without sidebar.php is <strong>deprecated</strong> since version 3.0.0 with no alternative available. Please include a sidebar.php template in your theme. in D:\wamp64\www\wordpress\wp-includes\functions.php on line 6121
+[17-Nov-2025 13:13:35 UTC] PHP Stack trace:
+[17-Nov-2025 13:13:35 UTC] PHP   1. {main}() D:\wamp64\www\wordpress\index.php:0
+[17-Nov-2025 13:13:35 UTC] PHP   2. require() D:\wamp64\www\wordpress\index.php:17
+[17-Nov-2025 13:13:35 UTC] PHP   3. require_once() D:\wamp64\www\wordpress\wp-blog-header.php:19
+[17-Nov-2025 13:13:35 UTC] PHP   4. include() D:\wamp64\www\wordpress\wp-includes\template-loader.php:106
+[17-Nov-2025 13:13:35 UTC] PHP   5. do_action($hook_name = 'woocommerce_sidebar') D:\wamp64\www\wordpress\wp-content\plugins\woocommerce\templates\archive-product.php:95
+[17-Nov-2025 13:13:35 UTC] PHP   6. WP_Hook->do_action($args = [0 => '']) D:\wamp64\www\wordpress\wp-includes\plugin.php:517
+[17-Nov-2025 13:13:35 UTC] PHP   7. WP_Hook->apply_filters($value = '', $args = [0 => '']) D:\wamp64\www\wordpress\wp-includes\class-wp-hook.php:348
+[17-Nov-2025 13:13:35 UTC] PHP   8. woocommerce_get_sidebar('') D:\wamp64\www\wordpress\wp-includes\class-wp-hook.php:324
+[17-Nov-2025 13:13:35 UTC] PHP   9. wc_get_template($template_name = 'global/sidebar.php', $args = *uninitialized*, $template_path = *uninitialized*, $default_path = *uninitialized*) D:\wamp64\www\wordpress\wp-content\plugins\woocommerce\includes\wc-template-functions.php:1077
+[17-Nov-2025 13:13:35 UTC] PHP  10. include() D:\wamp64\www\wordpress\wp-content\plugins\woocommerce\includes\wc-core-functions.php:346
+[17-Nov-2025 13:13:35 UTC] PHP  11. get_sidebar($name = 'shop', $args = *uninitialized*) D:\wamp64\www\wordpress\wp-content\plugins\woocommerce\templates\global\sidebar.php:22
+[17-Nov-2025 13:13:35 UTC] PHP  12. locate_template($template_names = [0 => 'sidebar-shop.php', 1 => 'sidebar.php'], $load = TRUE, $load_once = TRUE, $args = []) D:\wamp64\www\wordpress\wp-includes\general-template.php:136
+[17-Nov-2025 13:13:35 UTC] PHP  13. load_template($_template_file = 'D:\\wamp64\\www\\wordpress/wp-includes/theme-compat/sidebar.php', $load_once = TRUE, $args = []) D:\wamp64\www\wordpress\wp-includes\template.php:745
+[17-Nov-2025 13:13:35 UTC] PHP  14. require_once() D:\wamp64\www\wordpress\wp-includes\template.php:810
+[17-Nov-2025 13:13:35 UTC] PHP  15. _deprecated_file($file = 'Theme without sidebar.php', $version = '3.0.0', $replacement = NULL, $message = 'Please include a sidebar.php template in your theme.') D:\wamp64\www\wordpress\wp-includes\theme-compat\sidebar.php:9
+[17-Nov-2025 13:13:35 UTC] PHP  16. wp_trigger_error($function_name = '', $message = 'File Theme without sidebar.php is <strong>deprecated</strong> since version 3.0.0 with no alternative available. Please include a sidebar.php template in your theme.', $error_level = 16384) D:\wamp64\www\wordpress\wp-includes\functions.php:5831
+[17-Nov-2025 13:13:35 UTC] PHP  17. trigger_error($message = 'File Theme without sidebar.php is <strong>deprecated</strong> since version 3.0.0 with no alternative available. Please include a sidebar.php template in your theme.', $error_level = 16384) D:\wamp64\www\wordpress\wp-includes\functions.php:6121
+[17-Nov-2025 13:14:50 UTC] 🔹 Current User ID: 1
+[17-Nov-2025 13:14:56 UTC] ✅ Post "Lợi ích của rau hữu cơ" được tạo với ID: 1933
+[17-Nov-2025 13:15:01 UTC] ✅ Post "Cách chọn thực phẩm hữu cơ" được tạo với ID: 1935
+[17-Nov-2025 13:15:04 UTC] ✅ Post "Thực phẩm hữu cơ cho bé" được tạo với ID: 1937
+[17-Nov-2025 13:15:05 UTC] ✅ Post "Top 5 loại trái cây organic" được tạo với ID: 1939
+[17-Nov-2025 13:15:06 UTC] ✅ Post "Organic vs Thực phẩm thông thường" được tạo với ID: 1941
+[17-Nov-2025 13:15:06 UTC] ✅ Post "Cách trồng rau hữu cơ tại nhà" được tạo với ID: 1943
+[17-Nov-2025 13:15:07 UTC] ✅ Post "Smoothie healthy từ organic" được tạo với ID: 1945
+[17-Nov-2025 13:15:08 UTC] ✅ Post "Các loại hạt hữu cơ tốt cho sức khỏe" được tạo với ID: 1947
+[17-Nov-2025 13:15:09 UTC] ✅ Post "Chế độ ăn organic giảm cân" được tạo với ID: 1949
+[17-Nov-2025 13:15:09 UTC] ✅ Post "Organic food: Xu hướng 2025" được tạo với ID: 1951
+[17-Nov-2025 13:15:09 UTC] ✅ Hoàn tất tạo 10 bài viết mẫu với ảnh và content dài.
+[17-Nov-2025 13:21:58 UTC] 🔹 Current User ID: 1
+[17-Nov-2025 13:22:03 UTC] ✅ Post "Lợi ích của rau hữu cơ" được tạo với ID: 1973
+[17-Nov-2025 13:22:09 UTC] ✅ Post "Cách chọn thực phẩm hữu cơ" được tạo với ID: 1975
+[17-Nov-2025 13:22:11 UTC] ✅ Post "Thực phẩm hữu cơ cho bé" được tạo với ID: 1977
+[17-Nov-2025 13:22:12 UTC] ✅ Post "Top 5 loại trái cây organic" được tạo với ID: 1979
+[17-Nov-2025 13:22:13 UTC] ✅ Post "Organic vs Thực phẩm thông thường" được tạo với ID: 1981
+[17-Nov-2025 13:22:13 UTC] ✅ Post "Cách trồng rau hữu cơ tại nhà" được tạo với ID: 1983
+[17-Nov-2025 13:22:14 UTC] ✅ Post "Smoothie healthy từ organic" được tạo với ID: 1985
+[17-Nov-2025 13:22:16 UTC] ✅ Post "Các loại hạt hữu cơ tốt cho sức khỏe" được tạo với ID: 1987
+[17-Nov-2025 13:22:16 UTC] ✅ Post "Chế độ ăn organic giảm cân" được tạo với ID: 1989
+[17-Nov-2025 13:22:16 UTC] ✅ Post "Organic food: Xu hướng 2025" được tạo với ID: 1991
+[17-Nov-2025 13:22:16 UTC] ✅ Hoàn tất tạo 10 bài viết mẫu với ảnh và content dài.
+[17-Nov-2025 13:22:23 UTC] 🔹 Current User ID: 1
+[17-Nov-2025 13:22:28 UTC] ✅ Post "Lợi ích của rau hữu cơ" được tạo với ID: 1993
+[17-Nov-2025 13:22:35 UTC] ✅ Post "Cách chọn thực phẩm hữu cơ" được tạo với ID: 1995
+[17-Nov-2025 13:22:37 UTC] ✅ Post "Thực phẩm hữu cơ cho bé" được tạo với ID: 1997
+[17-Nov-2025 13:22:38 UTC] ✅ Post "Top 5 loại trái cây organic" được tạo với ID: 1999
+[17-Nov-2025 13:22:39 UTC] ✅ Post "Organic vs Thực phẩm thông thường" được tạo với ID: 2001
+[17-Nov-2025 13:22:39 UTC] ✅ Post "Cách trồng rau hữu cơ tại nhà" được tạo với ID: 2003
+[17-Nov-2025 13:22:40 UTC] ✅ Post "Smoothie healthy từ organic" được tạo với ID: 2005
+[17-Nov-2025 13:22:41 UTC] ✅ Post "Các loại hạt hữu cơ tốt cho sức khỏe" được tạo với ID: 2007
+[17-Nov-2025 13:22:42 UTC] ✅ Post "Chế độ ăn organic giảm cân" được tạo với ID: 2009
+[17-Nov-2025 13:22:42 UTC] ✅ Post "Organic food: Xu hướng 2025" được tạo với ID: 2011
+[17-Nov-2025 13:22:42 UTC] ✅ Hoàn tất tạo 10 bài viết mẫu với ảnh và content dài.
