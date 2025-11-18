@@ -471,38 +471,6 @@ function doAnCMS_recent_posts_shortcode($atts)
 }
 
 add_shortcode('recent-posts', 'doAnCMS_recent_posts_shortcode');
-// function doAnCMS_delete_all_posts()
-// {
-//     $paged = 1;
-//     $posts_per_page = 50; // xóa 50 bài một lần, tránh lỗi memory
-
-//     do {
-//         $query = new WP_Query([
-//             'post_type'      => 'post',
-//             'posts_per_page' => $posts_per_page,
-//             'paged'          => $paged,
-//             'post_status'    => 'any', // lấy tất cả trạng thái bài viết
-//         ]);
-
-//         if ($query->have_posts()) {
-//             foreach ($query->posts as $post) {
-//                 wp_delete_post($post->ID, true); // true = xóa vĩnh viễn
-//             }
-//         }
-
-//         $paged++;
-//         $max_pages = $query->max_num_pages;
-//         wp_reset_postdata();
-//     } while ($paged <= $max_pages);
-
-//     // Xóa tùy chọn blog mẫu nếu có
-//     delete_option('doAnCMS_sample_blog_posts_created');
-
-//     echo "Đã xóa tất cả bài viết!";
-// }
-
-// // Gọi hàm 1 lần duy nhất
-// doAnCMS_delete_all_posts();
 // Slide
 function theme_enqueue_swiper()
 {
@@ -768,3 +736,85 @@ function html_cms_widgets_init()
     ));
 }
 add_action('widgets_init', 'html_cms_widgets_init');
+
+// AJAX cập nhật số lượng
+function update_cart_item_ajax()
+{
+    $cart_item_key = sanitize_text_field($_POST['cart_item_key']);
+    $qty = intval($_POST['qty']);
+
+    $cart = WC()->cart;
+
+    if (isset($cart->get_cart()[$cart_item_key])) {
+        if ($qty > 0) {
+            $cart->set_quantity($cart_item_key, $qty, true); // true = recalc totals
+        } else {
+            $cart->remove_cart_item($cart_item_key);
+        }
+    }
+
+    // Tính lại totals (tự động tính cả coupon nếu có)
+    $cart->calculate_totals();
+
+    $subtotal_html = $cart->get_cart_subtotal();
+    $total_html    = $cart->get_total();
+    $discount_total = $cart->get_cart_discount_total();
+    $discount_html = wc_price($discount_total);
+
+    wp_send_json_success([
+        'removed'       => $qty === 0,
+        'subtotal_html' => $subtotal_html,
+        'total_html'    => $total_html,
+        'discount_html' => $discount_html,
+        'message'       => 'Cập nhật giỏ hàng thành công'
+    ]);
+
+    wp_die();
+}
+add_action('wp_ajax_update_cart_item', 'update_cart_item_ajax');
+add_action('wp_ajax_nopriv_update_cart_item', 'update_cart_item_ajax');
+
+
+add_action('wp_ajax_apply_coupon_ajax', 'apply_coupon_ajax');
+add_action('wp_ajax_nopriv_apply_coupon_ajax', 'apply_coupon_ajax');
+
+function apply_coupon_ajax()
+{
+    if (empty($_POST['coupon_code'])) {
+        wp_send_json_error(['message' => 'Vui lòng nhập mã giảm giá']);
+    }
+
+    $coupon_code = sanitize_text_field($_POST['coupon_code']);
+
+    // Chỉ apply nếu chưa có
+    if (!WC()->cart->has_discount($coupon_code)) {
+        $result = WC()->cart->apply_coupon($coupon_code);
+
+        if (is_wp_error($result)) {
+            wp_send_json_error(['message' => $result->get_error_message()]);
+        }
+    }
+
+    WC()->cart->calculate_totals(); // tính lại tổng sau khi áp coupon
+
+    // Kiểm tra coupon có được áp dụng
+    if (!WC()->cart->has_discount($coupon_code)) {
+        wp_send_json_error(['message' => 'Mã giảm giá không hợp lệ']);
+    }
+
+    // Lấy giá hiển thị
+    $subtotal_html = WC()->cart->get_cart_subtotal();           // Giá gốc
+    $discount_total = WC()->cart->get_cart_discount_total();    // Tổng giảm, đã tính thuế
+    $discount_html = wc_price($discount_total);
+    $total_html = WC()->cart->get_total();                       // Tổng cuối
+
+    wp_send_json_success([
+        'coupon_code'   => $coupon_code,
+        'subtotal_html' => $subtotal_html,
+        'discount_html' => $discount_html,
+        'total_html'    => $total_html,
+        'message'       => sprintf('Áp dụng mã "%s" thành công!', esc_html($coupon_code))
+    ]);
+
+    wp_die();
+}
