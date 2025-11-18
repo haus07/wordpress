@@ -1,149 +1,356 @@
 <?php
 
-
+/**
+ * Template Name: Deluxe Cart Page (AJAX & Hover)
+ */
 defined('ABSPATH') || exit;
+get_header();
+?>
 
-do_action('woocommerce_before_cart'); ?>
+<link rel="stylesheet" href="<?php echo get_stylesheet_directory_uri(); ?>/shop-deluxe.css">
 
-<form class="woocommerce-cart-form" action="<?php echo esc_url(wc_get_cart_url()); ?>" method="post">
-    <?php do_action('woocommerce_before_cart_table'); ?>
+<div class="cart-container">
 
-    <table class="shop_table shop_table_responsive cart woocommerce-cart-form__contents" cellspacing="0">
-        <thead>
-            <tr>
-                <th class="product-remove"><span class="screen-reader-text"><?php esc_html_e('Remove item', 'woocommerce'); ?></span></th>
-                <th class="product-thumbnail"><span class="screen-reader-text"><?php esc_html_e('Thumbnail image', 'woocommerce'); ?></span></th>
-                <th scope="col" class="product-name"><?php esc_html_e('Product', 'woocommerce'); ?></th>
-                <th scope="col" class="product-price"><?php esc_html_e('Price', 'woocommerce'); ?></th>
-                <th scope="col" class="product-quantity"><?php esc_html_e('Quantity', 'woocommerce'); ?></th>
-                <th scope="col" class="product-subtotal"><?php esc_html_e('Subtotal', 'woocommerce'); ?></th>
-            </tr>
-        </thead>
-        <tbody>
-            <?php do_action('woocommerce_before_cart_contents'); ?>
-
-            <?php foreach (WC()->cart->get_cart() as $cart_item_key => $cart_item) :
-                $_product   = apply_filters('woocommerce_cart_item_product', $cart_item['data'], $cart_item, $cart_item_key);
-                $product_id = apply_filters('woocommerce_cart_item_product_id', $cart_item['product_id'], $cart_item, $cart_item_key);
-
-                if ($_product && $_product->exists() && $cart_item['quantity'] > 0 && apply_filters('woocommerce_cart_item_visible', true, $cart_item, $cart_item_key)) :
-                    $product_name = apply_filters('woocommerce_cart_item_name', $_product->get_name(), $cart_item, $cart_item_key);
-                    $product_permalink = apply_filters('woocommerce_cart_item_permalink', $_product->is_visible() ? $_product->get_permalink($cart_item) : '', $cart_item, $cart_item_key);
+    <!-- Cart Products -->
+    <div class="cart-products">
+        <?php if (WC()->cart->get_cart_contents_count() > 0): ?>
+            <?php foreach (WC()->cart->get_cart() as $cart_item_key => $cart_item):
+                $_product   = $cart_item['data'];
+                if (!$_product->exists()) continue;
+                $product_permalink = $_product->is_visible() ? $_product->get_permalink($cart_item) : '';
             ?>
-                    <tr class="woocommerce-cart-form__cart-item <?php echo esc_attr(apply_filters('woocommerce_cart_item_class', 'cart_item', $cart_item, $cart_item_key)); ?>">
-
-                        <td class="product-remove">
-                            <?php
-                            echo apply_filters(
-                                'woocommerce_cart_item_remove_link',
-                                sprintf(
-                                    '<a href="%s" class="remove" aria-label="%s" data-product_id="%s" data-product_sku="%s">&times;</a>',
-                                    esc_url(wc_get_cart_remove_url($cart_item_key)),
-                                    esc_attr(sprintf(__('Remove %s from cart', 'woocommerce'), wp_strip_all_tags($product_name))),
-                                    esc_attr($product_id),
-                                    esc_attr($_product->get_sku())
-                                ),
-                                $cart_item_key
-                            );
-                            ?>
-                        </td>
-
-                        <td class="product-thumbnail">
-                            <?php
-                            $thumbnail = apply_filters('woocommerce_cart_item_thumbnail', $_product->get_image(), $cart_item, $cart_item_key);
-                            if (! $product_permalink) {
-                                echo $thumbnail;
-                            } else {
-                                printf('<a href="%s">%s</a>', esc_url($product_permalink), $thumbnail);
-                            }
-                            ?>
-                        </td>
-
-                        <td class="product-name" data-title="<?php esc_attr_e('Product', 'woocommerce'); ?>">
-                            <?php
-                            if (! $product_permalink) {
-                                echo wp_kses_post($product_name . '&nbsp;');
-                            } else {
-                                echo wp_kses_post(apply_filters('woocommerce_cart_item_name', sprintf('<a href="%s">%s</a>', esc_url($product_permalink), $_product->get_name()), $cart_item, $cart_item_key));
-                            }
-
-                            do_action('woocommerce_after_cart_item_name', $cart_item, $cart_item_key);
-                            echo wc_get_formatted_cart_item_data($cart_item);
-
-                            if ($_product->backorders_require_notification() && $_product->is_on_backorder($cart_item['quantity'])) {
-                                echo wp_kses_post(apply_filters('woocommerce_cart_item_backorder_notification', '<p class="backorder_notification">' . esc_html__('Available on backorder', 'woocommerce') . '</p>', $product_id));
-                            }
-                            ?>
-                        </td>
-
-                        <td class="product-price" data-title="<?php esc_attr_e('Price', 'woocommerce'); ?>">
-                            <?php echo apply_filters('woocommerce_cart_item_price', WC()->cart->get_product_price($_product), $cart_item, $cart_item_key); ?>
-                        </td>
-
-                        <td class="product-quantity" data-title="<?php esc_attr_e('Quantity', 'woocommerce'); ?>">
-                            <?php
-                            if ($_product->is_sold_individually()) {
-                                $min_quantity = 1;
-                                $max_quantity = 1;
-                            } else {
-                                $min_quantity = 0;
-                                $max_quantity = $_product->get_max_purchase_quantity();
-                            }
-
-                            echo woocommerce_quantity_input(
-                                array(
-                                    'input_name'   => "cart[{$cart_item_key}][qty]",
-                                    'input_value'  => $cart_item['quantity'],
-                                    'max_value'    => $max_quantity,
-                                    'min_value'    => $min_quantity,
-                                    'product_name' => $product_name,
-                                ),
-                                $_product,
-                                false
-                            );
-                            ?>
-                        </td>
-
-                        <td class="product-subtotal" data-title="<?php esc_attr_e('Subtotal', 'woocommerce'); ?>">
-                            <?php echo apply_filters('woocommerce_cart_item_subtotal', WC()->cart->get_product_subtotal($_product, $cart_item['quantity']), $cart_item, $cart_item_key); ?>
-                        </td>
-                    </tr>
-            <?php
-                endif;
-            endforeach; ?>
-
-            <?php do_action('woocommerce_cart_contents'); ?>
-
-            <tr>
-                <td colspan="6" class="actions">
-                    <?php if (wc_coupons_enabled()) : ?>
-                        <div class="coupon">
-                            <label for="coupon_code" class="screen-reader-text"><?php esc_html_e('Coupon:', 'woocommerce'); ?></label>
-                            <input type="text" name="coupon_code" class="input-text" id="coupon_code" value="" placeholder="<?php esc_attr_e('Coupon code', 'woocommerce'); ?>" />
-                            <button type="submit" class="button" name="apply_coupon" value="<?php esc_attr_e('Apply coupon', 'woocommerce'); ?>"><?php esc_html_e('Apply coupon', 'woocommerce'); ?></button>
-                            <?php do_action('woocommerce_cart_coupon'); ?>
+                <div class="cart-item" data-cart-item-key="<?php echo esc_attr($cart_item_key); ?>">
+                    <div class="cart-thumb">
+                        <?php echo $_product->get_image('medium'); ?>
+                    </div>
+                    <div class="cart-info">
+                        <h3 class="cart-title">
+                            <?php if ($product_permalink): ?>
+                                <a href="<?php echo esc_url($product_permalink); ?>"><?php echo $_product->get_name(); ?></a>
+                            <?php else: ?>
+                                <?php echo $_product->get_name(); ?>
+                            <?php endif; ?>
+                        </h3>
+                        <span class="cart-price"><?php echo WC()->cart->get_product_price($_product); ?></span>
+                        <div class="cart-qty">
+                            <input type="number" class="cart-qty-input"
+                                data-cart_item_key="<?php echo esc_attr($cart_item_key); ?>"
+                                value="<?php echo esc_attr($cart_item['quantity']); ?>"
+                                min="0">
                         </div>
-                    <?php endif; ?>
+                        <span class="cart-subtotal"><?php echo WC()->cart->get_product_subtotal($_product, $cart_item['quantity']); ?></span>
+                        <a href="#" class="cart-remove">&times;</a>
+                    </div>
+                </div>
+            <?php endforeach; ?>
 
-                    <button type="submit" class="button" name="update_cart" value="<?php esc_attr_e('Update cart', 'woocommerce'); ?>"><?php esc_html_e('Update cart', 'woocommerce'); ?></button>
+            <!-- Cart Actions -->
+            <div class="cart-actions">
+                <?php if (wc_coupons_enabled()) : ?>
+                    <div class="cart-coupon">
+                        <input type="text" name="coupon_code" placeholder="Mã giảm giá" id="coupon_code">
+                        <button type="button" class="button apply-coupon" id="apply-coupon">Áp dụng</button>
+                    </div>
+                <?php endif; ?>
+                <button type="button" class="button update-cart" id="update-cart">Cập nhật giỏ</button>
+            </div>
 
-                    <?php do_action('woocommerce_cart_actions'); ?>
+        <?php else: ?>
+            <p>Giỏ hàng trống.</p>
+        <?php endif; ?>
+    </div>
 
-                    <?php wp_nonce_field('woocommerce-cart', 'woocommerce-cart-nonce'); ?>
-                </td>
-            </tr>
+    <!-- Cart Summary -->
+    <div class="cart-summary">
+        <h3>Tổng đơn hàng</h3>
+        <div class="cart-summary-details">
+            <div class="subtotal-line">
+                <span>Giá gốc:</span>
+                <span class="subtotal" id="cart-subtotal"><?php echo WC()->cart->get_cart_subtotal(); ?></span>
+            </div>
 
-            <?php do_action('woocommerce_after_cart_contents'); ?>
-        </tbody>
-    </table>
+            <div class="coupon-line" id="cart-coupon-line" style="display:none;">
+                <span>Mã giảm giá (<span id="coupon-code"></span>):</span>
+                <span class="discount" id="coupon-amount">-0₫</span>
+            </div>
 
-    <?php do_action('woocommerce_after_cart_table'); ?>
-</form>
+            <div class="total-line">
+                <span>Thanh toán:</span>
+                <span class="total" id="cart-total"><?php echo WC()->cart->get_cart_total(); ?></span>
+            </div>
+        </div>
 
-<?php do_action('woocommerce_before_cart_collaterals'); ?>
+        <a href="<?php echo wc_get_checkout_url(); ?>" class="checkout-btn">Thanh toán</a>
+    </div>
 
-<div class="cart-collaterals">
-    <?php do_action('woocommerce_cart_collaterals'); ?>
 </div>
 
-<?php do_action('woocommerce_after_cart'); ?>
+<script>
+    jQuery(document).ready(function($) {
+
+        function updateCartItem(cart_item_key, qty, callback) {
+            $.ajax({
+                type: 'POST',
+                url: '<?php echo admin_url("admin-ajax.php"); ?>',
+                data: {
+                    action: 'update_cart_item',
+                    cart_item_key: cart_item_key,
+                    qty: qty
+                },
+                success: function(response) {
+                    if (response.success) {
+                        if (response.data.removed) {
+                            $('[data-cart-item-key="' + cart_item_key + '"]').fadeOut(300, function() {
+                                $(this).remove();
+                            });
+                        } else {
+                            $('[data-cart-item-key="' + cart_item_key + '"] .cart-subtotal').html(response.data.subtotal);
+                        }
+                        $('#cart-subtotal').html(response.data.subtotal_html);
+                        $('#cart-total').html(response.data.total_html);
+                        if (response.data.discount_html) {
+                            $('#cart-coupon-line').show();
+                            $('#coupon-amount').html(response.data.discount_html);
+                            $('#coupon-code').text(response.data.coupon_code);
+                        }
+                        if (callback) callback();
+                        $(document.body).trigger('wc_fragment_refresh');
+                    } else {
+                        alert(response.data?.message || 'Có lỗi xảy ra');
+                    }
+                },
+                error: function() {
+                    alert('Lỗi khi cập nhật giỏ hàng.');
+                }
+            });
+        }
+
+        // Cập nhật từng sản phẩm
+        $('.cart-qty-input').on('change', function() {
+            let key = $(this).data('cart_item_key');
+            let qty = $(this).val();
+            updateCartItem(key, qty);
+        });
+
+        // Cập nhật tất cả sản phẩm
+        $('#update-cart').on('click', function() {
+            $('.cart-qty-input').each(function() {
+                let key = $(this).data('cart_item_key');
+                let qty = $(this).val();
+                updateCartItem(key, qty);
+            });
+        });
+
+        // Xóa sản phẩm
+        $('.cart-remove').on('click', function(e) {
+            e.preventDefault();
+            let key = $(this).closest('.cart-item').data('cart-item-key');
+            updateCartItem(key, 0);
+        });
+
+        // Áp dụng coupon
+        $('#apply-coupon').on('click', function() {
+            let code = $('#coupon_code').val();
+            if (!code) return;
+
+            $.ajax({
+                type: 'POST',
+                url: '<?php echo admin_url("admin-ajax.php"); ?>',
+                data: {
+                    action: 'apply_coupon_ajax',
+                    coupon_code: code
+                },
+                success: function(response) {
+                    if (response.success) {
+                        $('#cart-coupon-line').show();
+                        $('#coupon-code').text(code);
+                        $('#cart-total').html(response.data.total_html);
+                        $('#cart-subtotal').html(response.data.subtotal_html);
+                        $('#coupon-amount').html(response.data.discount_html);
+                        alert(response.data.message);
+                        $(document.body).trigger('wc_fragment_refresh');
+                    } else {
+                        alert(response.data?.message || 'Mã giảm giá không hợp lệ');
+                    }
+                }
+            });
+        });
+
+    });
+</script>
+
+<style>
+    .cart-container {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 30px;
+        margin: 40px auto;
+    }
+
+    .cart-products {
+        flex: 2;
+        min-width: 300px;
+    }
+
+    .cart-summary {
+        flex: 1;
+        min-width: 250px;
+        background: #f5f5f5;
+        padding: 20px;
+        border-radius: 12px;
+    }
+
+    .cart-summary h3 {
+        margin-bottom: 15px;
+    }
+
+    .cart-summary-details div {
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 10px;
+    }
+
+    .subtotal {
+        font-weight: 600;
+        color: #333;
+    }
+
+    .discount {
+        font-weight: 600;
+        color: #f44336;
+    }
+
+    .total {
+        font-weight: 700;
+        font-size: 20px;
+        color: #4CAF50;
+    }
+
+    .checkout-btn {
+        display: block;
+        text-align: center;
+        padding: 12px;
+        background: #8BC34A;
+        color: #fff;
+        border-radius: 8px;
+        margin-top: 15px;
+        text-decoration: none;
+        transition: .3s;
+    }
+
+    .checkout-btn:hover {
+        background: #7cb342;
+    }
+
+    .cart-item {
+        display: flex;
+        gap: 20px;
+        background: #fff;
+        padding: 15px;
+        border-radius: 12px;
+        margin-bottom: 15px;
+        align-items: center;
+        position: relative;
+        transition: .3s;
+    }
+
+    .cart-thumb img {
+        width: 80px;
+        height: 80px;
+        object-fit: cover;
+        border-radius: 8px;
+        transition: transform .3s;
+    }
+
+    .cart-thumb img:hover {
+        transform: scale(1.1);
+    }
+
+    .cart-info {
+        flex: 1;
+        position: relative;
+    }
+
+    .cart-title {
+        font-size: 16px;
+        margin: 0 0 8px;
+    }
+
+    .cart-title a {
+        color: #333;
+        text-decoration: none;
+    }
+
+    .cart-title a:hover {
+        text-decoration: underline;
+    }
+
+    .cart-price {
+        font-weight: 600;
+        color: #4CAF50;
+        margin-bottom: 8px;
+        display: block;
+    }
+
+    .cart-qty input {
+        width: 60px;
+        text-align: center;
+        padding: 5px;
+        border-radius: 5px;
+        border: 1px solid #ccc;
+    }
+
+    .cart-subtotal {
+        font-weight: 600;
+        color: #333;
+        display: block;
+        margin-top: 5px;
+    }
+
+    .cart-remove {
+        position: absolute;
+        top: 0;
+        right: 0;
+        color: #f44336;
+        font-weight: bold;
+        font-size: 20px;
+        cursor: pointer;
+        text-decoration: none;
+    }
+
+    .cart-actions {
+        display: flex;
+        align-items: center;
+        gap: 15px;
+        margin-top: 20px;
+        flex-wrap: wrap;
+    }
+
+    .update-cart,
+    .apply-coupon {
+        background: #8BC34A;
+        color: #fff;
+        padding: 10px 18px;
+        border-radius: 7px;
+        font-weight: 600;
+        border: none;
+        cursor: pointer;
+        transition: all .2s;
+    }
+
+    .update-cart:hover,
+    .apply-coupon:hover {
+        background: #7cb342;
+    }
+
+    @media(max-width:768px) {
+        .cart-container {
+            flex-direction: column;
+        }
+
+        .cart-summary {
+            order: -1;
+            margin-bottom: 20px;
+        }
+    }
+</style>

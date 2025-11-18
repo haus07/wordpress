@@ -144,7 +144,7 @@ add_action('wp_head', function () { ?>
             margin-bottom: 10px;
         }
     </style>
-    <?php });
+<?php });
 
 add_action('woocommerce_before_shop_loop_item_title', 'doAnCMS_show_sale_badge', 9);
 function doAnCMS_show_sale_badge()
@@ -403,294 +403,232 @@ function send_newsletter_on_new_product($post_id)
     }
     add_action('init', 'doAnCMS_start_session');
 
-    // =======================
-    // Thêm sản phẩm vào giỏ hàng qua URL
-    // =======================
-    function doAnCMS_add_to_cart_woo()
-    {
-        // Chỉ thực hiện khi là trang WooCommerce (shop, single product) và có add_to_cart
-        if (isset($_GET['add_to_cart']) && is_woocommerce()) {
-            $product_id = intval($_GET['add_to_cart']);
-            if ($product_id > 0) {
-                WC()->cart->add_to_cart($product_id);
-                // Chỉ redirect khi thêm thành công
-                wp_safe_redirect(wc_get_cart_url());
-                exit;
-            }
+}
+
+// Hàm tối ưu hình ảnh
+function optimize_image_for_email($image_path)
+{
+    $info = getimagesize($image_path);
+
+    if (!$info) return false;
+
+    $mime_type = $info['mime'];
+
+    // Tạo image resource
+    switch ($mime_type) {
+        case 'image/jpeg':
+            $image = imagecreatefromjpeg($image_path);
+            break;
+        case 'image/png':
+            $image = imagecreatefrompng($image_path);
+            break;
+        case 'image/gif':
+            $image = imagecreatefromgif($image_path);
+            break;
+        default;
+    }
+}
+
+// =======================
+// Optional: Session start
+// =======================
+function doAnCMS_start_session()
+{
+    if (!session_id()) session_start();
+}
+add_action('init', 'doAnCMS_start_session');
+
+// =======================
+// Thêm sản phẩm vào giỏ hàng qua URL
+// =======================
+function doAnCMS_add_to_cart_woo()
+{
+    // Chỉ thực hiện khi là trang WooCommerce (shop, single product) và có add_to_cart
+    if (isset($_GET['add_to_cart']) && is_woocommerce()) {
+        $product_id = intval($_GET['add_to_cart']);
+        if ($product_id > 0) {
+            WC()->cart->add_to_cart($product_id);
+            // Chỉ redirect khi thêm thành công
+            wp_safe_redirect(wc_get_cart_url());
+            exit;
         }
     }
-    add_action('template_redirect', 'doAnCMS_add_to_cart_woo');
+}
+add_action('template_redirect', 'doAnCMS_add_to_cart_woo');
 
-    // =======================
-    // Tạo 10 bài viết mẫu (chỉ chạy 1 lần)
-    // =======================
-    function doAnCMS_create_sample_blog_posts()
-    {
-        if (get_option('doAnCMS_sample_blog_posts_created')) return; // chỉ chạy 1 lần
+// =======================
+// Shortcode hiển thị bài viết gần đây
+// =======================
+function doAnCMS_recent_posts_shortcode($atts)
+{
+    $atts = shortcode_atts(array(
+        'posts' => 6,
+    ), $atts, 'recent-posts');
 
-        $titles = [
-            'Lợi ích của rau hữu cơ',
-            'Cách chọn thực phẩm hữu cơ',
-            'Thực phẩm hữu cơ cho bé',
-            'Top 5 loại trái cây organic',
-            'Organic vs Thực phẩm thông thường',
-            'Cách trồng rau hữu cơ tại nhà',
-            'Smoothie healthy từ organic',
-            'Các loại hạt hữu cơ tốt cho sức khỏe',
-            'Chế độ ăn organic giảm cân',
-            'Organic food: Xu hướng 2025'
-        ];
+    $paged = (get_query_var('paged')) ? get_query_var('paged') : 1;
 
-        foreach ($titles as $index => $title) {
-            $content = "Đây là nội dung mẫu cho bài viết: $title. Thông tin về organic food, sức khỏe và cách chọn thực phẩm hữu cơ.";
+    $query = new WP_Query(array(
+        'post_type'      => 'post',
+        'posts_per_page' => intval($atts['posts']),
+        'paged'          => $paged,
+    ));
 
-            $post_id = wp_insert_post([
-                'post_title'    => $title,
-                'post_content'  => $content,
-                'post_status'   => 'publish',
-                'post_author'   => 1,
-                'post_category' => [1], // category ID = 1 (Bạn có thể đổi)
-            ]);
+    $output = '<div class="doAnCMS-blog-list" style="display:grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap:30px;">';
 
-            if ($post_id) {
-                // Gắn ảnh thumbnail
-                $image_path = get_template_directory() . '/assets/images/blog/blog' . ($index + 1) . '.jpg';
-                if (file_exists($image_path)) {
-                    $upload_dir = wp_upload_dir();
-                    $image_data = file_get_contents($image_path);
-                    $filename = basename($image_path);
+    if ($query->have_posts()) {
+        while ($query->have_posts()) {
+            $query->the_post();
 
-                    if (wp_mkdir_p($upload_dir['path'])) {
-                        $file = $upload_dir['path'] . '/' . $filename;
-                    } else {
-                        $file = $upload_dir['basedir'] . '/' . $filename;
-                    }
-
-                    file_put_contents($file, $image_data);
-
-                    $wp_filetype = wp_check_filetype($filename, null);
-                    $attachment = [
-                        'post_mime_type' => $wp_filetype['type'],
-                        'post_title'     => sanitize_file_name($filename),
-                        'post_content'   => '',
-                        'post_status'    => 'inherit'
-                    ];
-
-                    $attach_id = wp_insert_attachment($attachment, $file, $post_id);
-                    require_once(ABSPATH . 'wp-admin/includes/image.php');
-                    $attach_data = wp_generate_attachment_metadata($attach_id, $file);
-                    wp_update_attachment_metadata($attach_id, $attach_data);
-                    set_post_thumbnail($post_id, $attach_id);
-                }
-            }
+            $thumbnail = has_post_thumbnail() ? get_the_post_thumbnail_url(get_the_ID(), 'full') : 'https://via.placeholder.com/400x250?text=No+Image';
+            $output .= '<div class="doAnCMS-blog-item" style="border:1px solid #eee; border-radius:10px; overflow:hidden; box-shadow:0 4px 8px rgba(0,0,0,0.1); transition: transform 0.3s;">';
+            $output .= '<a href="' . get_permalink() . '"><img src="' . $thumbnail . '" alt="' . get_the_title() . '" style="width:100%; height:200px; object-fit:cover;"></a>';
+            $output .= '<div style="padding:15px;">';
+            $output .= '<h3 style="margin-bottom:10px;"><a href="' . get_permalink() . '" style="text-decoration:none; color:#333;">' . get_the_title() . '</a></h3>';
+            $output .= '<p style="color:#666; font-size:14px;">' . wp_trim_words(get_the_content(), 25) . '</p>';
+            $output .= '<a href="' . get_permalink() . '" style="display:inline-block; margin-top:10px; color:#6b9d3e; font-weight:bold;">Xem thêm →</a>';
+            $output .= '</div></div>';
         }
 
-        update_option('doAnCMS_sample_blog_posts_created', 1);
-    }
-    // add_action('after_setup_theme', 'doAnCMS_create_sample_blog_posts');
-
-    // =======================
-    // Shortcode hiển thị bài viết gần đây
-    // =======================
-    function doAnCMS_recent_posts_shortcode($atts)
-    {
-        $atts = shortcode_atts(array(
-            'posts' => 6,
-        ), $atts, 'recent-posts');
-
-        $paged = (get_query_var('paged')) ? get_query_var('paged') : 1;
-
-        $query = new WP_Query(array(
-            'post_type'      => 'post',
-            'posts_per_page' => intval($atts['posts']),
-            'paged'          => $paged,
+        $output .= '<div class="doAnCMS-pagination" style="grid-column:1/-1; text-align:center;">';
+        $output .= paginate_links(array(
+            'total' => $query->max_num_pages,
         ));
-
-        $output = '<div class="doAnCMS-blog-list" style="display:grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap:30px;">';
-
-        if ($query->have_posts()) {
-            while ($query->have_posts()) {
-                $query->the_post();
-
-                $thumbnail = has_post_thumbnail() ? get_the_post_thumbnail_url(get_the_ID(), 'full') : 'https://via.placeholder.com/400x250?text=No+Image';
-                $output .= '<div class="doAnCMS-blog-item" style="border:1px solid #eee; border-radius:10px; overflow:hidden; box-shadow:0 4px 8px rgba(0,0,0,0.1); transition: transform 0.3s;">';
-                $output .= '<a href="' . get_permalink() . '"><img src="' . $thumbnail . '" alt="' . get_the_title() . '" style="width:100%; height:200px; object-fit:cover;"></a>';
-                $output .= '<div style="padding:15px;">';
-                $output .= '<h3 style="margin-bottom:10px;"><a href="' . get_permalink() . '" style="text-decoration:none; color:#333;">' . get_the_title() . '</a></h3>';
-                $output .= '<p style="color:#666; font-size:14px;">' . wp_trim_words(get_the_content(), 25) . '</p>';
-                $output .= '<a href="' . get_permalink() . '" style="display:inline-block; margin-top:10px; color:#6b9d3e; font-weight:bold;">Xem thêm →</a>';
-                $output .= '</div></div>';
-            }
-
-            $output .= '<div class="doAnCMS-pagination" style="grid-column:1/-1; text-align:center;">';
-            $output .= paginate_links(array(
-                'total' => $query->max_num_pages,
-            ));
-            $output .= '</div>';
-
-            wp_reset_postdata();
-        } else {
-            $output .= '<p>Chưa có bài viết nào.</p>';
-        }
-
         $output .= '</div>';
-        return $output;
+
+        wp_reset_postdata();
+    } else {
+        $output .= '<p>Chưa có bài viết nào.</p>';
     }
 
-    add_shortcode('recent-posts', 'doAnCMS_recent_posts_shortcode');
-    // function doAnCMS_delete_all_posts()
-    // {
-    //     $paged = 1;
-    //     $posts_per_page = 50; // xóa 50 bài một lần, tránh lỗi memory
+    $output .= '</div>';
+    return $output;
+}
 
-    //     do {
-    //         $query = new WP_Query([
-    //             'post_type'      => 'post',
-    //             'posts_per_page' => $posts_per_page,
-    //             'paged'          => $paged,
-    //             'post_status'    => 'any', // lấy tất cả trạng thái bài viết
-    //         ]);
+add_shortcode('recent-posts', 'doAnCMS_recent_posts_shortcode');
+// Slide
+function theme_enqueue_swiper()
+{
+    // CSS
+    wp_enqueue_style('swiper-css', 'https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css');
 
-    //         if ($query->have_posts()) {
-    //             foreach ($query->posts as $post) {
-    //                 wp_delete_post($post->ID, true); // true = xóa vĩnh viễn
-    //             }
-    //         }
-
-    //         $paged++;
-    //         $max_pages = $query->max_num_pages;
-    //         wp_reset_postdata();
-    //     } while ($paged <= $max_pages);
-
-    //     // Xóa tùy chọn blog mẫu nếu có
-    //     delete_option('doAnCMS_sample_blog_posts_created');
-
-    //     echo "Đã xóa tất cả bài viết!";
-    // }
-
-    // // Gọi hàm 1 lần duy nhất
-    // doAnCMS_delete_all_posts();
-    // Slide
-    function theme_enqueue_swiper()
-    {
-        // CSS
-        wp_enqueue_style('swiper-css', 'https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css');
-
-        // JS
-        wp_enqueue_script('swiper-js', 'https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js', [], false, true);
+    // JS
+    wp_enqueue_script('swiper-js', 'https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js', [], false, true);
+}
+add_action('wp_enqueue_scripts', 'theme_enqueue_swiper');
+// Phân trang
+add_action('pre_get_posts', function ($query) {
+    if (!is_admin() && $query->is_main_query() && is_tax('product_cat')) {
+        $query->set('posts_per_page', 5);
     }
-    add_action('wp_enqueue_scripts', 'theme_enqueue_swiper');
-    // Phân trang
-    add_action('pre_get_posts', function ($query) {
-        if (!is_admin() && $query->is_main_query() && is_tax('product_cat')) {
-            $query->set('posts_per_page', 5);
-        }
-    });
+});
 
 
-    add_action('wp_ajax_load_product_quick_view', 'doAnCMS_load_product_quick_view');
-    add_action('wp_ajax_nopriv_load_product_quick_view', 'doAnCMS_load_product_quick_view');
+add_action('wp_ajax_load_product_quick_view', 'doAnCMS_load_product_quick_view');
+add_action('wp_ajax_nopriv_load_product_quick_view', 'doAnCMS_load_product_quick_view');
 
-    // 2. HÀM XỬ LÝ - THAY THẾ TOÀN BỘ HÀM NÀY
-    function doAnCMS_load_product_quick_view()
-    {
-        // 1. Kiểm tra ID (An toàn)
-        if (!isset($_POST['product_id']) || empty($_POST['product_id'])) {
-            echo '<p>Sản phẩm không hợp lệ.</p>';
-            wp_die();
-        }
+// 2. HÀM XỬ LÝ - THAY THẾ TOÀN BỘ HÀM NÀY
+function doAnCMS_load_product_quick_view()
+{
+    // 1. Kiểm tra ID (An toàn)
+    if (!isset($_POST['product_id']) || empty($_POST['product_id'])) {
+        echo '<p>Sản phẩm không hợp lệ.</p>';
+        wp_die();
+    }
 
-        $product_id = intval($_POST['product_id']);
-        $product = wc_get_product($product_id); // Lấy object an toàn
+    $product_id = intval($_POST['product_id']);
+    $product = wc_get_product($product_id); // Lấy object an toàn
 
-        if (!$product) {
-            echo '<p>Sản phẩm không hợp lệ hoặc không tìm thấy.</p>';
-            wp_die();
-        }
+    if (!$product) {
+        echo '<p>Sản phẩm không hợp lệ hoặc không tìm thấy.</p>';
+        wp_die();
+    }
 
-        // 2. TUI ĐÃ XÓA SẠCH:
-        // - global $post
-        // - setup_postdata($post)
-        // -> Đây chính là 2 dòng gây lỗi "critical error".
-        // -> Mình sẽ không đụng đến global state nữa.
+    // 2. TUI ĐÃ XÓA SẠCH:
+    // - global $post
+    // - setup_postdata($post)
+    // -> Đây chính là 2 dòng gây lỗi "critical error".
+    // -> Mình sẽ không đụng đến global state nữa.
 
-        // 3. Bắt đầu "bắt" HTML
-        ob_start();
-    ?>
+    // 3. Bắt đầu "bắt" HTML
+    ob_start();
+?>
 
-        <div class="product">
+    <div class="product">
 
-            <div class="woocommerce-product-gallery">
-                <?php echo $product->get_image('woocommerce_single'); ?>
-            </div>
-
-            <div class="summary entry-summary">
-                <?php
-                // Hiển thị tên (An toàn)
-                echo '<h1 class="product_title entry-title">' . esc_html($product->get_name()) . '</h1>';
-
-                // Hiển thị giá (An toàn)
-                echo '<p class="price">' . $product->get_price_html() . '</p>';
-
-                // Hiển thị mô tả ngắn (An toàn)
-                echo '<div class="woocommerce-product-details__short-description">';
-                echo $product->get_short_description();
-                echo '</div>';
-
-                // =======================================================
-                // === SỬA LỖI NÚT BẤM (Không dùng hàm phức tạp) ===
-                // =======================================================
-
-                // Kiểm tra loại sản phẩm (An toàn)
-                if ($product->is_type('simple') && $product->is_in_stock() && $product->is_purchasable()) {
-
-                    // 1. NẾU LÀ SẢN PHẨM ĐƠN (SIMPLE)
-                    // Dùng link AJAX an toàn + Text tự gõ (hardcode)
-                ?>
-                    <a href="<?php echo esc_url($product->add_to_cart_url()); ?>"
-                        value="<?php echo esc_attr($product->get_id()); ?>" class="button alt ajax_add_to_cart add_to_cart_button"
-                        data-product_id="<?php echo esc_attr($product->get_id()); ?>" data-quantity="1" rel="nofollow">
-                        🛒 Thêm vào giỏ hàng </a>
-                <?php
-
-                } else {
-
-                    // 2. NẾU LÀ SẢN PHẨM CÓ BIẾN THỂ (VARIABLE) hoặc loại khác
-                    // Dùng link permalink (An toàn)
-                    $button_text = 'Xem chi tiết';
-                    if ($product->is_type('variable')) {
-                        $button_text = 'Tuỳ chọn'; // Text cho SP biến thể
-                    }
-
-                ?>
-                    <a href="<?php echo esc_url($product->get_permalink()); ?>" class="button alt">
-                        <?php echo esc_html($button_text); ?>
-                    </a>
-                <?php
-                }
-                ?>
-            </div>
+        <div class="woocommerce-product-gallery">
+            <?php echo $product->get_image('woocommerce_single'); ?>
         </div>
 
-        <?php
-        // Lấy HTML đã "bắt" và dọn dẹp
-        $html = ob_get_clean();
+        <div class="summary entry-summary">
+            <?php
+            // Hiển thị tên (An toàn)
+            echo '<h1 class="product_title entry-title">' . esc_html($product->get_name()) . '</h1>';
 
-        // Trả HTML về cho AJAX
-        echo $html;
+            // Hiển thị giá (An toàn)
+            echo '<p class="price">' . $product->get_price_html() . '</p>';
 
-        // 4. TUI ĐÃ XÓA: wp_reset_postdata() (Vì không setup nên không cần reset)
-        wp_die(); // Luôn kết thúc bằng wp_die() trong AJAX
-    }
+            // Hiển thị mô tả ngắn (An toàn)
+            echo '<div class="woocommerce-product-details__short-description">';
+            echo $product->get_short_description();
+            echo '</div>';
 
-    // 2. Ghi đè CSS của WooCommerce
-    // Khi load content-single-product.php, nó sẽ có layout 2 cột.
-    // Mình cần CSS lại để nó vừa trong modal.
-    add_action('wp_head', function () {
-        // Chỉ load CSS này ở trang chủ (nơi có modal)
-        if (is_front_page()) { ?>
+            // =======================================================
+            // === SỬA LỖI NÚT BẤM (Không dùng hàm phức tạp) ===
+            // =======================================================
 
-            <!-- 
+            // Kiểm tra loại sản phẩm (An toàn)
+            if ($product->is_type('simple') && $product->is_in_stock() && $product->is_purchasable()) {
+
+                // 1. NẾU LÀ SẢN PHẨM ĐƠN (SIMPLE)
+                // Dùng link AJAX an toàn + Text tự gõ (hardcode)
+            ?>
+                <a href="<?php echo esc_url($product->add_to_cart_url()); ?>"
+                    value="<?php echo esc_attr($product->get_id()); ?>"
+                    class="button alt ajax_add_to_cart add_to_cart_button"
+                    data-product_id="<?php echo esc_attr($product->get_id()); ?>"
+                    data-quantity="1"
+                    rel="nofollow">
+                    🛒 Thêm vào giỏ hàng </a>
+            <?php
+
+            } else {
+
+                // 2. NẾU LÀ SẢN PHẨM CÓ BIẾN THỂ (VARIABLE) hoặc loại khác
+                // Dùng link permalink (An toàn)
+                $button_text = 'Xem chi tiết';
+                if ($product->is_type('variable')) {
+                    $button_text = 'Tuỳ chọn'; // Text cho SP biến thể
+                }
+
+            ?>
+                <a href="<?php echo esc_url($product->get_permalink()); ?>" class="button alt">
+                    <?php echo esc_html($button_text); ?>
+                </a>
+            <?php
+            }
+            ?>
+        </div>
+    </div>
+
+    <?php
+    // Lấy HTML đã "bắt" và dọn dẹp
+    $html = ob_get_clean();
+
+    // Trả HTML về cho AJAX
+    echo $html;
+
+    // 4. TUI ĐÃ XÓA: wp_reset_postdata() (Vì không setup nên không cần reset)
+    wp_die(); // Luôn kết thúc bằng wp_die() trong AJAX
+}
+
+// 2. Ghi đè CSS của WooCommerce
+// Khi load content-single-product.php, nó sẽ có layout 2 cột.
+// Mình cần CSS lại để nó vừa trong modal.
+add_action('wp_head', function () {
+    // Chỉ load CSS này ở trang chủ (nơi có modal)
+    if (is_front_page()) { ?>
+
+        <!-- 
 ======================================================
 === CSS "TÚT LẠI" CHO QUICK VIEW (CHO ĐẸP HƠN) ===
 === Bro THAY THẾ TOÀN BỘ style cũ bằng cái này ===
@@ -832,4 +770,106 @@ function send_newsletter_on_new_product($post_id)
         ));
     }
     add_action('widgets_init', 'html_cms_widgets_init');
+}
+
+    return $text; // Giữ nguyên cho các loại khác
+}
+add_filter('woocommerce_product_add_to_cart_text', 'my_custom_add_to_cart_text', 10, 2);
+
+
+
+function html_cms_widgets_init()
+{
+    register_sidebar(array(
+        'name'          => esc_html__('Shop Sidebar', 'html_cms'),
+        'id'            => 'shop-sidebar',
+        'description'   => esc_html__('Thêm các widget lọc sản phẩm vào đây.', 'html_cms'),
+        'before_widget' => '<div id="%1$s" class="widget %2$s">',
+        'after_widget'  => '</div>',
+        'before_title'  => '<h4 class="widget-title">',
+        'after_title'   => '</h4>',
+    ));
+}
+add_action('widgets_init', 'html_cms_widgets_init');
+
+// AJAX cập nhật số lượng
+function update_cart_item_ajax()
+{
+    $cart_item_key = sanitize_text_field($_POST['cart_item_key']);
+    $qty = intval($_POST['qty']);
+
+    $cart = WC()->cart;
+
+    if (isset($cart->get_cart()[$cart_item_key])) {
+        if ($qty > 0) {
+            $cart->set_quantity($cart_item_key, $qty, true); // true = recalc totals
+        } else {
+            $cart->remove_cart_item($cart_item_key);
+        }
+    }
+
+    // Tính lại totals (tự động tính cả coupon nếu có)
+    $cart->calculate_totals();
+
+    $subtotal_html = $cart->get_cart_subtotal();
+    $total_html    = $cart->get_total();
+    $discount_total = $cart->get_cart_discount_total();
+    $discount_html = wc_price($discount_total);
+
+    wp_send_json_success([
+        'removed'       => $qty === 0,
+        'subtotal_html' => $subtotal_html,
+        'total_html'    => $total_html,
+        'discount_html' => $discount_html,
+        'message'       => 'Cập nhật giỏ hàng thành công'
+    ]);
+
+    wp_die();
+}
+add_action('wp_ajax_update_cart_item', 'update_cart_item_ajax');
+add_action('wp_ajax_nopriv_update_cart_item', 'update_cart_item_ajax');
+
+
+add_action('wp_ajax_apply_coupon_ajax', 'apply_coupon_ajax');
+add_action('wp_ajax_nopriv_apply_coupon_ajax', 'apply_coupon_ajax');
+
+function apply_coupon_ajax()
+{
+    if (empty($_POST['coupon_code'])) {
+        wp_send_json_error(['message' => 'Vui lòng nhập mã giảm giá']);
+    }
+
+    $coupon_code = sanitize_text_field($_POST['coupon_code']);
+
+    // Chỉ apply nếu chưa có
+    if (!WC()->cart->has_discount($coupon_code)) {
+        $result = WC()->cart->apply_coupon($coupon_code);
+
+        if (is_wp_error($result)) {
+            wp_send_json_error(['message' => $result->get_error_message()]);
+        }
+    }
+
+    WC()->cart->calculate_totals(); // tính lại tổng sau khi áp coupon
+
+    // Kiểm tra coupon có được áp dụng
+    if (!WC()->cart->has_discount($coupon_code)) {
+        wp_send_json_error(['message' => 'Mã giảm giá không hợp lệ']);
+    }
+
+    // Lấy giá hiển thị
+    $subtotal_html = WC()->cart->get_cart_subtotal();           // Giá gốc
+    $discount_total = WC()->cart->get_cart_discount_total();    // Tổng giảm, đã tính thuế
+    $discount_html = wc_price($discount_total);
+    $total_html = WC()->cart->get_total();                       // Tổng cuối
+
+    wp_send_json_success([
+        'coupon_code'   => $coupon_code,
+        'subtotal_html' => $subtotal_html,
+        'discount_html' => $discount_html,
+        'total_html'    => $total_html,
+        'message'       => sprintf('Áp dụng mã "%s" thành công!', esc_html($coupon_code))
+    ]);
+
+    wp_die();
 }
