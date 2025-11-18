@@ -549,11 +549,8 @@ function doAnCMS_load_product_quick_view()
                 // Dùng link AJAX an toàn + Text tự gõ (hardcode)
             ?>
                 <a href="<?php echo esc_url($product->add_to_cart_url()); ?>"
-                    value="<?php echo esc_attr($product->get_id()); ?>"
-                    class="button alt ajax_add_to_cart add_to_cart_button"
-                    data-product_id="<?php echo esc_attr($product->get_id()); ?>"
-                    data-quantity="1"
-                    rel="nofollow">
+                    value="<?php echo esc_attr($product->get_id()); ?>" class="button alt ajax_add_to_cart add_to_cart_button"
+                    data-product_id="<?php echo esc_attr($product->get_id()); ?>" data-quantity="1" rel="nofollow">
                     🛒 Thêm vào giỏ hàng </a>
             <?php
 
@@ -786,33 +783,26 @@ function apply_coupon_ajax()
 
     $coupon_code = sanitize_text_field($_POST['coupon_code']);
 
-    // Chỉ apply nếu chưa có
-    if (!WC()->cart->has_discount($coupon_code)) {
-        $result = WC()->cart->apply_coupon($coupon_code);
+    // Áp mã
+    $applied = WC()->cart->apply_coupon($coupon_code);
 
-        if (is_wp_error($result)) {
-            wp_send_json_error(['message' => $result->get_error_message()]);
-        }
+    // Lấy lỗi sau khi apply
+    if (!$applied) {
+        $errors = wc_get_notices('error');
+        $err_msg = !empty($errors) ? $errors[0]['notice'] : 'Mã giảm giá không hợp lệ';
+        wc_clear_notices();
+
+        wp_send_json_error(['message' => $err_msg]);
     }
 
-    WC()->cart->calculate_totals(); // tính lại tổng sau khi áp coupon
-
-    // Kiểm tra coupon có được áp dụng
-    if (!WC()->cart->has_discount($coupon_code)) {
-        wp_send_json_error(['message' => 'Mã giảm giá không hợp lệ']);
-    }
-
-    // Lấy giá hiển thị
-    $subtotal_html = WC()->cart->get_cart_subtotal();           // Giá gốc
-    $discount_total = WC()->cart->get_cart_discount_total();    // Tổng giảm, đã tính thuế
-    $discount_html = wc_price($discount_total);
-    $total_html = WC()->cart->get_total();                       // Tổng cuối
+    // Tính lại tiền
+    WC()->cart->calculate_totals();
 
     wp_send_json_success([
         'coupon_code'   => $coupon_code,
-        'subtotal_html' => $subtotal_html,
-        'discount_html' => $discount_html,
-        'total_html'    => $total_html,
+        'subtotal_html' => WC()->cart->get_cart_subtotal(),
+        'discount_html' => wc_price(WC()->cart->get_cart_discount_total()),
+        'total_html'    => WC()->cart->get_total(),
         'message'       => sprintf('Áp dụng mã "%s" thành công!', esc_html($coupon_code))
     ]);
 
