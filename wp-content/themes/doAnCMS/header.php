@@ -7,263 +7,263 @@
     <title><?php bloginfo('name'); ?> - <?php bloginfo('description'); ?></title>
     <?php wp_head(); ?>
     <style>
-        body {
-            margin: 0;
-            font-family: 'Poppins', sans-serif;
-        }
+    body {
+        margin: 0;
+        font-family: 'Poppins', sans-serif;
+    }
 
-        /* HEADER */
-        .header {
-            background-color: #fff;
-            padding: 15px 20px;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
-            position: sticky;
-            top: 0;
-            z-index: 999;
-        }
+    /* HEADER */
+    .header {
+        background-color: #fff;
+        padding: 15px 20px;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+        position: sticky;
+        top: 0;
+        z-index: 999;
+    }
 
+    .header-container {
+        max-width: 1200px;
+        margin: 0 auto;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        gap: 20px;
+    }
+
+    .logo a {
+        display: flex;
+        align-items: center;
+        text-decoration: none;
+    }
+
+    .logo img {
+        width: 150px;
+        height: auto;
+        margin-right: 10px;
+        object-fit: contain;
+    }
+
+    .logo span {
+        font-weight: bold;
+        color: #6b9d3e;
+        font-size: 20px;
+    }
+
+    /* SEARCH BAR - Improved Design */
+    .search-bar {
+        position: relative;
+        flex: 1;
+        max-width: 400px;
+        min-width: 250px;
+    }
+
+    .search-bar form {
+        position: relative;
+        width: 100%;
+    }
+
+    .search-bar input[type="text"] {
+        width: 100%;
+        padding: 12px 50px 12px 20px;
+        border-radius: 50px;
+        border: 2px solid #e0e0e0;
+        font-size: 14px;
+        transition: all 0.3s ease;
+        outline: none;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+    }
+
+    .search-bar input[type="text"]:focus {
+        border-color: #6b9d3e;
+        box-shadow: 0 4px 12px rgba(107, 157, 62, 0.15);
+    }
+
+    .search-bar input[type="text"]::placeholder {
+        color: #999;
+        font-size: 14px;
+    }
+
+    .search-bar button {
+        position: absolute;
+        right: 8px;
+        top: 50%;
+        transform: translateY(-50%);
+        background: #6b9d3e;
+        border: none;
+        color: #fff;
+        width: 38px;
+        height: 38px;
+        border-radius: 50%;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 16px;
+    }
+
+    .search-bar button:hover {
+        background: #557c2a;
+        transform: translateY(-50%) scale(1.05);
+    }
+
+    .search-bar button:active {
+        transform: translateY(-50%) scale(0.95);
+    }
+
+    /* Search Results Dropdown (optional enhancement) */
+    .search-results {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        background: white;
+        border-radius: 12px;
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+        margin-top: 8px;
+        display: none;
+        max-height: 400px;
+        overflow-y: auto;
+        z-index: 1000;
+    }
+
+    .search-results.active {
+        display: block;
+    }
+
+    .search-result-item {
+        padding: 12px 20px;
+        border-bottom: 1px solid #f0f0f0;
+        cursor: pointer;
+        transition: background 0.2s;
+    }
+
+    .search-result-item:hover {
+        background: #f8f8f8;
+    }
+
+    .search-result-item:last-child {
+        border-bottom: none;
+    }
+
+    .header-right {
+        display: flex;
+        align-items: center;
+        gap: 20px;
+    }
+
+    .header-right .phone {
+        font-weight: 500;
+        color: #333;
+        display: flex;
+        align-items: center;
+        gap: 5px;
+    }
+
+    .header-right .cart a {
+        font-size: 24px;
+        color: #333;
+        text-decoration: none;
+        position: relative;
+        transition: transform 0.2s;
+    }
+
+    .header-right .cart a:hover {
+        transform: scale(1.1);
+    }
+
+    .nav-toggle {
+        display: none;
+        font-size: 24px;
+        cursor: pointer;
+    }
+
+    /* NAVIGATION */
+    .nav {
+        background-color: #6b9d3e;
+    }
+
+    .nav-container {
+        max-width: 1200px;
+        margin: 0 auto;
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        transition: max-height 0.3s ease;
+    }
+
+    .nav-container a {
+        color: #fff;
+        padding: 12px 18px;
+        text-decoration: none;
+        font-weight: 500;
+        transition: all 0.3s;
+    }
+
+    .nav-container a:hover {
+        background-color: #557c2a;
+        border-radius: 6px;
+    }
+
+    /* ===== RESPONSIVE ===== */
+    @media (max-width: 768px) {
         .header-container {
-            max-width: 1200px;
-            margin: 0 auto;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            flex-wrap: wrap;
-            gap: 20px;
+            flex-direction: column;
+            align-items: flex-start;
         }
 
-        .logo a {
-            display: flex;
-            align-items: center;
-            text-decoration: none;
-        }
-
-        .logo img {
-            width: 150px;
-            height: auto;
-            margin-right: 10px;
-            object-fit: contain;
-        }
-
-        .logo span {
-            font-weight: bold;
-            color: #6b9d3e;
-            font-size: 20px;
-        }
-
-        /* SEARCH BAR - Improved Design */
         .search-bar {
-            position: relative;
-            flex: 1;
-            max-width: 400px;
-            min-width: 250px;
-        }
-
-        .search-bar form {
-            position: relative;
             width: 100%;
-        }
-
-        .search-bar input[type="text"] {
-            width: 100%;
-            padding: 12px 50px 12px 20px;
-            border-radius: 50px;
-            border: 2px solid #e0e0e0;
-            font-size: 14px;
-            transition: all 0.3s ease;
-            outline: none;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
-        }
-
-        .search-bar input[type="text"]:focus {
-            border-color: #6b9d3e;
-            box-shadow: 0 4px 12px rgba(107, 157, 62, 0.15);
-        }
-
-        .search-bar input[type="text"]::placeholder {
-            color: #999;
-            font-size: 14px;
-        }
-
-        .search-bar button {
-            position: absolute;
-            right: 8px;
-            top: 50%;
-            transform: translateY(-50%);
-            background: #6b9d3e;
-            border: none;
-            color: #fff;
-            width: 38px;
-            height: 38px;
-            border-radius: 50%;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 16px;
-        }
-
-        .search-bar button:hover {
-            background: #557c2a;
-            transform: translateY(-50%) scale(1.05);
-        }
-
-        .search-bar button:active {
-            transform: translateY(-50%) scale(0.95);
-        }
-
-        /* Search Results Dropdown (optional enhancement) */
-        .search-results {
-            position: absolute;
-            top: 100%;
-            left: 0;
-            right: 0;
-            background: white;
-            border-radius: 12px;
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
-            margin-top: 8px;
-            display: none;
-            max-height: 400px;
-            overflow-y: auto;
-            z-index: 1000;
-        }
-
-        .search-results.active {
-            display: block;
-        }
-
-        .search-result-item {
-            padding: 12px 20px;
-            border-bottom: 1px solid #f0f0f0;
-            cursor: pointer;
-            transition: background 0.2s;
-        }
-
-        .search-result-item:hover {
-            background: #f8f8f8;
-        }
-
-        .search-result-item:last-child {
-            border-bottom: none;
+            max-width: 100%;
+            order: 3;
         }
 
         .header-right {
-            display: flex;
-            align-items: center;
-            gap: 20px;
-        }
-
-        .header-right .phone {
-            font-weight: 500;
-            color: #333;
-            display: flex;
-            align-items: center;
-            gap: 5px;
-        }
-
-        .header-right .cart a {
-            font-size: 24px;
-            color: #333;
-            text-decoration: none;
-            position: relative;
-            transition: transform 0.2s;
-        }
-
-        .header-right .cart a:hover {
-            transform: scale(1.1);
+            width: 100%;
+            justify-content: space-between;
         }
 
         .nav-toggle {
-            display: none;
-            font-size: 24px;
-            cursor: pointer;
-        }
-
-        /* NAVIGATION */
-        .nav {
-            background-color: #6b9d3e;
-        }
-
-        .nav-container {
-            max-width: 1200px;
-            margin: 0 auto;
-            display: flex;
-            justify-content: center;
-            flex-wrap: wrap;
-            transition: max-height 0.3s ease;
-        }
-
-        .nav-container a {
+            display: block;
             color: #fff;
-            padding: 12px 18px;
-            text-decoration: none;
-            font-weight: 500;
-            transition: all 0.3s;
-        }
-
-        .nav-container a:hover {
-            background-color: #557c2a;
+            background: #6b9d3e;
+            padding: 10px 15px;
             border-radius: 6px;
         }
 
-        /* ===== RESPONSIVE ===== */
-        @media (max-width: 768px) {
-            .header-container {
-                flex-direction: column;
-                align-items: flex-start;
-            }
-
-            .search-bar {
-                width: 100%;
-                max-width: 100%;
-                order: 3;
-            }
-
-            .header-right {
-                width: 100%;
-                justify-content: space-between;
-            }
-
-            .nav-toggle {
-                display: block;
-                color: #fff;
-                background: #6b9d3e;
-                padding: 10px 15px;
-                border-radius: 6px;
-            }
-
-            .nav-container {
-                flex-direction: column;
-                align-items: flex-start;
-                display: none;
-                width: 100%;
-            }
-
-            .nav-container.active {
-                display: flex;
-            }
-
-            .nav-container a {
-                padding: 12px 20px;
-                width: 100%;
-                text-align: left;
-            }
+        .nav-container {
+            flex-direction: column;
+            align-items: flex-start;
+            display: none;
+            width: 100%;
         }
 
-        @media (max-width: 480px) {
-            .logo span {
-                font-size: 16px;
-            }
-
-            .logo img {
-                width: 120px;
-            }
-
-            .header-right .phone {
-                font-size: 14px;
-            }
+        .nav-container.active {
+            display: flex;
         }
+
+        .nav-container a {
+            padding: 12px 20px;
+            width: 100%;
+            text-align: left;
+        }
+    }
+
+    @media (max-width: 480px) {
+        .logo span {
+            font-size: 16px;
+        }
+
+        .logo img {
+            width: 120px;
+        }
+
+        .header-right .phone {
+            font-size: 14px;
+        }
+    }
     </style>
 </head>
 
@@ -330,7 +330,7 @@
     <!-- Navigation -->
     <div class="nav">
         <div class="nav-wrapper">
-            <div class="nav-container">
+            <div class="nav-container" id="nav-container">
                 <a href="<?php echo esc_url(home_url('/')); ?>">HOME</a>
                 <a href="<?php echo esc_url(home_url('/about-us')); ?>">VỀ ORGANIC SHOP</a>
                 <a href="<?php echo esc_url(home_url('/blog-page')); ?>">BLOGS ORGANIC</a>
@@ -339,105 +339,106 @@
 
             <div class="login-btn">
                 <?php if (is_user_logged_in()) : ?>
-                    <?php
+                <?php
                     $user = wp_get_current_user();
                     $username = $user->display_name ?: $user->user_login;
                     ?>
-                    <div class="user-menu">
-                        <span class="username">Xin chào, <?php echo esc_html($username); ?> 👋</span>
-                        <div class="menu-toggle" id="userMenuToggle">⋮</div>
-                        <div class="user-dropdown" id="userDropdown">
-                            <a href="<?php echo wc_get_cart_url(); ?>">🛒 Giỏ hàng</a>
-                            <a href="<?php echo wp_logout_url(home_url()); ?>">🚪 Đăng xuất</a>
-                        </div>
+                <div class="user-menu">
+                    <span class="username">Xin chào, <?php echo esc_html($username); ?> 👋</span>
+                    <div class="menu-toggle" id="userMenuToggle">⋮</div>
+                    <div class="user-dropdown" id="userDropdown">
+                        <a href="<?php echo wc_get_cart_url(); ?>">🛒 Giỏ hàng</a>
+                        <a href="<?php echo wp_logout_url(home_url()); ?>">🚪 Đăng xuất</a>
                     </div>
+                </div>
                 <?php else : ?>
-                    <a href="<?php echo esc_url(home_url('/tai-khoan/')); ?>"
-                        class="login-link">Đăng nhập</a>
+                <a href="<?php echo esc_url(home_url('/tai-khoan/')); ?>" class="login-link">Đăng nhập</a>
                 <?php endif; ?>
             </div>
         </div>
     </div>
     <script>
-        // Mobile menu toggle
-        const navToggle = document.getElementById('nav-toggle');
-        const navContainer = document.getElementById('nav-container');
+    // Mobile menu toggle
+    const navToggle = document.getElementById('nav-toggle');
+    const navContainer = document.getElementById('nav-container');
 
-        navToggle.addEventListener('click', () => {
-            navContainer.classList.toggle('active');
-        });
-
-        // Optional: Live search functionality (AJAX)
-        const searchInput = document.getElementById('search-input');
-        const searchResults = document.getElementById('search-results');
-        let searchTimeout;
-
-        searchInput.addEventListener('input', function() {
-            const query = this.value.trim();
-
-            clearTimeout(searchTimeout);
-
-            if (query.length < 2) {
-                searchResults.classList.remove('active');
-                return;
-            }
-
-            searchTimeout = setTimeout(() => {
-                // AJAX search call
-                fetch('<?php echo admin_url('admin-ajax.php'); ?>?action=live_search&s=' +
-                        encodeURIComponent(query) + '&post_type=product')
-                    .then(response => response.json())
-                    .then(data => {
-                        if (data.length > 0) {
-                            searchResults.innerHTML = data.map(item =>
-                                `<div class="search-result-item" onclick="window.location.href='${item.url}'">
-                                <strong>${item.title}</strong>
-                                ${item.price ? `<span style="color: #6b9d3e; margin-left: 10px;">${item.price}</span>` : ''}
-                            </div>`
-                            ).join('');
-                            searchResults.classList.add('active');
-                        } else {
-                            searchResults.innerHTML =
-                                '<div class="search-result-item">Không tìm thấy sản phẩm</div>';
-                            searchResults.classList.add('active');
-                        }
-                    })
-                    .catch(error => {
-                        console.error('Search error:', error);
-                    });
-            }, 300);
-        });
-
-        // Close search results when clicking outside
-        document.addEventListener('click', function(e) {
-            if (!e.target.closest('.search-bar')) {
-                searchResults.classList.remove('active');
-            }
-        });
+    navToggle.addEventListener('click', () => {
+        navContainer.classList.toggle('active');
+    });
     </script>
-
-    <?php wp_footer(); ?>
-
-
     <script>
-        document.addEventListener("DOMContentLoaded", function() {
-            const toggle = document.getElementById("userMenuToggle");
-            const dropdown = document.getElementById("userDropdown");
+    const searchInput = document.getElementById('search-input');
+    const searchResults = document.getElementById('search-results');
 
-            if (toggle && dropdown) {
-                toggle.addEventListener("click", () => {
-                    dropdown.style.display =
-                        dropdown.style.display === "block" ? "none" : "block";
-                });
+    let searchTimeout = null;
 
-                document.addEventListener("click", function(e) {
-                    if (!toggle.contains(e.target) && !dropdown.contains(e.target)) {
-                        dropdown.style.display = "none";
+    searchInput.addEventListener('input', function() {
+        const query = this.value.trim();
+
+        clearTimeout(searchTimeout);
+
+        if (query.length < 2) {
+            searchResults.classList.remove('active');
+            return;
+        }
+
+        searchTimeout = setTimeout(() => {
+
+            fetch('<?php echo admin_url("admin-ajax.php"); ?>?action=live_search&s=' +
+                    encodeURIComponent(query))
+                .then(res => res.json())
+                .then(data => {
+                    if (data.length > 0) {
+                        searchResults.innerHTML = data.map(item => `
+                            <div class="search-result-item" onclick="location.href='${item.url}'">
+                                <div style="display: flex; align-items: center; gap: 10px;">
+                                    <img src="${item.image}" style="width: 40px; height: 40px; border-radius: 6px; object-fit: cover;">
+                                    <div>
+                                        <strong>${item.title}</strong><br>
+                                        <span style="color:#6b9d3e;font-size:13px">${item.price ?? ''}</span>
+                                    </div>
+                                </div>
+                            </div>
+                        `).join('');
+                    } else {
+                        searchResults.innerHTML =
+                            '<div class="search-result-item">Không tìm thấy sản phẩm</div>';
                     }
+
+                    searchResults.classList.add('active');
+                })
+                .catch(err => {
+                    console.error("Search Error:", err);
                 });
-            }
-        });
+        }, 300);
+    });
+
+    document.addEventListener('click', function(e) {
+        if (!e.target.closest('.search-bar')) {
+            searchResults.classList.remove('active');
+        }
+    });
     </script>
+    <script>
+    document.addEventListener("DOMContentLoaded", function() {
+        const toggle = document.getElementById("userMenuToggle");
+        const dropdown = document.getElementById("userDropdown");
+
+        if (toggle && dropdown) {
+            toggle.addEventListener("click", () => {
+                dropdown.style.display =
+                    dropdown.style.display === "block" ? "none" : "block";
+            });
+
+            document.addEventListener("click", function(e) {
+                if (!toggle.contains(e.target) && !dropdown.contains(e.target)) {
+                    dropdown.style.display = "none";
+                }
+            });
+        }
+    });
+    </script>
+    <?php wp_footer(); ?>
 
 </body>
 
