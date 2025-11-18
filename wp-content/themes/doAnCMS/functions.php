@@ -1,4 +1,5 @@
 <?php
+
 if (!defined('ABSPATH')) exit;
 
 // =======================
@@ -73,6 +74,20 @@ function doAnCMS_enqueue_styles()
 }
 add_action('wp_enqueue_scripts', 'doAnCMS_enqueue_styles', 99);
 
+// Load CSS riêng cho template blog
+function doAnCMS_enqueue_blog_styles()
+{
+    if (is_page_template('blog-template.php')) {
+        wp_enqueue_style(
+            'doAnCMS-blog-style',
+            get_stylesheet_directory_uri() . '/blog.css',
+            array('doAnCMS-base-style'),
+            '1.0.0'
+        );
+    }
+}
+add_action('wp_enqueue_scripts', 'doAnCMS_enqueue_blog_styles');
+
 // =======================
 // Theme setup
 // =======================
@@ -103,32 +118,32 @@ add_filter('woocommerce_output_related_products_args', 'doAnCMS_change_related_p
 // Sale badge CSS + functions
 // =======================
 add_action('wp_head', function () { ?>
-<style>
-.woocommerce ul.products li.product,
-.product-card,
-.product-thumb {
-    position: relative;
-}
+    <style>
+        .woocommerce ul.products li.product,
+        .product-card,
+        .product-thumb {
+            position: relative;
+        }
 
-.custom-sale-badge {
-    position: absolute;
-    top: 10px;
-    left: 10px;
-    background: #e74c3c;
-    color: #fff;
-    padding: 5px 10px;
-    border-radius: 5px;
-    font-weight: bold;
-    z-index: 10;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, .15);
-}
+        .custom-sale-badge {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            background: #e74c3c;
+            color: #fff;
+            padding: 5px 10px;
+            border-radius: 5px;
+            font-weight: bold;
+            z-index: 10;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, .15);
+        }
 
-.custom-sale-single {
-    font-size: 16px;
-    color: #e74c3c;
-    margin-bottom: 10px;
-}
-</style>
+        .custom-sale-single {
+            font-size: 16px;
+            color: #e74c3c;
+            margin-bottom: 10px;
+        }
+    </style>
 <?php });
 
 add_action('woocommerce_before_shop_loop_item_title', 'doAnCMS_show_sale_badge', 9);
@@ -143,6 +158,8 @@ function doAnCMS_show_sale_badge()
         echo '<span class="custom-sale-badge">-' . esc_html($percentage) . '%</span>';
     }
 }
+
+
 
 add_action('woocommerce_single_product_summary', 'doAnCMS_show_sale_percentage_single', 6);
 function doAnCMS_show_sale_percentage_single()
@@ -235,11 +252,11 @@ function send_newsletter_on_new_product($post_id)
     $emails = get_option('newsletter_subscribers', array());
     if (empty($emails)) return;
     $product = wc_get_product($post_id);
-add_action('transition_post_status', 'send_newsletter_on_new_product', 10, 3);
-function send_newsletter_on_new_product($new_status, $old_status, $post)
-{
-    // Chỉ xử lý với post type product
-    if ($post->post_type !== 'product') return;
+    add_action('transition_post_status', 'send_newsletter_on_new_product', 10, 3);
+    function send_newsletter_on_new_product($new_status, $old_status, $post)
+    {
+        // Chỉ xử lý với post type product
+        if ($post->post_type !== 'product') return;
 
         // Chỉ gửi mail khi sản phẩm mới được publish (từ draft/pending → publish)
         if ($new_status !== 'publish' || $old_status === 'publish') return;
@@ -569,3 +586,252 @@ add_action('pre_get_posts', function ($query) {
         $query->set('posts_per_page', 5);
     }
 });
+
+
+add_action('wp_ajax_load_product_quick_view', 'doAnCMS_load_product_quick_view');
+add_action('wp_ajax_nopriv_load_product_quick_view', 'doAnCMS_load_product_quick_view');
+
+// 2. HÀM XỬ LÝ - THAY THẾ TOÀN BỘ HÀM NÀY
+function doAnCMS_load_product_quick_view()
+{
+    // 1. Kiểm tra ID (An toàn)
+    if (!isset($_POST['product_id']) || empty($_POST['product_id'])) {
+        echo '<p>Sản phẩm không hợp lệ.</p>';
+        wp_die();
+    }
+
+    $product_id = intval($_POST['product_id']);
+    $product = wc_get_product($product_id); // Lấy object an toàn
+
+    if (!$product) {
+        echo '<p>Sản phẩm không hợp lệ hoặc không tìm thấy.</p>';
+        wp_die();
+    }
+
+    // 2. TUI ĐÃ XÓA SẠCH:
+    // - global $post
+    // - setup_postdata($post)
+    // -> Đây chính là 2 dòng gây lỗi "critical error".
+    // -> Mình sẽ không đụng đến global state nữa.
+
+    // 3. Bắt đầu "bắt" HTML
+    ob_start();
+?>
+
+    <div class="product">
+
+        <div class="woocommerce-product-gallery">
+            <?php echo $product->get_image('woocommerce_single'); ?>
+        </div>
+
+        <div class="summary entry-summary">
+            <?php
+            // Hiển thị tên (An toàn)
+            echo '<h1 class="product_title entry-title">' . esc_html($product->get_name()) . '</h1>';
+
+            // Hiển thị giá (An toàn)
+            echo '<p class="price">' . $product->get_price_html() . '</p>';
+
+            // Hiển thị mô tả ngắn (An toàn)
+            echo '<div class="woocommerce-product-details__short-description">';
+            echo $product->get_short_description();
+            echo '</div>';
+
+            // =======================================================
+            // === SỬA LỖI NÚT BẤM (Không dùng hàm phức tạp) ===
+            // =======================================================
+
+            // Kiểm tra loại sản phẩm (An toàn)
+            if ($product->is_type('simple') && $product->is_in_stock() && $product->is_purchasable()) {
+
+                // 1. NẾU LÀ SẢN PHẨM ĐƠN (SIMPLE)
+                // Dùng link AJAX an toàn + Text tự gõ (hardcode)
+            ?>
+                <a href="<?php echo esc_url($product->add_to_cart_url()); ?>"
+                    value="<?php echo esc_attr($product->get_id()); ?>"
+                    class="button alt ajax_add_to_cart add_to_cart_button"
+                    data-product_id="<?php echo esc_attr($product->get_id()); ?>"
+                    data-quantity="1"
+                    rel="nofollow">
+                    🛒 Thêm vào giỏ hàng </a>
+            <?php
+
+            } else {
+
+                // 2. NẾU LÀ SẢN PHẨM CÓ BIẾN THỂ (VARIABLE) hoặc loại khác
+                // Dùng link permalink (An toàn)
+                $button_text = 'Xem chi tiết';
+                if ($product->is_type('variable')) {
+                    $button_text = 'Tuỳ chọn'; // Text cho SP biến thể
+                }
+
+            ?>
+                <a href="<?php echo esc_url($product->get_permalink()); ?>" class="button alt">
+                    <?php echo esc_html($button_text); ?>
+                </a>
+            <?php
+            }
+            ?>
+        </div>
+    </div>
+
+    <?php
+    // Lấy HTML đã "bắt" và dọn dẹp
+    $html = ob_get_clean();
+
+    // Trả HTML về cho AJAX
+    echo $html;
+
+    // 4. TUI ĐÃ XÓA: wp_reset_postdata() (Vì không setup nên không cần reset)
+    wp_die(); // Luôn kết thúc bằng wp_die() trong AJAX
+}
+
+// 2. Ghi đè CSS của WooCommerce
+// Khi load content-single-product.php, nó sẽ có layout 2 cột.
+// Mình cần CSS lại để nó vừa trong modal.
+add_action('wp_head', function () {
+    // Chỉ load CSS này ở trang chủ (nơi có modal)
+    if (is_front_page()) { ?>
+
+        <!-- 
+======================================================
+=== CSS "TÚT LẠI" CHO QUICK VIEW (CHO ĐẸP HƠN) ===
+=== Bro THAY THẾ TOÀN BỘ style cũ bằng cái này ===
+====================================================== 
+-->
+        <style>
+            /* 1. Layout 2 cột (Giữ nguyên) */
+            #quick-view-content-wrapper .product {
+                display: grid;
+                grid-template-columns: 1fr;
+                /* 1 cột mobile */
+                gap: 20px;
+                padding: 30px;
+                /* Tăng padding cho "thở" */
+            }
+
+            @media (min-width: 600px) {
+                #quick-view-content-wrapper .product {
+                    grid-template-columns: 1fr 1fr;
+                    /* 2 cột desktop */
+                    gap: 30px;
+                }
+            }
+
+            /* 2. Tút lại CỘT HÌNH ẢNH (Bo góc) */
+            #quick-view-content-wrapper .woocommerce-product-gallery {
+                border-radius: 10px;
+                overflow: hidden;
+                /* Bo góc cho ảnh */
+                border: 1px solid #eee;
+            }
+
+            #quick-view-content-wrapper .woocommerce-product-gallery img {
+                width: 100%;
+                height: auto;
+                display: block;
+                /* Bỏ khoảng trống thừa */
+            }
+
+            /* 3. Tút lại CỘT NỘI DUNG */
+            #quick-view-content-wrapper .product .summary {
+                display: flex;
+                flex-direction: column;
+                /* Sắp xếp nội dung */
+            }
+
+            /* 4. Tút lại TÊN SẢN PHẨM */
+            #quick-view-content-wrapper .product .summary .product_title {
+                font-size: 24px;
+                /* Giảm size cho hợp popup */
+                line-height: 1.3;
+                margin-bottom: 10px;
+                color: #333;
+            }
+
+            /* 5. Tút lại GIÁ (nổi bật) */
+            #quick-view-content-wrapper .product .summary .price {
+                font-size: 22px;
+                font-weight: bold;
+                color: #6b9d3e;
+                /* Màu xanh theme */
+                margin-bottom: 15px;
+            }
+
+            /* 6. Tút lại MÔ TẢ NGẮN */
+            #quick-view-content-wrapper .product .summary .woocommerce-product-details__short-description {
+                font-size: 15px;
+                line-height: 1.6;
+                color: #555;
+                margin-bottom: 20px;
+                padding-bottom: 20px;
+                border-bottom: 1px solid #f0f0f0;
+                /* Thêm 1 đường kẻ mờ */
+                flex-grow: 1;
+                /* Đẩy nút bấm xuống dưới */
+            }
+
+            /* 7. Tút lại NÚT BẤM (Xịn hơn) */
+            #quick-view-content-wrapper .product .summary .cart {
+                margin-top: 0;
+                /* Bỏ margin-top cũ vì đã có border */
+            }
+
+            #quick-view-content-wrapper .product .summary .button {
+                width: 100%;
+                padding: 14px !important;
+                /* To hơn 1 chút */
+                font-size: 16px !important;
+                font-weight: bold !important;
+                background-color: #6b9d3e !important;
+                color: #fff !important;
+                border: none !important;
+                border-radius: 5px !important;
+                /* Bo góc */
+                cursor: pointer;
+                transition: all 0.3s ease;
+                text-align: center !important;
+                /* 1. Căn giữa chữ */
+                text-decoration: none !important;
+            }
+
+            #quick-view-content-wrapper .product .summary .button:hover {
+                background-color: #557c2a !important;
+                transform: translateY(-2px);
+                /* Hiệu ứng 3D */
+                box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            }
+        </style>
+<?php }
+});
+
+
+function my_custom_add_to_cart_text($text, $product)
+{
+    if ($product->is_type('variable')) {
+        return __('Tuỳ chọn', 'html_cms'); // Chữ cho sản phẩm có biến thể
+    }
+
+    if ($product->is_type('simple')) {
+        return __('Thêm vào giỏ hàng', 'html_cms'); // Chữ cho sản phẩm đơn
+    }
+
+    return $text; // Giữ nguyên cho các loại khác
+}
+add_filter('woocommerce_product_add_to_cart_text', 'my_custom_add_to_cart_text', 10, 2);
+
+
+
+function html_cms_widgets_init()
+{
+    register_sidebar(array(
+        'name'          => esc_html__('Shop Sidebar', 'html_cms'),
+        'id'            => 'shop-sidebar',
+        'description'   => esc_html__('Thêm các widget lọc sản phẩm vào đây.', 'html_cms'),
+        'before_widget' => '<div id="%1$s" class="widget %2$s">',
+        'after_widget'  => '</div>',
+        'before_title'  => '<h4 class="widget-title">',
+        'after_title'   => '</h4>',
+    ));
+}
+add_action('widgets_init', 'html_cms_widgets_init');

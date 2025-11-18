@@ -332,96 +332,103 @@ body {
 
 /* Button đăng nhập */
 .login-btn a {
-  display: inline-block;
-  padding: 10px 18px;
-  border: 2px solid #6b9d3e;
-  color: #6b9d3e;
-  background: #fff;
-  border-radius: 10px;
-  text-decoration: none;
-  font-weight: 600;
-  transition: all 0.25s ease;
-  box-shadow: 0 2px 5px rgba(0,0,0,0.08);
+    display: inline-block;
+    padding: 10px 18px;
+    border: 2px solid #6b9d3e;
+    color: #6b9d3e;
+    background: #fff;
+    border-radius: 10px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: all 0.25s ease;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.08);
 }
 
 .login-btn a:hover {
-  background: #6b9d3e;
-  color: #fff;
-  transform: translateY(-2px);
-  box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+    background: #6b9d3e;
+    color: #fff;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
 }
 
 /* User Menu Wrapper */
 .user-menu {
-  position: relative;
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  background: #f7fbf3;
-  padding: 8px 15px;
-  border-radius: 12px;
-  border: 1px solid #dbe8cf;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.07);
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    background: #f7fbf3;
+    padding: 8px 15px;
+    border-radius: 12px;
+    border: 1px solid #dbe8cf;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.07);
 }
 
 /* Username styling */
 .user-menu .username {
-  color: #4f7d2b;
-  font-weight: 700;
+    color: #4f7d2b;
+    font-weight: 700;
 }
 
 /* Toggle button */
 .user-menu .menu-toggle {
-  font-size: 18px;
-  cursor: pointer;
-  padding: 6px 10px;
-  border: 1px solid #6b9d3e;
-  color: #6b9d3e;
-  border-radius: 8px;
-  background: #fff;
-  transition: 0.25s;
+    font-size: 18px;
+    cursor: pointer;
+    padding: 6px 10px;
+    border: 1px solid #6b9d3e;
+    color: #6b9d3e;
+    border-radius: 8px;
+    background: #fff;
+    transition: 0.25s;
 }
 
 .user-menu .menu-toggle:hover {
-  background: #6b9d3e;
-  color: #fff;
+    background: #6b9d3e;
+    color: #fff;
 }
 
 /* Dropdown */
 .user-dropdown {
-  position: absolute;
-  top: 48px;
-  right: 0;
-  background: #fff;
-  border: 1px solid #d1e2c4;
-  border-radius: 12px;
-  padding: 12px 0;
-  display: none;
-  min-width: 180px;
-  z-index: 9999;
-  box-shadow: 0 6px 18px rgba(0,0,0,0.12);
-  animation: fadeDropdown 0.2s ease-out;
+    position: absolute;
+    top: 48px;
+    right: 0;
+    background: #fff;
+    border: 1px solid #d1e2c4;
+    border-radius: 12px;
+    padding: 12px 0;
+    display: none;
+    min-width: 180px;
+    z-index: 9999;
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.12);
+    animation: fadeDropdown 0.2s ease-out;
 }
 
 @keyframes fadeDropdown {
-  from { opacity: 0; transform: translateY(-5px); }
-  to { opacity: 1; transform: translateY(0); }
+    from {
+        opacity: 0;
+        transform: translateY(-5px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
 /* Dropdown items */
 .user-dropdown a {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  padding: 12px 18px;
-  color: #4f7d2b;
-  text-decoration: none;
-  font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 12px 18px;
+    color: #4f7d2b;
+    text-decoration: none;
+    font-weight: 600;
 }
 
 .user-dropdown a:hover {
-  background: #f2f9ed;
-  color: #3a5e20;
+    background: #f2f9ed;
+    color: #3a5e20;
 }
 
 @media (max-width: 1024px) {
@@ -457,17 +464,122 @@ body {
 }
 
 
-    /* =============================
+/* =============================
    WooCommerce Cart Custom Styles
    ============================= */
-    /* woocommerce-cart.css */
-    .woocommerce-cart-form table {
-        border: 1px solid #ccc;
-    }
+/* woocommerce-cart.css */
+.woocommerce-cart-form table {
+    border: 1px solid #ccc;
+}
 
-    .woocommerce-cart-form a {
-        text-decoration: none !important;
-        color: #333 !important;
-        font-family: 'Arial', sans-serif;
-    }
+.woocommerce-cart-form a {
+    text-decoration: none !important;
+    color: #333 !important;
+    font-family: 'Arial', sans-serif;
+}
 
+.doAnCMS-blog-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    transition: 0.3s;
+}
+
+.doAnCMS-blog-item h2 a:hover {
+    color: #6b9d3e;
+}
+
+.nav-wrapper {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    /* menu bên trái, login bên phải */
+    align-items: center;
+    /* thẳng hàng theo chiều dọc */
+    flex-wrap: wrap;
+}
+
+.nav-container {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.login-btn {
+    display: flex;
+    align-items: center;
+}
+
+
+/* ===================== PRODUCT CARD ACTIONS (Ý TƯỞNG 1) ===================== */
+
+/* Ẩn nút đi bình thường */
+.product-card .product-actions {
+    position: absolute;
+    bottom: 10px; /* Hiện ở gần đáy card */
+    left: 50%;
+    transform: translateX(-50%);
+    opacity: 0; /* Ẩn đi */
+    transition: all 0.3s ease;
+    z-index: 10;
+}
+
+/* Khi hover vào card thì cho nút hiện ra */
+.product-card:hover .product-actions {
+    opacity: 1;
+    bottom: 15px; /* Hiệu ứng trượt lên 1 chút */
+}
+
+/* Style cho cái nút 🛒 */
+.btn-add-to-cart {
+    display: block;
+    background: #fff;
+    color: #6b9d3e;
+    border: 2px solid #6b9d3e;
+    border-radius: 50%; /* Nút tròn */
+    width: 45px;
+    height: 45px;
+    font-size: 20px;
+    text-decoration: none;
+    
+    /* Căn icon 🛒 vào giữa nút */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    transition: all 0.3s ease;
+}
+
+.btn-add-to-cart:hover {
+    background: #c3e8a3;
+    color: #fff;
+    transform: scale(1.1); /* Phóng to 1 chút */
+}
+
+.swiper-button-next,
+.swiper-button-prev {
+    background: rgba(255, 255, 255, 0.8);
+    border: 1px solid #e0e0e0;
+    color: #6b9d3e !important; /* Màu xanh lá của theme */
+    width: 45px !important;
+    height: 45px !important;
+    border-radius: 50% !important;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    transition: all 0.3s ease;
+}
+
+/* Đổi kích thước icon mũi tên bên trong */
+.swiper-button-next::after,
+.swiper-button-prev::after {
+    font-size: 20px !important;
+    font-weight: 900 !important;
+}
+
+/* Hiệu ứng hover */
+.swiper-button-next:hover,
+.swiper-button-prev:hover {
+    background: #6b9d3e !important;
+    color: #fff !important;
+    border-color: #6b9d3e;
+}

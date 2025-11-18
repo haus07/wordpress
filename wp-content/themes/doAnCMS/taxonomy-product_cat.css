@@ -21,9 +21,7 @@ a {
 }
 
 .banner-container {
-    display: flex;
-    gap: 20px;
-    flex-wrap: wrap;
+    /* CSS cho banner container (giờ chỉ còn banner-image) */
 }
 
 .banner-image img {
@@ -32,29 +30,101 @@ a {
     border-radius: 8px;
 }
 
-/* ===================== SIDEBAR ===================== */
+/* ===================== BỐ CỤC SHOP & SIDEBAR (ĐÃ REFACTOR) ===================== */
+.shop-header {
+    margin-bottom: 25px; /* Tách biệt tiêu đề khỏi nội dung */
+}
+
+.shop-layout-container {
+    display: flex;
+    gap: 30px; /* Khoảng cách giữa sidebar và content */
+}
+
 .sidebar {
-    flex: 1 1 220px;
+    /* Cột 1: Chiếm 25% hoặc cố định 250px */
+    flex: 0 0 250px;
+    position: relative;
 }
 
-.product-category-list {
-    list-style: none;
-    padding: 0;
-    margin: 0;
+.shop-content {
+    /* Cột 2: Chiếm phần còn lại */
+    flex: 1 1 auto;
+    min-width: 0; /* Fix lỗi flexbox bị tràn */
 }
 
-.product-category-list li {
-    margin-bottom: 10px;
+/* ===================== CSS LÀM ĐẸP WIDGET TRONG SIDEBAR ===================== */
+
+/* Style cho từng cái box widget (Lọc giá, Danh mục...) */
+.sidebar .widget {
+    border: 1px solid #eee;
+    padding: 20px;
+    border-radius: 8px;
+    margin-bottom: 25px;
+    background: #fafafa;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.03);
 }
 
-.product-category-list li a {
-    color: #000;
-    text-decoration: none;
+.sidebar .widget-title {
+    font-size: 18px;
+    font-weight: 600;
+    margin-top: 0;
+    margin-bottom: 20px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #eee;
+}
+
+/* --- Style cho Widget Lọc theo Giá (Price Filter) --- */
+.widget_price_filter .price_slider_wrapper .price_slider {
+    margin-bottom: 20px;
+}
+.widget_price_filter .ui-slider .ui-slider-handle {
+    background-color: #6b9d3e !important;
+    border-radius: 50%;
+}
+.widget_price_filter .ui-slider .ui-slider-range {
+    background-color: #6b9d3e !important;
+}
+.widget_price_filter .price_slider_amount {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
+}
+.widget_price_filter .price_slider_amount .price_label {
+    font-size: 14px;
     font-weight: 500;
+    flex-grow: 1;
+}
+.widget_price_filter .price_slider_amount .button {
+    background-color: #6b9d3e !important;
+    color: #fff !important;
+    border-radius: 5px !important;
+    padding: 6px 12px !important;
+    font-size: 14px !important;
+    font-weight: 600 !important;
 }
 
-.product-category-list li.active a {
-    font-weight: 700;
+/* --- Style cho Widget Danh mục/Thuộc tính (List) --- */
+.sidebar .widget ul {
+    list-style: none;
+    padding-left: 0;
+    margin-bottom: 0;
+}
+.sidebar .widget ul li {
+    padding: 6px 0;
+    font-size: 15px;
+}
+.sidebar .widget ul li a {
+    text-decoration: none !important;
+    color: #333 !important;
+    transition: color 0.2s ease;
+}
+.sidebar .widget ul li a:hover {
+    color: #6b9d3e !important;
+}
+.sidebar .widget ul li.current-cat a {
+    font-weight: 600;
+    color: #6b9d3e !important;
 }
 
 /* ===================== PRODUCT GRID ===================== */
@@ -78,20 +148,25 @@ a {
     transform: translateY(-5px);
 }
 
-.product-thumb {
-    width: 100%;
-    padding-top: 100%; /* 1:1 ratio */
+/* Link chứa ảnh, set relative cho tag "Sale" */
+.product-card a:first-child {
     position: relative;
-    overflow: hidden;
+    display: block;
 }
 
-.product-thumb img.product-image {
+/* Style cho cái tag "Sale!" (Nâng cấp 2) */
+.product-card .onsale {
     position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
+    top: 10px;
+    left: 10px;
+    z-index: 10;
+    background-color: #e74c3c;
+    color: #fff;
+    font-size: 12px;
+    font-weight: 600;
+    padding: 4px 8px;
+    border-radius: 4px;
+    text-transform: uppercase;
 }
 
 .product-info {
@@ -99,71 +174,181 @@ a {
     display: flex;
     flex-direction: column;
     gap: 5px;
+    flex-grow: 1; 
 }
 
 .product-name {
     font-size: 16px;
     font-weight: 500;
     margin: 0;
+    flex-grow: 1; /* Đẩy giá và nút xuống dưới */
 }
 
 .product-price {
     font-size: 14px;
     font-weight: 600;
     color: #6b9d3e;
+    margin-bottom: 10px; /* Tạo khoảng cách với nút */
 }
 
-/* ===== Custom Pagination ===== */
+/* ===================== SHOP TOOLBAR (ĐÃ NÂNG CẤP) ===================== */
+.shop-toolbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 30px;
+    padding: 12px 15px;
+    border: 1px solid #eee;
+    border-radius: 8px;
+    background-color: #fafafa;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.03);
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.woocommerce-ordering select {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    padding: 10px 32px 10px 14px;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    background-color: #fff;
+    font-size: 14px;
+    font-weight: 500;
+    color: #333;
+    cursor: pointer;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+    background-image: url('data:image/svg+xml;charset=US-ASCII,%3Csvg%20width%3D%2212%22%20height%3D%227%22%20viewBox%3D%220%200%2012%207%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%3Cpath%20d%3D%22M1%201L6%206L11%201%22%20stroke%3D%22%23666%22%20stroke-width%3D%221.5%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%2F%3E%3C%2Fsvg%3E');
+    background-repeat: no-repeat;
+    background-position: right 12px center;
+    background-size: 10px;
+}
+
+.woocommerce-ordering select:hover {
+    border-color: #6b9d3e; 
+}
+
+.woocommerce-ordering select:focus {
+    outline: none;
+    border-color: #6b9d3e;
+    box-shadow: 0 0 0 2px rgba(107, 157, 62, 0.2);
+}
+
+.woocommerce-result-count {
+    font-size: 14px;
+    color: #777;
+    margin: 0;
+    font-weight: 500;
+}
+
+/* ===================== NÚT ADD TO CART (ĐÃ NÂNG CẤP) ===================== */
+.product-card .add_to_cart_button,
+.product-card .product_type_variable {
+    background-color: #6b9d3e !important;
+    color: #fff !important;
+    text-align: center !important;
+    padding: 10px !important;
+    border: none !important;
+    border-radius: 5px !important;
+    font-size: 14px !important;
+    font-weight: 600 !important;
+    text-decoration: none !important;
+    transition: background-color 0.3s ease;
+    margin-top: auto !important;
+}
+
+.product-card .add_to_cart_button:hover,
+.product-card .product_type_variable:hover {
+    background-color: #5a8435;
+}
+
+.product-card .add_to_cart_button::before {
+    font-family: "Font Awesome 5 Free";
+    content: '\f07a';
+    font-weight: 900;
+    margin-right: 8px;
+}
+
+.product-card .product_type_variable::before {
+     font-family: "Font Awesome 5 Free";
+     content: '\f1de';
+     font-weight: 900;
+     margin-right: 8px;
+}
+
+.product-card .add_to_cart_button.loading {
+    background-color: #555;
+    color: #fff !important;
+}
+
+.product-card .add_to_cart_button.loading::before {
+    content: '\f110';
+    font-family: "Font Awesome 5 Free";
+    animation: fa-spin 1s infinite linear;
+}
+
+/* ===================== PAGINATION (ĐÃ NÂNG CẤP) ===================== */
 .pagination .nav-links {
     display: flex;
     justify-content: center;
     gap: 10px;
-    margin-top: 30px;
+    margin-top: 40px;
+    margin-bottom: 20px;
 }
 
 .pagination .page-numbers {
     display: inline-block;
-    padding: 8px 14px;
-    border: 1px solid #ccc;
+    padding: 10px 16px;
+    border: 1px solid #ddd;
     border-radius: 8px;
-    background-color: #f9f9f9;
-    color: #333;
-    text-decoration: none;
-    transition: all 0.3s ease;
+    background-color: #fff;
+    color: #333 !important; 
+    font-weight: 500;
+    text-decoration: none !important;
+    transition: all 0.2s ease-in-out;
 }
 
 .pagination .page-numbers:hover {
-    background-color: #0073aa;
-    color: #fff;
-    border-color: #0073aa;
+    background-color: #6b9d3e;
+    color: #fff !important;
+    border-color: #6b9d3e;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
 }
 
 .pagination .page-numbers.current {
-    background-color: #0073aa;
-    color: #fff;
-    border-color: #0073aa;
-    font-weight: bold;
+    background-color: #6b9d3e;
+    color: #fff !important;
+    border-color: #6b9d3e;
+    font-weight: 700;
+    cursor: default;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 .pagination .page-numbers.next,
 .pagination .page-numbers.prev {
-    font-weight: bold;
+    font-weight: 600;
+    padding: 10px 12px;
 }
 
+/* ===================== RESPONSIVE (ĐÃ REFACTOR) ===================== */
+/* Xóa bỏ @media (max-width: 1024px) cũ */
 
-/* ===================== RESPONSIVE ===================== */
-@media (max-width: 1024px) {
-    .banner-container {
+@media (max-width: 900px) {
+    /* Chuyển layout 2 cột thành 1 cột */
+    .shop-layout-container {
         flex-direction: column;
     }
-
+    
     .sidebar {
+        flex-basis: auto; /* Reset width */
         width: 100%;
-        order: 2;
+        order: 1; /* Hiển thị bộ lọc LÊN TRÊN sản phẩm trên mobile */
     }
-
-    .banner-image {
-        order: 1;
+    
+    .shop-content {
+        order: 2;
     }
 }
 
@@ -175,6 +360,21 @@ a {
 
 @media (max-width: 480px) {
     .product-grid {
-        grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+        /* Hiển thị 2 cột trên mobile nhỏ */
+        grid-template-columns: repeat(2, 1fr);
+        gap: 15px;
+    }
+    
+    /* Style lại toolbar trên mobile cho gọn */
+    .shop-toolbar {
+        padding: 10px;
+        margin-bottom: 20px;
+    }
+    .woocommerce-result-count {
+        font-size: 13px;
+    }
+    .woocommerce-ordering select {
+        padding: 8px 28px 8px 10px;
+        font-size: 13px;
     }
 }
