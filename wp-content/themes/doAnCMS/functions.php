@@ -369,40 +369,6 @@ function send_newsletter_on_new_product($post_id)
             wp_mail($email, $subject, $body, $headers);
         }
     }
-
-    // Hàm tối ưu hình ảnh
-    function optimize_image_for_email($image_path)
-    {
-        $info = getimagesize($image_path);
-
-        if (!$info) return false;
-
-        $mime_type = $info['mime'];
-
-        // Tạo image resource
-        switch ($mime_type) {
-            case 'image/jpeg':
-                $image = imagecreatefromjpeg($image_path);
-                break;
-            case 'image/png':
-                $image = imagecreatefrompng($image_path);
-                break;
-            case 'image/gif':
-                $image = imagecreatefromgif($image_path);
-                break;
-            default;
-        }
-    }
-
-    // =======================
-    // Optional: Session start
-    // =======================
-    function doAnCMS_start_session()
-    {
-        if (!session_id()) session_start();
-    }
-    add_action('init', 'doAnCMS_start_session');
-
 }
 
 // Hàm tối ưu hình ảnh
@@ -631,143 +597,122 @@ add_action('wp_head', function () {
 === Bro THAY THẾ TOÀN BỘ style cũ bằng cái này ===
 ====================================================== 
 -->
-            <style>
-                /* 1. Layout 2 cột (Giữ nguyên) */
+        <style>
+            /* 1. Layout 2 cột (Giữ nguyên) */
+            #quick-view-content-wrapper .product {
+                display: grid;
+                grid-template-columns: 1fr;
+                /* 1 cột mobile */
+                gap: 20px;
+                padding: 30px;
+                /* Tăng padding cho "thở" */
+            }
+
+            @media (min-width: 600px) {
                 #quick-view-content-wrapper .product {
-                    display: grid;
-                    grid-template-columns: 1fr;
-                    /* 1 cột mobile */
-                    gap: 20px;
-                    padding: 30px;
-                    /* Tăng padding cho "thở" */
+                    grid-template-columns: 1fr 1fr;
+                    /* 2 cột desktop */
+                    gap: 30px;
                 }
+            }
 
-                @media (min-width: 600px) {
-                    #quick-view-content-wrapper .product {
-                        grid-template-columns: 1fr 1fr;
-                        /* 2 cột desktop */
-                        gap: 30px;
-                    }
-                }
+            /* 2. Tút lại CỘT HÌNH ẢNH (Bo góc) */
+            #quick-view-content-wrapper .woocommerce-product-gallery {
+                border-radius: 10px;
+                overflow: hidden;
+                /* Bo góc cho ảnh */
+                border: 1px solid #eee;
+            }
 
-                /* 2. Tút lại CỘT HÌNH ẢNH (Bo góc) */
-                #quick-view-content-wrapper .woocommerce-product-gallery {
-                    border-radius: 10px;
-                    overflow: hidden;
-                    /* Bo góc cho ảnh */
-                    border: 1px solid #eee;
-                }
+            #quick-view-content-wrapper .woocommerce-product-gallery img {
+                width: 100%;
+                height: auto;
+                display: block;
+                /* Bỏ khoảng trống thừa */
+            }
 
-                #quick-view-content-wrapper .woocommerce-product-gallery img {
-                    width: 100%;
-                    height: auto;
-                    display: block;
-                    /* Bỏ khoảng trống thừa */
-                }
+            /* 3. Tút lại CỘT NỘI DUNG */
+            #quick-view-content-wrapper .product .summary {
+                display: flex;
+                flex-direction: column;
+                /* Sắp xếp nội dung */
+            }
 
-                /* 3. Tút lại CỘT NỘI DUNG */
-                #quick-view-content-wrapper .product .summary {
-                    display: flex;
-                    flex-direction: column;
-                    /* Sắp xếp nội dung */
-                }
+            /* 4. Tút lại TÊN SẢN PHẨM */
+            #quick-view-content-wrapper .product .summary .product_title {
+                font-size: 24px;
+                /* Giảm size cho hợp popup */
+                line-height: 1.3;
+                margin-bottom: 10px;
+                color: #333;
+            }
 
-                /* 4. Tút lại TÊN SẢN PHẨM */
-                #quick-view-content-wrapper .product .summary .product_title {
-                    font-size: 24px;
-                    /* Giảm size cho hợp popup */
-                    line-height: 1.3;
-                    margin-bottom: 10px;
-                    color: #333;
-                }
+            /* 5. Tút lại GIÁ (nổi bật) */
+            #quick-view-content-wrapper .product .summary .price {
+                font-size: 22px;
+                font-weight: bold;
+                color: #6b9d3e;
+                /* Màu xanh theme */
+                margin-bottom: 15px;
+            }
 
-                /* 5. Tút lại GIÁ (nổi bật) */
-                #quick-view-content-wrapper .product .summary .price {
-                    font-size: 22px;
-                    font-weight: bold;
-                    color: #6b9d3e;
-                    /* Màu xanh theme */
-                    margin-bottom: 15px;
-                }
+            /* 6. Tút lại MÔ TẢ NGẮN */
+            #quick-view-content-wrapper .product .summary .woocommerce-product-details__short-description {
+                font-size: 15px;
+                line-height: 1.6;
+                color: #555;
+                margin-bottom: 20px;
+                padding-bottom: 20px;
+                border-bottom: 1px solid #f0f0f0;
+                /* Thêm 1 đường kẻ mờ */
+                flex-grow: 1;
+                /* Đẩy nút bấm xuống dưới */
+            }
 
-                /* 6. Tút lại MÔ TẢ NGẮN */
-                #quick-view-content-wrapper .product .summary .woocommerce-product-details__short-description {
-                    font-size: 15px;
-                    line-height: 1.6;
-                    color: #555;
-                    margin-bottom: 20px;
-                    padding-bottom: 20px;
-                    border-bottom: 1px solid #f0f0f0;
-                    /* Thêm 1 đường kẻ mờ */
-                    flex-grow: 1;
-                    /* Đẩy nút bấm xuống dưới */
-                }
+            /* 7. Tút lại NÚT BẤM (Xịn hơn) */
+            #quick-view-content-wrapper .product .summary .cart {
+                margin-top: 0;
+                /* Bỏ margin-top cũ vì đã có border */
+            }
 
-                /* 7. Tút lại NÚT BẤM (Xịn hơn) */
-                #quick-view-content-wrapper .product .summary .cart {
-                    margin-top: 0;
-                    /* Bỏ margin-top cũ vì đã có border */
-                }
+            #quick-view-content-wrapper .product .summary .button {
+                width: 100%;
+                padding: 14px !important;
+                /* To hơn 1 chút */
+                font-size: 16px !important;
+                font-weight: bold !important;
+                background-color: #6b9d3e !important;
+                color: #fff !important;
+                border: none !important;
+                border-radius: 5px !important;
+                /* Bo góc */
+                cursor: pointer;
+                transition: all 0.3s ease;
+                text-align: center !important;
+                /* 1. Căn giữa chữ */
+                text-decoration: none !important;
+            }
 
-                #quick-view-content-wrapper .product .summary .button {
-                    width: 100%;
-                    padding: 14px !important;
-                    /* To hơn 1 chút */
-                    font-size: 16px !important;
-                    font-weight: bold !important;
-                    background-color: #6b9d3e !important;
-                    color: #fff !important;
-                    border: none !important;
-                    border-radius: 5px !important;
-                    /* Bo góc */
-                    cursor: pointer;
-                    transition: all 0.3s ease;
-                    text-align: center !important;
-                    /* 1. Căn giữa chữ */
-                    text-decoration: none !important;
-                }
-
-                #quick-view-content-wrapper .product .summary .button:hover {
-                    background-color: #557c2a !important;
-                    transform: translateY(-2px);
-                    /* Hiệu ứng 3D */
-                    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-                }
-            </style>
+            #quick-view-content-wrapper .product .summary .button:hover {
+                background-color: #557c2a !important;
+                transform: translateY(-2px);
+                /* Hiệu ứng 3D */
+                box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            }
+        </style>
 <?php }
-    });
+});
 
 
-    function my_custom_add_to_cart_text($text, $product)
-    {
-        if ($product->is_type('variable')) {
-            return __('Tuỳ chọn', 'html_cms'); // Chữ cho sản phẩm có biến thể
-        }
-
-        if ($product->is_type('simple')) {
-            return __('Thêm vào giỏ hàng', 'html_cms'); // Chữ cho sản phẩm đơn
-        }
-
-        return $text; // Giữ nguyên cho các loại khác
+function my_custom_add_to_cart_text($text, $product)
+{
+    if ($product->is_type('variable')) {
+        return __('Tuỳ chọn', 'html_cms'); // Chữ cho sản phẩm có biến thể
     }
-    add_filter('woocommerce_product_add_to_cart_text', 'my_custom_add_to_cart_text', 10, 2);
 
-
-
-    function html_cms_widgets_init()
-    {
-        register_sidebar(array(
-            'name'          => esc_html__('Shop Sidebar', 'html_cms'),
-            'id'            => 'shop-sidebar',
-            'description'   => esc_html__('Thêm các widget lọc sản phẩm vào đây.', 'html_cms'),
-            'before_widget' => '<div id="%1$s" class="widget %2$s">',
-            'after_widget'  => '</div>',
-            'before_title'  => '<h4 class="widget-title">',
-            'after_title'   => '</h4>',
-        ));
+    if ($product->is_type('simple')) {
+        return __('Thêm vào giỏ hàng', 'html_cms'); // Chữ cho sản phẩm đơn
     }
-    add_action('widgets_init', 'html_cms_widgets_init');
-}
 
     return $text; // Giữ nguyên cho các loại khác
 }
