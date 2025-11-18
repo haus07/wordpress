@@ -13,7 +13,6 @@ get_header();
     <div class="shop-hero-inner">
         <h1 class="reveal">Organic Shop</h1>
         <p class="reveal delay-1">Thực phẩm hữu cơ - Sống sạch, sống khỏe.</p>
-        <a href="<?php echo home_url('/shop'); ?>" class="btn btn-cta reveal delay-2">Khám phá sản phẩm</a>
     </div>
 </header>
 

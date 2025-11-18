@@ -4343,3 +4343,1068 @@ Stack trace:
 [18-Nov-2025 13:56:12 UTC]   Automatic theme updates starting...
 [18-Nov-2025 13:56:12 UTC]   Automatic theme updates complete.
 [18-Nov-2025 13:56:12 UTC] Automatic updates complete.
+[18-Nov-2025 14:35:54 UTC] PHP Warning:  Undefined array key "013d407166ec4fa56eb1e1f8cbe183b9" in D:\wamp64\www\wordpress\wp-content\themes\doAnCMS\functions.php on line 782
+[18-Nov-2025 14:35:54 UTC] PHP Stack trace:
+[18-Nov-2025 14:35:54 UTC] PHP   1. {main}() D:\wamp64\www\wordpress\wp-admin\admin-ajax.php:0
+[18-Nov-2025 14:35:54 UTC] PHP   2. do_action($hook_name = 'wp_ajax_update_cart_item') D:\wamp64\www\wordpress\wp-admin\admin-ajax.php:192
+[18-Nov-2025 14:35:54 UTC] PHP   3. WP_Hook->do_action($args = [0 => '']) D:\wamp64\www\wordpress\wp-includes\plugin.php:517
+[18-Nov-2025 14:35:54 UTC] PHP   4. WP_Hook->apply_filters($value = '', $args = [0 => '']) D:\wamp64\www\wordpress\wp-includes\class-wp-hook.php:348
+[18-Nov-2025 14:35:54 UTC] PHP   5. custom_update_cart_item('') D:\wamp64\www\wordpress\wp-includes\class-wp-hook.php:324
+[18-Nov-2025 14:35:54 UTC] PHP Warning:  Trying to access array offset on null in D:\wamp64\www\wordpress\wp-content\themes\doAnCMS\functions.php on line 783
+[18-Nov-2025 14:35:54 UTC] PHP Stack trace:
+[18-Nov-2025 14:35:54 UTC] PHP   1. {main}() D:\wamp64\www\wordpress\wp-admin\admin-ajax.php:0
+[18-Nov-2025 14:35:54 UTC] PHP   2. do_action($hook_name = 'wp_ajax_update_cart_item') D:\wamp64\www\wordpress\wp-admin\admin-ajax.php:192
+[18-Nov-2025 14:35:54 UTC] PHP   3. WP_Hook->do_action($args = [0 => '']) D:\wamp64\www\wordpress\wp-includes\plugin.php:517
+[18-Nov-2025 14:35:54 UTC] PHP   4. WP_Hook->apply_filters($value = '', $args = [0 => '']) D:\wamp64\www\wordpress\wp-includes\class-wp-hook.php:348
+[18-Nov-2025 14:35:54 UTC] PHP   5. custom_update_cart_item('') D:\wamp64\www\wordpress\wp-includes\class-wp-hook.php:324
+[18-Nov-2025 14:35:54 UTC] PHP Warning:  Trying to access array offset on null in D:\wamp64\www\wordpress\wp-content\themes\doAnCMS\functions.php on line 784
+[18-Nov-2025 14:35:54 UTC] PHP Stack trace:
+[18-Nov-2025 14:35:54 UTC] PHP   1. {main}() D:\wamp64\www\wordpress\wp-admin\admin-ajax.php:0
+[18-Nov-2025 14:35:54 UTC] PHP   2. do_action($hook_name = 'wp_ajax_update_cart_item') D:\wamp64\www\wordpress\wp-admin\admin-ajax.php:192
+[18-Nov-2025 14:35:54 UTC] PHP   3. WP_Hook->do_action($args = [0 => '']) D:\wamp64\www\wordpress\wp-includes\plugin.php:517
+[18-Nov-2025 14:35:54 UTC] PHP   4. WP_Hook->apply_filters($value = '', $args = [0 => '']) D:\wamp64\www\wordpress\wp-includes\class-wp-hook.php:348
+[18-Nov-2025 14:35:54 UTC] PHP   5. custom_update_cart_item('') D:\wamp64\www\wordpress\wp-includes\class-wp-hook.php:324
+[18-Nov-2025 14:35:54 UTC] PHP Fatal error:  Uncaught Error: Call to a member function get_price() on null in D:\wamp64\www\wordpress\wp-content\plugins\woocommerce\includes\class-wc-cart.php:2173
+Stack trace:
+#0 D:\wamp64\www\wordpress\wp-content\themes\doAnCMS\functions.php(784): WC_Cart->get_product_subtotal(NULL, NULL)
+#1 D:\wamp64\www\wordpress\wp-includes\class-wp-hook.php(324): custom_update_cart_item('')
+#2 D:\wamp64\www\wordpress\wp-includes\class-wp-hook.php(348): WP_Hook->apply_filters('', Array)
+#3 D:\wamp64\www\wordpress\wp-includes\plugin.php(517): WP_Hook->do_action(Array)
+#4 D:\wamp64\www\wordpress\wp-admin\admin-ajax.php(192): do_action('wp_ajax_update_...')
+#5 {main}
+  thrown in D:\wamp64\www\wordpress\wp-content\plugins\woocommerce\includes\class-wc-cart.php on line 2173
+[18-Nov-2025 14:35:55 UTC] PHP Warning:  Undefined array key "013d407166ec4fa56eb1e1f8cbe183b9" in D:\wamp64\www\wordpress\wp-content\themes\doAnCMS\functions.php on line 782
+[18-Nov-2025 14:35:55 UTC] PHP Stack trace:
+[18-Nov-2025 14:35:55 UTC] PHP   1. {main}() D:\wamp64\www\wordpress\wp-admin\admin-ajax.php:0
+[18-Nov-2025 14:35:55 UTC] PHP   2. do_action($hook_name = 'wp_ajax_update_cart_item') D:\wamp64\www\wordpress\wp-admin\admin-ajax.php:192
+[18-Nov-2025 14:35:55 UTC] PHP   3. WP_Hook->do_action($args = [0 => '']) D:\wamp64\www\wordpress\wp-includes\plugin.php:517
+[18-Nov-2025 14:35:55 UTC] PHP   4. WP_Hook->apply_filters($value = '', $args = [0 => '']) D:\wamp64\www\wordpress\wp-includes\class-wp-hook.php:348
+[18-Nov-2025 14:35:55 UTC] PHP   5. custom_update_cart_item('') D:\wamp64\www\wordpress\wp-includes\class-wp-hook.php:324
+[18-Nov-2025 14:35:55 UTC] PHP Warning:  Trying to access array offset on null in D:\wamp64\www\wordpress\wp-content\themes\doAnCMS\functions.php on line 783
+[18-Nov-2025 14:35:55 UTC] PHP Stack trace:
+[18-Nov-2025 14:35:55 UTC] PHP   1. {main}() D:\wamp64\www\wordpress\wp-admin\admin-ajax.php:0
+[18-Nov-2025 14:35:55 UTC] PHP   2. do_action($hook_name = 'wp_ajax_update_cart_item') D:\wamp64\www\wordpress\wp-admin\admin-ajax.php:192
+[18-Nov-2025 14:35:55 UTC] PHP   3. WP_Hook->do_action($args = [0 => '']) D:\wamp64\www\wordpress\wp-includes\plugin.php:517
+[18-Nov-2025 14:35:55 UTC] PHP   4. WP_Hook->apply_filters($value = '', $args = [0 => '']) D:\wamp64\www\wordpress\wp-includes\class-wp-hook.php:348
+[18-Nov-2025 14:35:55 UTC] PHP   5. custom_update_cart_item('') D:\wamp64\www\wordpress\wp-includes\class-wp-hook.php:324
+[18-Nov-2025 14:35:55 UTC] PHP Warning:  Trying to access array offset on null in D:\wamp64\www\wordpress\wp-content\themes\doAnCMS\functions.php on line 784
+[18-Nov-2025 14:35:55 UTC] PHP Stack trace:
+[18-Nov-2025 14:35:55 UTC] PHP   1. {main}() D:\wamp64\www\wordpress\wp-admin\admin-ajax.php:0
+[18-Nov-2025 14:35:55 UTC] PHP   2. do_action($hook_name = 'wp_ajax_update_cart_item') D:\wamp64\www\wordpress\wp-admin\admin-ajax.php:192
+[18-Nov-2025 14:35:55 UTC] PHP   3. WP_Hook->do_action($args = [0 => '']) D:\wamp64\www\wordpress\wp-includes\plugin.php:517
+[18-Nov-2025 14:35:55 UTC] PHP   4. WP_Hook->apply_filters($value = '', $args = [0 => '']) D:\wamp64\www\wordpress\wp-includes\class-wp-hook.php:348
+[18-Nov-2025 14:35:55 UTC] PHP   5. custom_update_cart_item('') D:\wamp64\www\wordpress\wp-includes\class-wp-hook.php:324
+[18-Nov-2025 14:35:55 UTC] PHP Fatal error:  Uncaught Error: Call to a member function get_price() on null in D:\wamp64\www\wordpress\wp-content\plugins\woocommerce\includes\class-wc-cart.php:2173
+Stack trace:
+#0 D:\wamp64\www\wordpress\wp-content\themes\doAnCMS\functions.php(784): WC_Cart->get_product_subtotal(NULL, NULL)
+#1 D:\wamp64\www\wordpress\wp-includes\class-wp-hook.php(324): custom_update_cart_item('')
+#2 D:\wamp64\www\wordpress\wp-includes\class-wp-hook.php(348): WP_Hook->apply_filters('', Array)
+#3 D:\wamp64\www\wordpress\wp-includes\plugin.php(517): WP_Hook->do_action(Array)
+#4 D:\wamp64\www\wordpress\wp-admin\admin-ajax.php(192): do_action('wp_ajax_update_...')
+#5 {main}
+  thrown in D:\wamp64\www\wordpress\wp-content\plugins\woocommerce\includes\class-wc-cart.php on line 2173
+[18-Nov-2025 14:35:57 UTC] PHP Warning:  Undefined array key "013d407166ec4fa56eb1e1f8cbe183b9" in D:\wamp64\www\wordpress\wp-content\themes\doAnCMS\functions.php on line 782
+[18-Nov-2025 14:35:57 UTC] PHP Stack trace:
+[18-Nov-2025 14:35:57 UTC] PHP   1. {main}() D:\wamp64\www\wordpress\wp-admin\admin-ajax.php:0
+[18-Nov-2025 14:35:57 UTC] PHP   2. do_action($hook_name = 'wp_ajax_update_cart_item') D:\wamp64\www\wordpress\wp-admin\admin-ajax.php:192
+[18-Nov-2025 14:35:57 UTC] PHP   3. WP_Hook->do_action($args = [0 => '']) D:\wamp64\www\wordpress\wp-includes\plugin.php:517
+[18-Nov-2025 14:35:57 UTC] PHP   4. WP_Hook->apply_filters($value = '', $args = [0 => '']) D:\wamp64\www\wordpress\wp-includes\class-wp-hook.php:348
+[18-Nov-2025 14:35:57 UTC] PHP   5. custom_update_cart_item('') D:\wamp64\www\wordpress\wp-includes\class-wp-hook.php:324
+[18-Nov-2025 14:35:57 UTC] PHP Warning:  Trying to access array offset on null in D:\wamp64\www\wordpress\wp-content\themes\doAnCMS\functions.php on line 783
+[18-Nov-2025 14:35:57 UTC] PHP Stack trace:
+[18-Nov-2025 14:35:57 UTC] PHP   1. {main}() D:\wamp64\www\wordpress\wp-admin\admin-ajax.php:0
+[18-Nov-2025 14:35:57 UTC] PHP   2. do_action($hook_name = 'wp_ajax_update_cart_item') D:\wamp64\www\wordpress\wp-admin\admin-ajax.php:192
+[18-Nov-2025 14:35:57 UTC] PHP   3. WP_Hook->do_action($args = [0 => '']) D:\wamp64\www\wordpress\wp-includes\plugin.php:517
+[18-Nov-2025 14:35:57 UTC] PHP   4. WP_Hook->apply_filters($value = '', $args = [0 => '']) D:\wamp64\www\wordpress\wp-includes\class-wp-hook.php:348
+[18-Nov-2025 14:35:57 UTC] PHP   5. custom_update_cart_item('') D:\wamp64\www\wordpress\wp-includes\class-wp-hook.php:324
+[18-Nov-2025 14:35:57 UTC] PHP Warning:  Trying to access array offset on null in D:\wamp64\www\wordpress\wp-content\themes\doAnCMS\functions.php on line 784
+[18-Nov-2025 14:35:57 UTC] PHP Stack trace:
+[18-Nov-2025 14:35:57 UTC] PHP   1. {main}() D:\wamp64\www\wordpress\wp-admin\admin-ajax.php:0
+[18-Nov-2025 14:35:57 UTC] PHP   2. do_action($hook_name = 'wp_ajax_update_cart_item') D:\wamp64\www\wordpress\wp-admin\admin-ajax.php:192
+[18-Nov-2025 14:35:57 UTC] PHP   3. WP_Hook->do_action($args = [0 => '']) D:\wamp64\www\wordpress\wp-includes\plugin.php:517
+[18-Nov-2025 14:35:57 UTC] PHP   4. WP_Hook->apply_filters($value = '', $args = [0 => '']) D:\wamp64\www\wordpress\wp-includes\class-wp-hook.php:348
+[18-Nov-2025 14:35:57 UTC] PHP   5. custom_update_cart_item('') D:\wamp64\www\wordpress\wp-includes\class-wp-hook.php:324
+[18-Nov-2025 14:35:57 UTC] PHP Fatal error:  Uncaught Error: Call to a member function get_price() on null in D:\wamp64\www\wordpress\wp-content\plugins\woocommerce\includes\class-wc-cart.php:2173
+Stack trace:
+#0 D:\wamp64\www\wordpress\wp-content\themes\doAnCMS\functions.php(784): WC_Cart->get_product_subtotal(NULL, NULL)
+#1 D:\wamp64\www\wordpress\wp-includes\class-wp-hook.php(324): custom_update_cart_item('')
+#2 D:\wamp64\www\wordpress\wp-includes\class-wp-hook.php(348): WP_Hook->apply_filters('', Array)
+#3 D:\wamp64\www\wordpress\wp-includes\plugin.php(517): WP_Hook->do_action(Array)
+#4 D:\wamp64\www\wordpress\wp-admin\admin-ajax.php(192): do_action('wp_ajax_update_...')
+#5 {main}
+  thrown in D:\wamp64\www\wordpress\wp-content\plugins\woocommerce\includes\class-wc-cart.php on line 2173
+[18-Nov-2025 14:35:58 UTC] PHP Warning:  Undefined array key "013d407166ec4fa56eb1e1f8cbe183b9" in D:\wamp64\www\wordpress\wp-content\themes\doAnCMS\functions.php on line 782
+[18-Nov-2025 14:35:58 UTC] PHP Stack trace:
+[18-Nov-2025 14:35:58 UTC] PHP   1. {main}() D:\wamp64\www\wordpress\wp-admin\admin-ajax.php:0
+[18-Nov-2025 14:35:58 UTC] PHP   2. do_action($hook_name = 'wp_ajax_update_cart_item') D:\wamp64\www\wordpress\wp-admin\admin-ajax.php:192
+[18-Nov-2025 14:35:58 UTC] PHP   3. WP_Hook->do_action($args = [0 => '']) D:\wamp64\www\wordpress\wp-includes\plugin.php:517
+[18-Nov-2025 14:35:58 UTC] PHP   4. WP_Hook->apply_filters($value = '', $args = [0 => '']) D:\wamp64\www\wordpress\wp-includes\class-wp-hook.php:348
+[18-Nov-2025 14:35:58 UTC] PHP   5. custom_update_cart_item('') D:\wamp64\www\wordpress\wp-includes\class-wp-hook.php:324
+[18-Nov-2025 14:35:58 UTC] PHP Warning:  Trying to access array offset on null in D:\wamp64\www\wordpress\wp-content\themes\doAnCMS\functions.php on line 783
+[18-Nov-2025 14:35:58 UTC] PHP Stack trace:
+[18-Nov-2025 14:35:58 UTC] PHP   1. {main}() D:\wamp64\www\wordpress\wp-admin\admin-ajax.php:0
+[18-Nov-2025 14:35:58 UTC] PHP   2. do_action($hook_name = 'wp_ajax_update_cart_item') D:\wamp64\www\wordpress\wp-admin\admin-ajax.php:192
+[18-Nov-2025 14:35:58 UTC] PHP   3. WP_Hook->do_action($args = [0 => '']) D:\wamp64\www\wordpress\wp-includes\plugin.php:517
+[18-Nov-2025 14:35:58 UTC] PHP   4. WP_Hook->apply_filters($value = '', $args = [0 => '']) D:\wamp64\www\wordpress\wp-includes\class-wp-hook.php:348
+[18-Nov-2025 14:35:58 UTC] PHP   5. custom_update_cart_item('') D:\wamp64\www\wordpress\wp-includes\class-wp-hook.php:324
+[18-Nov-2025 14:35:58 UTC] PHP Warning:  Trying to access array offset on null in D:\wamp64\www\wordpress\wp-content\themes\doAnCMS\functions.php on line 784
+[18-Nov-2025 14:35:58 UTC] PHP Stack trace:
+[18-Nov-2025 14:35:58 UTC] PHP   1. {main}() D:\wamp64\www\wordpress\wp-admin\admin-ajax.php:0
+[18-Nov-2025 14:35:58 UTC] PHP   2. do_action($hook_name = 'wp_ajax_update_cart_item') D:\wamp64\www\wordpress\wp-admin\admin-ajax.php:192
+[18-Nov-2025 14:35:58 UTC] PHP   3. WP_Hook->do_action($args = [0 => '']) D:\wamp64\www\wordpress\wp-includes\plugin.php:517
+[18-Nov-2025 14:35:58 UTC] PHP   4. WP_Hook->apply_filters($value = '', $args = [0 => '']) D:\wamp64\www\wordpress\wp-includes\class-wp-hook.php:348
+[18-Nov-2025 14:35:58 UTC] PHP   5. custom_update_cart_item('') D:\wamp64\www\wordpress\wp-includes\class-wp-hook.php:324
+[18-Nov-2025 14:35:58 UTC] PHP Fatal error:  Uncaught Error: Call to a member function get_price() on null in D:\wamp64\www\wordpress\wp-content\plugins\woocommerce\includes\class-wc-cart.php:2173
+Stack trace:
+#0 D:\wamp64\www\wordpress\wp-content\themes\doAnCMS\functions.php(784): WC_Cart->get_product_subtotal(NULL, NULL)
+#1 D:\wamp64\www\wordpress\wp-includes\class-wp-hook.php(324): custom_update_cart_item('')
+#2 D:\wamp64\www\wordpress\wp-includes\class-wp-hook.php(348): WP_Hook->apply_filters('', Array)
+#3 D:\wamp64\www\wordpress\wp-includes\plugin.php(517): WP_Hook->do_action(Array)
+#4 D:\wamp64\www\wordpress\wp-admin\admin-ajax.php(192): do_action('wp_ajax_update_...')
+#5 {main}
+  thrown in D:\wamp64\www\wordpress\wp-content\plugins\woocommerce\includes\class-wc-cart.php on line 2173
+[18-Nov-2025 14:36:00 UTC] PHP Warning:  Undefined array key "013d407166ec4fa56eb1e1f8cbe183b9" in D:\wamp64\www\wordpress\wp-content\plugins\woocommerce\includes\class-wc-cart.php on line 1418
+[18-Nov-2025 14:36:00 UTC] PHP Stack trace:
+[18-Nov-2025 14:36:00 UTC] PHP   1. {main}() D:\wamp64\www\wordpress\wp-admin\admin-ajax.php:0
+[18-Nov-2025 14:36:00 UTC] PHP   2. do_action($hook_name = 'wp_ajax_update_cart_item') D:\wamp64\www\wordpress\wp-admin\admin-ajax.php:192
+[18-Nov-2025 14:36:00 UTC] PHP   3. WP_Hook->do_action($args = [0 => '']) D:\wamp64\www\wordpress\wp-includes\plugin.php:517
+[18-Nov-2025 14:36:00 UTC] PHP   4. WP_Hook->apply_filters($value = '', $args = [0 => '']) D:\wamp64\www\wordpress\wp-includes\class-wp-hook.php:348
+[18-Nov-2025 14:36:00 UTC] PHP   5. custom_update_cart_item('') D:\wamp64\www\wordpress\wp-includes\class-wp-hook.php:324
+[18-Nov-2025 14:36:00 UTC] PHP   6. WC_Cart->set_quantity($cart_item_key = '013d407166ec4fa56eb1e1f8cbe183b9', $quantity = 2, $refresh_totals = TRUE) D:\wamp64\www\wordpress\wp-content\themes\doAnCMS\functions.php:780
+[18-Nov-2025 14:36:00 UTC] PHP Warning:  Trying to access array offset on null in D:\wamp64\www\wordpress\wp-content\plugins\woocommerce\includes\class-wc-cart.php on line 1418
+[18-Nov-2025 14:36:00 UTC] PHP Stack trace:
+[18-Nov-2025 14:36:00 UTC] PHP   1. {main}() D:\wamp64\www\wordpress\wp-admin\admin-ajax.php:0
+[18-Nov-2025 14:36:00 UTC] PHP   2. do_action($hook_name = 'wp_ajax_update_cart_item') D:\wamp64\www\wordpress\wp-admin\admin-ajax.php:192
+[18-Nov-2025 14:36:00 UTC] PHP   3. WP_Hook->do_action($args = [0 => '']) D:\wamp64\www\wordpress\wp-includes\plugin.php:517
+[18-Nov-2025 14:36:00 UTC] PHP   4. WP_Hook->apply_filters($value = '', $args = [0 => '']) D:\wamp64\www\wordpress\wp-includes\class-wp-hook.php:348
+[18-Nov-2025 14:36:00 UTC] PHP   5. custom_update_cart_item('') D:\wamp64\www\wordpress\wp-includes\class-wp-hook.php:324
+[18-Nov-2025 14:36:00 UTC] PHP   6. WC_Cart->set_quantity($cart_item_key = '013d407166ec4fa56eb1e1f8cbe183b9', $quantity = 2, $refresh_totals = TRUE) D:\wamp64\www\wordpress\wp-content\themes\doAnCMS\functions.php:780
+[18-Nov-2025 14:36:00 UTC] PHP Warning:  Undefined array key "data" in D:\wamp64\www\wordpress\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php on line 229
+[18-Nov-2025 14:36:00 UTC] PHP Stack trace:
+[18-Nov-2025 14:36:00 UTC] PHP   1. {main}() D:\wamp64\www\wordpress\wp-admin\admin-ajax.php:0
+[18-Nov-2025 14:36:00 UTC] PHP   2. do_action($hook_name = 'wp_ajax_update_cart_item') D:\wamp64\www\wordpress\wp-admin\admin-ajax.php:192
+[18-Nov-2025 14:36:00 UTC] PHP   3. WP_Hook->do_action($args = [0 => '']) D:\wamp64\www\wordpress\wp-includes\plugin.php:517
+[18-Nov-2025 14:36:00 UTC] PHP   4. WP_Hook->apply_filters($value = '', $args = [0 => '']) D:\wamp64\www\wordpress\wp-includes\class-wp-hook.php:348
+[18-Nov-2025 14:36:00 UTC] PHP   5. custom_update_cart_item('') D:\wamp64\www\wordpress\wp-includes\class-wp-hook.php:324
+[18-Nov-2025 14:36:00 UTC] PHP   6. WC_Cart->set_quantity($cart_item_key = '013d407166ec4fa56eb1e1f8cbe183b9', $quantity = 2, $refresh_totals = TRUE) D:\wamp64\www\wordpress\wp-content\themes\doAnCMS\functions.php:780
+[18-Nov-2025 14:36:00 UTC] PHP   7. WC_Cart->calculate_totals() D:\wamp64\www\wordpress\wp-content\plugins\woocommerce\includes\class-wc-cart.php:1424
+[18-Nov-2025 14:36:00 UTC] PHP   8. WC_Cart_Totals->__construct($cart = class WC_Cart { public $cart_session_data = ['cart_contents_total' => 0, 'total' => 0, 'subtotal' => 0, 'subtotal_ex_tax' => 0, 'tax_total' => 0, 'taxes' => [...], 'shipping_taxes' => [...], 'discount_cart' => 0, 'discount_cart_tax' => 0, 'shipping_total' => 0, 'shipping_tax_total' => 0, 'coupon_discount_amounts' => [...], 'coupon_discount_tax_amounts' => [...], 'fee_total' => 0, 'fees' => [...]]; public $coupon_applied_count = []; public $cart_context = 'shortcode'; public $cart_contents = ['02522a2b2726fb0a03bb19f2d8d9524d' => [...], '1d7f7abc18fcb43975065399b0d1e48e' => [...], 'fc221309746013ac554571fbd180e1c8' => [...], '96da2f590cd7246bbde0051047b0d6f7' => [...], '3988c7f88ebcb58c6ce932b957b6f332' => [...], '38af86134b65d0f10fe33d30dd76442e' => [...], '2a38a4a9316c49e5a833517c45d31070' => [...], '92cc227532d17e56e07902b254dfad10' => [...], '013d407166ec4fa56eb1e1f8cbe183b9' => [...]]; public $removed_cart_contents = ['42a0e188f5033bc65bf8d78622277c4e' => [...], '013d407166ec4fa56eb1e1f8cbe183b9' => [...]]; public $applied_coupons = []; protected $shipping_methods = NULL; protected $has_calculated_shipping = FALSE; protected $default_totals = ['subtotal' => 0, 'subtotal_tax' => 0, 'shipping_total' => 0, 'shipping_tax' => 0, 'shipping_taxes' => [...], 'discount_total' => 0, 'discount_tax' => 0, 'cart_contents_total' => 0, 'cart_contents_tax' => 0, 'cart_contents_taxes' => [...], 'fee_total' => 0, 'fee_tax' => 0, 'fee_taxes' => [...], 'total' => 0, 'total_tax' => 0]; protected $totals = ['subtotal' => 0, 'subtotal_tax' => 0, 'shipping_total' => 0, 'shipping_tax' => 0, 'shipping_taxes' => [...], 'discount_total' => 0, 'discount_tax' => 0, 'cart_contents_total' => 0, 'cart_contents_tax' => 0, 'cart_contents_taxes' => [...], 'fee_total' => 0, 'fee_tax' => 0, 'fee_taxes' => [...], 'total' => 0, 'total_tax' => 0]; protected $session = class WC_Cart_Session { protected $cart = ... }; protected $fees_api = class WC_Cart_Fees { private $fees = [...]; private $default_fee_props = [...] }; public $coupon_discount_totals = []; public $coupon_discount_tax_totals = [] }) D:\wamp64\www\wordpress\wp-content\plugins\woocommerce\includes\class-wc-cart.php:1465
+[18-Nov-2025 14:36:00 UTC] PHP   9. WC_Cart_Totals->calculate() D:\wamp64\www\wordpress\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php:138
+[18-Nov-2025 14:36:00 UTC] PHP  10. WC_Cart_Totals->calculate_item_totals() D:\wamp64\www\wordpress\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php:147
+[18-Nov-2025 14:36:00 UTC] PHP  11. WC_Cart_Totals->get_items_from_cart() D:\wamp64\www\wordpress\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php:654
+[18-Nov-2025 14:36:00 UTC] PHP Fatal error:  Uncaught Error: Call to a member function get_tax_class() on null in D:\wamp64\www\wordpress\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php:229
+Stack trace:
+#0 D:\wamp64\www\wordpress\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php(654): WC_Cart_Totals->get_items_from_cart()
+#1 D:\wamp64\www\wordpress\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php(147): WC_Cart_Totals->calculate_item_totals()
+#2 D:\wamp64\www\wordpress\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php(138): WC_Cart_Totals->calculate()
+#3 D:\wamp64\www\wordpress\wp-content\plugins\woocommerce\includes\class-wc-cart.php(1465): WC_Cart_Totals->__construct(Object(WC_Cart))
+#4 D:\wamp64\www\wordpress\wp-content\plugins\woocommerce\includes\class-wc-cart.php(1424): WC_Cart->calculate_totals()
+#5 D:\wamp64\www\wordpress\wp-content\themes\doAnCMS\functions.php(780): WC_Cart->set_quantity('013d407166ec4fa...', 2, true)
+#6 D:\wamp64\www\wordpress\wp-includes\class-wp-hook.php(324): custom_update_cart_item('')
+#7 D:\wamp64\www\wordpress\wp-includes\class-wp-hook.php(348): WP_Hook->apply_filters('', Array)
+#8 D:\wamp64\www\wordpress\wp-includes\plugin.php(517): WP_Hook->do_action(Array)
+#9 D:\wamp64\www\wordpress\wp-admin\admin-ajax.php(192): do_action('wp_ajax_update_...')
+#10 {main}
+  thrown in D:\wamp64\www\wordpress\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php on line 229
+[18-Nov-2025 14:36:04 UTC] PHP Warning:  Undefined array key "013d407166ec4fa56eb1e1f8cbe183b9" in D:\wamp64\www\wordpress\wp-content\plugins\woocommerce\includes\class-wc-cart.php on line 1418
+[18-Nov-2025 14:36:04 UTC] PHP Stack trace:
+[18-Nov-2025 14:36:04 UTC] PHP   1. {main}() D:\wamp64\www\wordpress\wp-admin\admin-ajax.php:0
+[18-Nov-2025 14:36:04 UTC] PHP   2. do_action($hook_name = 'wp_ajax_update_cart_item') D:\wamp64\www\wordpress\wp-admin\admin-ajax.php:192
+[18-Nov-2025 14:36:04 UTC] PHP   3. WP_Hook->do_action($args = [0 => '']) D:\wamp64\www\wordpress\wp-includes\plugin.php:517
+[18-Nov-2025 14:36:04 UTC] PHP   4. WP_Hook->apply_filters($value = '', $args = [0 => '']) D:\wamp64\www\wordpress\wp-includes\class-wp-hook.php:348
+[18-Nov-2025 14:36:04 UTC] PHP   5. custom_update_cart_item('') D:\wamp64\www\wordpress\wp-includes\class-wp-hook.php:324
+[18-Nov-2025 14:36:04 UTC] PHP   6. WC_Cart->set_quantity($cart_item_key = '013d407166ec4fa56eb1e1f8cbe183b9', $quantity = 2, $refresh_totals = TRUE) D:\wamp64\www\wordpress\wp-content\themes\doAnCMS\functions.php:780
+[18-Nov-2025 14:36:04 UTC] PHP Warning:  Trying to access array offset on null in D:\wamp64\www\wordpress\wp-content\plugins\woocommerce\includes\class-wc-cart.php on line 1418
+[18-Nov-2025 14:36:04 UTC] PHP Stack trace:
+[18-Nov-2025 14:36:04 UTC] PHP   1. {main}() D:\wamp64\www\wordpress\wp-admin\admin-ajax.php:0
+[18-Nov-2025 14:36:04 UTC] PHP   2. do_action($hook_name = 'wp_ajax_update_cart_item') D:\wamp64\www\wordpress\wp-admin\admin-ajax.php:192
+[18-Nov-2025 14:36:04 UTC] PHP   3. WP_Hook->do_action($args = [0 => '']) D:\wamp64\www\wordpress\wp-includes\plugin.php:517
+[18-Nov-2025 14:36:04 UTC] PHP   4. WP_Hook->apply_filters($value = '', $args = [0 => '']) D:\wamp64\www\wordpress\wp-includes\class-wp-hook.php:348
+[18-Nov-2025 14:36:04 UTC] PHP   5. custom_update_cart_item('') D:\wamp64\www\wordpress\wp-includes\class-wp-hook.php:324
+[18-Nov-2025 14:36:04 UTC] PHP   6. WC_Cart->set_quantity($cart_item_key = '013d407166ec4fa56eb1e1f8cbe183b9', $quantity = 2, $refresh_totals = TRUE) D:\wamp64\www\wordpress\wp-content\themes\doAnCMS\functions.php:780
+[18-Nov-2025 14:36:04 UTC] PHP Warning:  Undefined array key "data" in D:\wamp64\www\wordpress\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php on line 229
+[18-Nov-2025 14:36:04 UTC] PHP Stack trace:
+[18-Nov-2025 14:36:04 UTC] PHP   1. {main}() D:\wamp64\www\wordpress\wp-admin\admin-ajax.php:0
+[18-Nov-2025 14:36:04 UTC] PHP   2. do_action($hook_name = 'wp_ajax_update_cart_item') D:\wamp64\www\wordpress\wp-admin\admin-ajax.php:192
+[18-Nov-2025 14:36:04 UTC] PHP   3. WP_Hook->do_action($args = [0 => '']) D:\wamp64\www\wordpress\wp-includes\plugin.php:517
+[18-Nov-2025 14:36:04 UTC] PHP   4. WP_Hook->apply_filters($value = '', $args = [0 => '']) D:\wamp64\www\wordpress\wp-includes\class-wp-hook.php:348
+[18-Nov-2025 14:36:04 UTC] PHP   5. custom_update_cart_item('') D:\wamp64\www\wordpress\wp-includes\class-wp-hook.php:324
+[18-Nov-2025 14:36:04 UTC] PHP   6. WC_Cart->set_quantity($cart_item_key = '013d407166ec4fa56eb1e1f8cbe183b9', $quantity = 2, $refresh_totals = TRUE) D:\wamp64\www\wordpress\wp-content\themes\doAnCMS\functions.php:780
+[18-Nov-2025 14:36:04 UTC] PHP   7. WC_Cart->calculate_totals() D:\wamp64\www\wordpress\wp-content\plugins\woocommerce\includes\class-wc-cart.php:1424
+[18-Nov-2025 14:36:04 UTC] PHP   8. WC_Cart_Totals->__construct($cart = class WC_Cart { public $cart_session_data = ['cart_contents_total' => 0, 'total' => 0, 'subtotal' => 0, 'subtotal_ex_tax' => 0, 'tax_total' => 0, 'taxes' => [...], 'shipping_taxes' => [...], 'discount_cart' => 0, 'discount_cart_tax' => 0, 'shipping_total' => 0, 'shipping_tax_total' => 0, 'coupon_discount_amounts' => [...], 'coupon_discount_tax_amounts' => [...], 'fee_total' => 0, 'fees' => [...]]; public $coupon_applied_count = []; public $cart_context = 'shortcode'; public $cart_contents = ['02522a2b2726fb0a03bb19f2d8d9524d' => [...], '1d7f7abc18fcb43975065399b0d1e48e' => [...], 'fc221309746013ac554571fbd180e1c8' => [...], '96da2f590cd7246bbde0051047b0d6f7' => [...], '3988c7f88ebcb58c6ce932b957b6f332' => [...], '38af86134b65d0f10fe33d30dd76442e' => [...], '2a38a4a9316c49e5a833517c45d31070' => [...], '92cc227532d17e56e07902b254dfad10' => [...], '013d407166ec4fa56eb1e1f8cbe183b9' => [...]]; public $removed_cart_contents = ['42a0e188f5033bc65bf8d78622277c4e' => [...], '013d407166ec4fa56eb1e1f8cbe183b9' => [...]]; public $applied_coupons = []; protected $shipping_methods = NULL; protected $has_calculated_shipping = FALSE; protected $default_totals = ['subtotal' => 0, 'subtotal_tax' => 0, 'shipping_total' => 0, 'shipping_tax' => 0, 'shipping_taxes' => [...], 'discount_total' => 0, 'discount_tax' => 0, 'cart_contents_total' => 0, 'cart_contents_tax' => 0, 'cart_contents_taxes' => [...], 'fee_total' => 0, 'fee_tax' => 0, 'fee_taxes' => [...], 'total' => 0, 'total_tax' => 0]; protected $totals = ['subtotal' => 0, 'subtotal_tax' => 0, 'shipping_total' => 0, 'shipping_tax' => 0, 'shipping_taxes' => [...], 'discount_total' => 0, 'discount_tax' => 0, 'cart_contents_total' => 0, 'cart_contents_tax' => 0, 'cart_contents_taxes' => [...], 'fee_total' => 0, 'fee_tax' => 0, 'fee_taxes' => [...], 'total' => 0, 'total_tax' => 0]; protected $session = class WC_Cart_Session { protected $cart = ... }; protected $fees_api = class WC_Cart_Fees { private $fees = [...]; private $default_fee_props = [...] }; public $coupon_discount_totals = []; public $coupon_discount_tax_totals = [] }) D:\wamp64\www\wordpress\wp-content\plugins\woocommerce\includes\class-wc-cart.php:1465
+[18-Nov-2025 14:36:04 UTC] PHP   9. WC_Cart_Totals->calculate() D:\wamp64\www\wordpress\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php:138
+[18-Nov-2025 14:36:04 UTC] PHP  10. WC_Cart_Totals->calculate_item_totals() D:\wamp64\www\wordpress\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php:147
+[18-Nov-2025 14:36:04 UTC] PHP  11. WC_Cart_Totals->get_items_from_cart() D:\wamp64\www\wordpress\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php:654
+[18-Nov-2025 14:36:04 UTC] PHP Fatal error:  Uncaught Error: Call to a member function get_tax_class() on null in D:\wamp64\www\wordpress\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php:229
+Stack trace:
+#0 D:\wamp64\www\wordpress\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php(654): WC_Cart_Totals->get_items_from_cart()
+#1 D:\wamp64\www\wordpress\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php(147): WC_Cart_Totals->calculate_item_totals()
+#2 D:\wamp64\www\wordpress\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php(138): WC_Cart_Totals->calculate()
+#3 D:\wamp64\www\wordpress\wp-content\plugins\woocommerce\includes\class-wc-cart.php(1465): WC_Cart_Totals->__construct(Object(WC_Cart))
+#4 D:\wamp64\www\wordpress\wp-content\plugins\woocommerce\includes\class-wc-cart.php(1424): WC_Cart->calculate_totals()
+#5 D:\wamp64\www\wordpress\wp-content\themes\doAnCMS\functions.php(780): WC_Cart->set_quantity('013d407166ec4fa...', 2, true)
+#6 D:\wamp64\www\wordpress\wp-includes\class-wp-hook.php(324): custom_update_cart_item('')
+#7 D:\wamp64\www\wordpress\wp-includes\class-wp-hook.php(348): WP_Hook->apply_filters('', Array)
+#8 D:\wamp64\www\wordpress\wp-includes\plugin.php(517): WP_Hook->do_action(Array)
+#9 D:\wamp64\www\wordpress\wp-admin\admin-ajax.php(192): do_action('wp_ajax_update_...')
+#10 {main}
+  thrown in D:\wamp64\www\wordpress\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php on line 229
+[18-Nov-2025 14:36:08 UTC] PHP Warning:  Undefined array key "013d407166ec4fa56eb1e1f8cbe183b9" in D:\wamp64\www\wordpress\wp-content\plugins\woocommerce\includes\class-wc-cart.php on line 1418
+[18-Nov-2025 14:36:08 UTC] PHP Stack trace:
+[18-Nov-2025 14:36:08 UTC] PHP   1. {main}() D:\wamp64\www\wordpress\wp-admin\admin-ajax.php:0
+[18-Nov-2025 14:36:08 UTC] PHP   2. do_action($hook_name = 'wp_ajax_update_cart_item') D:\wamp64\www\wordpress\wp-admin\admin-ajax.php:192
+[18-Nov-2025 14:36:08 UTC] PHP   3. WP_Hook->do_action($args = [0 => '']) D:\wamp64\www\wordpress\wp-includes\plugin.php:517
+[18-Nov-2025 14:36:08 UTC] PHP   4. WP_Hook->apply_filters($value = '', $args = [0 => '']) D:\wamp64\www\wordpress\wp-includes\class-wp-hook.php:348
+[18-Nov-2025 14:36:08 UTC] PHP   5. custom_update_cart_item('') D:\wamp64\www\wordpress\wp-includes\class-wp-hook.php:324
+[18-Nov-2025 14:36:08 UTC] PHP   6. WC_Cart->set_quantity($cart_item_key = '013d407166ec4fa56eb1e1f8cbe183b9', $quantity = 2, $refresh_totals = TRUE) D:\wamp64\www\wordpress\wp-content\themes\doAnCMS\functions.php:780
+[18-Nov-2025 14:36:08 UTC] PHP Warning:  Trying to access array offset on null in D:\wamp64\www\wordpress\wp-content\plugins\woocommerce\includes\class-wc-cart.php on line 1418
+[18-Nov-2025 14:36:08 UTC] PHP Stack trace:
+[18-Nov-2025 14:36:08 UTC] PHP   1. {main}() D:\wamp64\www\wordpress\wp-admin\admin-ajax.php:0
+[18-Nov-2025 14:36:08 UTC] PHP   2. do_action($hook_name = 'wp_ajax_update_cart_item') D:\wamp64\www\wordpress\wp-admin\admin-ajax.php:192
+[18-Nov-2025 14:36:08 UTC] PHP   3. WP_Hook->do_action($args = [0 => '']) D:\wamp64\www\wordpress\wp-includes\plugin.php:517
+[18-Nov-2025 14:36:08 UTC] PHP   4. WP_Hook->apply_filters($value = '', $args = [0 => '']) D:\wamp64\www\wordpress\wp-includes\class-wp-hook.php:348
+[18-Nov-2025 14:36:08 UTC] PHP   5. custom_update_cart_item('') D:\wamp64\www\wordpress\wp-includes\class-wp-hook.php:324
+[18-Nov-2025 14:36:08 UTC] PHP   6. WC_Cart->set_quantity($cart_item_key = '013d407166ec4fa56eb1e1f8cbe183b9', $quantity = 2, $refresh_totals = TRUE) D:\wamp64\www\wordpress\wp-content\themes\doAnCMS\functions.php:780
+[18-Nov-2025 14:36:08 UTC] PHP Warning:  Undefined array key "data" in D:\wamp64\www\wordpress\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php on line 229
+[18-Nov-2025 14:36:08 UTC] PHP Stack trace:
+[18-Nov-2025 14:36:08 UTC] PHP   1. {main}() D:\wamp64\www\wordpress\wp-admin\admin-ajax.php:0
+[18-Nov-2025 14:36:08 UTC] PHP   2. do_action($hook_name = 'wp_ajax_update_cart_item') D:\wamp64\www\wordpress\wp-admin\admin-ajax.php:192
+[18-Nov-2025 14:36:08 UTC] PHP   3. WP_Hook->do_action($args = [0 => '']) D:\wamp64\www\wordpress\wp-includes\plugin.php:517
+[18-Nov-2025 14:36:08 UTC] PHP   4. WP_Hook->apply_filters($value = '', $args = [0 => '']) D:\wamp64\www\wordpress\wp-includes\class-wp-hook.php:348
+[18-Nov-2025 14:36:08 UTC] PHP   5. custom_update_cart_item('') D:\wamp64\www\wordpress\wp-includes\class-wp-hook.php:324
+[18-Nov-2025 14:36:08 UTC] PHP   6. WC_Cart->set_quantity($cart_item_key = '013d407166ec4fa56eb1e1f8cbe183b9', $quantity = 2, $refresh_totals = TRUE) D:\wamp64\www\wordpress\wp-content\themes\doAnCMS\functions.php:780
+[18-Nov-2025 14:36:08 UTC] PHP   7. WC_Cart->calculate_totals() D:\wamp64\www\wordpress\wp-content\plugins\woocommerce\includes\class-wc-cart.php:1424
+[18-Nov-2025 14:36:08 UTC] PHP   8. WC_Cart_Totals->__construct($cart = class WC_Cart { public $cart_session_data = ['cart_contents_total' => 0, 'total' => 0, 'subtotal' => 0, 'subtotal_ex_tax' => 0, 'tax_total' => 0, 'taxes' => [...], 'shipping_taxes' => [...], 'discount_cart' => 0, 'discount_cart_tax' => 0, 'shipping_total' => 0, 'shipping_tax_total' => 0, 'coupon_discount_amounts' => [...], 'coupon_discount_tax_amounts' => [...], 'fee_total' => 0, 'fees' => [...]]; public $coupon_applied_count = []; public $cart_context = 'shortcode'; public $cart_contents = ['02522a2b2726fb0a03bb19f2d8d9524d' => [...], '1d7f7abc18fcb43975065399b0d1e48e' => [...], 'fc221309746013ac554571fbd180e1c8' => [...], '96da2f590cd7246bbde0051047b0d6f7' => [...], '3988c7f88ebcb58c6ce932b957b6f332' => [...], '38af86134b65d0f10fe33d30dd76442e' => [...], '2a38a4a9316c49e5a833517c45d31070' => [...], '92cc227532d17e56e07902b254dfad10' => [...], '013d407166ec4fa56eb1e1f8cbe183b9' => [...]]; public $removed_cart_contents = ['42a0e188f5033bc65bf8d78622277c4e' => [...], '013d407166ec4fa56eb1e1f8cbe183b9' => [...]]; public $applied_coupons = []; protected $shipping_methods = NULL; protected $has_calculated_shipping = FALSE; protected $default_totals = ['subtotal' => 0, 'subtotal_tax' => 0, 'shipping_total' => 0, 'shipping_tax' => 0, 'shipping_taxes' => [...], 'discount_total' => 0, 'discount_tax' => 0, 'cart_contents_total' => 0, 'cart_contents_tax' => 0, 'cart_contents_taxes' => [...], 'fee_total' => 0, 'fee_tax' => 0, 'fee_taxes' => [...], 'total' => 0, 'total_tax' => 0]; protected $totals = ['subtotal' => 0, 'subtotal_tax' => 0, 'shipping_total' => 0, 'shipping_tax' => 0, 'shipping_taxes' => [...], 'discount_total' => 0, 'discount_tax' => 0, 'cart_contents_total' => 0, 'cart_contents_tax' => 0, 'cart_contents_taxes' => [...], 'fee_total' => 0, 'fee_tax' => 0, 'fee_taxes' => [...], 'total' => 0, 'total_tax' => 0]; protected $session = class WC_Cart_Session { protected $cart = ... }; protected $fees_api = class WC_Cart_Fees { private $fees = [...]; private $default_fee_props = [...] }; public $coupon_discount_totals = []; public $coupon_discount_tax_totals = [] }) D:\wamp64\www\wordpress\wp-content\plugins\woocommerce\includes\class-wc-cart.php:1465
+[18-Nov-2025 14:36:08 UTC] PHP   9. WC_Cart_Totals->calculate() D:\wamp64\www\wordpress\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php:138
+[18-Nov-2025 14:36:08 UTC] PHP  10. WC_Cart_Totals->calculate_item_totals() D:\wamp64\www\wordpress\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php:147
+[18-Nov-2025 14:36:08 UTC] PHP  11. WC_Cart_Totals->get_items_from_cart() D:\wamp64\www\wordpress\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php:654
+[18-Nov-2025 14:36:08 UTC] PHP Fatal error:  Uncaught Error: Call to a member function get_tax_class() on null in D:\wamp64\www\wordpress\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php:229
+Stack trace:
+#0 D:\wamp64\www\wordpress\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php(654): WC_Cart_Totals->get_items_from_cart()
+#1 D:\wamp64\www\wordpress\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php(147): WC_Cart_Totals->calculate_item_totals()
+#2 D:\wamp64\www\wordpress\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php(138): WC_Cart_Totals->calculate()
+#3 D:\wamp64\www\wordpress\wp-content\plugins\woocommerce\includes\class-wc-cart.php(1465): WC_Cart_Totals->__construct(Object(WC_Cart))
+#4 D:\wamp64\www\wordpress\wp-content\plugins\woocommerce\includes\class-wc-cart.php(1424): WC_Cart->calculate_totals()
+#5 D:\wamp64\www\wordpress\wp-content\themes\doAnCMS\functions.php(780): WC_Cart->set_quantity('013d407166ec4fa...', 2, true)
+#6 D:\wamp64\www\wordpress\wp-includes\class-wp-hook.php(324): custom_update_cart_item('')
+#7 D:\wamp64\www\wordpress\wp-includes\class-wp-hook.php(348): WP_Hook->apply_filters('', Array)
+#8 D:\wamp64\www\wordpress\wp-includes\plugin.php(517): WP_Hook->do_action(Array)
+#9 D:\wamp64\www\wordpress\wp-admin\admin-ajax.php(192): do_action('wp_ajax_update_...')
+#10 {main}
+  thrown in D:\wamp64\www\wordpress\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php on line 229
+[18-Nov-2025 14:36:09 UTC] PHP Warning:  Undefined array key "013d407166ec4fa56eb1e1f8cbe183b9" in D:\wamp64\www\wordpress\wp-content\plugins\woocommerce\includes\class-wc-cart.php on line 1418
+[18-Nov-2025 14:36:09 UTC] PHP Stack trace:
+[18-Nov-2025 14:36:09 UTC] PHP   1. {main}() D:\wamp64\www\wordpress\wp-admin\admin-ajax.php:0
+[18-Nov-2025 14:36:09 UTC] PHP   2. do_action($hook_name = 'wp_ajax_update_cart_item') D:\wamp64\www\wordpress\wp-admin\admin-ajax.php:192
+[18-Nov-2025 14:36:09 UTC] PHP   3. WP_Hook->do_action($args = [0 => '']) D:\wamp64\www\wordpress\wp-includes\plugin.php:517
+[18-Nov-2025 14:36:09 UTC] PHP   4. WP_Hook->apply_filters($value = '', $args = [0 => '']) D:\wamp64\www\wordpress\wp-includes\class-wp-hook.php:348
+[18-Nov-2025 14:36:09 UTC] PHP   5. custom_update_cart_item('') D:\wamp64\www\wordpress\wp-includes\class-wp-hook.php:324
+[18-Nov-2025 14:36:09 UTC] PHP   6. WC_Cart->set_quantity($cart_item_key = '013d407166ec4fa56eb1e1f8cbe183b9', $quantity = 2, $refresh_totals = TRUE) D:\wamp64\www\wordpress\wp-content\themes\doAnCMS\functions.php:780
+[18-Nov-2025 14:36:09 UTC] PHP Warning:  Trying to access array offset on null in D:\wamp64\www\wordpress\wp-content\plugins\woocommerce\includes\class-wc-cart.php on line 1418
+[18-Nov-2025 14:36:09 UTC] PHP Stack trace:
+[18-Nov-2025 14:36:09 UTC] PHP   1. {main}() D:\wamp64\www\wordpress\wp-admin\admin-ajax.php:0
+[18-Nov-2025 14:36:09 UTC] PHP   2. do_action($hook_name = 'wp_ajax_update_cart_item') D:\wamp64\www\wordpress\wp-admin\admin-ajax.php:192
+[18-Nov-2025 14:36:09 UTC] PHP   3. WP_Hook->do_action($args = [0 => '']) D:\wamp64\www\wordpress\wp-includes\plugin.php:517
+[18-Nov-2025 14:36:09 UTC] PHP   4. WP_Hook->apply_filters($value = '', $args = [0 => '']) D:\wamp64\www\wordpress\wp-includes\class-wp-hook.php:348
+[18-Nov-2025 14:36:09 UTC] PHP   5. custom_update_cart_item('') D:\wamp64\www\wordpress\wp-includes\class-wp-hook.php:324
+[18-Nov-2025 14:36:09 UTC] PHP   6. WC_Cart->set_quantity($cart_item_key = '013d407166ec4fa56eb1e1f8cbe183b9', $quantity = 2, $refresh_totals = TRUE) D:\wamp64\www\wordpress\wp-content\themes\doAnCMS\functions.php:780
+[18-Nov-2025 14:36:09 UTC] PHP Warning:  Undefined array key "data" in D:\wamp64\www\wordpress\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php on line 229
+[18-Nov-2025 14:36:09 UTC] PHP Stack trace:
+[18-Nov-2025 14:36:09 UTC] PHP   1. {main}() D:\wamp64\www\wordpress\wp-admin\admin-ajax.php:0
+[18-Nov-2025 14:36:09 UTC] PHP   2. do_action($hook_name = 'wp_ajax_update_cart_item') D:\wamp64\www\wordpress\wp-admin\admin-ajax.php:192
+[18-Nov-2025 14:36:09 UTC] PHP   3. WP_Hook->do_action($args = [0 => '']) D:\wamp64\www\wordpress\wp-includes\plugin.php:517
+[18-Nov-2025 14:36:09 UTC] PHP   4. WP_Hook->apply_filters($value = '', $args = [0 => '']) D:\wamp64\www\wordpress\wp-includes\class-wp-hook.php:348
+[18-Nov-2025 14:36:09 UTC] PHP   5. custom_update_cart_item('') D:\wamp64\www\wordpress\wp-includes\class-wp-hook.php:324
+[18-Nov-2025 14:36:09 UTC] PHP   6. WC_Cart->set_quantity($cart_item_key = '013d407166ec4fa56eb1e1f8cbe183b9', $quantity = 2, $refresh_totals = TRUE) D:\wamp64\www\wordpress\wp-content\themes\doAnCMS\functions.php:780
+[18-Nov-2025 14:36:09 UTC] PHP   7. WC_Cart->calculate_totals() D:\wamp64\www\wordpress\wp-content\plugins\woocommerce\includes\class-wc-cart.php:1424
+[18-Nov-2025 14:36:09 UTC] PHP   8. WC_Cart_Totals->__construct($cart = class WC_Cart { public $cart_session_data = ['cart_contents_total' => 0, 'total' => 0, 'subtotal' => 0, 'subtotal_ex_tax' => 0, 'tax_total' => 0, 'taxes' => [...], 'shipping_taxes' => [...], 'discount_cart' => 0, 'discount_cart_tax' => 0, 'shipping_total' => 0, 'shipping_tax_total' => 0, 'coupon_discount_amounts' => [...], 'coupon_discount_tax_amounts' => [...], 'fee_total' => 0, 'fees' => [...]]; public $coupon_applied_count = []; public $cart_context = 'shortcode'; public $cart_contents = ['02522a2b2726fb0a03bb19f2d8d9524d' => [...], '1d7f7abc18fcb43975065399b0d1e48e' => [...], 'fc221309746013ac554571fbd180e1c8' => [...], '96da2f590cd7246bbde0051047b0d6f7' => [...], '3988c7f88ebcb58c6ce932b957b6f332' => [...], '38af86134b65d0f10fe33d30dd76442e' => [...], '2a38a4a9316c49e5a833517c45d31070' => [...], '92cc227532d17e56e07902b254dfad10' => [...], '013d407166ec4fa56eb1e1f8cbe183b9' => [...]]; public $removed_cart_contents = ['42a0e188f5033bc65bf8d78622277c4e' => [...], '013d407166ec4fa56eb1e1f8cbe183b9' => [...]]; public $applied_coupons = []; protected $shipping_methods = NULL; protected $has_calculated_shipping = FALSE; protected $default_totals = ['subtotal' => 0, 'subtotal_tax' => 0, 'shipping_total' => 0, 'shipping_tax' => 0, 'shipping_taxes' => [...], 'discount_total' => 0, 'discount_tax' => 0, 'cart_contents_total' => 0, 'cart_contents_tax' => 0, 'cart_contents_taxes' => [...], 'fee_total' => 0, 'fee_tax' => 0, 'fee_taxes' => [...], 'total' => 0, 'total_tax' => 0]; protected $totals = ['subtotal' => 0, 'subtotal_tax' => 0, 'shipping_total' => 0, 'shipping_tax' => 0, 'shipping_taxes' => [...], 'discount_total' => 0, 'discount_tax' => 0, 'cart_contents_total' => 0, 'cart_contents_tax' => 0, 'cart_contents_taxes' => [...], 'fee_total' => 0, 'fee_tax' => 0, 'fee_taxes' => [...], 'total' => 0, 'total_tax' => 0]; protected $session = class WC_Cart_Session { protected $cart = ... }; protected $fees_api = class WC_Cart_Fees { private $fees = [...]; private $default_fee_props = [...] }; public $coupon_discount_totals = []; public $coupon_discount_tax_totals = [] }) D:\wamp64\www\wordpress\wp-content\plugins\woocommerce\includes\class-wc-cart.php:1465
+[18-Nov-2025 14:36:09 UTC] PHP   9. WC_Cart_Totals->calculate() D:\wamp64\www\wordpress\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php:138
+[18-Nov-2025 14:36:09 UTC] PHP  10. WC_Cart_Totals->calculate_item_totals() D:\wamp64\www\wordpress\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php:147
+[18-Nov-2025 14:36:09 UTC] PHP  11. WC_Cart_Totals->get_items_from_cart() D:\wamp64\www\wordpress\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php:654
+[18-Nov-2025 14:36:09 UTC] PHP Fatal error:  Uncaught Error: Call to a member function get_tax_class() on null in D:\wamp64\www\wordpress\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php:229
+Stack trace:
+#0 D:\wamp64\www\wordpress\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php(654): WC_Cart_Totals->get_items_from_cart()
+#1 D:\wamp64\www\wordpress\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php(147): WC_Cart_Totals->calculate_item_totals()
+#2 D:\wamp64\www\wordpress\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php(138): WC_Cart_Totals->calculate()
+#3 D:\wamp64\www\wordpress\wp-content\plugins\woocommerce\includes\class-wc-cart.php(1465): WC_Cart_Totals->__construct(Object(WC_Cart))
+#4 D:\wamp64\www\wordpress\wp-content\plugins\woocommerce\includes\class-wc-cart.php(1424): WC_Cart->calculate_totals()
+#5 D:\wamp64\www\wordpress\wp-content\themes\doAnCMS\functions.php(780): WC_Cart->set_quantity('013d407166ec4fa...', 2, true)
+#6 D:\wamp64\www\wordpress\wp-includes\class-wp-hook.php(324): custom_update_cart_item('')
+#7 D:\wamp64\www\wordpress\wp-includes\class-wp-hook.php(348): WP_Hook->apply_filters('', Array)
+#8 D:\wamp64\www\wordpress\wp-includes\plugin.php(517): WP_Hook->do_action(Array)
+#9 D:\wamp64\www\wordpress\wp-admin\admin-ajax.php(192): do_action('wp_ajax_update_...')
+#10 {main}
+  thrown in D:\wamp64\www\wordpress\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php on line 229
+[18-Nov-2025 14:36:09 UTC] PHP Warning:  Undefined array key "013d407166ec4fa56eb1e1f8cbe183b9" in D:\wamp64\www\wordpress\wp-content\plugins\woocommerce\includes\class-wc-cart.php on line 1418
+[18-Nov-2025 14:36:09 UTC] PHP Stack trace:
+[18-Nov-2025 14:36:09 UTC] PHP   1. {main}() D:\wamp64\www\wordpress\wp-admin\admin-ajax.php:0
+[18-Nov-2025 14:36:09 UTC] PHP   2. do_action($hook_name = 'wp_ajax_update_cart_item') D:\wamp64\www\wordpress\wp-admin\admin-ajax.php:192
+[18-Nov-2025 14:36:09 UTC] PHP   3. WP_Hook->do_action($args = [0 => '']) D:\wamp64\www\wordpress\wp-includes\plugin.php:517
+[18-Nov-2025 14:36:09 UTC] PHP   4. WP_Hook->apply_filters($value = '', $args = [0 => '']) D:\wamp64\www\wordpress\wp-includes\class-wp-hook.php:348
+[18-Nov-2025 14:36:09 UTC] PHP   5. custom_update_cart_item('') D:\wamp64\www\wordpress\wp-includes\class-wp-hook.php:324
+[18-Nov-2025 14:36:09 UTC] PHP   6. WC_Cart->set_quantity($cart_item_key = '013d407166ec4fa56eb1e1f8cbe183b9', $quantity = 2, $refresh_totals = TRUE) D:\wamp64\www\wordpress\wp-content\themes\doAnCMS\functions.php:780
+[18-Nov-2025 14:36:09 UTC] PHP Warning:  Trying to access array offset on null in D:\wamp64\www\wordpress\wp-content\plugins\woocommerce\includes\class-wc-cart.php on line 1418
+[18-Nov-2025 14:36:09 UTC] PHP Stack trace:
+[18-Nov-2025 14:36:09 UTC] PHP   1. {main}() D:\wamp64\www\wordpress\wp-admin\admin-ajax.php:0
+[18-Nov-2025 14:36:09 UTC] PHP   2. do_action($hook_name = 'wp_ajax_update_cart_item') D:\wamp64\www\wordpress\wp-admin\admin-ajax.php:192
+[18-Nov-2025 14:36:09 UTC] PHP   3. WP_Hook->do_action($args = [0 => '']) D:\wamp64\www\wordpress\wp-includes\plugin.php:517
+[18-Nov-2025 14:36:09 UTC] PHP   4. WP_Hook->apply_filters($value = '', $args = [0 => '']) D:\wamp64\www\wordpress\wp-includes\class-wp-hook.php:348
+[18-Nov-2025 14:36:09 UTC] PHP   5. custom_update_cart_item('') D:\wamp64\www\wordpress\wp-includes\class-wp-hook.php:324
+[18-Nov-2025 14:36:09 UTC] PHP   6. WC_Cart->set_quantity($cart_item_key = '013d407166ec4fa56eb1e1f8cbe183b9', $quantity = 2, $refresh_totals = TRUE) D:\wamp64\www\wordpress\wp-content\themes\doAnCMS\functions.php:780
+[18-Nov-2025 14:36:09 UTC] PHP Warning:  Undefined array key "data" in D:\wamp64\www\wordpress\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php on line 229
+[18-Nov-2025 14:36:09 UTC] PHP Stack trace:
+[18-Nov-2025 14:36:09 UTC] PHP   1. {main}() D:\wamp64\www\wordpress\wp-admin\admin-ajax.php:0
+[18-Nov-2025 14:36:09 UTC] PHP   2. do_action($hook_name = 'wp_ajax_update_cart_item') D:\wamp64\www\wordpress\wp-admin\admin-ajax.php:192
+[18-Nov-2025 14:36:09 UTC] PHP   3. WP_Hook->do_action($args = [0 => '']) D:\wamp64\www\wordpress\wp-includes\plugin.php:517
+[18-Nov-2025 14:36:09 UTC] PHP   4. WP_Hook->apply_filters($value = '', $args = [0 => '']) D:\wamp64\www\wordpress\wp-includes\class-wp-hook.php:348
+[18-Nov-2025 14:36:09 UTC] PHP   5. custom_update_cart_item('') D:\wamp64\www\wordpress\wp-includes\class-wp-hook.php:324
+[18-Nov-2025 14:36:09 UTC] PHP   6. WC_Cart->set_quantity($cart_item_key = '013d407166ec4fa56eb1e1f8cbe183b9', $quantity = 2, $refresh_totals = TRUE) D:\wamp64\www\wordpress\wp-content\themes\doAnCMS\functions.php:780
+[18-Nov-2025 14:36:09 UTC] PHP   7. WC_Cart->calculate_totals() D:\wamp64\www\wordpress\wp-content\plugins\woocommerce\includes\class-wc-cart.php:1424
+[18-Nov-2025 14:36:09 UTC] PHP   8. WC_Cart_Totals->__construct($cart = class WC_Cart { public $cart_session_data = ['cart_contents_total' => 0, 'total' => 0, 'subtotal' => 0, 'subtotal_ex_tax' => 0, 'tax_total' => 0, 'taxes' => [...], 'shipping_taxes' => [...], 'discount_cart' => 0, 'discount_cart_tax' => 0, 'shipping_total' => 0, 'shipping_tax_total' => 0, 'coupon_discount_amounts' => [...], 'coupon_discount_tax_amounts' => [...], 'fee_total' => 0, 'fees' => [...]]; public $coupon_applied_count = []; public $cart_context = 'shortcode'; public $cart_contents = ['02522a2b2726fb0a03bb19f2d8d9524d' => [...], '1d7f7abc18fcb43975065399b0d1e48e' => [...], 'fc221309746013ac554571fbd180e1c8' => [...], '96da2f590cd7246bbde0051047b0d6f7' => [...], '3988c7f88ebcb58c6ce932b957b6f332' => [...], '38af86134b65d0f10fe33d30dd76442e' => [...], '2a38a4a9316c49e5a833517c45d31070' => [...], '92cc227532d17e56e07902b254dfad10' => [...], '013d407166ec4fa56eb1e1f8cbe183b9' => [...]]; public $removed_cart_contents = ['42a0e188f5033bc65bf8d78622277c4e' => [...], '013d407166ec4fa56eb1e1f8cbe183b9' => [...]]; public $applied_coupons = []; protected $shipping_methods = NULL; protected $has_calculated_shipping = FALSE; protected $default_totals = ['subtotal' => 0, 'subtotal_tax' => 0, 'shipping_total' => 0, 'shipping_tax' => 0, 'shipping_taxes' => [...], 'discount_total' => 0, 'discount_tax' => 0, 'cart_contents_total' => 0, 'cart_contents_tax' => 0, 'cart_contents_taxes' => [...], 'fee_total' => 0, 'fee_tax' => 0, 'fee_taxes' => [...], 'total' => 0, 'total_tax' => 0]; protected $totals = ['subtotal' => 0, 'subtotal_tax' => 0, 'shipping_total' => 0, 'shipping_tax' => 0, 'shipping_taxes' => [...], 'discount_total' => 0, 'discount_tax' => 0, 'cart_contents_total' => 0, 'cart_contents_tax' => 0, 'cart_contents_taxes' => [...], 'fee_total' => 0, 'fee_tax' => 0, 'fee_taxes' => [...], 'total' => 0, 'total_tax' => 0]; protected $session = class WC_Cart_Session { protected $cart = ... }; protected $fees_api = class WC_Cart_Fees { private $fees = [...]; private $default_fee_props = [...] }; public $coupon_discount_totals = []; public $coupon_discount_tax_totals = [] }) D:\wamp64\www\wordpress\wp-content\plugins\woocommerce\includes\class-wc-cart.php:1465
+[18-Nov-2025 14:36:09 UTC] PHP   9. WC_Cart_Totals->calculate() D:\wamp64\www\wordpress\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php:138
+[18-Nov-2025 14:36:09 UTC] PHP  10. WC_Cart_Totals->calculate_item_totals() D:\wamp64\www\wordpress\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php:147
+[18-Nov-2025 14:36:09 UTC] PHP  11. WC_Cart_Totals->get_items_from_cart() D:\wamp64\www\wordpress\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php:654
+[18-Nov-2025 14:36:09 UTC] PHP Fatal error:  Uncaught Error: Call to a member function get_tax_class() on null in D:\wamp64\www\wordpress\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php:229
+Stack trace:
+#0 D:\wamp64\www\wordpress\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php(654): WC_Cart_Totals->get_items_from_cart()
+#1 D:\wamp64\www\wordpress\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php(147): WC_Cart_Totals->calculate_item_totals()
+#2 D:\wamp64\www\wordpress\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php(138): WC_Cart_Totals->calculate()
+#3 D:\wamp64\www\wordpress\wp-content\plugins\woocommerce\includes\class-wc-cart.php(1465): WC_Cart_Totals->__construct(Object(WC_Cart))
+#4 D:\wamp64\www\wordpress\wp-content\plugins\woocommerce\includes\class-wc-cart.php(1424): WC_Cart->calculate_totals()
+#5 D:\wamp64\www\wordpress\wp-content\themes\doAnCMS\functions.php(780): WC_Cart->set_quantity('013d407166ec4fa...', 2, true)
+#6 D:\wamp64\www\wordpress\wp-includes\class-wp-hook.php(324): custom_update_cart_item('')
+#7 D:\wamp64\www\wordpress\wp-includes\class-wp-hook.php(348): WP_Hook->apply_filters('', Array)
+#8 D:\wamp64\www\wordpress\wp-includes\plugin.php(517): WP_Hook->do_action(Array)
+#9 D:\wamp64\www\wordpress\wp-admin\admin-ajax.php(192): do_action('wp_ajax_update_...')
+#10 {main}
+  thrown in D:\wamp64\www\wordpress\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php on line 229
+[18-Nov-2025 14:36:15 UTC] PHP Warning:  Undefined array key "013d407166ec4fa56eb1e1f8cbe183b9" in D:\wamp64\www\wordpress\wp-content\plugins\woocommerce\includes\class-wc-cart.php on line 1418
+[18-Nov-2025 14:36:15 UTC] PHP Stack trace:
+[18-Nov-2025 14:36:15 UTC] PHP   1. {main}() D:\wamp64\www\wordpress\wp-admin\admin-ajax.php:0
+[18-Nov-2025 14:36:15 UTC] PHP   2. do_action($hook_name = 'wp_ajax_update_cart_item') D:\wamp64\www\wordpress\wp-admin\admin-ajax.php:192
+[18-Nov-2025 14:36:15 UTC] PHP   3. WP_Hook->do_action($args = [0 => '']) D:\wamp64\www\wordpress\wp-includes\plugin.php:517
+[18-Nov-2025 14:36:15 UTC] PHP   4. WP_Hook->apply_filters($value = '', $args = [0 => '']) D:\wamp64\www\wordpress\wp-includes\class-wp-hook.php:348
+[18-Nov-2025 14:36:15 UTC] PHP   5. custom_update_cart_item('') D:\wamp64\www\wordpress\wp-includes\class-wp-hook.php:324
+[18-Nov-2025 14:36:15 UTC] PHP   6. WC_Cart->set_quantity($cart_item_key = '013d407166ec4fa56eb1e1f8cbe183b9', $quantity = 3, $refresh_totals = TRUE) D:\wamp64\www\wordpress\wp-content\themes\doAnCMS\functions.php:780
+[18-Nov-2025 14:36:15 UTC] PHP Warning:  Trying to access array offset on null in D:\wamp64\www\wordpress\wp-content\plugins\woocommerce\includes\class-wc-cart.php on line 1418
+[18-Nov-2025 14:36:15 UTC] PHP Stack trace:
+[18-Nov-2025 14:36:15 UTC] PHP   1. {main}() D:\wamp64\www\wordpress\wp-admin\admin-ajax.php:0
+[18-Nov-2025 14:36:15 UTC] PHP   2. do_action($hook_name = 'wp_ajax_update_cart_item') D:\wamp64\www\wordpress\wp-admin\admin-ajax.php:192
+[18-Nov-2025 14:36:15 UTC] PHP   3. WP_Hook->do_action($args = [0 => '']) D:\wamp64\www\wordpress\wp-includes\plugin.php:517
+[18-Nov-2025 14:36:15 UTC] PHP   4. WP_Hook->apply_filters($value = '', $args = [0 => '']) D:\wamp64\www\wordpress\wp-includes\class-wp-hook.php:348
+[18-Nov-2025 14:36:15 UTC] PHP   5. custom_update_cart_item('') D:\wamp64\www\wordpress\wp-includes\class-wp-hook.php:324
+[18-Nov-2025 14:36:15 UTC] PHP   6. WC_Cart->set_quantity($cart_item_key = '013d407166ec4fa56eb1e1f8cbe183b9', $quantity = 3, $refresh_totals = TRUE) D:\wamp64\www\wordpress\wp-content\themes\doAnCMS\functions.php:780
+[18-Nov-2025 14:36:15 UTC] PHP Warning:  Undefined array key "data" in D:\wamp64\www\wordpress\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php on line 229
+[18-Nov-2025 14:36:15 UTC] PHP Stack trace:
+[18-Nov-2025 14:36:15 UTC] PHP   1. {main}() D:\wamp64\www\wordpress\wp-admin\admin-ajax.php:0
+[18-Nov-2025 14:36:15 UTC] PHP   2. do_action($hook_name = 'wp_ajax_update_cart_item') D:\wamp64\www\wordpress\wp-admin\admin-ajax.php:192
+[18-Nov-2025 14:36:15 UTC] PHP   3. WP_Hook->do_action($args = [0 => '']) D:\wamp64\www\wordpress\wp-includes\plugin.php:517
+[18-Nov-2025 14:36:15 UTC] PHP   4. WP_Hook->apply_filters($value = '', $args = [0 => '']) D:\wamp64\www\wordpress\wp-includes\class-wp-hook.php:348
+[18-Nov-2025 14:36:15 UTC] PHP   5. custom_update_cart_item('') D:\wamp64\www\wordpress\wp-includes\class-wp-hook.php:324
+[18-Nov-2025 14:36:15 UTC] PHP   6. WC_Cart->set_quantity($cart_item_key = '013d407166ec4fa56eb1e1f8cbe183b9', $quantity = 3, $refresh_totals = TRUE) D:\wamp64\www\wordpress\wp-content\themes\doAnCMS\functions.php:780
+[18-Nov-2025 14:36:15 UTC] PHP   7. WC_Cart->calculate_totals() D:\wamp64\www\wordpress\wp-content\plugins\woocommerce\includes\class-wc-cart.php:1424
+[18-Nov-2025 14:36:15 UTC] PHP   8. WC_Cart_Totals->__construct($cart = class WC_Cart { public $cart_session_data = ['cart_contents_total' => 0, 'total' => 0, 'subtotal' => 0, 'subtotal_ex_tax' => 0, 'tax_total' => 0, 'taxes' => [...], 'shipping_taxes' => [...], 'discount_cart' => 0, 'discount_cart_tax' => 0, 'shipping_total' => 0, 'shipping_tax_total' => 0, 'coupon_discount_amounts' => [...], 'coupon_discount_tax_amounts' => [...], 'fee_total' => 0, 'fees' => [...]]; public $coupon_applied_count = []; public $cart_context = 'shortcode'; public $cart_contents = ['02522a2b2726fb0a03bb19f2d8d9524d' => [...], '1d7f7abc18fcb43975065399b0d1e48e' => [...], 'fc221309746013ac554571fbd180e1c8' => [...], '96da2f590cd7246bbde0051047b0d6f7' => [...], '3988c7f88ebcb58c6ce932b957b6f332' => [...], '38af86134b65d0f10fe33d30dd76442e' => [...], '2a38a4a9316c49e5a833517c45d31070' => [...], '92cc227532d17e56e07902b254dfad10' => [...], '013d407166ec4fa56eb1e1f8cbe183b9' => [...]]; public $removed_cart_contents = ['42a0e188f5033bc65bf8d78622277c4e' => [...], '013d407166ec4fa56eb1e1f8cbe183b9' => [...]]; public $applied_coupons = []; protected $shipping_methods = NULL; protected $has_calculated_shipping = FALSE; protected $default_totals = ['subtotal' => 0, 'subtotal_tax' => 0, 'shipping_total' => 0, 'shipping_tax' => 0, 'shipping_taxes' => [...], 'discount_total' => 0, 'discount_tax' => 0, 'cart_contents_total' => 0, 'cart_contents_tax' => 0, 'cart_contents_taxes' => [...], 'fee_total' => 0, 'fee_tax' => 0, 'fee_taxes' => [...], 'total' => 0, 'total_tax' => 0]; protected $totals = ['subtotal' => 0, 'subtotal_tax' => 0, 'shipping_total' => 0, 'shipping_tax' => 0, 'shipping_taxes' => [...], 'discount_total' => 0, 'discount_tax' => 0, 'cart_contents_total' => 0, 'cart_contents_tax' => 0, 'cart_contents_taxes' => [...], 'fee_total' => 0, 'fee_tax' => 0, 'fee_taxes' => [...], 'total' => 0, 'total_tax' => 0]; protected $session = class WC_Cart_Session { protected $cart = ... }; protected $fees_api = class WC_Cart_Fees { private $fees = [...]; private $default_fee_props = [...] }; public $coupon_discount_totals = []; public $coupon_discount_tax_totals = [] }) D:\wamp64\www\wordpress\wp-content\plugins\woocommerce\includes\class-wc-cart.php:1465
+[18-Nov-2025 14:36:15 UTC] PHP   9. WC_Cart_Totals->calculate() D:\wamp64\www\wordpress\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php:138
+[18-Nov-2025 14:36:15 UTC] PHP  10. WC_Cart_Totals->calculate_item_totals() D:\wamp64\www\wordpress\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php:147
+[18-Nov-2025 14:36:15 UTC] PHP  11. WC_Cart_Totals->get_items_from_cart() D:\wamp64\www\wordpress\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php:654
+[18-Nov-2025 14:36:15 UTC] PHP Fatal error:  Uncaught Error: Call to a member function get_tax_class() on null in D:\wamp64\www\wordpress\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php:229
+Stack trace:
+#0 D:\wamp64\www\wordpress\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php(654): WC_Cart_Totals->get_items_from_cart()
+#1 D:\wamp64\www\wordpress\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php(147): WC_Cart_Totals->calculate_item_totals()
+#2 D:\wamp64\www\wordpress\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php(138): WC_Cart_Totals->calculate()
+#3 D:\wamp64\www\wordpress\wp-content\plugins\woocommerce\includes\class-wc-cart.php(1465): WC_Cart_Totals->__construct(Object(WC_Cart))
+#4 D:\wamp64\www\wordpress\wp-content\plugins\woocommerce\includes\class-wc-cart.php(1424): WC_Cart->calculate_totals()
+#5 D:\wamp64\www\wordpress\wp-content\themes\doAnCMS\functions.php(780): WC_Cart->set_quantity('013d407166ec4fa...', 3, true)
+#6 D:\wamp64\www\wordpress\wp-includes\class-wp-hook.php(324): custom_update_cart_item('')
+#7 D:\wamp64\www\wordpress\wp-includes\class-wp-hook.php(348): WP_Hook->apply_filters('', Array)
+#8 D:\wamp64\www\wordpress\wp-includes\plugin.php(517): WP_Hook->do_action(Array)
+#9 D:\wamp64\www\wordpress\wp-admin\admin-ajax.php(192): do_action('wp_ajax_update_...')
+#10 {main}
+  thrown in D:\wamp64\www\wordpress\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php on line 229
+[18-Nov-2025 14:36:19 UTC] PHP Warning:  Undefined array key "013d407166ec4fa56eb1e1f8cbe183b9" in D:\wamp64\www\wordpress\wp-content\plugins\woocommerce\includes\class-wc-cart.php on line 1418
+[18-Nov-2025 14:36:19 UTC] PHP Stack trace:
+[18-Nov-2025 14:36:19 UTC] PHP   1. {main}() D:\wamp64\www\wordpress\wp-admin\admin-ajax.php:0
+[18-Nov-2025 14:36:19 UTC] PHP   2. do_action($hook_name = 'wp_ajax_update_cart_item') D:\wamp64\www\wordpress\wp-admin\admin-ajax.php:192
+[18-Nov-2025 14:36:19 UTC] PHP   3. WP_Hook->do_action($args = [0 => '']) D:\wamp64\www\wordpress\wp-includes\plugin.php:517
+[18-Nov-2025 14:36:19 UTC] PHP   4. WP_Hook->apply_filters($value = '', $args = [0 => '']) D:\wamp64\www\wordpress\wp-includes\class-wp-hook.php:348
+[18-Nov-2025 14:36:19 UTC] PHP   5. custom_update_cart_item('') D:\wamp64\www\wordpress\wp-includes\class-wp-hook.php:324
+[18-Nov-2025 14:36:19 UTC] PHP   6. WC_Cart->set_quantity($cart_item_key = '013d407166ec4fa56eb1e1f8cbe183b9', $quantity = 3, $refresh_totals = TRUE) D:\wamp64\www\wordpress\wp-content\themes\doAnCMS\functions.php:780
+[18-Nov-2025 14:36:19 UTC] PHP Warning:  Trying to access array offset on null in D:\wamp64\www\wordpress\wp-content\plugins\woocommerce\includes\class-wc-cart.php on line 1418
+[18-Nov-2025 14:36:19 UTC] PHP Stack trace:
+[18-Nov-2025 14:36:19 UTC] PHP   1. {main}() D:\wamp64\www\wordpress\wp-admin\admin-ajax.php:0
+[18-Nov-2025 14:36:19 UTC] PHP   2. do_action($hook_name = 'wp_ajax_update_cart_item') D:\wamp64\www\wordpress\wp-admin\admin-ajax.php:192
+[18-Nov-2025 14:36:19 UTC] PHP   3. WP_Hook->do_action($args = [0 => '']) D:\wamp64\www\wordpress\wp-includes\plugin.php:517
+[18-Nov-2025 14:36:19 UTC] PHP   4. WP_Hook->apply_filters($value = '', $args = [0 => '']) D:\wamp64\www\wordpress\wp-includes\class-wp-hook.php:348
+[18-Nov-2025 14:36:19 UTC] PHP   5. custom_update_cart_item('') D:\wamp64\www\wordpress\wp-includes\class-wp-hook.php:324
+[18-Nov-2025 14:36:19 UTC] PHP   6. WC_Cart->set_quantity($cart_item_key = '013d407166ec4fa56eb1e1f8cbe183b9', $quantity = 3, $refresh_totals = TRUE) D:\wamp64\www\wordpress\wp-content\themes\doAnCMS\functions.php:780
+[18-Nov-2025 14:36:19 UTC] PHP Warning:  Undefined array key "data" in D:\wamp64\www\wordpress\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php on line 229
+[18-Nov-2025 14:36:19 UTC] PHP Stack trace:
+[18-Nov-2025 14:36:19 UTC] PHP   1. {main}() D:\wamp64\www\wordpress\wp-admin\admin-ajax.php:0
+[18-Nov-2025 14:36:19 UTC] PHP   2. do_action($hook_name = 'wp_ajax_update_cart_item') D:\wamp64\www\wordpress\wp-admin\admin-ajax.php:192
+[18-Nov-2025 14:36:19 UTC] PHP   3. WP_Hook->do_action($args = [0 => '']) D:\wamp64\www\wordpress\wp-includes\plugin.php:517
+[18-Nov-2025 14:36:19 UTC] PHP   4. WP_Hook->apply_filters($value = '', $args = [0 => '']) D:\wamp64\www\wordpress\wp-includes\class-wp-hook.php:348
+[18-Nov-2025 14:36:19 UTC] PHP   5. custom_update_cart_item('') D:\wamp64\www\wordpress\wp-includes\class-wp-hook.php:324
+[18-Nov-2025 14:36:19 UTC] PHP   6. WC_Cart->set_quantity($cart_item_key = '013d407166ec4fa56eb1e1f8cbe183b9', $quantity = 3, $refresh_totals = TRUE) D:\wamp64\www\wordpress\wp-content\themes\doAnCMS\functions.php:780
+[18-Nov-2025 14:36:19 UTC] PHP   7. WC_Cart->calculate_totals() D:\wamp64\www\wordpress\wp-content\plugins\woocommerce\includes\class-wc-cart.php:1424
+[18-Nov-2025 14:36:19 UTC] PHP   8. WC_Cart_Totals->__construct($cart = class WC_Cart { public $cart_session_data = ['cart_contents_total' => 0, 'total' => 0, 'subtotal' => 0, 'subtotal_ex_tax' => 0, 'tax_total' => 0, 'taxes' => [...], 'shipping_taxes' => [...], 'discount_cart' => 0, 'discount_cart_tax' => 0, 'shipping_total' => 0, 'shipping_tax_total' => 0, 'coupon_discount_amounts' => [...], 'coupon_discount_tax_amounts' => [...], 'fee_total' => 0, 'fees' => [...]]; public $coupon_applied_count = []; public $cart_context = 'shortcode'; public $cart_contents = ['02522a2b2726fb0a03bb19f2d8d9524d' => [...], '1d7f7abc18fcb43975065399b0d1e48e' => [...], 'fc221309746013ac554571fbd180e1c8' => [...], '96da2f590cd7246bbde0051047b0d6f7' => [...], '3988c7f88ebcb58c6ce932b957b6f332' => [...], '38af86134b65d0f10fe33d30dd76442e' => [...], '2a38a4a9316c49e5a833517c45d31070' => [...], '92cc227532d17e56e07902b254dfad10' => [...], '013d407166ec4fa56eb1e1f8cbe183b9' => [...]]; public $removed_cart_contents = ['42a0e188f5033bc65bf8d78622277c4e' => [...], '013d407166ec4fa56eb1e1f8cbe183b9' => [...]]; public $applied_coupons = []; protected $shipping_methods = NULL; protected $has_calculated_shipping = FALSE; protected $default_totals = ['subtotal' => 0, 'subtotal_tax' => 0, 'shipping_total' => 0, 'shipping_tax' => 0, 'shipping_taxes' => [...], 'discount_total' => 0, 'discount_tax' => 0, 'cart_contents_total' => 0, 'cart_contents_tax' => 0, 'cart_contents_taxes' => [...], 'fee_total' => 0, 'fee_tax' => 0, 'fee_taxes' => [...], 'total' => 0, 'total_tax' => 0]; protected $totals = ['subtotal' => 0, 'subtotal_tax' => 0, 'shipping_total' => 0, 'shipping_tax' => 0, 'shipping_taxes' => [...], 'discount_total' => 0, 'discount_tax' => 0, 'cart_contents_total' => 0, 'cart_contents_tax' => 0, 'cart_contents_taxes' => [...], 'fee_total' => 0, 'fee_tax' => 0, 'fee_taxes' => [...], 'total' => 0, 'total_tax' => 0]; protected $session = class WC_Cart_Session { protected $cart = ... }; protected $fees_api = class WC_Cart_Fees { private $fees = [...]; private $default_fee_props = [...] }; public $coupon_discount_totals = []; public $coupon_discount_tax_totals = [] }) D:\wamp64\www\wordpress\wp-content\plugins\woocommerce\includes\class-wc-cart.php:1465
+[18-Nov-2025 14:36:19 UTC] PHP   9. WC_Cart_Totals->calculate() D:\wamp64\www\wordpress\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php:138
+[18-Nov-2025 14:36:19 UTC] PHP  10. WC_Cart_Totals->calculate_item_totals() D:\wamp64\www\wordpress\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php:147
+[18-Nov-2025 14:36:19 UTC] PHP  11. WC_Cart_Totals->get_items_from_cart() D:\wamp64\www\wordpress\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php:654
+[18-Nov-2025 14:36:19 UTC] PHP Fatal error:  Uncaught Error: Call to a member function get_tax_class() on null in D:\wamp64\www\wordpress\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php:229
+Stack trace:
+#0 D:\wamp64\www\wordpress\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php(654): WC_Cart_Totals->get_items_from_cart()
+#1 D:\wamp64\www\wordpress\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php(147): WC_Cart_Totals->calculate_item_totals()
+#2 D:\wamp64\www\wordpress\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php(138): WC_Cart_Totals->calculate()
+#3 D:\wamp64\www\wordpress\wp-content\plugins\woocommerce\includes\class-wc-cart.php(1465): WC_Cart_Totals->__construct(Object(WC_Cart))
+#4 D:\wamp64\www\wordpress\wp-content\plugins\woocommerce\includes\class-wc-cart.php(1424): WC_Cart->calculate_totals()
+#5 D:\wamp64\www\wordpress\wp-content\themes\doAnCMS\functions.php(780): WC_Cart->set_quantity('013d407166ec4fa...', 3, true)
+#6 D:\wamp64\www\wordpress\wp-includes\class-wp-hook.php(324): custom_update_cart_item('')
+#7 D:\wamp64\www\wordpress\wp-includes\class-wp-hook.php(348): WP_Hook->apply_filters('', Array)
+#8 D:\wamp64\www\wordpress\wp-includes\plugin.php(517): WP_Hook->do_action(Array)
+#9 D:\wamp64\www\wordpress\wp-admin\admin-ajax.php(192): do_action('wp_ajax_update_...')
+#10 {main}
+  thrown in D:\wamp64\www\wordpress\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php on line 229
+[18-Nov-2025 14:36:20 UTC] PHP Warning:  Undefined array key "013d407166ec4fa56eb1e1f8cbe183b9" in D:\wamp64\www\wordpress\wp-content\plugins\woocommerce\includes\class-wc-cart.php on line 1418
+[18-Nov-2025 14:36:20 UTC] PHP Stack trace:
+[18-Nov-2025 14:36:20 UTC] PHP   1. {main}() D:\wamp64\www\wordpress\wp-admin\admin-ajax.php:0
+[18-Nov-2025 14:36:20 UTC] PHP   2. do_action($hook_name = 'wp_ajax_update_cart_item') D:\wamp64\www\wordpress\wp-admin\admin-ajax.php:192
+[18-Nov-2025 14:36:20 UTC] PHP   3. WP_Hook->do_action($args = [0 => '']) D:\wamp64\www\wordpress\wp-includes\plugin.php:517
+[18-Nov-2025 14:36:20 UTC] PHP   4. WP_Hook->apply_filters($value = '', $args = [0 => '']) D:\wamp64\www\wordpress\wp-includes\class-wp-hook.php:348
+[18-Nov-2025 14:36:20 UTC] PHP   5. custom_update_cart_item('') D:\wamp64\www\wordpress\wp-includes\class-wp-hook.php:324
+[18-Nov-2025 14:36:20 UTC] PHP   6. WC_Cart->set_quantity($cart_item_key = '013d407166ec4fa56eb1e1f8cbe183b9', $quantity = 3, $refresh_totals = TRUE) D:\wamp64\www\wordpress\wp-content\themes\doAnCMS\functions.php:780
+[18-Nov-2025 14:36:20 UTC] PHP Warning:  Trying to access array offset on null in D:\wamp64\www\wordpress\wp-content\plugins\woocommerce\includes\class-wc-cart.php on line 1418
+[18-Nov-2025 14:36:20 UTC] PHP Stack trace:
+[18-Nov-2025 14:36:20 UTC] PHP   1. {main}() D:\wamp64\www\wordpress\wp-admin\admin-ajax.php:0
+[18-Nov-2025 14:36:20 UTC] PHP   2. do_action($hook_name = 'wp_ajax_update_cart_item') D:\wamp64\www\wordpress\wp-admin\admin-ajax.php:192
+[18-Nov-2025 14:36:20 UTC] PHP   3. WP_Hook->do_action($args = [0 => '']) D:\wamp64\www\wordpress\wp-includes\plugin.php:517
+[18-Nov-2025 14:36:20 UTC] PHP   4. WP_Hook->apply_filters($value = '', $args = [0 => '']) D:\wamp64\www\wordpress\wp-includes\class-wp-hook.php:348
+[18-Nov-2025 14:36:20 UTC] PHP   5. custom_update_cart_item('') D:\wamp64\www\wordpress\wp-includes\class-wp-hook.php:324
+[18-Nov-2025 14:36:20 UTC] PHP   6. WC_Cart->set_quantity($cart_item_key = '013d407166ec4fa56eb1e1f8cbe183b9', $quantity = 3, $refresh_totals = TRUE) D:\wamp64\www\wordpress\wp-content\themes\doAnCMS\functions.php:780
+[18-Nov-2025 14:36:20 UTC] PHP Warning:  Undefined array key "data" in D:\wamp64\www\wordpress\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php on line 229
+[18-Nov-2025 14:36:20 UTC] PHP Stack trace:
+[18-Nov-2025 14:36:20 UTC] PHP   1. {main}() D:\wamp64\www\wordpress\wp-admin\admin-ajax.php:0
+[18-Nov-2025 14:36:20 UTC] PHP   2. do_action($hook_name = 'wp_ajax_update_cart_item') D:\wamp64\www\wordpress\wp-admin\admin-ajax.php:192
+[18-Nov-2025 14:36:20 UTC] PHP   3. WP_Hook->do_action($args = [0 => '']) D:\wamp64\www\wordpress\wp-includes\plugin.php:517
+[18-Nov-2025 14:36:20 UTC] PHP   4. WP_Hook->apply_filters($value = '', $args = [0 => '']) D:\wamp64\www\wordpress\wp-includes\class-wp-hook.php:348
+[18-Nov-2025 14:36:20 UTC] PHP   5. custom_update_cart_item('') D:\wamp64\www\wordpress\wp-includes\class-wp-hook.php:324
+[18-Nov-2025 14:36:20 UTC] PHP   6. WC_Cart->set_quantity($cart_item_key = '013d407166ec4fa56eb1e1f8cbe183b9', $quantity = 3, $refresh_totals = TRUE) D:\wamp64\www\wordpress\wp-content\themes\doAnCMS\functions.php:780
+[18-Nov-2025 14:36:20 UTC] PHP   7. WC_Cart->calculate_totals() D:\wamp64\www\wordpress\wp-content\plugins\woocommerce\includes\class-wc-cart.php:1424
+[18-Nov-2025 14:36:20 UTC] PHP   8. WC_Cart_Totals->__construct($cart = class WC_Cart { public $cart_session_data = ['cart_contents_total' => 0, 'total' => 0, 'subtotal' => 0, 'subtotal_ex_tax' => 0, 'tax_total' => 0, 'taxes' => [...], 'shipping_taxes' => [...], 'discount_cart' => 0, 'discount_cart_tax' => 0, 'shipping_total' => 0, 'shipping_tax_total' => 0, 'coupon_discount_amounts' => [...], 'coupon_discount_tax_amounts' => [...], 'fee_total' => 0, 'fees' => [...]]; public $coupon_applied_count = []; public $cart_context = 'shortcode'; public $cart_contents = ['02522a2b2726fb0a03bb19f2d8d9524d' => [...], '1d7f7abc18fcb43975065399b0d1e48e' => [...], 'fc221309746013ac554571fbd180e1c8' => [...], '96da2f590cd7246bbde0051047b0d6f7' => [...], '3988c7f88ebcb58c6ce932b957b6f332' => [...], '38af86134b65d0f10fe33d30dd76442e' => [...], '2a38a4a9316c49e5a833517c45d31070' => [...], '92cc227532d17e56e07902b254dfad10' => [...], '013d407166ec4fa56eb1e1f8cbe183b9' => [...]]; public $removed_cart_contents = ['42a0e188f5033bc65bf8d78622277c4e' => [...], '013d407166ec4fa56eb1e1f8cbe183b9' => [...]]; public $applied_coupons = []; protected $shipping_methods = NULL; protected $has_calculated_shipping = FALSE; protected $default_totals = ['subtotal' => 0, 'subtotal_tax' => 0, 'shipping_total' => 0, 'shipping_tax' => 0, 'shipping_taxes' => [...], 'discount_total' => 0, 'discount_tax' => 0, 'cart_contents_total' => 0, 'cart_contents_tax' => 0, 'cart_contents_taxes' => [...], 'fee_total' => 0, 'fee_tax' => 0, 'fee_taxes' => [...], 'total' => 0, 'total_tax' => 0]; protected $totals = ['subtotal' => 0, 'subtotal_tax' => 0, 'shipping_total' => 0, 'shipping_tax' => 0, 'shipping_taxes' => [...], 'discount_total' => 0, 'discount_tax' => 0, 'cart_contents_total' => 0, 'cart_contents_tax' => 0, 'cart_contents_taxes' => [...], 'fee_total' => 0, 'fee_tax' => 0, 'fee_taxes' => [...], 'total' => 0, 'total_tax' => 0]; protected $session = class WC_Cart_Session { protected $cart = ... }; protected $fees_api = class WC_Cart_Fees { private $fees = [...]; private $default_fee_props = [...] }; public $coupon_discount_totals = []; public $coupon_discount_tax_totals = [] }) D:\wamp64\www\wordpress\wp-content\plugins\woocommerce\includes\class-wc-cart.php:1465
+[18-Nov-2025 14:36:20 UTC] PHP   9. WC_Cart_Totals->calculate() D:\wamp64\www\wordpress\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php:138
+[18-Nov-2025 14:36:20 UTC] PHP  10. WC_Cart_Totals->calculate_item_totals() D:\wamp64\www\wordpress\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php:147
+[18-Nov-2025 14:36:20 UTC] PHP  11. WC_Cart_Totals->get_items_from_cart() D:\wamp64\www\wordpress\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php:654
+[18-Nov-2025 14:36:20 UTC] PHP Fatal error:  Uncaught Error: Call to a member function get_tax_class() on null in D:\wamp64\www\wordpress\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php:229
+Stack trace:
+#0 D:\wamp64\www\wordpress\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php(654): WC_Cart_Totals->get_items_from_cart()
+#1 D:\wamp64\www\wordpress\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php(147): WC_Cart_Totals->calculate_item_totals()
+#2 D:\wamp64\www\wordpress\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php(138): WC_Cart_Totals->calculate()
+#3 D:\wamp64\www\wordpress\wp-content\plugins\woocommerce\includes\class-wc-cart.php(1465): WC_Cart_Totals->__construct(Object(WC_Cart))
+#4 D:\wamp64\www\wordpress\wp-content\plugins\woocommerce\includes\class-wc-cart.php(1424): WC_Cart->calculate_totals()
+#5 D:\wamp64\www\wordpress\wp-content\themes\doAnCMS\functions.php(780): WC_Cart->set_quantity('013d407166ec4fa...', 3, true)
+#6 D:\wamp64\www\wordpress\wp-includes\class-wp-hook.php(324): custom_update_cart_item('')
+#7 D:\wamp64\www\wordpress\wp-includes\class-wp-hook.php(348): WP_Hook->apply_filters('', Array)
+#8 D:\wamp64\www\wordpress\wp-includes\plugin.php(517): WP_Hook->do_action(Array)
+#9 D:\wamp64\www\wordpress\wp-admin\admin-ajax.php(192): do_action('wp_ajax_update_...')
+#10 {main}
+  thrown in D:\wamp64\www\wordpress\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php on line 229
+[18-Nov-2025 14:36:21 UTC] PHP Warning:  Undefined array key "013d407166ec4fa56eb1e1f8cbe183b9" in D:\wamp64\www\wordpress\wp-content\plugins\woocommerce\includes\class-wc-cart.php on line 1418
+[18-Nov-2025 14:36:21 UTC] PHP Stack trace:
+[18-Nov-2025 14:36:21 UTC] PHP   1. {main}() D:\wamp64\www\wordpress\wp-admin\admin-ajax.php:0
+[18-Nov-2025 14:36:21 UTC] PHP   2. do_action($hook_name = 'wp_ajax_update_cart_item') D:\wamp64\www\wordpress\wp-admin\admin-ajax.php:192
+[18-Nov-2025 14:36:21 UTC] PHP   3. WP_Hook->do_action($args = [0 => '']) D:\wamp64\www\wordpress\wp-includes\plugin.php:517
+[18-Nov-2025 14:36:21 UTC] PHP   4. WP_Hook->apply_filters($value = '', $args = [0 => '']) D:\wamp64\www\wordpress\wp-includes\class-wp-hook.php:348
+[18-Nov-2025 14:36:21 UTC] PHP   5. custom_update_cart_item('') D:\wamp64\www\wordpress\wp-includes\class-wp-hook.php:324
+[18-Nov-2025 14:36:21 UTC] PHP   6. WC_Cart->set_quantity($cart_item_key = '013d407166ec4fa56eb1e1f8cbe183b9', $quantity = 3, $refresh_totals = TRUE) D:\wamp64\www\wordpress\wp-content\themes\doAnCMS\functions.php:780
+[18-Nov-2025 14:36:21 UTC] PHP Warning:  Trying to access array offset on null in D:\wamp64\www\wordpress\wp-content\plugins\woocommerce\includes\class-wc-cart.php on line 1418
+[18-Nov-2025 14:36:21 UTC] PHP Stack trace:
+[18-Nov-2025 14:36:21 UTC] PHP   1. {main}() D:\wamp64\www\wordpress\wp-admin\admin-ajax.php:0
+[18-Nov-2025 14:36:21 UTC] PHP   2. do_action($hook_name = 'wp_ajax_update_cart_item') D:\wamp64\www\wordpress\wp-admin\admin-ajax.php:192
+[18-Nov-2025 14:36:21 UTC] PHP   3. WP_Hook->do_action($args = [0 => '']) D:\wamp64\www\wordpress\wp-includes\plugin.php:517
+[18-Nov-2025 14:36:21 UTC] PHP   4. WP_Hook->apply_filters($value = '', $args = [0 => '']) D:\wamp64\www\wordpress\wp-includes\class-wp-hook.php:348
+[18-Nov-2025 14:36:21 UTC] PHP   5. custom_update_cart_item('') D:\wamp64\www\wordpress\wp-includes\class-wp-hook.php:324
+[18-Nov-2025 14:36:21 UTC] PHP   6. WC_Cart->set_quantity($cart_item_key = '013d407166ec4fa56eb1e1f8cbe183b9', $quantity = 3, $refresh_totals = TRUE) D:\wamp64\www\wordpress\wp-content\themes\doAnCMS\functions.php:780
+[18-Nov-2025 14:36:21 UTC] PHP Warning:  Undefined array key "data" in D:\wamp64\www\wordpress\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php on line 229
+[18-Nov-2025 14:36:21 UTC] PHP Stack trace:
+[18-Nov-2025 14:36:21 UTC] PHP   1. {main}() D:\wamp64\www\wordpress\wp-admin\admin-ajax.php:0
+[18-Nov-2025 14:36:21 UTC] PHP   2. do_action($hook_name = 'wp_ajax_update_cart_item') D:\wamp64\www\wordpress\wp-admin\admin-ajax.php:192
+[18-Nov-2025 14:36:21 UTC] PHP   3. WP_Hook->do_action($args = [0 => '']) D:\wamp64\www\wordpress\wp-includes\plugin.php:517
+[18-Nov-2025 14:36:21 UTC] PHP   4. WP_Hook->apply_filters($value = '', $args = [0 => '']) D:\wamp64\www\wordpress\wp-includes\class-wp-hook.php:348
+[18-Nov-2025 14:36:21 UTC] PHP   5. custom_update_cart_item('') D:\wamp64\www\wordpress\wp-includes\class-wp-hook.php:324
+[18-Nov-2025 14:36:21 UTC] PHP   6. WC_Cart->set_quantity($cart_item_key = '013d407166ec4fa56eb1e1f8cbe183b9', $quantity = 3, $refresh_totals = TRUE) D:\wamp64\www\wordpress\wp-content\themes\doAnCMS\functions.php:780
+[18-Nov-2025 14:36:21 UTC] PHP   7. WC_Cart->calculate_totals() D:\wamp64\www\wordpress\wp-content\plugins\woocommerce\includes\class-wc-cart.php:1424
+[18-Nov-2025 14:36:21 UTC] PHP   8. WC_Cart_Totals->__construct($cart = class WC_Cart { public $cart_session_data = ['cart_contents_total' => 0, 'total' => 0, 'subtotal' => 0, 'subtotal_ex_tax' => 0, 'tax_total' => 0, 'taxes' => [...], 'shipping_taxes' => [...], 'discount_cart' => 0, 'discount_cart_tax' => 0, 'shipping_total' => 0, 'shipping_tax_total' => 0, 'coupon_discount_amounts' => [...], 'coupon_discount_tax_amounts' => [...], 'fee_total' => 0, 'fees' => [...]]; public $coupon_applied_count = []; public $cart_context = 'shortcode'; public $cart_contents = ['02522a2b2726fb0a03bb19f2d8d9524d' => [...], '1d7f7abc18fcb43975065399b0d1e48e' => [...], 'fc221309746013ac554571fbd180e1c8' => [...], '96da2f590cd7246bbde0051047b0d6f7' => [...], '3988c7f88ebcb58c6ce932b957b6f332' => [...], '38af86134b65d0f10fe33d30dd76442e' => [...], '2a38a4a9316c49e5a833517c45d31070' => [...], '92cc227532d17e56e07902b254dfad10' => [...], '013d407166ec4fa56eb1e1f8cbe183b9' => [...]]; public $removed_cart_contents = ['42a0e188f5033bc65bf8d78622277c4e' => [...], '013d407166ec4fa56eb1e1f8cbe183b9' => [...]]; public $applied_coupons = []; protected $shipping_methods = NULL; protected $has_calculated_shipping = FALSE; protected $default_totals = ['subtotal' => 0, 'subtotal_tax' => 0, 'shipping_total' => 0, 'shipping_tax' => 0, 'shipping_taxes' => [...], 'discount_total' => 0, 'discount_tax' => 0, 'cart_contents_total' => 0, 'cart_contents_tax' => 0, 'cart_contents_taxes' => [...], 'fee_total' => 0, 'fee_tax' => 0, 'fee_taxes' => [...], 'total' => 0, 'total_tax' => 0]; protected $totals = ['subtotal' => 0, 'subtotal_tax' => 0, 'shipping_total' => 0, 'shipping_tax' => 0, 'shipping_taxes' => [...], 'discount_total' => 0, 'discount_tax' => 0, 'cart_contents_total' => 0, 'cart_contents_tax' => 0, 'cart_contents_taxes' => [...], 'fee_total' => 0, 'fee_tax' => 0, 'fee_taxes' => [...], 'total' => 0, 'total_tax' => 0]; protected $session = class WC_Cart_Session { protected $cart = ... }; protected $fees_api = class WC_Cart_Fees { private $fees = [...]; private $default_fee_props = [...] }; public $coupon_discount_totals = []; public $coupon_discount_tax_totals = [] }) D:\wamp64\www\wordpress\wp-content\plugins\woocommerce\includes\class-wc-cart.php:1465
+[18-Nov-2025 14:36:21 UTC] PHP   9. WC_Cart_Totals->calculate() D:\wamp64\www\wordpress\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php:138
+[18-Nov-2025 14:36:21 UTC] PHP  10. WC_Cart_Totals->calculate_item_totals() D:\wamp64\www\wordpress\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php:147
+[18-Nov-2025 14:36:21 UTC] PHP  11. WC_Cart_Totals->get_items_from_cart() D:\wamp64\www\wordpress\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php:654
+[18-Nov-2025 14:36:21 UTC] PHP Fatal error:  Uncaught Error: Call to a member function get_tax_class() on null in D:\wamp64\www\wordpress\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php:229
+Stack trace:
+#0 D:\wamp64\www\wordpress\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php(654): WC_Cart_Totals->get_items_from_cart()
+#1 D:\wamp64\www\wordpress\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php(147): WC_Cart_Totals->calculate_item_totals()
+#2 D:\wamp64\www\wordpress\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php(138): WC_Cart_Totals->calculate()
+#3 D:\wamp64\www\wordpress\wp-content\plugins\woocommerce\includes\class-wc-cart.php(1465): WC_Cart_Totals->__construct(Object(WC_Cart))
+#4 D:\wamp64\www\wordpress\wp-content\plugins\woocommerce\includes\class-wc-cart.php(1424): WC_Cart->calculate_totals()
+#5 D:\wamp64\www\wordpress\wp-content\themes\doAnCMS\functions.php(780): WC_Cart->set_quantity('013d407166ec4fa...', 3, true)
+#6 D:\wamp64\www\wordpress\wp-includes\class-wp-hook.php(324): custom_update_cart_item('')
+#7 D:\wamp64\www\wordpress\wp-includes\class-wp-hook.php(348): WP_Hook->apply_filters('', Array)
+#8 D:\wamp64\www\wordpress\wp-includes\plugin.php(517): WP_Hook->do_action(Array)
+#9 D:\wamp64\www\wordpress\wp-admin\admin-ajax.php(192): do_action('wp_ajax_update_...')
+#10 {main}
+  thrown in D:\wamp64\www\wordpress\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php on line 229
+[18-Nov-2025 14:36:22 UTC] PHP Warning:  Undefined array key "013d407166ec4fa56eb1e1f8cbe183b9" in D:\wamp64\www\wordpress\wp-content\plugins\woocommerce\includes\class-wc-cart.php on line 1418
+[18-Nov-2025 14:36:22 UTC] PHP Stack trace:
+[18-Nov-2025 14:36:22 UTC] PHP   1. {main}() D:\wamp64\www\wordpress\wp-admin\admin-ajax.php:0
+[18-Nov-2025 14:36:22 UTC] PHP   2. do_action($hook_name = 'wp_ajax_update_cart_item') D:\wamp64\www\wordpress\wp-admin\admin-ajax.php:192
+[18-Nov-2025 14:36:22 UTC] PHP   3. WP_Hook->do_action($args = [0 => '']) D:\wamp64\www\wordpress\wp-includes\plugin.php:517
+[18-Nov-2025 14:36:22 UTC] PHP   4. WP_Hook->apply_filters($value = '', $args = [0 => '']) D:\wamp64\www\wordpress\wp-includes\class-wp-hook.php:348
+[18-Nov-2025 14:36:22 UTC] PHP   5. custom_update_cart_item('') D:\wamp64\www\wordpress\wp-includes\class-wp-hook.php:324
+[18-Nov-2025 14:36:22 UTC] PHP   6. WC_Cart->set_quantity($cart_item_key = '013d407166ec4fa56eb1e1f8cbe183b9', $quantity = 3, $refresh_totals = TRUE) D:\wamp64\www\wordpress\wp-content\themes\doAnCMS\functions.php:780
+[18-Nov-2025 14:36:22 UTC] PHP Warning:  Trying to access array offset on null in D:\wamp64\www\wordpress\wp-content\plugins\woocommerce\includes\class-wc-cart.php on line 1418
+[18-Nov-2025 14:36:22 UTC] PHP Stack trace:
+[18-Nov-2025 14:36:22 UTC] PHP   1. {main}() D:\wamp64\www\wordpress\wp-admin\admin-ajax.php:0
+[18-Nov-2025 14:36:22 UTC] PHP   2. do_action($hook_name = 'wp_ajax_update_cart_item') D:\wamp64\www\wordpress\wp-admin\admin-ajax.php:192
+[18-Nov-2025 14:36:22 UTC] PHP   3. WP_Hook->do_action($args = [0 => '']) D:\wamp64\www\wordpress\wp-includes\plugin.php:517
+[18-Nov-2025 14:36:22 UTC] PHP   4. WP_Hook->apply_filters($value = '', $args = [0 => '']) D:\wamp64\www\wordpress\wp-includes\class-wp-hook.php:348
+[18-Nov-2025 14:36:22 UTC] PHP   5. custom_update_cart_item('') D:\wamp64\www\wordpress\wp-includes\class-wp-hook.php:324
+[18-Nov-2025 14:36:22 UTC] PHP   6. WC_Cart->set_quantity($cart_item_key = '013d407166ec4fa56eb1e1f8cbe183b9', $quantity = 3, $refresh_totals = TRUE) D:\wamp64\www\wordpress\wp-content\themes\doAnCMS\functions.php:780
+[18-Nov-2025 14:36:22 UTC] PHP Warning:  Undefined array key "data" in D:\wamp64\www\wordpress\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php on line 229
+[18-Nov-2025 14:36:22 UTC] PHP Stack trace:
+[18-Nov-2025 14:36:22 UTC] PHP   1. {main}() D:\wamp64\www\wordpress\wp-admin\admin-ajax.php:0
+[18-Nov-2025 14:36:22 UTC] PHP   2. do_action($hook_name = 'wp_ajax_update_cart_item') D:\wamp64\www\wordpress\wp-admin\admin-ajax.php:192
+[18-Nov-2025 14:36:22 UTC] PHP   3. WP_Hook->do_action($args = [0 => '']) D:\wamp64\www\wordpress\wp-includes\plugin.php:517
+[18-Nov-2025 14:36:22 UTC] PHP   4. WP_Hook->apply_filters($value = '', $args = [0 => '']) D:\wamp64\www\wordpress\wp-includes\class-wp-hook.php:348
+[18-Nov-2025 14:36:22 UTC] PHP   5. custom_update_cart_item('') D:\wamp64\www\wordpress\wp-includes\class-wp-hook.php:324
+[18-Nov-2025 14:36:22 UTC] PHP   6. WC_Cart->set_quantity($cart_item_key = '013d407166ec4fa56eb1e1f8cbe183b9', $quantity = 3, $refresh_totals = TRUE) D:\wamp64\www\wordpress\wp-content\themes\doAnCMS\functions.php:780
+[18-Nov-2025 14:36:22 UTC] PHP   7. WC_Cart->calculate_totals() D:\wamp64\www\wordpress\wp-content\plugins\woocommerce\includes\class-wc-cart.php:1424
+[18-Nov-2025 14:36:22 UTC] PHP   8. WC_Cart_Totals->__construct($cart = class WC_Cart { public $cart_session_data = ['cart_contents_total' => 0, 'total' => 0, 'subtotal' => 0, 'subtotal_ex_tax' => 0, 'tax_total' => 0, 'taxes' => [...], 'shipping_taxes' => [...], 'discount_cart' => 0, 'discount_cart_tax' => 0, 'shipping_total' => 0, 'shipping_tax_total' => 0, 'coupon_discount_amounts' => [...], 'coupon_discount_tax_amounts' => [...], 'fee_total' => 0, 'fees' => [...]]; public $coupon_applied_count = []; public $cart_context = 'shortcode'; public $cart_contents = ['02522a2b2726fb0a03bb19f2d8d9524d' => [...], '1d7f7abc18fcb43975065399b0d1e48e' => [...], 'fc221309746013ac554571fbd180e1c8' => [...], '96da2f590cd7246bbde0051047b0d6f7' => [...], '3988c7f88ebcb58c6ce932b957b6f332' => [...], '38af86134b65d0f10fe33d30dd76442e' => [...], '2a38a4a9316c49e5a833517c45d31070' => [...], '92cc227532d17e56e07902b254dfad10' => [...], '013d407166ec4fa56eb1e1f8cbe183b9' => [...]]; public $removed_cart_contents = ['42a0e188f5033bc65bf8d78622277c4e' => [...], '013d407166ec4fa56eb1e1f8cbe183b9' => [...]]; public $applied_coupons = []; protected $shipping_methods = NULL; protected $has_calculated_shipping = FALSE; protected $default_totals = ['subtotal' => 0, 'subtotal_tax' => 0, 'shipping_total' => 0, 'shipping_tax' => 0, 'shipping_taxes' => [...], 'discount_total' => 0, 'discount_tax' => 0, 'cart_contents_total' => 0, 'cart_contents_tax' => 0, 'cart_contents_taxes' => [...], 'fee_total' => 0, 'fee_tax' => 0, 'fee_taxes' => [...], 'total' => 0, 'total_tax' => 0]; protected $totals = ['subtotal' => 0, 'subtotal_tax' => 0, 'shipping_total' => 0, 'shipping_tax' => 0, 'shipping_taxes' => [...], 'discount_total' => 0, 'discount_tax' => 0, 'cart_contents_total' => 0, 'cart_contents_tax' => 0, 'cart_contents_taxes' => [...], 'fee_total' => 0, 'fee_tax' => 0, 'fee_taxes' => [...], 'total' => 0, 'total_tax' => 0]; protected $session = class WC_Cart_Session { protected $cart = ... }; protected $fees_api = class WC_Cart_Fees { private $fees = [...]; private $default_fee_props = [...] }; public $coupon_discount_totals = []; public $coupon_discount_tax_totals = [] }) D:\wamp64\www\wordpress\wp-content\plugins\woocommerce\includes\class-wc-cart.php:1465
+[18-Nov-2025 14:36:22 UTC] PHP   9. WC_Cart_Totals->calculate() D:\wamp64\www\wordpress\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php:138
+[18-Nov-2025 14:36:22 UTC] PHP  10. WC_Cart_Totals->calculate_item_totals() D:\wamp64\www\wordpress\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php:147
+[18-Nov-2025 14:36:22 UTC] PHP  11. WC_Cart_Totals->get_items_from_cart() D:\wamp64\www\wordpress\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php:654
+[18-Nov-2025 14:36:22 UTC] PHP Fatal error:  Uncaught Error: Call to a member function get_tax_class() on null in D:\wamp64\www\wordpress\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php:229
+Stack trace:
+#0 D:\wamp64\www\wordpress\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php(654): WC_Cart_Totals->get_items_from_cart()
+#1 D:\wamp64\www\wordpress\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php(147): WC_Cart_Totals->calculate_item_totals()
+#2 D:\wamp64\www\wordpress\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php(138): WC_Cart_Totals->calculate()
+#3 D:\wamp64\www\wordpress\wp-content\plugins\woocommerce\includes\class-wc-cart.php(1465): WC_Cart_Totals->__construct(Object(WC_Cart))
+#4 D:\wamp64\www\wordpress\wp-content\plugins\woocommerce\includes\class-wc-cart.php(1424): WC_Cart->calculate_totals()
+#5 D:\wamp64\www\wordpress\wp-content\themes\doAnCMS\functions.php(780): WC_Cart->set_quantity('013d407166ec4fa...', 3, true)
+#6 D:\wamp64\www\wordpress\wp-includes\class-wp-hook.php(324): custom_update_cart_item('')
+#7 D:\wamp64\www\wordpress\wp-includes\class-wp-hook.php(348): WP_Hook->apply_filters('', Array)
+#8 D:\wamp64\www\wordpress\wp-includes\plugin.php(517): WP_Hook->do_action(Array)
+#9 D:\wamp64\www\wordpress\wp-admin\admin-ajax.php(192): do_action('wp_ajax_update_...')
+#10 {main}
+  thrown in D:\wamp64\www\wordpress\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php on line 229
+[18-Nov-2025 14:38:02 UTC] PHP Warning:  Undefined array key "02522a2b2726fb0a03bb19f2d8d9524d" in D:\wamp64\www\wordpress\wp-content\themes\doAnCMS\functions.php on line 782
+[18-Nov-2025 14:38:02 UTC] PHP Stack trace:
+[18-Nov-2025 14:38:02 UTC] PHP   1. {main}() D:\wamp64\www\wordpress\wp-admin\admin-ajax.php:0
+[18-Nov-2025 14:38:02 UTC] PHP   2. do_action($hook_name = 'wp_ajax_update_cart_item') D:\wamp64\www\wordpress\wp-admin\admin-ajax.php:192
+[18-Nov-2025 14:38:02 UTC] PHP   3. WP_Hook->do_action($args = [0 => '']) D:\wamp64\www\wordpress\wp-includes\plugin.php:517
+[18-Nov-2025 14:38:02 UTC] PHP   4. WP_Hook->apply_filters($value = '', $args = [0 => '']) D:\wamp64\www\wordpress\wp-includes\class-wp-hook.php:348
+[18-Nov-2025 14:38:02 UTC] PHP   5. custom_update_cart_item('') D:\wamp64\www\wordpress\wp-includes\class-wp-hook.php:324
+[18-Nov-2025 14:38:02 UTC] PHP Warning:  Trying to access array offset on null in D:\wamp64\www\wordpress\wp-content\themes\doAnCMS\functions.php on line 783
+[18-Nov-2025 14:38:02 UTC] PHP Stack trace:
+[18-Nov-2025 14:38:02 UTC] PHP   1. {main}() D:\wamp64\www\wordpress\wp-admin\admin-ajax.php:0
+[18-Nov-2025 14:38:02 UTC] PHP   2. do_action($hook_name = 'wp_ajax_update_cart_item') D:\wamp64\www\wordpress\wp-admin\admin-ajax.php:192
+[18-Nov-2025 14:38:02 UTC] PHP   3. WP_Hook->do_action($args = [0 => '']) D:\wamp64\www\wordpress\wp-includes\plugin.php:517
+[18-Nov-2025 14:38:02 UTC] PHP   4. WP_Hook->apply_filters($value = '', $args = [0 => '']) D:\wamp64\www\wordpress\wp-includes\class-wp-hook.php:348
+[18-Nov-2025 14:38:02 UTC] PHP   5. custom_update_cart_item('') D:\wamp64\www\wordpress\wp-includes\class-wp-hook.php:324
+[18-Nov-2025 14:38:02 UTC] PHP Warning:  Trying to access array offset on null in D:\wamp64\www\wordpress\wp-content\themes\doAnCMS\functions.php on line 784
+[18-Nov-2025 14:38:02 UTC] PHP Stack trace:
+[18-Nov-2025 14:38:02 UTC] PHP   1. {main}() D:\wamp64\www\wordpress\wp-admin\admin-ajax.php:0
+[18-Nov-2025 14:38:02 UTC] PHP   2. do_action($hook_name = 'wp_ajax_update_cart_item') D:\wamp64\www\wordpress\wp-admin\admin-ajax.php:192
+[18-Nov-2025 14:38:02 UTC] PHP   3. WP_Hook->do_action($args = [0 => '']) D:\wamp64\www\wordpress\wp-includes\plugin.php:517
+[18-Nov-2025 14:38:02 UTC] PHP   4. WP_Hook->apply_filters($value = '', $args = [0 => '']) D:\wamp64\www\wordpress\wp-includes\class-wp-hook.php:348
+[18-Nov-2025 14:38:02 UTC] PHP   5. custom_update_cart_item('') D:\wamp64\www\wordpress\wp-includes\class-wp-hook.php:324
+[18-Nov-2025 14:38:02 UTC] PHP Fatal error:  Uncaught Error: Call to a member function get_price() on null in D:\wamp64\www\wordpress\wp-content\plugins\woocommerce\includes\class-wc-cart.php:2173
+Stack trace:
+#0 D:\wamp64\www\wordpress\wp-content\themes\doAnCMS\functions.php(784): WC_Cart->get_product_subtotal(NULL, NULL)
+#1 D:\wamp64\www\wordpress\wp-includes\class-wp-hook.php(324): custom_update_cart_item('')
+#2 D:\wamp64\www\wordpress\wp-includes\class-wp-hook.php(348): WP_Hook->apply_filters('', Array)
+#3 D:\wamp64\www\wordpress\wp-includes\plugin.php(517): WP_Hook->do_action(Array)
+#4 D:\wamp64\www\wordpress\wp-admin\admin-ajax.php(192): do_action('wp_ajax_update_...')
+#5 {main}
+  thrown in D:\wamp64\www\wordpress\wp-content\plugins\woocommerce\includes\class-wc-cart.php on line 2173
+[18-Nov-2025 14:38:02 UTC] PHP Warning:  Undefined array key "02522a2b2726fb0a03bb19f2d8d9524d" in D:\wamp64\www\wordpress\wp-content\themes\doAnCMS\functions.php on line 782
+[18-Nov-2025 14:38:02 UTC] PHP Stack trace:
+[18-Nov-2025 14:38:02 UTC] PHP   1. {main}() D:\wamp64\www\wordpress\wp-admin\admin-ajax.php:0
+[18-Nov-2025 14:38:02 UTC] PHP   2. do_action($hook_name = 'wp_ajax_update_cart_item') D:\wamp64\www\wordpress\wp-admin\admin-ajax.php:192
+[18-Nov-2025 14:38:02 UTC] PHP   3. WP_Hook->do_action($args = [0 => '']) D:\wamp64\www\wordpress\wp-includes\plugin.php:517
+[18-Nov-2025 14:38:02 UTC] PHP   4. WP_Hook->apply_filters($value = '', $args = [0 => '']) D:\wamp64\www\wordpress\wp-includes\class-wp-hook.php:348
+[18-Nov-2025 14:38:02 UTC] PHP   5. custom_update_cart_item('') D:\wamp64\www\wordpress\wp-includes\class-wp-hook.php:324
+[18-Nov-2025 14:38:02 UTC] PHP Warning:  Trying to access array offset on null in D:\wamp64\www\wordpress\wp-content\themes\doAnCMS\functions.php on line 783
+[18-Nov-2025 14:38:02 UTC] PHP Stack trace:
+[18-Nov-2025 14:38:02 UTC] PHP   1. {main}() D:\wamp64\www\wordpress\wp-admin\admin-ajax.php:0
+[18-Nov-2025 14:38:02 UTC] PHP   2. do_action($hook_name = 'wp_ajax_update_cart_item') D:\wamp64\www\wordpress\wp-admin\admin-ajax.php:192
+[18-Nov-2025 14:38:02 UTC] PHP   3. WP_Hook->do_action($args = [0 => '']) D:\wamp64\www\wordpress\wp-includes\plugin.php:517
+[18-Nov-2025 14:38:02 UTC] PHP   4. WP_Hook->apply_filters($value = '', $args = [0 => '']) D:\wamp64\www\wordpress\wp-includes\class-wp-hook.php:348
+[18-Nov-2025 14:38:02 UTC] PHP   5. custom_update_cart_item('') D:\wamp64\www\wordpress\wp-includes\class-wp-hook.php:324
+[18-Nov-2025 14:38:02 UTC] PHP Warning:  Trying to access array offset on null in D:\wamp64\www\wordpress\wp-content\themes\doAnCMS\functions.php on line 784
+[18-Nov-2025 14:38:02 UTC] PHP Stack trace:
+[18-Nov-2025 14:38:02 UTC] PHP   1. {main}() D:\wamp64\www\wordpress\wp-admin\admin-ajax.php:0
+[18-Nov-2025 14:38:02 UTC] PHP   2. do_action($hook_name = 'wp_ajax_update_cart_item') D:\wamp64\www\wordpress\wp-admin\admin-ajax.php:192
+[18-Nov-2025 14:38:02 UTC] PHP   3. WP_Hook->do_action($args = [0 => '']) D:\wamp64\www\wordpress\wp-includes\plugin.php:517
+[18-Nov-2025 14:38:02 UTC] PHP   4. WP_Hook->apply_filters($value = '', $args = [0 => '']) D:\wamp64\www\wordpress\wp-includes\class-wp-hook.php:348
+[18-Nov-2025 14:38:02 UTC] PHP   5. custom_update_cart_item('') D:\wamp64\www\wordpress\wp-includes\class-wp-hook.php:324
+[18-Nov-2025 14:38:02 UTC] PHP Fatal error:  Uncaught Error: Call to a member function get_price() on null in D:\wamp64\www\wordpress\wp-content\plugins\woocommerce\includes\class-wc-cart.php:2173
+Stack trace:
+#0 D:\wamp64\www\wordpress\wp-content\themes\doAnCMS\functions.php(784): WC_Cart->get_product_subtotal(NULL, NULL)
+#1 D:\wamp64\www\wordpress\wp-includes\class-wp-hook.php(324): custom_update_cart_item('')
+#2 D:\wamp64\www\wordpress\wp-includes\class-wp-hook.php(348): WP_Hook->apply_filters('', Array)
+#3 D:\wamp64\www\wordpress\wp-includes\plugin.php(517): WP_Hook->do_action(Array)
+#4 D:\wamp64\www\wordpress\wp-admin\admin-ajax.php(192): do_action('wp_ajax_update_...')
+#5 {main}
+  thrown in D:\wamp64\www\wordpress\wp-content\plugins\woocommerce\includes\class-wc-cart.php on line 2173
+[18-Nov-2025 14:38:15 UTC] PHP Warning:  Undefined array key "1d7f7abc18fcb43975065399b0d1e48e" in D:\wamp64\www\wordpress\wp-content\themes\doAnCMS\functions.php on line 782
+[18-Nov-2025 14:38:15 UTC] PHP Stack trace:
+[18-Nov-2025 14:38:15 UTC] PHP   1. {main}() D:\wamp64\www\wordpress\wp-admin\admin-ajax.php:0
+[18-Nov-2025 14:38:15 UTC] PHP   2. do_action($hook_name = 'wp_ajax_update_cart_item') D:\wamp64\www\wordpress\wp-admin\admin-ajax.php:192
+[18-Nov-2025 14:38:15 UTC] PHP   3. WP_Hook->do_action($args = [0 => '']) D:\wamp64\www\wordpress\wp-includes\plugin.php:517
+[18-Nov-2025 14:38:15 UTC] PHP   4. WP_Hook->apply_filters($value = '', $args = [0 => '']) D:\wamp64\www\wordpress\wp-includes\class-wp-hook.php:348
+[18-Nov-2025 14:38:15 UTC] PHP   5. custom_update_cart_item('') D:\wamp64\www\wordpress\wp-includes\class-wp-hook.php:324
+[18-Nov-2025 14:38:15 UTC] PHP Warning:  Trying to access array offset on null in D:\wamp64\www\wordpress\wp-content\themes\doAnCMS\functions.php on line 783
+[18-Nov-2025 14:38:15 UTC] PHP Stack trace:
+[18-Nov-2025 14:38:15 UTC] PHP   1. {main}() D:\wamp64\www\wordpress\wp-admin\admin-ajax.php:0
+[18-Nov-2025 14:38:15 UTC] PHP   2. do_action($hook_name = 'wp_ajax_update_cart_item') D:\wamp64\www\wordpress\wp-admin\admin-ajax.php:192
+[18-Nov-2025 14:38:15 UTC] PHP   3. WP_Hook->do_action($args = [0 => '']) D:\wamp64\www\wordpress\wp-includes\plugin.php:517
+[18-Nov-2025 14:38:15 UTC] PHP   4. WP_Hook->apply_filters($value = '', $args = [0 => '']) D:\wamp64\www\wordpress\wp-includes\class-wp-hook.php:348
+[18-Nov-2025 14:38:15 UTC] PHP   5. custom_update_cart_item('') D:\wamp64\www\wordpress\wp-includes\class-wp-hook.php:324
+[18-Nov-2025 14:38:15 UTC] PHP Warning:  Trying to access array offset on null in D:\wamp64\www\wordpress\wp-content\themes\doAnCMS\functions.php on line 784
+[18-Nov-2025 14:38:15 UTC] PHP Stack trace:
+[18-Nov-2025 14:38:15 UTC] PHP   1. {main}() D:\wamp64\www\wordpress\wp-admin\admin-ajax.php:0
+[18-Nov-2025 14:38:15 UTC] PHP   2. do_action($hook_name = 'wp_ajax_update_cart_item') D:\wamp64\www\wordpress\wp-admin\admin-ajax.php:192
+[18-Nov-2025 14:38:15 UTC] PHP   3. WP_Hook->do_action($args = [0 => '']) D:\wamp64\www\wordpress\wp-includes\plugin.php:517
+[18-Nov-2025 14:38:15 UTC] PHP   4. WP_Hook->apply_filters($value = '', $args = [0 => '']) D:\wamp64\www\wordpress\wp-includes\class-wp-hook.php:348
+[18-Nov-2025 14:38:15 UTC] PHP   5. custom_update_cart_item('') D:\wamp64\www\wordpress\wp-includes\class-wp-hook.php:324
+[18-Nov-2025 14:38:15 UTC] PHP Fatal error:  Uncaught Error: Call to a member function get_price() on null in D:\wamp64\www\wordpress\wp-content\plugins\woocommerce\includes\class-wc-cart.php:2173
+Stack trace:
+#0 D:\wamp64\www\wordpress\wp-content\themes\doAnCMS\functions.php(784): WC_Cart->get_product_subtotal(NULL, NULL)
+#1 D:\wamp64\www\wordpress\wp-includes\class-wp-hook.php(324): custom_update_cart_item('')
+#2 D:\wamp64\www\wordpress\wp-includes\class-wp-hook.php(348): WP_Hook->apply_filters('', Array)
+#3 D:\wamp64\www\wordpress\wp-includes\plugin.php(517): WP_Hook->do_action(Array)
+#4 D:\wamp64\www\wordpress\wp-admin\admin-ajax.php(192): do_action('wp_ajax_update_...')
+#5 {main}
+  thrown in D:\wamp64\www\wordpress\wp-content\plugins\woocommerce\includes\class-wc-cart.php on line 2173
+[18-Nov-2025 14:38:15 UTC] PHP Warning:  Undefined array key "1d7f7abc18fcb43975065399b0d1e48e" in D:\wamp64\www\wordpress\wp-content\themes\doAnCMS\functions.php on line 782
+[18-Nov-2025 14:38:15 UTC] PHP Stack trace:
+[18-Nov-2025 14:38:15 UTC] PHP   1. {main}() D:\wamp64\www\wordpress\wp-admin\admin-ajax.php:0
+[18-Nov-2025 14:38:15 UTC] PHP   2. do_action($hook_name = 'wp_ajax_update_cart_item') D:\wamp64\www\wordpress\wp-admin\admin-ajax.php:192
+[18-Nov-2025 14:38:15 UTC] PHP   3. WP_Hook->do_action($args = [0 => '']) D:\wamp64\www\wordpress\wp-includes\plugin.php:517
+[18-Nov-2025 14:38:15 UTC] PHP   4. WP_Hook->apply_filters($value = '', $args = [0 => '']) D:\wamp64\www\wordpress\wp-includes\class-wp-hook.php:348
+[18-Nov-2025 14:38:15 UTC] PHP   5. custom_update_cart_item('') D:\wamp64\www\wordpress\wp-includes\class-wp-hook.php:324
+[18-Nov-2025 14:38:15 UTC] PHP Warning:  Trying to access array offset on null in D:\wamp64\www\wordpress\wp-content\themes\doAnCMS\functions.php on line 783
+[18-Nov-2025 14:38:15 UTC] PHP Stack trace:
+[18-Nov-2025 14:38:15 UTC] PHP   1. {main}() D:\wamp64\www\wordpress\wp-admin\admin-ajax.php:0
+[18-Nov-2025 14:38:15 UTC] PHP   2. do_action($hook_name = 'wp_ajax_update_cart_item') D:\wamp64\www\wordpress\wp-admin\admin-ajax.php:192
+[18-Nov-2025 14:38:15 UTC] PHP   3. WP_Hook->do_action($args = [0 => '']) D:\wamp64\www\wordpress\wp-includes\plugin.php:517
+[18-Nov-2025 14:38:15 UTC] PHP   4. WP_Hook->apply_filters($value = '', $args = [0 => '']) D:\wamp64\www\wordpress\wp-includes\class-wp-hook.php:348
+[18-Nov-2025 14:38:15 UTC] PHP   5. custom_update_cart_item('') D:\wamp64\www\wordpress\wp-includes\class-wp-hook.php:324
+[18-Nov-2025 14:38:15 UTC] PHP Warning:  Trying to access array offset on null in D:\wamp64\www\wordpress\wp-content\themes\doAnCMS\functions.php on line 784
+[18-Nov-2025 14:38:15 UTC] PHP Stack trace:
+[18-Nov-2025 14:38:15 UTC] PHP   1. {main}() D:\wamp64\www\wordpress\wp-admin\admin-ajax.php:0
+[18-Nov-2025 14:38:15 UTC] PHP   2. do_action($hook_name = 'wp_ajax_update_cart_item') D:\wamp64\www\wordpress\wp-admin\admin-ajax.php:192
+[18-Nov-2025 14:38:15 UTC] PHP   3. WP_Hook->do_action($args = [0 => '']) D:\wamp64\www\wordpress\wp-includes\plugin.php:517
+[18-Nov-2025 14:38:15 UTC] PHP   4. WP_Hook->apply_filters($value = '', $args = [0 => '']) D:\wamp64\www\wordpress\wp-includes\class-wp-hook.php:348
+[18-Nov-2025 14:38:15 UTC] PHP   5. custom_update_cart_item('') D:\wamp64\www\wordpress\wp-includes\class-wp-hook.php:324
+[18-Nov-2025 14:38:15 UTC] PHP Fatal error:  Uncaught Error: Call to a member function get_price() on null in D:\wamp64\www\wordpress\wp-content\plugins\woocommerce\includes\class-wc-cart.php:2173
+Stack trace:
+#0 D:\wamp64\www\wordpress\wp-content\themes\doAnCMS\functions.php(784): WC_Cart->get_product_subtotal(NULL, NULL)
+#1 D:\wamp64\www\wordpress\wp-includes\class-wp-hook.php(324): custom_update_cart_item('')
+#2 D:\wamp64\www\wordpress\wp-includes\class-wp-hook.php(348): WP_Hook->apply_filters('', Array)
+#3 D:\wamp64\www\wordpress\wp-includes\plugin.php(517): WP_Hook->do_action(Array)
+#4 D:\wamp64\www\wordpress\wp-admin\admin-ajax.php(192): do_action('wp_ajax_update_...')
+#5 {main}
+  thrown in D:\wamp64\www\wordpress\wp-content\plugins\woocommerce\includes\class-wc-cart.php on line 2173
+[18-Nov-2025 14:38:17 UTC] PHP Warning:  Undefined array key "1d7f7abc18fcb43975065399b0d1e48e" in D:\wamp64\www\wordpress\wp-content\plugins\woocommerce\includes\class-wc-cart.php on line 1418
+[18-Nov-2025 14:38:17 UTC] PHP Stack trace:
+[18-Nov-2025 14:38:17 UTC] PHP   1. {main}() D:\wamp64\www\wordpress\wp-admin\admin-ajax.php:0
+[18-Nov-2025 14:38:17 UTC] PHP   2. do_action($hook_name = 'wp_ajax_update_cart_item') D:\wamp64\www\wordpress\wp-admin\admin-ajax.php:192
+[18-Nov-2025 14:38:17 UTC] PHP   3. WP_Hook->do_action($args = [0 => '']) D:\wamp64\www\wordpress\wp-includes\plugin.php:517
+[18-Nov-2025 14:38:17 UTC] PHP   4. WP_Hook->apply_filters($value = '', $args = [0 => '']) D:\wamp64\www\wordpress\wp-includes\class-wp-hook.php:348
+[18-Nov-2025 14:38:17 UTC] PHP   5. custom_update_cart_item('') D:\wamp64\www\wordpress\wp-includes\class-wp-hook.php:324
+[18-Nov-2025 14:38:17 UTC] PHP   6. WC_Cart->set_quantity($cart_item_key = '1d7f7abc18fcb43975065399b0d1e48e', $quantity = 3, $refresh_totals = TRUE) D:\wamp64\www\wordpress\wp-content\themes\doAnCMS\functions.php:780
+[18-Nov-2025 14:38:17 UTC] PHP Warning:  Trying to access array offset on null in D:\wamp64\www\wordpress\wp-content\plugins\woocommerce\includes\class-wc-cart.php on line 1418
+[18-Nov-2025 14:38:17 UTC] PHP Stack trace:
+[18-Nov-2025 14:38:17 UTC] PHP   1. {main}() D:\wamp64\www\wordpress\wp-admin\admin-ajax.php:0
+[18-Nov-2025 14:38:17 UTC] PHP   2. do_action($hook_name = 'wp_ajax_update_cart_item') D:\wamp64\www\wordpress\wp-admin\admin-ajax.php:192
+[18-Nov-2025 14:38:17 UTC] PHP   3. WP_Hook->do_action($args = [0 => '']) D:\wamp64\www\wordpress\wp-includes\plugin.php:517
+[18-Nov-2025 14:38:17 UTC] PHP   4. WP_Hook->apply_filters($value = '', $args = [0 => '']) D:\wamp64\www\wordpress\wp-includes\class-wp-hook.php:348
+[18-Nov-2025 14:38:17 UTC] PHP   5. custom_update_cart_item('') D:\wamp64\www\wordpress\wp-includes\class-wp-hook.php:324
+[18-Nov-2025 14:38:17 UTC] PHP   6. WC_Cart->set_quantity($cart_item_key = '1d7f7abc18fcb43975065399b0d1e48e', $quantity = 3, $refresh_totals = TRUE) D:\wamp64\www\wordpress\wp-content\themes\doAnCMS\functions.php:780
+[18-Nov-2025 14:38:17 UTC] PHP Warning:  Undefined array key "data" in D:\wamp64\www\wordpress\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php on line 229
+[18-Nov-2025 14:38:17 UTC] PHP Stack trace:
+[18-Nov-2025 14:38:17 UTC] PHP   1. {main}() D:\wamp64\www\wordpress\wp-admin\admin-ajax.php:0
+[18-Nov-2025 14:38:17 UTC] PHP   2. do_action($hook_name = 'wp_ajax_update_cart_item') D:\wamp64\www\wordpress\wp-admin\admin-ajax.php:192
+[18-Nov-2025 14:38:17 UTC] PHP   3. WP_Hook->do_action($args = [0 => '']) D:\wamp64\www\wordpress\wp-includes\plugin.php:517
+[18-Nov-2025 14:38:17 UTC] PHP   4. WP_Hook->apply_filters($value = '', $args = [0 => '']) D:\wamp64\www\wordpress\wp-includes\class-wp-hook.php:348
+[18-Nov-2025 14:38:17 UTC] PHP   5. custom_update_cart_item('') D:\wamp64\www\wordpress\wp-includes\class-wp-hook.php:324
+[18-Nov-2025 14:38:17 UTC] PHP   6. WC_Cart->set_quantity($cart_item_key = '1d7f7abc18fcb43975065399b0d1e48e', $quantity = 3, $refresh_totals = TRUE) D:\wamp64\www\wordpress\wp-content\themes\doAnCMS\functions.php:780
+[18-Nov-2025 14:38:17 UTC] PHP   7. WC_Cart->calculate_totals() D:\wamp64\www\wordpress\wp-content\plugins\woocommerce\includes\class-wc-cart.php:1424
+[18-Nov-2025 14:38:17 UTC] PHP   8. WC_Cart_Totals->__construct($cart = class WC_Cart { public $cart_session_data = ['cart_contents_total' => 0, 'total' => 0, 'subtotal' => 0, 'subtotal_ex_tax' => 0, 'tax_total' => 0, 'taxes' => [...], 'shipping_taxes' => [...], 'discount_cart' => 0, 'discount_cart_tax' => 0, 'shipping_total' => 0, 'shipping_tax_total' => 0, 'coupon_discount_amounts' => [...], 'coupon_discount_tax_amounts' => [...], 'fee_total' => 0, 'fees' => [...]]; public $coupon_applied_count = []; public $cart_context = 'shortcode'; public $cart_contents = ['fc221309746013ac554571fbd180e1c8' => [...], '96da2f590cd7246bbde0051047b0d6f7' => [...], '3988c7f88ebcb58c6ce932b957b6f332' => [...], '38af86134b65d0f10fe33d30dd76442e' => [...], '2a38a4a9316c49e5a833517c45d31070' => [...], '92cc227532d17e56e07902b254dfad10' => [...], '1d7f7abc18fcb43975065399b0d1e48e' => [...]]; public $removed_cart_contents = ['42a0e188f5033bc65bf8d78622277c4e' => [...], '013d407166ec4fa56eb1e1f8cbe183b9' => [...], '02522a2b2726fb0a03bb19f2d8d9524d' => [...], '1d7f7abc18fcb43975065399b0d1e48e' => [...]]; public $applied_coupons = []; protected $shipping_methods = NULL; protected $has_calculated_shipping = FALSE; protected $default_totals = ['subtotal' => 0, 'subtotal_tax' => 0, 'shipping_total' => 0, 'shipping_tax' => 0, 'shipping_taxes' => [...], 'discount_total' => 0, 'discount_tax' => 0, 'cart_contents_total' => 0, 'cart_contents_tax' => 0, 'cart_contents_taxes' => [...], 'fee_total' => 0, 'fee_tax' => 0, 'fee_taxes' => [...], 'total' => 0, 'total_tax' => 0]; protected $totals = ['subtotal' => 0, 'subtotal_tax' => 0, 'shipping_total' => 0, 'shipping_tax' => 0, 'shipping_taxes' => [...], 'discount_total' => 0, 'discount_tax' => 0, 'cart_contents_total' => 0, 'cart_contents_tax' => 0, 'cart_contents_taxes' => [...], 'fee_total' => 0, 'fee_tax' => 0, 'fee_taxes' => [...], 'total' => 0, 'total_tax' => 0]; protected $session = class WC_Cart_Session { protected $cart = ... }; protected $fees_api = class WC_Cart_Fees { private $fees = [...]; private $default_fee_props = [...] }; public $coupon_discount_totals = []; public $coupon_discount_tax_totals = [] }) D:\wamp64\www\wordpress\wp-content\plugins\woocommerce\includes\class-wc-cart.php:1465
+[18-Nov-2025 14:38:17 UTC] PHP   9. WC_Cart_Totals->calculate() D:\wamp64\www\wordpress\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php:138
+[18-Nov-2025 14:38:17 UTC] PHP  10. WC_Cart_Totals->calculate_item_totals() D:\wamp64\www\wordpress\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php:147
+[18-Nov-2025 14:38:17 UTC] PHP  11. WC_Cart_Totals->get_items_from_cart() D:\wamp64\www\wordpress\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php:654
+[18-Nov-2025 14:38:17 UTC] PHP Fatal error:  Uncaught Error: Call to a member function get_tax_class() on null in D:\wamp64\www\wordpress\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php:229
+Stack trace:
+#0 D:\wamp64\www\wordpress\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php(654): WC_Cart_Totals->get_items_from_cart()
+#1 D:\wamp64\www\wordpress\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php(147): WC_Cart_Totals->calculate_item_totals()
+#2 D:\wamp64\www\wordpress\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php(138): WC_Cart_Totals->calculate()
+#3 D:\wamp64\www\wordpress\wp-content\plugins\woocommerce\includes\class-wc-cart.php(1465): WC_Cart_Totals->__construct(Object(WC_Cart))
+#4 D:\wamp64\www\wordpress\wp-content\plugins\woocommerce\includes\class-wc-cart.php(1424): WC_Cart->calculate_totals()
+#5 D:\wamp64\www\wordpress\wp-content\themes\doAnCMS\functions.php(780): WC_Cart->set_quantity('1d7f7abc18fcb43...', 3, true)
+#6 D:\wamp64\www\wordpress\wp-includes\class-wp-hook.php(324): custom_update_cart_item('')
+#7 D:\wamp64\www\wordpress\wp-includes\class-wp-hook.php(348): WP_Hook->apply_filters('', Array)
+#8 D:\wamp64\www\wordpress\wp-includes\plugin.php(517): WP_Hook->do_action(Array)
+#9 D:\wamp64\www\wordpress\wp-admin\admin-ajax.php(192): do_action('wp_ajax_update_...')
+#10 {main}
+  thrown in D:\wamp64\www\wordpress\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php on line 229
+[18-Nov-2025 14:38:19 UTC] PHP Warning:  Undefined array key "1d7f7abc18fcb43975065399b0d1e48e" in D:\wamp64\www\wordpress\wp-content\plugins\woocommerce\includes\class-wc-cart.php on line 1418
+[18-Nov-2025 14:38:19 UTC] PHP Stack trace:
+[18-Nov-2025 14:38:19 UTC] PHP   1. {main}() D:\wamp64\www\wordpress\wp-admin\admin-ajax.php:0
+[18-Nov-2025 14:38:19 UTC] PHP   2. do_action($hook_name = 'wp_ajax_update_cart_item') D:\wamp64\www\wordpress\wp-admin\admin-ajax.php:192
+[18-Nov-2025 14:38:19 UTC] PHP   3. WP_Hook->do_action($args = [0 => '']) D:\wamp64\www\wordpress\wp-includes\plugin.php:517
+[18-Nov-2025 14:38:19 UTC] PHP   4. WP_Hook->apply_filters($value = '', $args = [0 => '']) D:\wamp64\www\wordpress\wp-includes\class-wp-hook.php:348
+[18-Nov-2025 14:38:19 UTC] PHP   5. custom_update_cart_item('') D:\wamp64\www\wordpress\wp-includes\class-wp-hook.php:324
+[18-Nov-2025 14:38:19 UTC] PHP   6. WC_Cart->set_quantity($cart_item_key = '1d7f7abc18fcb43975065399b0d1e48e', $quantity = 3, $refresh_totals = TRUE) D:\wamp64\www\wordpress\wp-content\themes\doAnCMS\functions.php:780
+[18-Nov-2025 14:38:19 UTC] PHP Warning:  Trying to access array offset on null in D:\wamp64\www\wordpress\wp-content\plugins\woocommerce\includes\class-wc-cart.php on line 1418
+[18-Nov-2025 14:38:19 UTC] PHP Stack trace:
+[18-Nov-2025 14:38:19 UTC] PHP   1. {main}() D:\wamp64\www\wordpress\wp-admin\admin-ajax.php:0
+[18-Nov-2025 14:38:19 UTC] PHP   2. do_action($hook_name = 'wp_ajax_update_cart_item') D:\wamp64\www\wordpress\wp-admin\admin-ajax.php:192
+[18-Nov-2025 14:38:19 UTC] PHP   3. WP_Hook->do_action($args = [0 => '']) D:\wamp64\www\wordpress\wp-includes\plugin.php:517
+[18-Nov-2025 14:38:19 UTC] PHP   4. WP_Hook->apply_filters($value = '', $args = [0 => '']) D:\wamp64\www\wordpress\wp-includes\class-wp-hook.php:348
+[18-Nov-2025 14:38:19 UTC] PHP   5. custom_update_cart_item('') D:\wamp64\www\wordpress\wp-includes\class-wp-hook.php:324
+[18-Nov-2025 14:38:19 UTC] PHP   6. WC_Cart->set_quantity($cart_item_key = '1d7f7abc18fcb43975065399b0d1e48e', $quantity = 3, $refresh_totals = TRUE) D:\wamp64\www\wordpress\wp-content\themes\doAnCMS\functions.php:780
+[18-Nov-2025 14:38:19 UTC] PHP Warning:  Undefined array key "data" in D:\wamp64\www\wordpress\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php on line 229
+[18-Nov-2025 14:38:19 UTC] PHP Stack trace:
+[18-Nov-2025 14:38:19 UTC] PHP   1. {main}() D:\wamp64\www\wordpress\wp-admin\admin-ajax.php:0
+[18-Nov-2025 14:38:19 UTC] PHP   2. do_action($hook_name = 'wp_ajax_update_cart_item') D:\wamp64\www\wordpress\wp-admin\admin-ajax.php:192
+[18-Nov-2025 14:38:19 UTC] PHP   3. WP_Hook->do_action($args = [0 => '']) D:\wamp64\www\wordpress\wp-includes\plugin.php:517
+[18-Nov-2025 14:38:19 UTC] PHP   4. WP_Hook->apply_filters($value = '', $args = [0 => '']) D:\wamp64\www\wordpress\wp-includes\class-wp-hook.php:348
+[18-Nov-2025 14:38:19 UTC] PHP   5. custom_update_cart_item('') D:\wamp64\www\wordpress\wp-includes\class-wp-hook.php:324
+[18-Nov-2025 14:38:19 UTC] PHP   6. WC_Cart->set_quantity($cart_item_key = '1d7f7abc18fcb43975065399b0d1e48e', $quantity = 3, $refresh_totals = TRUE) D:\wamp64\www\wordpress\wp-content\themes\doAnCMS\functions.php:780
+[18-Nov-2025 14:38:19 UTC] PHP   7. WC_Cart->calculate_totals() D:\wamp64\www\wordpress\wp-content\plugins\woocommerce\includes\class-wc-cart.php:1424
+[18-Nov-2025 14:38:19 UTC] PHP   8. WC_Cart_Totals->__construct($cart = class WC_Cart { public $cart_session_data = ['cart_contents_total' => 0, 'total' => 0, 'subtotal' => 0, 'subtotal_ex_tax' => 0, 'tax_total' => 0, 'taxes' => [...], 'shipping_taxes' => [...], 'discount_cart' => 0, 'discount_cart_tax' => 0, 'shipping_total' => 0, 'shipping_tax_total' => 0, 'coupon_discount_amounts' => [...], 'coupon_discount_tax_amounts' => [...], 'fee_total' => 0, 'fees' => [...]]; public $coupon_applied_count = []; public $cart_context = 'shortcode'; public $cart_contents = ['fc221309746013ac554571fbd180e1c8' => [...], '96da2f590cd7246bbde0051047b0d6f7' => [...], '3988c7f88ebcb58c6ce932b957b6f332' => [...], '38af86134b65d0f10fe33d30dd76442e' => [...], '2a38a4a9316c49e5a833517c45d31070' => [...], '92cc227532d17e56e07902b254dfad10' => [...], '1d7f7abc18fcb43975065399b0d1e48e' => [...]]; public $removed_cart_contents = ['42a0e188f5033bc65bf8d78622277c4e' => [...], '013d407166ec4fa56eb1e1f8cbe183b9' => [...], '02522a2b2726fb0a03bb19f2d8d9524d' => [...], '1d7f7abc18fcb43975065399b0d1e48e' => [...]]; public $applied_coupons = []; protected $shipping_methods = NULL; protected $has_calculated_shipping = FALSE; protected $default_totals = ['subtotal' => 0, 'subtotal_tax' => 0, 'shipping_total' => 0, 'shipping_tax' => 0, 'shipping_taxes' => [...], 'discount_total' => 0, 'discount_tax' => 0, 'cart_contents_total' => 0, 'cart_contents_tax' => 0, 'cart_contents_taxes' => [...], 'fee_total' => 0, 'fee_tax' => 0, 'fee_taxes' => [...], 'total' => 0, 'total_tax' => 0]; protected $totals = ['subtotal' => 0, 'subtotal_tax' => 0, 'shipping_total' => 0, 'shipping_tax' => 0, 'shipping_taxes' => [...], 'discount_total' => 0, 'discount_tax' => 0, 'cart_contents_total' => 0, 'cart_contents_tax' => 0, 'cart_contents_taxes' => [...], 'fee_total' => 0, 'fee_tax' => 0, 'fee_taxes' => [...], 'total' => 0, 'total_tax' => 0]; protected $session = class WC_Cart_Session { protected $cart = ... }; protected $fees_api = class WC_Cart_Fees { private $fees = [...]; private $default_fee_props = [...] }; public $coupon_discount_totals = []; public $coupon_discount_tax_totals = [] }) D:\wamp64\www\wordpress\wp-content\plugins\woocommerce\includes\class-wc-cart.php:1465
+[18-Nov-2025 14:38:19 UTC] PHP   9. WC_Cart_Totals->calculate() D:\wamp64\www\wordpress\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php:138
+[18-Nov-2025 14:38:19 UTC] PHP  10. WC_Cart_Totals->calculate_item_totals() D:\wamp64\www\wordpress\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php:147
+[18-Nov-2025 14:38:19 UTC] PHP  11. WC_Cart_Totals->get_items_from_cart() D:\wamp64\www\wordpress\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php:654
+[18-Nov-2025 14:38:19 UTC] PHP Fatal error:  Uncaught Error: Call to a member function get_tax_class() on null in D:\wamp64\www\wordpress\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php:229
+Stack trace:
+#0 D:\wamp64\www\wordpress\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php(654): WC_Cart_Totals->get_items_from_cart()
+#1 D:\wamp64\www\wordpress\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php(147): WC_Cart_Totals->calculate_item_totals()
+#2 D:\wamp64\www\wordpress\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php(138): WC_Cart_Totals->calculate()
+#3 D:\wamp64\www\wordpress\wp-content\plugins\woocommerce\includes\class-wc-cart.php(1465): WC_Cart_Totals->__construct(Object(WC_Cart))
+#4 D:\wamp64\www\wordpress\wp-content\plugins\woocommerce\includes\class-wc-cart.php(1424): WC_Cart->calculate_totals()
+#5 D:\wamp64\www\wordpress\wp-content\themes\doAnCMS\functions.php(780): WC_Cart->set_quantity('1d7f7abc18fcb43...', 3, true)
+#6 D:\wamp64\www\wordpress\wp-includes\class-wp-hook.php(324): custom_update_cart_item('')
+#7 D:\wamp64\www\wordpress\wp-includes\class-wp-hook.php(348): WP_Hook->apply_filters('', Array)
+#8 D:\wamp64\www\wordpress\wp-includes\plugin.php(517): WP_Hook->do_action(Array)
+#9 D:\wamp64\www\wordpress\wp-admin\admin-ajax.php(192): do_action('wp_ajax_update_...')
+#10 {main}
+  thrown in D:\wamp64\www\wordpress\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php on line 229
+[18-Nov-2025 14:38:19 UTC] PHP Warning:  Undefined array key "1d7f7abc18fcb43975065399b0d1e48e" in D:\wamp64\www\wordpress\wp-content\plugins\woocommerce\includes\class-wc-cart.php on line 1418
+[18-Nov-2025 14:38:19 UTC] PHP Stack trace:
+[18-Nov-2025 14:38:19 UTC] PHP   1. {main}() D:\wamp64\www\wordpress\wp-admin\admin-ajax.php:0
+[18-Nov-2025 14:38:19 UTC] PHP   2. do_action($hook_name = 'wp_ajax_update_cart_item') D:\wamp64\www\wordpress\wp-admin\admin-ajax.php:192
+[18-Nov-2025 14:38:19 UTC] PHP   3. WP_Hook->do_action($args = [0 => '']) D:\wamp64\www\wordpress\wp-includes\plugin.php:517
+[18-Nov-2025 14:38:19 UTC] PHP   4. WP_Hook->apply_filters($value = '', $args = [0 => '']) D:\wamp64\www\wordpress\wp-includes\class-wp-hook.php:348
+[18-Nov-2025 14:38:19 UTC] PHP   5. custom_update_cart_item('') D:\wamp64\www\wordpress\wp-includes\class-wp-hook.php:324
+[18-Nov-2025 14:38:19 UTC] PHP   6. WC_Cart->set_quantity($cart_item_key = '1d7f7abc18fcb43975065399b0d1e48e', $quantity = 3, $refresh_totals = TRUE) D:\wamp64\www\wordpress\wp-content\themes\doAnCMS\functions.php:780
+[18-Nov-2025 14:38:19 UTC] PHP Warning:  Trying to access array offset on null in D:\wamp64\www\wordpress\wp-content\plugins\woocommerce\includes\class-wc-cart.php on line 1418
+[18-Nov-2025 14:38:19 UTC] PHP Stack trace:
+[18-Nov-2025 14:38:19 UTC] PHP   1. {main}() D:\wamp64\www\wordpress\wp-admin\admin-ajax.php:0
+[18-Nov-2025 14:38:19 UTC] PHP   2. do_action($hook_name = 'wp_ajax_update_cart_item') D:\wamp64\www\wordpress\wp-admin\admin-ajax.php:192
+[18-Nov-2025 14:38:19 UTC] PHP   3. WP_Hook->do_action($args = [0 => '']) D:\wamp64\www\wordpress\wp-includes\plugin.php:517
+[18-Nov-2025 14:38:19 UTC] PHP   4. WP_Hook->apply_filters($value = '', $args = [0 => '']) D:\wamp64\www\wordpress\wp-includes\class-wp-hook.php:348
+[18-Nov-2025 14:38:19 UTC] PHP   5. custom_update_cart_item('') D:\wamp64\www\wordpress\wp-includes\class-wp-hook.php:324
+[18-Nov-2025 14:38:19 UTC] PHP   6. WC_Cart->set_quantity($cart_item_key = '1d7f7abc18fcb43975065399b0d1e48e', $quantity = 3, $refresh_totals = TRUE) D:\wamp64\www\wordpress\wp-content\themes\doAnCMS\functions.php:780
+[18-Nov-2025 14:38:19 UTC] PHP Warning:  Undefined array key "data" in D:\wamp64\www\wordpress\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php on line 229
+[18-Nov-2025 14:38:19 UTC] PHP Stack trace:
+[18-Nov-2025 14:38:19 UTC] PHP   1. {main}() D:\wamp64\www\wordpress\wp-admin\admin-ajax.php:0
+[18-Nov-2025 14:38:19 UTC] PHP   2. do_action($hook_name = 'wp_ajax_update_cart_item') D:\wamp64\www\wordpress\wp-admin\admin-ajax.php:192
+[18-Nov-2025 14:38:19 UTC] PHP   3. WP_Hook->do_action($args = [0 => '']) D:\wamp64\www\wordpress\wp-includes\plugin.php:517
+[18-Nov-2025 14:38:19 UTC] PHP   4. WP_Hook->apply_filters($value = '', $args = [0 => '']) D:\wamp64\www\wordpress\wp-includes\class-wp-hook.php:348
+[18-Nov-2025 14:38:19 UTC] PHP   5. custom_update_cart_item('') D:\wamp64\www\wordpress\wp-includes\class-wp-hook.php:324
+[18-Nov-2025 14:38:19 UTC] PHP   6. WC_Cart->set_quantity($cart_item_key = '1d7f7abc18fcb43975065399b0d1e48e', $quantity = 3, $refresh_totals = TRUE) D:\wamp64\www\wordpress\wp-content\themes\doAnCMS\functions.php:780
+[18-Nov-2025 14:38:19 UTC] PHP   7. WC_Cart->calculate_totals() D:\wamp64\www\wordpress\wp-content\plugins\woocommerce\includes\class-wc-cart.php:1424
+[18-Nov-2025 14:38:19 UTC] PHP   8. WC_Cart_Totals->__construct($cart = class WC_Cart { public $cart_session_data = ['cart_contents_total' => 0, 'total' => 0, 'subtotal' => 0, 'subtotal_ex_tax' => 0, 'tax_total' => 0, 'taxes' => [...], 'shipping_taxes' => [...], 'discount_cart' => 0, 'discount_cart_tax' => 0, 'shipping_total' => 0, 'shipping_tax_total' => 0, 'coupon_discount_amounts' => [...], 'coupon_discount_tax_amounts' => [...], 'fee_total' => 0, 'fees' => [...]]; public $coupon_applied_count = []; public $cart_context = 'shortcode'; public $cart_contents = ['fc221309746013ac554571fbd180e1c8' => [...], '96da2f590cd7246bbde0051047b0d6f7' => [...], '3988c7f88ebcb58c6ce932b957b6f332' => [...], '38af86134b65d0f10fe33d30dd76442e' => [...], '2a38a4a9316c49e5a833517c45d31070' => [...], '92cc227532d17e56e07902b254dfad10' => [...], '1d7f7abc18fcb43975065399b0d1e48e' => [...]]; public $removed_cart_contents = ['42a0e188f5033bc65bf8d78622277c4e' => [...], '013d407166ec4fa56eb1e1f8cbe183b9' => [...], '02522a2b2726fb0a03bb19f2d8d9524d' => [...], '1d7f7abc18fcb43975065399b0d1e48e' => [...]]; public $applied_coupons = []; protected $shipping_methods = NULL; protected $has_calculated_shipping = FALSE; protected $default_totals = ['subtotal' => 0, 'subtotal_tax' => 0, 'shipping_total' => 0, 'shipping_tax' => 0, 'shipping_taxes' => [...], 'discount_total' => 0, 'discount_tax' => 0, 'cart_contents_total' => 0, 'cart_contents_tax' => 0, 'cart_contents_taxes' => [...], 'fee_total' => 0, 'fee_tax' => 0, 'fee_taxes' => [...], 'total' => 0, 'total_tax' => 0]; protected $totals = ['subtotal' => 0, 'subtotal_tax' => 0, 'shipping_total' => 0, 'shipping_tax' => 0, 'shipping_taxes' => [...], 'discount_total' => 0, 'discount_tax' => 0, 'cart_contents_total' => 0, 'cart_contents_tax' => 0, 'cart_contents_taxes' => [...], 'fee_total' => 0, 'fee_tax' => 0, 'fee_taxes' => [...], 'total' => 0, 'total_tax' => 0]; protected $session = class WC_Cart_Session { protected $cart = ... }; protected $fees_api = class WC_Cart_Fees { private $fees = [...]; private $default_fee_props = [...] }; public $coupon_discount_totals = []; public $coupon_discount_tax_totals = [] }) D:\wamp64\www\wordpress\wp-content\plugins\woocommerce\includes\class-wc-cart.php:1465
+[18-Nov-2025 14:38:19 UTC] PHP   9. WC_Cart_Totals->calculate() D:\wamp64\www\wordpress\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php:138
+[18-Nov-2025 14:38:19 UTC] PHP  10. WC_Cart_Totals->calculate_item_totals() D:\wamp64\www\wordpress\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php:147
+[18-Nov-2025 14:38:19 UTC] PHP  11. WC_Cart_Totals->get_items_from_cart() D:\wamp64\www\wordpress\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php:654
+[18-Nov-2025 14:38:19 UTC] PHP Fatal error:  Uncaught Error: Call to a member function get_tax_class() on null in D:\wamp64\www\wordpress\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php:229
+Stack trace:
+#0 D:\wamp64\www\wordpress\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php(654): WC_Cart_Totals->get_items_from_cart()
+#1 D:\wamp64\www\wordpress\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php(147): WC_Cart_Totals->calculate_item_totals()
+#2 D:\wamp64\www\wordpress\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php(138): WC_Cart_Totals->calculate()
+#3 D:\wamp64\www\wordpress\wp-content\plugins\woocommerce\includes\class-wc-cart.php(1465): WC_Cart_Totals->__construct(Object(WC_Cart))
+#4 D:\wamp64\www\wordpress\wp-content\plugins\woocommerce\includes\class-wc-cart.php(1424): WC_Cart->calculate_totals()
+#5 D:\wamp64\www\wordpress\wp-content\themes\doAnCMS\functions.php(780): WC_Cart->set_quantity('1d7f7abc18fcb43...', 3, true)
+#6 D:\wamp64\www\wordpress\wp-includes\class-wp-hook.php(324): custom_update_cart_item('')
+#7 D:\wamp64\www\wordpress\wp-includes\class-wp-hook.php(348): WP_Hook->apply_filters('', Array)
+#8 D:\wamp64\www\wordpress\wp-includes\plugin.php(517): WP_Hook->do_action(Array)
+#9 D:\wamp64\www\wordpress\wp-admin\admin-ajax.php(192): do_action('wp_ajax_update_...')
+#10 {main}
+  thrown in D:\wamp64\www\wordpress\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php on line 229
+[18-Nov-2025 14:38:20 UTC] PHP Warning:  Undefined array key "1d7f7abc18fcb43975065399b0d1e48e" in D:\wamp64\www\wordpress\wp-content\plugins\woocommerce\includes\class-wc-cart.php on line 1418
+[18-Nov-2025 14:38:20 UTC] PHP Stack trace:
+[18-Nov-2025 14:38:20 UTC] PHP   1. {main}() D:\wamp64\www\wordpress\wp-admin\admin-ajax.php:0
+[18-Nov-2025 14:38:20 UTC] PHP   2. do_action($hook_name = 'wp_ajax_update_cart_item') D:\wamp64\www\wordpress\wp-admin\admin-ajax.php:192
+[18-Nov-2025 14:38:20 UTC] PHP   3. WP_Hook->do_action($args = [0 => '']) D:\wamp64\www\wordpress\wp-includes\plugin.php:517
+[18-Nov-2025 14:38:20 UTC] PHP   4. WP_Hook->apply_filters($value = '', $args = [0 => '']) D:\wamp64\www\wordpress\wp-includes\class-wp-hook.php:348
+[18-Nov-2025 14:38:20 UTC] PHP   5. custom_update_cart_item('') D:\wamp64\www\wordpress\wp-includes\class-wp-hook.php:324
+[18-Nov-2025 14:38:20 UTC] PHP   6. WC_Cart->set_quantity($cart_item_key = '1d7f7abc18fcb43975065399b0d1e48e', $quantity = 3, $refresh_totals = TRUE) D:\wamp64\www\wordpress\wp-content\themes\doAnCMS\functions.php:780
+[18-Nov-2025 14:38:20 UTC] PHP Warning:  Trying to access array offset on null in D:\wamp64\www\wordpress\wp-content\plugins\woocommerce\includes\class-wc-cart.php on line 1418
+[18-Nov-2025 14:38:20 UTC] PHP Stack trace:
+[18-Nov-2025 14:38:20 UTC] PHP   1. {main}() D:\wamp64\www\wordpress\wp-admin\admin-ajax.php:0
+[18-Nov-2025 14:38:20 UTC] PHP   2. do_action($hook_name = 'wp_ajax_update_cart_item') D:\wamp64\www\wordpress\wp-admin\admin-ajax.php:192
+[18-Nov-2025 14:38:20 UTC] PHP   3. WP_Hook->do_action($args = [0 => '']) D:\wamp64\www\wordpress\wp-includes\plugin.php:517
+[18-Nov-2025 14:38:20 UTC] PHP   4. WP_Hook->apply_filters($value = '', $args = [0 => '']) D:\wamp64\www\wordpress\wp-includes\class-wp-hook.php:348
+[18-Nov-2025 14:38:20 UTC] PHP   5. custom_update_cart_item('') D:\wamp64\www\wordpress\wp-includes\class-wp-hook.php:324
+[18-Nov-2025 14:38:20 UTC] PHP   6. WC_Cart->set_quantity($cart_item_key = '1d7f7abc18fcb43975065399b0d1e48e', $quantity = 3, $refresh_totals = TRUE) D:\wamp64\www\wordpress\wp-content\themes\doAnCMS\functions.php:780
+[18-Nov-2025 14:38:20 UTC] PHP Warning:  Undefined array key "data" in D:\wamp64\www\wordpress\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php on line 229
+[18-Nov-2025 14:38:20 UTC] PHP Stack trace:
+[18-Nov-2025 14:38:20 UTC] PHP   1. {main}() D:\wamp64\www\wordpress\wp-admin\admin-ajax.php:0
+[18-Nov-2025 14:38:20 UTC] PHP   2. do_action($hook_name = 'wp_ajax_update_cart_item') D:\wamp64\www\wordpress\wp-admin\admin-ajax.php:192
+[18-Nov-2025 14:38:20 UTC] PHP   3. WP_Hook->do_action($args = [0 => '']) D:\wamp64\www\wordpress\wp-includes\plugin.php:517
+[18-Nov-2025 14:38:20 UTC] PHP   4. WP_Hook->apply_filters($value = '', $args = [0 => '']) D:\wamp64\www\wordpress\wp-includes\class-wp-hook.php:348
+[18-Nov-2025 14:38:20 UTC] PHP   5. custom_update_cart_item('') D:\wamp64\www\wordpress\wp-includes\class-wp-hook.php:324
+[18-Nov-2025 14:38:20 UTC] PHP   6. WC_Cart->set_quantity($cart_item_key = '1d7f7abc18fcb43975065399b0d1e48e', $quantity = 3, $refresh_totals = TRUE) D:\wamp64\www\wordpress\wp-content\themes\doAnCMS\functions.php:780
+[18-Nov-2025 14:38:20 UTC] PHP   7. WC_Cart->calculate_totals() D:\wamp64\www\wordpress\wp-content\plugins\woocommerce\includes\class-wc-cart.php:1424
+[18-Nov-2025 14:38:20 UTC] PHP   8. WC_Cart_Totals->__construct($cart = class WC_Cart { public $cart_session_data = ['cart_contents_total' => 0, 'total' => 0, 'subtotal' => 0, 'subtotal_ex_tax' => 0, 'tax_total' => 0, 'taxes' => [...], 'shipping_taxes' => [...], 'discount_cart' => 0, 'discount_cart_tax' => 0, 'shipping_total' => 0, 'shipping_tax_total' => 0, 'coupon_discount_amounts' => [...], 'coupon_discount_tax_amounts' => [...], 'fee_total' => 0, 'fees' => [...]]; public $coupon_applied_count = []; public $cart_context = 'shortcode'; public $cart_contents = ['fc221309746013ac554571fbd180e1c8' => [...], '96da2f590cd7246bbde0051047b0d6f7' => [...], '3988c7f88ebcb58c6ce932b957b6f332' => [...], '38af86134b65d0f10fe33d30dd76442e' => [...], '2a38a4a9316c49e5a833517c45d31070' => [...], '92cc227532d17e56e07902b254dfad10' => [...], '1d7f7abc18fcb43975065399b0d1e48e' => [...]]; public $removed_cart_contents = ['42a0e188f5033bc65bf8d78622277c4e' => [...], '013d407166ec4fa56eb1e1f8cbe183b9' => [...], '02522a2b2726fb0a03bb19f2d8d9524d' => [...], '1d7f7abc18fcb43975065399b0d1e48e' => [...]]; public $applied_coupons = []; protected $shipping_methods = NULL; protected $has_calculated_shipping = FALSE; protected $default_totals = ['subtotal' => 0, 'subtotal_tax' => 0, 'shipping_total' => 0, 'shipping_tax' => 0, 'shipping_taxes' => [...], 'discount_total' => 0, 'discount_tax' => 0, 'cart_contents_total' => 0, 'cart_contents_tax' => 0, 'cart_contents_taxes' => [...], 'fee_total' => 0, 'fee_tax' => 0, 'fee_taxes' => [...], 'total' => 0, 'total_tax' => 0]; protected $totals = ['subtotal' => 0, 'subtotal_tax' => 0, 'shipping_total' => 0, 'shipping_tax' => 0, 'shipping_taxes' => [...], 'discount_total' => 0, 'discount_tax' => 0, 'cart_contents_total' => 0, 'cart_contents_tax' => 0, 'cart_contents_taxes' => [...], 'fee_total' => 0, 'fee_tax' => 0, 'fee_taxes' => [...], 'total' => 0, 'total_tax' => 0]; protected $session = class WC_Cart_Session { protected $cart = ... }; protected $fees_api = class WC_Cart_Fees { private $fees = [...]; private $default_fee_props = [...] }; public $coupon_discount_totals = []; public $coupon_discount_tax_totals = [] }) D:\wamp64\www\wordpress\wp-content\plugins\woocommerce\includes\class-wc-cart.php:1465
+[18-Nov-2025 14:38:20 UTC] PHP   9. WC_Cart_Totals->calculate() D:\wamp64\www\wordpress\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php:138
+[18-Nov-2025 14:38:20 UTC] PHP  10. WC_Cart_Totals->calculate_item_totals() D:\wamp64\www\wordpress\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php:147
+[18-Nov-2025 14:38:20 UTC] PHP  11. WC_Cart_Totals->get_items_from_cart() D:\wamp64\www\wordpress\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php:654
+[18-Nov-2025 14:38:20 UTC] PHP Fatal error:  Uncaught Error: Call to a member function get_tax_class() on null in D:\wamp64\www\wordpress\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php:229
+Stack trace:
+#0 D:\wamp64\www\wordpress\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php(654): WC_Cart_Totals->get_items_from_cart()
+#1 D:\wamp64\www\wordpress\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php(147): WC_Cart_Totals->calculate_item_totals()
+#2 D:\wamp64\www\wordpress\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php(138): WC_Cart_Totals->calculate()
+#3 D:\wamp64\www\wordpress\wp-content\plugins\woocommerce\includes\class-wc-cart.php(1465): WC_Cart_Totals->__construct(Object(WC_Cart))
+#4 D:\wamp64\www\wordpress\wp-content\plugins\woocommerce\includes\class-wc-cart.php(1424): WC_Cart->calculate_totals()
+#5 D:\wamp64\www\wordpress\wp-content\themes\doAnCMS\functions.php(780): WC_Cart->set_quantity('1d7f7abc18fcb43...', 3, true)
+#6 D:\wamp64\www\wordpress\wp-includes\class-wp-hook.php(324): custom_update_cart_item('')
+#7 D:\wamp64\www\wordpress\wp-includes\class-wp-hook.php(348): WP_Hook->apply_filters('', Array)
+#8 D:\wamp64\www\wordpress\wp-includes\plugin.php(517): WP_Hook->do_action(Array)
+#9 D:\wamp64\www\wordpress\wp-admin\admin-ajax.php(192): do_action('wp_ajax_update_...')
+#10 {main}
+  thrown in D:\wamp64\www\wordpress\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php on line 229
+[18-Nov-2025 14:38:21 UTC] PHP Warning:  Undefined array key "1d7f7abc18fcb43975065399b0d1e48e" in D:\wamp64\www\wordpress\wp-content\plugins\woocommerce\includes\class-wc-cart.php on line 1418
+[18-Nov-2025 14:38:21 UTC] PHP Stack trace:
+[18-Nov-2025 14:38:21 UTC] PHP   1. {main}() D:\wamp64\www\wordpress\wp-admin\admin-ajax.php:0
+[18-Nov-2025 14:38:21 UTC] PHP   2. do_action($hook_name = 'wp_ajax_update_cart_item') D:\wamp64\www\wordpress\wp-admin\admin-ajax.php:192
+[18-Nov-2025 14:38:21 UTC] PHP   3. WP_Hook->do_action($args = [0 => '']) D:\wamp64\www\wordpress\wp-includes\plugin.php:517
+[18-Nov-2025 14:38:21 UTC] PHP   4. WP_Hook->apply_filters($value = '', $args = [0 => '']) D:\wamp64\www\wordpress\wp-includes\class-wp-hook.php:348
+[18-Nov-2025 14:38:21 UTC] PHP   5. custom_update_cart_item('') D:\wamp64\www\wordpress\wp-includes\class-wp-hook.php:324
+[18-Nov-2025 14:38:21 UTC] PHP   6. WC_Cart->set_quantity($cart_item_key = '1d7f7abc18fcb43975065399b0d1e48e', $quantity = 3, $refresh_totals = TRUE) D:\wamp64\www\wordpress\wp-content\themes\doAnCMS\functions.php:780
+[18-Nov-2025 14:38:21 UTC] PHP Warning:  Trying to access array offset on null in D:\wamp64\www\wordpress\wp-content\plugins\woocommerce\includes\class-wc-cart.php on line 1418
+[18-Nov-2025 14:38:21 UTC] PHP Stack trace:
+[18-Nov-2025 14:38:21 UTC] PHP   1. {main}() D:\wamp64\www\wordpress\wp-admin\admin-ajax.php:0
+[18-Nov-2025 14:38:21 UTC] PHP   2. do_action($hook_name = 'wp_ajax_update_cart_item') D:\wamp64\www\wordpress\wp-admin\admin-ajax.php:192
+[18-Nov-2025 14:38:21 UTC] PHP   3. WP_Hook->do_action($args = [0 => '']) D:\wamp64\www\wordpress\wp-includes\plugin.php:517
+[18-Nov-2025 14:38:21 UTC] PHP   4. WP_Hook->apply_filters($value = '', $args = [0 => '']) D:\wamp64\www\wordpress\wp-includes\class-wp-hook.php:348
+[18-Nov-2025 14:38:21 UTC] PHP   5. custom_update_cart_item('') D:\wamp64\www\wordpress\wp-includes\class-wp-hook.php:324
+[18-Nov-2025 14:38:21 UTC] PHP   6. WC_Cart->set_quantity($cart_item_key = '1d7f7abc18fcb43975065399b0d1e48e', $quantity = 3, $refresh_totals = TRUE) D:\wamp64\www\wordpress\wp-content\themes\doAnCMS\functions.php:780
+[18-Nov-2025 14:38:21 UTC] PHP Warning:  Undefined array key "data" in D:\wamp64\www\wordpress\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php on line 229
+[18-Nov-2025 14:38:21 UTC] PHP Stack trace:
+[18-Nov-2025 14:38:21 UTC] PHP   1. {main}() D:\wamp64\www\wordpress\wp-admin\admin-ajax.php:0
+[18-Nov-2025 14:38:21 UTC] PHP   2. do_action($hook_name = 'wp_ajax_update_cart_item') D:\wamp64\www\wordpress\wp-admin\admin-ajax.php:192
+[18-Nov-2025 14:38:21 UTC] PHP   3. WP_Hook->do_action($args = [0 => '']) D:\wamp64\www\wordpress\wp-includes\plugin.php:517
+[18-Nov-2025 14:38:21 UTC] PHP   4. WP_Hook->apply_filters($value = '', $args = [0 => '']) D:\wamp64\www\wordpress\wp-includes\class-wp-hook.php:348
+[18-Nov-2025 14:38:21 UTC] PHP   5. custom_update_cart_item('') D:\wamp64\www\wordpress\wp-includes\class-wp-hook.php:324
+[18-Nov-2025 14:38:21 UTC] PHP   6. WC_Cart->set_quantity($cart_item_key = '1d7f7abc18fcb43975065399b0d1e48e', $quantity = 3, $refresh_totals = TRUE) D:\wamp64\www\wordpress\wp-content\themes\doAnCMS\functions.php:780
+[18-Nov-2025 14:38:21 UTC] PHP   7. WC_Cart->calculate_totals() D:\wamp64\www\wordpress\wp-content\plugins\woocommerce\includes\class-wc-cart.php:1424
+[18-Nov-2025 14:38:21 UTC] PHP   8. WC_Cart_Totals->__construct($cart = class WC_Cart { public $cart_session_data = ['cart_contents_total' => 0, 'total' => 0, 'subtotal' => 0, 'subtotal_ex_tax' => 0, 'tax_total' => 0, 'taxes' => [...], 'shipping_taxes' => [...], 'discount_cart' => 0, 'discount_cart_tax' => 0, 'shipping_total' => 0, 'shipping_tax_total' => 0, 'coupon_discount_amounts' => [...], 'coupon_discount_tax_amounts' => [...], 'fee_total' => 0, 'fees' => [...]]; public $coupon_applied_count = []; public $cart_context = 'shortcode'; public $cart_contents = ['fc221309746013ac554571fbd180e1c8' => [...], '96da2f590cd7246bbde0051047b0d6f7' => [...], '3988c7f88ebcb58c6ce932b957b6f332' => [...], '38af86134b65d0f10fe33d30dd76442e' => [...], '2a38a4a9316c49e5a833517c45d31070' => [...], '92cc227532d17e56e07902b254dfad10' => [...], '1d7f7abc18fcb43975065399b0d1e48e' => [...]]; public $removed_cart_contents = ['42a0e188f5033bc65bf8d78622277c4e' => [...], '013d407166ec4fa56eb1e1f8cbe183b9' => [...], '02522a2b2726fb0a03bb19f2d8d9524d' => [...], '1d7f7abc18fcb43975065399b0d1e48e' => [...]]; public $applied_coupons = []; protected $shipping_methods = NULL; protected $has_calculated_shipping = FALSE; protected $default_totals = ['subtotal' => 0, 'subtotal_tax' => 0, 'shipping_total' => 0, 'shipping_tax' => 0, 'shipping_taxes' => [...], 'discount_total' => 0, 'discount_tax' => 0, 'cart_contents_total' => 0, 'cart_contents_tax' => 0, 'cart_contents_taxes' => [...], 'fee_total' => 0, 'fee_tax' => 0, 'fee_taxes' => [...], 'total' => 0, 'total_tax' => 0]; protected $totals = ['subtotal' => 0, 'subtotal_tax' => 0, 'shipping_total' => 0, 'shipping_tax' => 0, 'shipping_taxes' => [...], 'discount_total' => 0, 'discount_tax' => 0, 'cart_contents_total' => 0, 'cart_contents_tax' => 0, 'cart_contents_taxes' => [...], 'fee_total' => 0, 'fee_tax' => 0, 'fee_taxes' => [...], 'total' => 0, 'total_tax' => 0]; protected $session = class WC_Cart_Session { protected $cart = ... }; protected $fees_api = class WC_Cart_Fees { private $fees = [...]; private $default_fee_props = [...] }; public $coupon_discount_totals = []; public $coupon_discount_tax_totals = [] }) D:\wamp64\www\wordpress\wp-content\plugins\woocommerce\includes\class-wc-cart.php:1465
+[18-Nov-2025 14:38:21 UTC] PHP   9. WC_Cart_Totals->calculate() D:\wamp64\www\wordpress\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php:138
+[18-Nov-2025 14:38:21 UTC] PHP  10. WC_Cart_Totals->calculate_item_totals() D:\wamp64\www\wordpress\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php:147
+[18-Nov-2025 14:38:21 UTC] PHP  11. WC_Cart_Totals->get_items_from_cart() D:\wamp64\www\wordpress\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php:654
+[18-Nov-2025 14:38:21 UTC] PHP Fatal error:  Uncaught Error: Call to a member function get_tax_class() on null in D:\wamp64\www\wordpress\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php:229
+Stack trace:
+#0 D:\wamp64\www\wordpress\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php(654): WC_Cart_Totals->get_items_from_cart()
+#1 D:\wamp64\www\wordpress\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php(147): WC_Cart_Totals->calculate_item_totals()
+#2 D:\wamp64\www\wordpress\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php(138): WC_Cart_Totals->calculate()
+#3 D:\wamp64\www\wordpress\wp-content\plugins\woocommerce\includes\class-wc-cart.php(1465): WC_Cart_Totals->__construct(Object(WC_Cart))
+#4 D:\wamp64\www\wordpress\wp-content\plugins\woocommerce\includes\class-wc-cart.php(1424): WC_Cart->calculate_totals()
+#5 D:\wamp64\www\wordpress\wp-content\themes\doAnCMS\functions.php(780): WC_Cart->set_quantity('1d7f7abc18fcb43...', 3, true)
+#6 D:\wamp64\www\wordpress\wp-includes\class-wp-hook.php(324): custom_update_cart_item('')
+#7 D:\wamp64\www\wordpress\wp-includes\class-wp-hook.php(348): WP_Hook->apply_filters('', Array)
+#8 D:\wamp64\www\wordpress\wp-includes\plugin.php(517): WP_Hook->do_action(Array)
+#9 D:\wamp64\www\wordpress\wp-admin\admin-ajax.php(192): do_action('wp_ajax_update_...')
+#10 {main}
+  thrown in D:\wamp64\www\wordpress\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php on line 229
+[18-Nov-2025 14:38:21 UTC] PHP Warning:  Undefined array key "1d7f7abc18fcb43975065399b0d1e48e" in D:\wamp64\www\wordpress\wp-content\plugins\woocommerce\includes\class-wc-cart.php on line 1418
+[18-Nov-2025 14:38:21 UTC] PHP Stack trace:
+[18-Nov-2025 14:38:21 UTC] PHP   1. {main}() D:\wamp64\www\wordpress\wp-admin\admin-ajax.php:0
+[18-Nov-2025 14:38:21 UTC] PHP   2. do_action($hook_name = 'wp_ajax_update_cart_item') D:\wamp64\www\wordpress\wp-admin\admin-ajax.php:192
+[18-Nov-2025 14:38:21 UTC] PHP   3. WP_Hook->do_action($args = [0 => '']) D:\wamp64\www\wordpress\wp-includes\plugin.php:517
+[18-Nov-2025 14:38:21 UTC] PHP   4. WP_Hook->apply_filters($value = '', $args = [0 => '']) D:\wamp64\www\wordpress\wp-includes\class-wp-hook.php:348
+[18-Nov-2025 14:38:21 UTC] PHP   5. custom_update_cart_item('') D:\wamp64\www\wordpress\wp-includes\class-wp-hook.php:324
+[18-Nov-2025 14:38:21 UTC] PHP   6. WC_Cart->set_quantity($cart_item_key = '1d7f7abc18fcb43975065399b0d1e48e', $quantity = 3, $refresh_totals = TRUE) D:\wamp64\www\wordpress\wp-content\themes\doAnCMS\functions.php:780
+[18-Nov-2025 14:38:21 UTC] PHP Warning:  Trying to access array offset on null in D:\wamp64\www\wordpress\wp-content\plugins\woocommerce\includes\class-wc-cart.php on line 1418
+[18-Nov-2025 14:38:21 UTC] PHP Stack trace:
+[18-Nov-2025 14:38:21 UTC] PHP   1. {main}() D:\wamp64\www\wordpress\wp-admin\admin-ajax.php:0
+[18-Nov-2025 14:38:21 UTC] PHP   2. do_action($hook_name = 'wp_ajax_update_cart_item') D:\wamp64\www\wordpress\wp-admin\admin-ajax.php:192
+[18-Nov-2025 14:38:21 UTC] PHP   3. WP_Hook->do_action($args = [0 => '']) D:\wamp64\www\wordpress\wp-includes\plugin.php:517
+[18-Nov-2025 14:38:21 UTC] PHP   4. WP_Hook->apply_filters($value = '', $args = [0 => '']) D:\wamp64\www\wordpress\wp-includes\class-wp-hook.php:348
+[18-Nov-2025 14:38:21 UTC] PHP   5. custom_update_cart_item('') D:\wamp64\www\wordpress\wp-includes\class-wp-hook.php:324
+[18-Nov-2025 14:38:21 UTC] PHP   6. WC_Cart->set_quantity($cart_item_key = '1d7f7abc18fcb43975065399b0d1e48e', $quantity = 3, $refresh_totals = TRUE) D:\wamp64\www\wordpress\wp-content\themes\doAnCMS\functions.php:780
+[18-Nov-2025 14:38:21 UTC] PHP Warning:  Undefined array key "data" in D:\wamp64\www\wordpress\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php on line 229
+[18-Nov-2025 14:38:21 UTC] PHP Stack trace:
+[18-Nov-2025 14:38:21 UTC] PHP   1. {main}() D:\wamp64\www\wordpress\wp-admin\admin-ajax.php:0
+[18-Nov-2025 14:38:21 UTC] PHP   2. do_action($hook_name = 'wp_ajax_update_cart_item') D:\wamp64\www\wordpress\wp-admin\admin-ajax.php:192
+[18-Nov-2025 14:38:21 UTC] PHP   3. WP_Hook->do_action($args = [0 => '']) D:\wamp64\www\wordpress\wp-includes\plugin.php:517
+[18-Nov-2025 14:38:21 UTC] PHP   4. WP_Hook->apply_filters($value = '', $args = [0 => '']) D:\wamp64\www\wordpress\wp-includes\class-wp-hook.php:348
+[18-Nov-2025 14:38:21 UTC] PHP   5. custom_update_cart_item('') D:\wamp64\www\wordpress\wp-includes\class-wp-hook.php:324
+[18-Nov-2025 14:38:21 UTC] PHP   6. WC_Cart->set_quantity($cart_item_key = '1d7f7abc18fcb43975065399b0d1e48e', $quantity = 3, $refresh_totals = TRUE) D:\wamp64\www\wordpress\wp-content\themes\doAnCMS\functions.php:780
+[18-Nov-2025 14:38:21 UTC] PHP   7. WC_Cart->calculate_totals() D:\wamp64\www\wordpress\wp-content\plugins\woocommerce\includes\class-wc-cart.php:1424
+[18-Nov-2025 14:38:21 UTC] PHP   8. WC_Cart_Totals->__construct($cart = class WC_Cart { public $cart_session_data = ['cart_contents_total' => 0, 'total' => 0, 'subtotal' => 0, 'subtotal_ex_tax' => 0, 'tax_total' => 0, 'taxes' => [...], 'shipping_taxes' => [...], 'discount_cart' => 0, 'discount_cart_tax' => 0, 'shipping_total' => 0, 'shipping_tax_total' => 0, 'coupon_discount_amounts' => [...], 'coupon_discount_tax_amounts' => [...], 'fee_total' => 0, 'fees' => [...]]; public $coupon_applied_count = []; public $cart_context = 'shortcode'; public $cart_contents = ['fc221309746013ac554571fbd180e1c8' => [...], '96da2f590cd7246bbde0051047b0d6f7' => [...], '3988c7f88ebcb58c6ce932b957b6f332' => [...], '38af86134b65d0f10fe33d30dd76442e' => [...], '2a38a4a9316c49e5a833517c45d31070' => [...], '92cc227532d17e56e07902b254dfad10' => [...], '1d7f7abc18fcb43975065399b0d1e48e' => [...]]; public $removed_cart_contents = ['42a0e188f5033bc65bf8d78622277c4e' => [...], '013d407166ec4fa56eb1e1f8cbe183b9' => [...], '02522a2b2726fb0a03bb19f2d8d9524d' => [...], '1d7f7abc18fcb43975065399b0d1e48e' => [...]]; public $applied_coupons = []; protected $shipping_methods = NULL; protected $has_calculated_shipping = FALSE; protected $default_totals = ['subtotal' => 0, 'subtotal_tax' => 0, 'shipping_total' => 0, 'shipping_tax' => 0, 'shipping_taxes' => [...], 'discount_total' => 0, 'discount_tax' => 0, 'cart_contents_total' => 0, 'cart_contents_tax' => 0, 'cart_contents_taxes' => [...], 'fee_total' => 0, 'fee_tax' => 0, 'fee_taxes' => [...], 'total' => 0, 'total_tax' => 0]; protected $totals = ['subtotal' => 0, 'subtotal_tax' => 0, 'shipping_total' => 0, 'shipping_tax' => 0, 'shipping_taxes' => [...], 'discount_total' => 0, 'discount_tax' => 0, 'cart_contents_total' => 0, 'cart_contents_tax' => 0, 'cart_contents_taxes' => [...], 'fee_total' => 0, 'fee_tax' => 0, 'fee_taxes' => [...], 'total' => 0, 'total_tax' => 0]; protected $session = class WC_Cart_Session { protected $cart = ... }; protected $fees_api = class WC_Cart_Fees { private $fees = [...]; private $default_fee_props = [...] }; public $coupon_discount_totals = []; public $coupon_discount_tax_totals = [] }) D:\wamp64\www\wordpress\wp-content\plugins\woocommerce\includes\class-wc-cart.php:1465
+[18-Nov-2025 14:38:21 UTC] PHP   9. WC_Cart_Totals->calculate() D:\wamp64\www\wordpress\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php:138
+[18-Nov-2025 14:38:21 UTC] PHP  10. WC_Cart_Totals->calculate_item_totals() D:\wamp64\www\wordpress\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php:147
+[18-Nov-2025 14:38:21 UTC] PHP  11. WC_Cart_Totals->get_items_from_cart() D:\wamp64\www\wordpress\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php:654
+[18-Nov-2025 14:38:21 UTC] PHP Fatal error:  Uncaught Error: Call to a member function get_tax_class() on null in D:\wamp64\www\wordpress\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php:229
+Stack trace:
+#0 D:\wamp64\www\wordpress\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php(654): WC_Cart_Totals->get_items_from_cart()
+#1 D:\wamp64\www\wordpress\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php(147): WC_Cart_Totals->calculate_item_totals()
+#2 D:\wamp64\www\wordpress\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php(138): WC_Cart_Totals->calculate()
+#3 D:\wamp64\www\wordpress\wp-content\plugins\woocommerce\includes\class-wc-cart.php(1465): WC_Cart_Totals->__construct(Object(WC_Cart))
+#4 D:\wamp64\www\wordpress\wp-content\plugins\woocommerce\includes\class-wc-cart.php(1424): WC_Cart->calculate_totals()
+#5 D:\wamp64\www\wordpress\wp-content\themes\doAnCMS\functions.php(780): WC_Cart->set_quantity('1d7f7abc18fcb43...', 3, true)
+#6 D:\wamp64\www\wordpress\wp-includes\class-wp-hook.php(324): custom_update_cart_item('')
+#7 D:\wamp64\www\wordpress\wp-includes\class-wp-hook.php(348): WP_Hook->apply_filters('', Array)
+#8 D:\wamp64\www\wordpress\wp-includes\plugin.php(517): WP_Hook->do_action(Array)
+#9 D:\wamp64\www\wordpress\wp-admin\admin-ajax.php(192): do_action('wp_ajax_update_...')
+#10 {main}
+  thrown in D:\wamp64\www\wordpress\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php on line 229
+[18-Nov-2025 14:38:29 UTC] PHP Warning:  Undefined array key "fc221309746013ac554571fbd180e1c8" in D:\wamp64\www\wordpress\wp-content\themes\doAnCMS\functions.php on line 782
+[18-Nov-2025 14:38:29 UTC] PHP Stack trace:
+[18-Nov-2025 14:38:29 UTC] PHP   1. {main}() D:\wamp64\www\wordpress\wp-admin\admin-ajax.php:0
+[18-Nov-2025 14:38:29 UTC] PHP   2. do_action($hook_name = 'wp_ajax_update_cart_item') D:\wamp64\www\wordpress\wp-admin\admin-ajax.php:192
+[18-Nov-2025 14:38:29 UTC] PHP   3. WP_Hook->do_action($args = [0 => '']) D:\wamp64\www\wordpress\wp-includes\plugin.php:517
+[18-Nov-2025 14:38:29 UTC] PHP   4. WP_Hook->apply_filters($value = '', $args = [0 => '']) D:\wamp64\www\wordpress\wp-includes\class-wp-hook.php:348
+[18-Nov-2025 14:38:29 UTC] PHP   5. custom_update_cart_item('') D:\wamp64\www\wordpress\wp-includes\class-wp-hook.php:324
+[18-Nov-2025 14:38:29 UTC] PHP Warning:  Trying to access array offset on null in D:\wamp64\www\wordpress\wp-content\themes\doAnCMS\functions.php on line 783
+[18-Nov-2025 14:38:29 UTC] PHP Stack trace:
+[18-Nov-2025 14:38:29 UTC] PHP   1. {main}() D:\wamp64\www\wordpress\wp-admin\admin-ajax.php:0
+[18-Nov-2025 14:38:29 UTC] PHP   2. do_action($hook_name = 'wp_ajax_update_cart_item') D:\wamp64\www\wordpress\wp-admin\admin-ajax.php:192
+[18-Nov-2025 14:38:29 UTC] PHP   3. WP_Hook->do_action($args = [0 => '']) D:\wamp64\www\wordpress\wp-includes\plugin.php:517
+[18-Nov-2025 14:38:29 UTC] PHP   4. WP_Hook->apply_filters($value = '', $args = [0 => '']) D:\wamp64\www\wordpress\wp-includes\class-wp-hook.php:348
+[18-Nov-2025 14:38:29 UTC] PHP   5. custom_update_cart_item('') D:\wamp64\www\wordpress\wp-includes\class-wp-hook.php:324
+[18-Nov-2025 14:38:29 UTC] PHP Warning:  Trying to access array offset on null in D:\wamp64\www\wordpress\wp-content\themes\doAnCMS\functions.php on line 784
+[18-Nov-2025 14:38:29 UTC] PHP Stack trace:
+[18-Nov-2025 14:38:29 UTC] PHP   1. {main}() D:\wamp64\www\wordpress\wp-admin\admin-ajax.php:0
+[18-Nov-2025 14:38:29 UTC] PHP   2. do_action($hook_name = 'wp_ajax_update_cart_item') D:\wamp64\www\wordpress\wp-admin\admin-ajax.php:192
+[18-Nov-2025 14:38:29 UTC] PHP   3. WP_Hook->do_action($args = [0 => '']) D:\wamp64\www\wordpress\wp-includes\plugin.php:517
+[18-Nov-2025 14:38:29 UTC] PHP   4. WP_Hook->apply_filters($value = '', $args = [0 => '']) D:\wamp64\www\wordpress\wp-includes\class-wp-hook.php:348
+[18-Nov-2025 14:38:29 UTC] PHP   5. custom_update_cart_item('') D:\wamp64\www\wordpress\wp-includes\class-wp-hook.php:324
+[18-Nov-2025 14:38:29 UTC] PHP Fatal error:  Uncaught Error: Call to a member function get_price() on null in D:\wamp64\www\wordpress\wp-content\plugins\woocommerce\includes\class-wc-cart.php:2173
+Stack trace:
+#0 D:\wamp64\www\wordpress\wp-content\themes\doAnCMS\functions.php(784): WC_Cart->get_product_subtotal(NULL, NULL)
+#1 D:\wamp64\www\wordpress\wp-includes\class-wp-hook.php(324): custom_update_cart_item('')
+#2 D:\wamp64\www\wordpress\wp-includes\class-wp-hook.php(348): WP_Hook->apply_filters('', Array)
+#3 D:\wamp64\www\wordpress\wp-includes\plugin.php(517): WP_Hook->do_action(Array)
+#4 D:\wamp64\www\wordpress\wp-admin\admin-ajax.php(192): do_action('wp_ajax_update_...')
+#5 {main}
+  thrown in D:\wamp64\www\wordpress\wp-content\plugins\woocommerce\includes\class-wc-cart.php on line 2173
+[18-Nov-2025 14:38:33 UTC] PHP Warning:  Undefined array key "fc221309746013ac554571fbd180e1c8" in D:\wamp64\www\wordpress\wp-content\plugins\woocommerce\includes\class-wc-cart.php on line 1418
+[18-Nov-2025 14:38:33 UTC] PHP Stack trace:
+[18-Nov-2025 14:38:33 UTC] PHP   1. {main}() D:\wamp64\www\wordpress\wp-admin\admin-ajax.php:0
+[18-Nov-2025 14:38:33 UTC] PHP   2. do_action($hook_name = 'wp_ajax_update_cart_item') D:\wamp64\www\wordpress\wp-admin\admin-ajax.php:192
+[18-Nov-2025 14:38:33 UTC] PHP   3. WP_Hook->do_action($args = [0 => '']) D:\wamp64\www\wordpress\wp-includes\plugin.php:517
+[18-Nov-2025 14:38:33 UTC] PHP   4. WP_Hook->apply_filters($value = '', $args = [0 => '']) D:\wamp64\www\wordpress\wp-includes\class-wp-hook.php:348
+[18-Nov-2025 14:38:33 UTC] PHP   5. custom_update_cart_item('') D:\wamp64\www\wordpress\wp-includes\class-wp-hook.php:324
+[18-Nov-2025 14:38:33 UTC] PHP   6. WC_Cart->set_quantity($cart_item_key = 'fc221309746013ac554571fbd180e1c8', $quantity = 3, $refresh_totals = TRUE) D:\wamp64\www\wordpress\wp-content\themes\doAnCMS\functions.php:780
+[18-Nov-2025 14:38:33 UTC] PHP Warning:  Trying to access array offset on null in D:\wamp64\www\wordpress\wp-content\plugins\woocommerce\includes\class-wc-cart.php on line 1418
+[18-Nov-2025 14:38:33 UTC] PHP Stack trace:
+[18-Nov-2025 14:38:33 UTC] PHP   1. {main}() D:\wamp64\www\wordpress\wp-admin\admin-ajax.php:0
+[18-Nov-2025 14:38:33 UTC] PHP   2. do_action($hook_name = 'wp_ajax_update_cart_item') D:\wamp64\www\wordpress\wp-admin\admin-ajax.php:192
+[18-Nov-2025 14:38:33 UTC] PHP   3. WP_Hook->do_action($args = [0 => '']) D:\wamp64\www\wordpress\wp-includes\plugin.php:517
+[18-Nov-2025 14:38:33 UTC] PHP   4. WP_Hook->apply_filters($value = '', $args = [0 => '']) D:\wamp64\www\wordpress\wp-includes\class-wp-hook.php:348
+[18-Nov-2025 14:38:33 UTC] PHP   5. custom_update_cart_item('') D:\wamp64\www\wordpress\wp-includes\class-wp-hook.php:324
+[18-Nov-2025 14:38:33 UTC] PHP   6. WC_Cart->set_quantity($cart_item_key = 'fc221309746013ac554571fbd180e1c8', $quantity = 3, $refresh_totals = TRUE) D:\wamp64\www\wordpress\wp-content\themes\doAnCMS\functions.php:780
+[18-Nov-2025 14:38:33 UTC] PHP Warning:  Undefined array key "data" in D:\wamp64\www\wordpress\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php on line 229
+[18-Nov-2025 14:38:33 UTC] PHP Stack trace:
+[18-Nov-2025 14:38:33 UTC] PHP   1. {main}() D:\wamp64\www\wordpress\wp-admin\admin-ajax.php:0
+[18-Nov-2025 14:38:33 UTC] PHP   2. do_action($hook_name = 'wp_ajax_update_cart_item') D:\wamp64\www\wordpress\wp-admin\admin-ajax.php:192
+[18-Nov-2025 14:38:33 UTC] PHP   3. WP_Hook->do_action($args = [0 => '']) D:\wamp64\www\wordpress\wp-includes\plugin.php:517
+[18-Nov-2025 14:38:33 UTC] PHP   4. WP_Hook->apply_filters($value = '', $args = [0 => '']) D:\wamp64\www\wordpress\wp-includes\class-wp-hook.php:348
+[18-Nov-2025 14:38:33 UTC] PHP   5. custom_update_cart_item('') D:\wamp64\www\wordpress\wp-includes\class-wp-hook.php:324
+[18-Nov-2025 14:38:33 UTC] PHP   6. WC_Cart->set_quantity($cart_item_key = 'fc221309746013ac554571fbd180e1c8', $quantity = 3, $refresh_totals = TRUE) D:\wamp64\www\wordpress\wp-content\themes\doAnCMS\functions.php:780
+[18-Nov-2025 14:38:33 UTC] PHP   7. WC_Cart->calculate_totals() D:\wamp64\www\wordpress\wp-content\plugins\woocommerce\includes\class-wc-cart.php:1424
+[18-Nov-2025 14:38:33 UTC] PHP   8. WC_Cart_Totals->__construct($cart = class WC_Cart { public $cart_session_data = ['cart_contents_total' => 0, 'total' => 0, 'subtotal' => 0, 'subtotal_ex_tax' => 0, 'tax_total' => 0, 'taxes' => [...], 'shipping_taxes' => [...], 'discount_cart' => 0, 'discount_cart_tax' => 0, 'shipping_total' => 0, 'shipping_tax_total' => 0, 'coupon_discount_amounts' => [...], 'coupon_discount_tax_amounts' => [...], 'fee_total' => 0, 'fees' => [...]]; public $coupon_applied_count = []; public $cart_context = 'shortcode'; public $cart_contents = ['96da2f590cd7246bbde0051047b0d6f7' => [...], '3988c7f88ebcb58c6ce932b957b6f332' => [...], '38af86134b65d0f10fe33d30dd76442e' => [...], '2a38a4a9316c49e5a833517c45d31070' => [...], '92cc227532d17e56e07902b254dfad10' => [...], 'fc221309746013ac554571fbd180e1c8' => [...]]; public $removed_cart_contents = ['42a0e188f5033bc65bf8d78622277c4e' => [...], '013d407166ec4fa56eb1e1f8cbe183b9' => [...], '02522a2b2726fb0a03bb19f2d8d9524d' => [...], '1d7f7abc18fcb43975065399b0d1e48e' => [...], 'fc221309746013ac554571fbd180e1c8' => [...]]; public $applied_coupons = []; protected $shipping_methods = NULL; protected $has_calculated_shipping = FALSE; protected $default_totals = ['subtotal' => 0, 'subtotal_tax' => 0, 'shipping_total' => 0, 'shipping_tax' => 0, 'shipping_taxes' => [...], 'discount_total' => 0, 'discount_tax' => 0, 'cart_contents_total' => 0, 'cart_contents_tax' => 0, 'cart_contents_taxes' => [...], 'fee_total' => 0, 'fee_tax' => 0, 'fee_taxes' => [...], 'total' => 0, 'total_tax' => 0]; protected $totals = ['subtotal' => 0, 'subtotal_tax' => 0, 'shipping_total' => 0, 'shipping_tax' => 0, 'shipping_taxes' => [...], 'discount_total' => 0, 'discount_tax' => 0, 'cart_contents_total' => 0, 'cart_contents_tax' => 0, 'cart_contents_taxes' => [...], 'fee_total' => 0, 'fee_tax' => 0, 'fee_taxes' => [...], 'total' => 0, 'total_tax' => 0]; protected $session = class WC_Cart_Session { protected $cart = ... }; protected $fees_api = class WC_Cart_Fees { private $fees = [...]; private $default_fee_props = [...] }; public $coupon_discount_totals = []; public $coupon_discount_tax_totals = [] }) D:\wamp64\www\wordpress\wp-content\plugins\woocommerce\includes\class-wc-cart.php:1465
+[18-Nov-2025 14:38:33 UTC] PHP   9. WC_Cart_Totals->calculate() D:\wamp64\www\wordpress\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php:138
+[18-Nov-2025 14:38:33 UTC] PHP  10. WC_Cart_Totals->calculate_item_totals() D:\wamp64\www\wordpress\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php:147
+[18-Nov-2025 14:38:33 UTC] PHP  11. WC_Cart_Totals->get_items_from_cart() D:\wamp64\www\wordpress\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php:654
+[18-Nov-2025 14:38:33 UTC] PHP Fatal error:  Uncaught Error: Call to a member function get_tax_class() on null in D:\wamp64\www\wordpress\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php:229
+Stack trace:
+#0 D:\wamp64\www\wordpress\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php(654): WC_Cart_Totals->get_items_from_cart()
+#1 D:\wamp64\www\wordpress\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php(147): WC_Cart_Totals->calculate_item_totals()
+#2 D:\wamp64\www\wordpress\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php(138): WC_Cart_Totals->calculate()
+#3 D:\wamp64\www\wordpress\wp-content\plugins\woocommerce\includes\class-wc-cart.php(1465): WC_Cart_Totals->__construct(Object(WC_Cart))
+#4 D:\wamp64\www\wordpress\wp-content\plugins\woocommerce\includes\class-wc-cart.php(1424): WC_Cart->calculate_totals()
+#5 D:\wamp64\www\wordpress\wp-content\themes\doAnCMS\functions.php(780): WC_Cart->set_quantity('fc221309746013a...', 3, true)
+#6 D:\wamp64\www\wordpress\wp-includes\class-wp-hook.php(324): custom_update_cart_item('')
+#7 D:\wamp64\www\wordpress\wp-includes\class-wp-hook.php(348): WP_Hook->apply_filters('', Array)
+#8 D:\wamp64\www\wordpress\wp-includes\plugin.php(517): WP_Hook->do_action(Array)
+#9 D:\wamp64\www\wordpress\wp-admin\admin-ajax.php(192): do_action('wp_ajax_update_...')
+#10 {main}
+  thrown in D:\wamp64\www\wordpress\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php on line 229
+[18-Nov-2025 14:38:35 UTC] PHP Warning:  Undefined array key "fc221309746013ac554571fbd180e1c8" in D:\wamp64\www\wordpress\wp-content\plugins\woocommerce\includes\class-wc-cart.php on line 1418
+[18-Nov-2025 14:38:35 UTC] PHP Stack trace:
+[18-Nov-2025 14:38:35 UTC] PHP   1. {main}() D:\wamp64\www\wordpress\wp-admin\admin-ajax.php:0
+[18-Nov-2025 14:38:35 UTC] PHP   2. do_action($hook_name = 'wp_ajax_update_cart_item') D:\wamp64\www\wordpress\wp-admin\admin-ajax.php:192
+[18-Nov-2025 14:38:35 UTC] PHP   3. WP_Hook->do_action($args = [0 => '']) D:\wamp64\www\wordpress\wp-includes\plugin.php:517
+[18-Nov-2025 14:38:35 UTC] PHP   4. WP_Hook->apply_filters($value = '', $args = [0 => '']) D:\wamp64\www\wordpress\wp-includes\class-wp-hook.php:348
+[18-Nov-2025 14:38:35 UTC] PHP   5. custom_update_cart_item('') D:\wamp64\www\wordpress\wp-includes\class-wp-hook.php:324
+[18-Nov-2025 14:38:35 UTC] PHP   6. WC_Cart->set_quantity($cart_item_key = 'fc221309746013ac554571fbd180e1c8', $quantity = 3, $refresh_totals = TRUE) D:\wamp64\www\wordpress\wp-content\themes\doAnCMS\functions.php:780
+[18-Nov-2025 14:38:35 UTC] PHP Warning:  Trying to access array offset on null in D:\wamp64\www\wordpress\wp-content\plugins\woocommerce\includes\class-wc-cart.php on line 1418
+[18-Nov-2025 14:38:35 UTC] PHP Stack trace:
+[18-Nov-2025 14:38:35 UTC] PHP   1. {main}() D:\wamp64\www\wordpress\wp-admin\admin-ajax.php:0
+[18-Nov-2025 14:38:35 UTC] PHP   2. do_action($hook_name = 'wp_ajax_update_cart_item') D:\wamp64\www\wordpress\wp-admin\admin-ajax.php:192
+[18-Nov-2025 14:38:35 UTC] PHP   3. WP_Hook->do_action($args = [0 => '']) D:\wamp64\www\wordpress\wp-includes\plugin.php:517
+[18-Nov-2025 14:38:35 UTC] PHP   4. WP_Hook->apply_filters($value = '', $args = [0 => '']) D:\wamp64\www\wordpress\wp-includes\class-wp-hook.php:348
+[18-Nov-2025 14:38:35 UTC] PHP   5. custom_update_cart_item('') D:\wamp64\www\wordpress\wp-includes\class-wp-hook.php:324
+[18-Nov-2025 14:38:35 UTC] PHP   6. WC_Cart->set_quantity($cart_item_key = 'fc221309746013ac554571fbd180e1c8', $quantity = 3, $refresh_totals = TRUE) D:\wamp64\www\wordpress\wp-content\themes\doAnCMS\functions.php:780
+[18-Nov-2025 14:38:35 UTC] PHP Warning:  Undefined array key "data" in D:\wamp64\www\wordpress\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php on line 229
+[18-Nov-2025 14:38:35 UTC] PHP Stack trace:
+[18-Nov-2025 14:38:35 UTC] PHP   1. {main}() D:\wamp64\www\wordpress\wp-admin\admin-ajax.php:0
+[18-Nov-2025 14:38:35 UTC] PHP   2. do_action($hook_name = 'wp_ajax_update_cart_item') D:\wamp64\www\wordpress\wp-admin\admin-ajax.php:192
+[18-Nov-2025 14:38:35 UTC] PHP   3. WP_Hook->do_action($args = [0 => '']) D:\wamp64\www\wordpress\wp-includes\plugin.php:517
+[18-Nov-2025 14:38:35 UTC] PHP   4. WP_Hook->apply_filters($value = '', $args = [0 => '']) D:\wamp64\www\wordpress\wp-includes\class-wp-hook.php:348
+[18-Nov-2025 14:38:35 UTC] PHP   5. custom_update_cart_item('') D:\wamp64\www\wordpress\wp-includes\class-wp-hook.php:324
+[18-Nov-2025 14:38:35 UTC] PHP   6. WC_Cart->set_quantity($cart_item_key = 'fc221309746013ac554571fbd180e1c8', $quantity = 3, $refresh_totals = TRUE) D:\wamp64\www\wordpress\wp-content\themes\doAnCMS\functions.php:780
+[18-Nov-2025 14:38:35 UTC] PHP   7. WC_Cart->calculate_totals() D:\wamp64\www\wordpress\wp-content\plugins\woocommerce\includes\class-wc-cart.php:1424
+[18-Nov-2025 14:38:35 UTC] PHP   8. WC_Cart_Totals->__construct($cart = class WC_Cart { public $cart_session_data = ['cart_contents_total' => 0, 'total' => 0, 'subtotal' => 0, 'subtotal_ex_tax' => 0, 'tax_total' => 0, 'taxes' => [...], 'shipping_taxes' => [...], 'discount_cart' => 0, 'discount_cart_tax' => 0, 'shipping_total' => 0, 'shipping_tax_total' => 0, 'coupon_discount_amounts' => [...], 'coupon_discount_tax_amounts' => [...], 'fee_total' => 0, 'fees' => [...]]; public $coupon_applied_count = []; public $cart_context = 'shortcode'; public $cart_contents = ['96da2f590cd7246bbde0051047b0d6f7' => [...], '3988c7f88ebcb58c6ce932b957b6f332' => [...], '38af86134b65d0f10fe33d30dd76442e' => [...], '2a38a4a9316c49e5a833517c45d31070' => [...], '92cc227532d17e56e07902b254dfad10' => [...], 'fc221309746013ac554571fbd180e1c8' => [...]]; public $removed_cart_contents = ['42a0e188f5033bc65bf8d78622277c4e' => [...], '013d407166ec4fa56eb1e1f8cbe183b9' => [...], '02522a2b2726fb0a03bb19f2d8d9524d' => [...], '1d7f7abc18fcb43975065399b0d1e48e' => [...], 'fc221309746013ac554571fbd180e1c8' => [...]]; public $applied_coupons = []; protected $shipping_methods = NULL; protected $has_calculated_shipping = FALSE; protected $default_totals = ['subtotal' => 0, 'subtotal_tax' => 0, 'shipping_total' => 0, 'shipping_tax' => 0, 'shipping_taxes' => [...], 'discount_total' => 0, 'discount_tax' => 0, 'cart_contents_total' => 0, 'cart_contents_tax' => 0, 'cart_contents_taxes' => [...], 'fee_total' => 0, 'fee_tax' => 0, 'fee_taxes' => [...], 'total' => 0, 'total_tax' => 0]; protected $totals = ['subtotal' => 0, 'subtotal_tax' => 0, 'shipping_total' => 0, 'shipping_tax' => 0, 'shipping_taxes' => [...], 'discount_total' => 0, 'discount_tax' => 0, 'cart_contents_total' => 0, 'cart_contents_tax' => 0, 'cart_contents_taxes' => [...], 'fee_total' => 0, 'fee_tax' => 0, 'fee_taxes' => [...], 'total' => 0, 'total_tax' => 0]; protected $session = class WC_Cart_Session { protected $cart = ... }; protected $fees_api = class WC_Cart_Fees { private $fees = [...]; private $default_fee_props = [...] }; public $coupon_discount_totals = []; public $coupon_discount_tax_totals = [] }) D:\wamp64\www\wordpress\wp-content\plugins\woocommerce\includes\class-wc-cart.php:1465
+[18-Nov-2025 14:38:35 UTC] PHP   9. WC_Cart_Totals->calculate() D:\wamp64\www\wordpress\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php:138
+[18-Nov-2025 14:38:35 UTC] PHP  10. WC_Cart_Totals->calculate_item_totals() D:\wamp64\www\wordpress\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php:147
+[18-Nov-2025 14:38:35 UTC] PHP  11. WC_Cart_Totals->get_items_from_cart() D:\wamp64\www\wordpress\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php:654
+[18-Nov-2025 14:38:35 UTC] PHP Fatal error:  Uncaught Error: Call to a member function get_tax_class() on null in D:\wamp64\www\wordpress\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php:229
+Stack trace:
+#0 D:\wamp64\www\wordpress\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php(654): WC_Cart_Totals->get_items_from_cart()
+#1 D:\wamp64\www\wordpress\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php(147): WC_Cart_Totals->calculate_item_totals()
+#2 D:\wamp64\www\wordpress\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php(138): WC_Cart_Totals->calculate()
+#3 D:\wamp64\www\wordpress\wp-content\plugins\woocommerce\includes\class-wc-cart.php(1465): WC_Cart_Totals->__construct(Object(WC_Cart))
+#4 D:\wamp64\www\wordpress\wp-content\plugins\woocommerce\includes\class-wc-cart.php(1424): WC_Cart->calculate_totals()
+#5 D:\wamp64\www\wordpress\wp-content\themes\doAnCMS\functions.php(780): WC_Cart->set_quantity('fc221309746013a...', 3, true)
+#6 D:\wamp64\www\wordpress\wp-includes\class-wp-hook.php(324): custom_update_cart_item('')
+#7 D:\wamp64\www\wordpress\wp-includes\class-wp-hook.php(348): WP_Hook->apply_filters('', Array)
+#8 D:\wamp64\www\wordpress\wp-includes\plugin.php(517): WP_Hook->do_action(Array)
+#9 D:\wamp64\www\wordpress\wp-admin\admin-ajax.php(192): do_action('wp_ajax_update_...')
+#10 {main}
+  thrown in D:\wamp64\www\wordpress\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php on line 229
+[18-Nov-2025 15:47:06 UTC] PHP Fatal error:  Uncaught TypeError: call_user_func_array(): Argument #1 ($callback) must be a valid callback, function "custom_update_cart_item" not found or invalid function name in D:\wamp64\www\wordpress\wp-includes\class-wp-hook.php:324
+Stack trace:
+#0 D:\wamp64\www\wordpress\wp-includes\class-wp-hook.php(348): WP_Hook->apply_filters('', Array)
+#1 D:\wamp64\www\wordpress\wp-includes\plugin.php(517): WP_Hook->do_action(Array)
+#2 D:\wamp64\www\wordpress\wp-admin\admin-ajax.php(192): do_action('wp_ajax_update_...')
+#3 {main}
+  thrown in D:\wamp64\www\wordpress\wp-includes\class-wp-hook.php on line 324
+[18-Nov-2025 15:47:10 UTC] PHP Fatal error:  Uncaught TypeError: call_user_func_array(): Argument #1 ($callback) must be a valid callback, function "custom_update_cart_item" not found or invalid function name in D:\wamp64\www\wordpress\wp-includes\class-wp-hook.php:324
+Stack trace:
+#0 D:\wamp64\www\wordpress\wp-includes\class-wp-hook.php(348): WP_Hook->apply_filters('', Array)
+#1 D:\wamp64\www\wordpress\wp-includes\plugin.php(517): WP_Hook->do_action(Array)
+#2 D:\wamp64\www\wordpress\wp-admin\admin-ajax.php(192): do_action('wp_ajax_update_...')
+#3 {main}
+  thrown in D:\wamp64\www\wordpress\wp-includes\class-wp-hook.php on line 324
+[18-Nov-2025 15:47:13 UTC] PHP Fatal error:  Uncaught TypeError: call_user_func_array(): Argument #1 ($callback) must be a valid callback, function "custom_update_cart_item" not found or invalid function name in D:\wamp64\www\wordpress\wp-includes\class-wp-hook.php:324
+Stack trace:
+#0 D:\wamp64\www\wordpress\wp-includes\class-wp-hook.php(348): WP_Hook->apply_filters('', Array)
+#1 D:\wamp64\www\wordpress\wp-includes\plugin.php(517): WP_Hook->do_action(Array)
+#2 D:\wamp64\www\wordpress\wp-admin\admin-ajax.php(192): do_action('wp_ajax_update_...')
+#3 {main}
+  thrown in D:\wamp64\www\wordpress\wp-includes\class-wp-hook.php on line 324
