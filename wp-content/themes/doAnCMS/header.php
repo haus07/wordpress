@@ -332,7 +332,7 @@
         <div class="nav-wrapper">
             <div class="nav-container">
                 <a href="<?php echo esc_url(home_url('/')); ?>">HOME</a>
-                <a href="<?php echo esc_url(home_url('/#organic')); ?>">VỀ ORGANIC SHOP</a>
+                <a href="<?php echo esc_url(home_url('/about-us')); ?>">VỀ ORGANIC SHOP</a>
                 <a href="<?php echo esc_url(home_url('/blog-page')); ?>">BLOGS ORGANIC</a>
                 <a href="<?php echo esc_url(home_url('/contact')); ?>">LIÊN HỆ</a>
             </div>
