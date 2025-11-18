@@ -4219,31 +4219,127 @@ Stack trace:
 [17-Nov-2025 15:08:26 UTC] PHP   8. _doing_it_wrong($function_name = 'wp_enqueue_script()', $message = '"wp-editor" script should not be enqueued together with the new widgets editor (wp-edit-widgets or wp-customize-widgets).', $version = '5.8.0') C:\wamp64\www\wordpress\wp-includes\widgets.php:2102
 [17-Nov-2025 15:08:26 UTC] PHP   9. wp_trigger_error($function_name = '', $message = 'Function wp_enqueue_script() was called <strong>incorrectly</strong>. "wp-editor" script should not be enqueued together with the new widgets editor (wp-edit-widgets or wp-customize-widgets). Please see <a href="https://developer.wordpress.org/advanced-administration/debug/debug-wordpress/">Debugging in WordPress</a> for more information. (This message was added in version 5.8.0.)', $error_level = *uninitialized*) C:\wamp64\www\wordpress\wp-includes\functions.php:6061
 [17-Nov-2025 15:08:26 UTC] PHP  10. trigger_error($message = 'Function wp_enqueue_script() was called <strong>incorrectly</strong>. "wp-editor" script should not be enqueued together with the new widgets editor (wp-edit-widgets or wp-customize-widgets). Please see <a href="https://developer.wordpress.org/advanced-administration/debug/debug-wordpress/">Debugging in WordPress</a> for more information. (This message was added in version 5.8.0.)', $error_level = 1024) C:\wamp64\www\wordpress\wp-includes\functions.php:6121
-[18-Nov-2025 03:37:19 UTC] PHP Warning:  wp_version_check(): An unexpected error occurred. Something may be wrong with WordPress.org or this server&#8217;s configuration. If you continue to have problems, please try the <a href="https://wordpress.org/support/forums/">support forums</a>. (WordPress could not establish a secure connection to WordPress.org. Please contact your server administrator.) in C:\wamp64\www\wordpress\wp-includes\functions.php on line 6121
-[18-Nov-2025 03:37:19 UTC] PHP Stack trace:
-[18-Nov-2025 03:37:19 UTC] PHP   1. {main}() C:\wamp64\www\wordpress\wp-cron.php:0
-[18-Nov-2025 03:37:19 UTC] PHP   2. do_action_ref_array($hook_name = 'wp_version_check', $args = []) C:\wamp64\www\wordpress\wp-cron.php:191
-[18-Nov-2025 03:37:19 UTC] PHP   3. WP_Hook->do_action($args = []) C:\wamp64\www\wordpress\wp-includes\plugin.php:565
-[18-Nov-2025 03:37:19 UTC] PHP   4. WP_Hook->apply_filters($value = '', $args = []) C:\wamp64\www\wordpress\wp-includes\class-wp-hook.php:348
-[18-Nov-2025 03:37:19 UTC] PHP   5. wp_version_check($extra_stats = *uninitialized*, $force_check = *uninitialized*) C:\wamp64\www\wordpress\wp-includes\class-wp-hook.php:324
-[18-Nov-2025 03:37:19 UTC] PHP   6. wp_trigger_error($function_name = 'wp_version_check', $message = 'An unexpected error occurred. Something may be wrong with WordPress.org or this server&#8217;s configuration. If you continue to have problems, please try the <a href="https://wordpress.org/support/forums/">support forums</a>. (WordPress could not establish a secure connection to WordPress.org. Please contact your server administrator.)', $error_level = 512) C:\wamp64\www\wordpress\wp-includes\update.php:216
-[18-Nov-2025 03:37:19 UTC] PHP   7. trigger_error($message = 'wp_version_check(): An unexpected error occurred. Something may be wrong with WordPress.org or this server&#8217;s configuration. If you continue to have problems, please try the <a href="https://wordpress.org/support/forums/">support forums</a>. (WordPress could not establish a secure connection to WordPress.org. Please contact your server administrator.)', $error_level = 512) C:\wamp64\www\wordpress\wp-includes\functions.php:6121
-[18-Nov-2025 03:37:19 UTC] MailPoet: Failed to fetch translations from WordPress.com API with error: cURL error 6: Could not resolve host: translate.wordpress.com
-[18-Nov-2025 03:37:19 UTC] PHP Warning:  wp_update_plugins(): An unexpected error occurred. Something may be wrong with WordPress.org or this server&#8217;s configuration. If you continue to have problems, please try the <a href="https://wordpress.org/support/forums/">support forums</a>. (WordPress could not establish a secure connection to WordPress.org. Please contact your server administrator.) in C:\wamp64\www\wordpress\wp-includes\functions.php on line 6121
-[18-Nov-2025 03:37:19 UTC] PHP Stack trace:
-[18-Nov-2025 03:37:19 UTC] PHP   1. {main}() C:\wamp64\www\wordpress\wp-cron.php:0
-[18-Nov-2025 03:37:19 UTC] PHP   2. do_action_ref_array($hook_name = 'wp_update_plugins', $args = []) C:\wamp64\www\wordpress\wp-cron.php:191
-[18-Nov-2025 03:37:19 UTC] PHP   3. WP_Hook->do_action($args = []) C:\wamp64\www\wordpress\wp-includes\plugin.php:565
-[18-Nov-2025 03:37:19 UTC] PHP   4. WP_Hook->apply_filters($value = '', $args = []) C:\wamp64\www\wordpress\wp-includes\class-wp-hook.php:348
-[18-Nov-2025 03:37:19 UTC] PHP   5. wp_update_plugins($extra_stats = *uninitialized*) C:\wamp64\www\wordpress\wp-includes\class-wp-hook.php:324
-[18-Nov-2025 03:37:19 UTC] PHP   6. wp_trigger_error($function_name = 'wp_update_plugins', $message = 'An unexpected error occurred. Something may be wrong with WordPress.org or this server&#8217;s configuration. If you continue to have problems, please try the <a href="https://wordpress.org/support/forums/">support forums</a>. (WordPress could not establish a secure connection to WordPress.org. Please contact your server administrator.)', $error_level = 512) C:\wamp64\www\wordpress\wp-includes\update.php:444
-[18-Nov-2025 03:37:19 UTC] PHP   7. trigger_error($message = 'wp_update_plugins(): An unexpected error occurred. Something may be wrong with WordPress.org or this server&#8217;s configuration. If you continue to have problems, please try the <a href="https://wordpress.org/support/forums/">support forums</a>. (WordPress could not establish a secure connection to WordPress.org. Please contact your server administrator.)', $error_level = 512) C:\wamp64\www\wordpress\wp-includes\functions.php:6121
-[18-Nov-2025 03:37:19 UTC] PHP Warning:  wp_update_themes(): An unexpected error occurred. Something may be wrong with WordPress.org or this server&#8217;s configuration. If you continue to have problems, please try the <a href="https://wordpress.org/support/forums/">support forums</a>. (WordPress could not establish a secure connection to WordPress.org. Please contact your server administrator.) in C:\wamp64\www\wordpress\wp-includes\functions.php on line 6121
-[18-Nov-2025 03:37:19 UTC] PHP Stack trace:
-[18-Nov-2025 03:37:19 UTC] PHP   1. {main}() C:\wamp64\www\wordpress\wp-cron.php:0
-[18-Nov-2025 03:37:19 UTC] PHP   2. do_action_ref_array($hook_name = 'wp_update_themes', $args = []) C:\wamp64\www\wordpress\wp-cron.php:191
-[18-Nov-2025 03:37:19 UTC] PHP   3. WP_Hook->do_action($args = []) C:\wamp64\www\wordpress\wp-includes\plugin.php:565
-[18-Nov-2025 03:37:19 UTC] PHP   4. WP_Hook->apply_filters($value = '', $args = []) C:\wamp64\www\wordpress\wp-includes\class-wp-hook.php:348
-[18-Nov-2025 03:37:19 UTC] PHP   5. wp_update_themes($extra_stats = *uninitialized*) C:\wamp64\www\wordpress\wp-includes\class-wp-hook.php:324
-[18-Nov-2025 03:37:19 UTC] PHP   6. wp_trigger_error($function_name = 'wp_update_themes', $message = 'An unexpected error occurred. Something may be wrong with WordPress.org or this server&#8217;s configuration. If you continue to have problems, please try the <a href="https://wordpress.org/support/forums/">support forums</a>. (WordPress could not establish a secure connection to WordPress.org. Please contact your server administrator.)', $error_level = 512) C:\wamp64\www\wordpress\wp-includes\update.php:732
-[18-Nov-2025 03:37:19 UTC] PHP   7. trigger_error($message = 'wp_update_themes(): An unexpected error occurred. Something may be wrong with WordPress.org or this server&#8217;s configuration. If you continue to have problems, please try the <a href="https://wordpress.org/support/forums/">support forums</a>. (WordPress could not establish a secure connection to WordPress.org. Please contact your server administrator.)', $error_level = 512) C:\wamp64\www\wordpress\wp-includes\functions.php:6121
+[18-Nov-2025 12:50:16 UTC] Automatic updates starting...
+[18-Nov-2025 12:50:18 UTC]   Automatic plugin updates starting...
+[18-Nov-2025 12:50:18 UTC]   Automatic plugin updates complete.
+[18-Nov-2025 12:50:19 UTC]   Automatic theme updates starting...
+[18-Nov-2025 12:50:19 UTC]   Automatic theme updates complete.
+[18-Nov-2025 12:50:19 UTC] Automatic updates complete.
+[18-Nov-2025 12:52:54 UTC] 🔹 Current User ID: 1
+[18-Nov-2025 12:52:59 UTC] ✅ Post "Lợi ích của rau hữu cơ" được tạo với ID: 2033
+[18-Nov-2025 12:53:05 UTC] ✅ Post "Cách chọn thực phẩm hữu cơ" được tạo với ID: 2035
+[18-Nov-2025 12:53:08 UTC] ✅ Post "Thực phẩm hữu cơ cho bé" được tạo với ID: 2037
+[18-Nov-2025 12:53:09 UTC] ✅ Post "Top 5 loại trái cây organic" được tạo với ID: 2039
+[18-Nov-2025 12:53:10 UTC] ✅ Post "Organic vs Thực phẩm thông thường" được tạo với ID: 2041
+[18-Nov-2025 12:53:10 UTC] ✅ Post "Cách trồng rau hữu cơ tại nhà" được tạo với ID: 2043
+[18-Nov-2025 12:53:11 UTC] ✅ Post "Smoothie healthy từ organic" được tạo với ID: 2045
+[18-Nov-2025 12:53:12 UTC] ✅ Post "Các loại hạt hữu cơ tốt cho sức khỏe" được tạo với ID: 2047
+[18-Nov-2025 12:53:13 UTC] ✅ Post "Chế độ ăn organic giảm cân" được tạo với ID: 2049
+[18-Nov-2025 12:53:13 UTC] ✅ Post "Organic food: Xu hướng 2025" được tạo với ID: 2051
+[18-Nov-2025 12:53:13 UTC] ✅ Hoàn tất tạo 10 bài viết mẫu với ảnh và content dài.
+[18-Nov-2025 12:53:16 UTC] 🔹 Current User ID: 1
+[18-Nov-2025 12:53:22 UTC] ✅ Post "Lợi ích của rau hữu cơ" được tạo với ID: 2053
+[18-Nov-2025 12:53:27 UTC] ✅ Post "Cách chọn thực phẩm hữu cơ" được tạo với ID: 2055
+[18-Nov-2025 12:53:30 UTC] ✅ Post "Thực phẩm hữu cơ cho bé" được tạo với ID: 2057
+[18-Nov-2025 12:53:30 UTC] ✅ Post "Top 5 loại trái cây organic" được tạo với ID: 2059
+[18-Nov-2025 12:53:31 UTC] ✅ Post "Organic vs Thực phẩm thông thường" được tạo với ID: 2061
+[18-Nov-2025 12:53:31 UTC] ✅ Post "Cách trồng rau hữu cơ tại nhà" được tạo với ID: 2063
+[18-Nov-2025 12:53:32 UTC] ✅ Post "Smoothie healthy từ organic" được tạo với ID: 2065
+[18-Nov-2025 12:53:34 UTC] ✅ Post "Các loại hạt hữu cơ tốt cho sức khỏe" được tạo với ID: 2067
+[18-Nov-2025 12:53:34 UTC] ✅ Post "Chế độ ăn organic giảm cân" được tạo với ID: 2069
+[18-Nov-2025 12:53:34 UTC] ✅ Post "Organic food: Xu hướng 2025" được tạo với ID: 2071
+[18-Nov-2025 12:53:34 UTC] ✅ Hoàn tất tạo 10 bài viết mẫu với ảnh và content dài.
+[18-Nov-2025 12:55:19 UTC] 🔹 Current User ID: 1
+[18-Nov-2025 12:55:24 UTC] ✅ Post "Lợi ích của rau hữu cơ" được tạo với ID: 2093
+[18-Nov-2025 12:55:31 UTC] ✅ Post "Cách chọn thực phẩm hữu cơ" được tạo với ID: 2095
+[18-Nov-2025 12:55:34 UTC] ✅ Post "Thực phẩm hữu cơ cho bé" được tạo với ID: 2097
+[18-Nov-2025 12:55:35 UTC] ✅ Post "Top 5 loại trái cây organic" được tạo với ID: 2099
+[18-Nov-2025 12:55:35 UTC] ✅ Post "Organic vs Thực phẩm thông thường" được tạo với ID: 2101
+[18-Nov-2025 12:55:36 UTC] ✅ Post "Cách trồng rau hữu cơ tại nhà" được tạo với ID: 2103
+[18-Nov-2025 12:55:37 UTC] ✅ Post "Smoothie healthy từ organic" được tạo với ID: 2105
+[18-Nov-2025 12:55:38 UTC] ✅ Post "Các loại hạt hữu cơ tốt cho sức khỏe" được tạo với ID: 2107
+[18-Nov-2025 12:55:39 UTC] ✅ Post "Chế độ ăn organic giảm cân" được tạo với ID: 2109
+[18-Nov-2025 12:55:39 UTC] ✅ Post "Organic food: Xu hướng 2025" được tạo với ID: 2111
+[18-Nov-2025 12:55:39 UTC] ✅ Hoàn tất tạo 10 bài viết mẫu với ảnh và content dài.
+[18-Nov-2025 13:08:12 UTC] PHP Deprecated:  File Theme without sidebar.php is <strong>deprecated</strong> since version 3.0.0 with no alternative available. Please include a sidebar.php template in your theme. in D:\wamp64\www\wordpress\wp-includes\functions.php on line 6121
+[18-Nov-2025 13:08:12 UTC] PHP Stack trace:
+[18-Nov-2025 13:08:12 UTC] PHP   1. {main}() D:\wamp64\www\wordpress\index.php:0
+[18-Nov-2025 13:08:12 UTC] PHP   2. require() D:\wamp64\www\wordpress\index.php:17
+[18-Nov-2025 13:08:12 UTC] PHP   3. require_once() D:\wamp64\www\wordpress\wp-blog-header.php:19
+[18-Nov-2025 13:08:12 UTC] PHP   4. include() D:\wamp64\www\wordpress\wp-includes\template-loader.php:106
+[18-Nov-2025 13:08:12 UTC] PHP   5. do_action($hook_name = 'woocommerce_sidebar') D:\wamp64\www\wordpress\wp-content\plugins\woocommerce\templates\archive-product.php:95
+[18-Nov-2025 13:08:12 UTC] PHP   6. WP_Hook->do_action($args = [0 => '']) D:\wamp64\www\wordpress\wp-includes\plugin.php:517
+[18-Nov-2025 13:08:12 UTC] PHP   7. WP_Hook->apply_filters($value = '', $args = [0 => '']) D:\wamp64\www\wordpress\wp-includes\class-wp-hook.php:348
+[18-Nov-2025 13:08:12 UTC] PHP   8. woocommerce_get_sidebar('') D:\wamp64\www\wordpress\wp-includes\class-wp-hook.php:324
+[18-Nov-2025 13:08:12 UTC] PHP   9. wc_get_template($template_name = 'global/sidebar.php', $args = *uninitialized*, $template_path = *uninitialized*, $default_path = *uninitialized*) D:\wamp64\www\wordpress\wp-content\plugins\woocommerce\includes\wc-template-functions.php:1077
+[18-Nov-2025 13:08:12 UTC] PHP  10. include() D:\wamp64\www\wordpress\wp-content\plugins\woocommerce\includes\wc-core-functions.php:346
+[18-Nov-2025 13:08:12 UTC] PHP  11. get_sidebar($name = 'shop', $args = *uninitialized*) D:\wamp64\www\wordpress\wp-content\plugins\woocommerce\templates\global\sidebar.php:22
+[18-Nov-2025 13:08:12 UTC] PHP  12. locate_template($template_names = [0 => 'sidebar-shop.php', 1 => 'sidebar.php'], $load = TRUE, $load_once = TRUE, $args = []) D:\wamp64\www\wordpress\wp-includes\general-template.php:136
+[18-Nov-2025 13:08:12 UTC] PHP  13. load_template($_template_file = 'D:\\wamp64\\www\\wordpress/wp-includes/theme-compat/sidebar.php', $load_once = TRUE, $args = []) D:\wamp64\www\wordpress\wp-includes\template.php:745
+[18-Nov-2025 13:08:12 UTC] PHP  14. require_once() D:\wamp64\www\wordpress\wp-includes\template.php:810
+[18-Nov-2025 13:08:12 UTC] PHP  15. _deprecated_file($file = 'Theme without sidebar.php', $version = '3.0.0', $replacement = NULL, $message = 'Please include a sidebar.php template in your theme.') D:\wamp64\www\wordpress\wp-includes\theme-compat\sidebar.php:9
+[18-Nov-2025 13:08:12 UTC] PHP  16. wp_trigger_error($function_name = '', $message = 'File Theme without sidebar.php is <strong>deprecated</strong> since version 3.0.0 with no alternative available. Please include a sidebar.php template in your theme.', $error_level = 16384) D:\wamp64\www\wordpress\wp-includes\functions.php:5831
+[18-Nov-2025 13:08:12 UTC] PHP  17. trigger_error($message = 'File Theme without sidebar.php is <strong>deprecated</strong> since version 3.0.0 with no alternative available. Please include a sidebar.php template in your theme.', $error_level = 16384) D:\wamp64\www\wordpress\wp-includes\functions.php:6121
+[18-Nov-2025 13:08:32 UTC] PHP Deprecated:  File Theme without sidebar.php is <strong>deprecated</strong> since version 3.0.0 with no alternative available. Please include a sidebar.php template in your theme. in D:\wamp64\www\wordpress\wp-includes\functions.php on line 6121
+[18-Nov-2025 13:08:32 UTC] PHP Stack trace:
+[18-Nov-2025 13:08:32 UTC] PHP   1. {main}() D:\wamp64\www\wordpress\index.php:0
+[18-Nov-2025 13:08:32 UTC] PHP   2. require() D:\wamp64\www\wordpress\index.php:17
+[18-Nov-2025 13:08:32 UTC] PHP   3. require_once() D:\wamp64\www\wordpress\wp-blog-header.php:19
+[18-Nov-2025 13:08:32 UTC] PHP   4. include() D:\wamp64\www\wordpress\wp-includes\template-loader.php:106
+[18-Nov-2025 13:08:32 UTC] PHP   5. do_action($hook_name = 'woocommerce_sidebar') D:\wamp64\www\wordpress\wp-content\plugins\woocommerce\templates\archive-product.php:95
+[18-Nov-2025 13:08:32 UTC] PHP   6. WP_Hook->do_action($args = [0 => '']) D:\wamp64\www\wordpress\wp-includes\plugin.php:517
+[18-Nov-2025 13:08:32 UTC] PHP   7. WP_Hook->apply_filters($value = '', $args = [0 => '']) D:\wamp64\www\wordpress\wp-includes\class-wp-hook.php:348
+[18-Nov-2025 13:08:32 UTC] PHP   8. woocommerce_get_sidebar('') D:\wamp64\www\wordpress\wp-includes\class-wp-hook.php:324
+[18-Nov-2025 13:08:32 UTC] PHP   9. wc_get_template($template_name = 'global/sidebar.php', $args = *uninitialized*, $template_path = *uninitialized*, $default_path = *uninitialized*) D:\wamp64\www\wordpress\wp-content\plugins\woocommerce\includes\wc-template-functions.php:1077
+[18-Nov-2025 13:08:32 UTC] PHP  10. include() D:\wamp64\www\wordpress\wp-content\plugins\woocommerce\includes\wc-core-functions.php:346
+[18-Nov-2025 13:08:32 UTC] PHP  11. get_sidebar($name = 'shop', $args = *uninitialized*) D:\wamp64\www\wordpress\wp-content\plugins\woocommerce\templates\global\sidebar.php:22
+[18-Nov-2025 13:08:32 UTC] PHP  12. locate_template($template_names = [0 => 'sidebar-shop.php', 1 => 'sidebar.php'], $load = TRUE, $load_once = TRUE, $args = []) D:\wamp64\www\wordpress\wp-includes\general-template.php:136
+[18-Nov-2025 13:08:32 UTC] PHP  13. load_template($_template_file = 'D:\\wamp64\\www\\wordpress/wp-includes/theme-compat/sidebar.php', $load_once = TRUE, $args = []) D:\wamp64\www\wordpress\wp-includes\template.php:745
+[18-Nov-2025 13:08:32 UTC] PHP  14. require_once() D:\wamp64\www\wordpress\wp-includes\template.php:810
+[18-Nov-2025 13:08:32 UTC] PHP  15. _deprecated_file($file = 'Theme without sidebar.php', $version = '3.0.0', $replacement = NULL, $message = 'Please include a sidebar.php template in your theme.') D:\wamp64\www\wordpress\wp-includes\theme-compat\sidebar.php:9
+[18-Nov-2025 13:08:32 UTC] PHP  16. wp_trigger_error($function_name = '', $message = 'File Theme without sidebar.php is <strong>deprecated</strong> since version 3.0.0 with no alternative available. Please include a sidebar.php template in your theme.', $error_level = 16384) D:\wamp64\www\wordpress\wp-includes\functions.php:5831
+[18-Nov-2025 13:08:32 UTC] PHP  17. trigger_error($message = 'File Theme without sidebar.php is <strong>deprecated</strong> since version 3.0.0 with no alternative available. Please include a sidebar.php template in your theme.', $error_level = 16384) D:\wamp64\www\wordpress\wp-includes\functions.php:6121
+[18-Nov-2025 13:12:58 UTC] PHP Deprecated:  File Theme without sidebar.php is <strong>deprecated</strong> since version 3.0.0 with no alternative available. Please include a sidebar.php template in your theme. in D:\wamp64\www\wordpress\wp-includes\functions.php on line 6121
+[18-Nov-2025 13:12:58 UTC] PHP Stack trace:
+[18-Nov-2025 13:12:58 UTC] PHP   1. {main}() D:\wamp64\www\wordpress\index.php:0
+[18-Nov-2025 13:12:58 UTC] PHP   2. require() D:\wamp64\www\wordpress\index.php:17
+[18-Nov-2025 13:12:58 UTC] PHP   3. require_once() D:\wamp64\www\wordpress\wp-blog-header.php:19
+[18-Nov-2025 13:12:58 UTC] PHP   4. include() D:\wamp64\www\wordpress\wp-includes\template-loader.php:106
+[18-Nov-2025 13:12:58 UTC] PHP   5. do_action($hook_name = 'woocommerce_sidebar') D:\wamp64\www\wordpress\wp-content\plugins\woocommerce\templates\archive-product.php:95
+[18-Nov-2025 13:12:58 UTC] PHP   6. WP_Hook->do_action($args = [0 => '']) D:\wamp64\www\wordpress\wp-includes\plugin.php:517
+[18-Nov-2025 13:12:58 UTC] PHP   7. WP_Hook->apply_filters($value = '', $args = [0 => '']) D:\wamp64\www\wordpress\wp-includes\class-wp-hook.php:348
+[18-Nov-2025 13:12:58 UTC] PHP   8. woocommerce_get_sidebar('') D:\wamp64\www\wordpress\wp-includes\class-wp-hook.php:324
+[18-Nov-2025 13:12:58 UTC] PHP   9. wc_get_template($template_name = 'global/sidebar.php', $args = *uninitialized*, $template_path = *uninitialized*, $default_path = *uninitialized*) D:\wamp64\www\wordpress\wp-content\plugins\woocommerce\includes\wc-template-functions.php:1077
+[18-Nov-2025 13:12:58 UTC] PHP  10. include() D:\wamp64\www\wordpress\wp-content\plugins\woocommerce\includes\wc-core-functions.php:346
+[18-Nov-2025 13:12:58 UTC] PHP  11. get_sidebar($name = 'shop', $args = *uninitialized*) D:\wamp64\www\wordpress\wp-content\plugins\woocommerce\templates\global\sidebar.php:22
+[18-Nov-2025 13:12:58 UTC] PHP  12. locate_template($template_names = [0 => 'sidebar-shop.php', 1 => 'sidebar.php'], $load = TRUE, $load_once = TRUE, $args = []) D:\wamp64\www\wordpress\wp-includes\general-template.php:136
+[18-Nov-2025 13:12:58 UTC] PHP  13. load_template($_template_file = 'D:\\wamp64\\www\\wordpress/wp-includes/theme-compat/sidebar.php', $load_once = TRUE, $args = []) D:\wamp64\www\wordpress\wp-includes\template.php:745
+[18-Nov-2025 13:12:58 UTC] PHP  14. require_once() D:\wamp64\www\wordpress\wp-includes\template.php:810
+[18-Nov-2025 13:12:58 UTC] PHP  15. _deprecated_file($file = 'Theme without sidebar.php', $version = '3.0.0', $replacement = NULL, $message = 'Please include a sidebar.php template in your theme.') D:\wamp64\www\wordpress\wp-includes\theme-compat\sidebar.php:9
+[18-Nov-2025 13:12:58 UTC] PHP  16. wp_trigger_error($function_name = '', $message = 'File Theme without sidebar.php is <strong>deprecated</strong> since version 3.0.0 with no alternative available. Please include a sidebar.php template in your theme.', $error_level = 16384) D:\wamp64\www\wordpress\wp-includes\functions.php:5831
+[18-Nov-2025 13:12:58 UTC] PHP  17. trigger_error($message = 'File Theme without sidebar.php is <strong>deprecated</strong> since version 3.0.0 with no alternative available. Please include a sidebar.php template in your theme.', $error_level = 16384) D:\wamp64\www\wordpress\wp-includes\functions.php:6121
+[18-Nov-2025 13:19:33 UTC] PHP Deprecated:  File Theme without sidebar.php is <strong>deprecated</strong> since version 3.0.0 with no alternative available. Please include a sidebar.php template in your theme. in D:\wamp64\www\wordpress\wp-includes\functions.php on line 6121
+[18-Nov-2025 13:19:33 UTC] PHP Stack trace:
+[18-Nov-2025 13:19:33 UTC] PHP   1. {main}() D:\wamp64\www\wordpress\index.php:0
+[18-Nov-2025 13:19:33 UTC] PHP   2. require() D:\wamp64\www\wordpress\index.php:17
+[18-Nov-2025 13:19:33 UTC] PHP   3. require_once() D:\wamp64\www\wordpress\wp-blog-header.php:19
+[18-Nov-2025 13:19:33 UTC] PHP   4. include() D:\wamp64\www\wordpress\wp-includes\template-loader.php:106
+[18-Nov-2025 13:19:33 UTC] PHP   5. do_action($hook_name = 'woocommerce_sidebar') D:\wamp64\www\wordpress\wp-content\plugins\woocommerce\templates\archive-product.php:95
+[18-Nov-2025 13:19:33 UTC] PHP   6. WP_Hook->do_action($args = [0 => '']) D:\wamp64\www\wordpress\wp-includes\plugin.php:517
+[18-Nov-2025 13:19:33 UTC] PHP   7. WP_Hook->apply_filters($value = '', $args = [0 => '']) D:\wamp64\www\wordpress\wp-includes\class-wp-hook.php:348
+[18-Nov-2025 13:19:33 UTC] PHP   8. woocommerce_get_sidebar('') D:\wamp64\www\wordpress\wp-includes\class-wp-hook.php:324
+[18-Nov-2025 13:19:33 UTC] PHP   9. wc_get_template($template_name = 'global/sidebar.php', $args = *uninitialized*, $template_path = *uninitialized*, $default_path = *uninitialized*) D:\wamp64\www\wordpress\wp-content\plugins\woocommerce\includes\wc-template-functions.php:1077
+[18-Nov-2025 13:19:33 UTC] PHP  10. include() D:\wamp64\www\wordpress\wp-content\plugins\woocommerce\includes\wc-core-functions.php:346
+[18-Nov-2025 13:19:33 UTC] PHP  11. get_sidebar($name = 'shop', $args = *uninitialized*) D:\wamp64\www\wordpress\wp-content\plugins\woocommerce\templates\global\sidebar.php:22
+[18-Nov-2025 13:19:33 UTC] PHP  12. locate_template($template_names = [0 => 'sidebar-shop.php', 1 => 'sidebar.php'], $load = TRUE, $load_once = TRUE, $args = []) D:\wamp64\www\wordpress\wp-includes\general-template.php:136
+[18-Nov-2025 13:19:33 UTC] PHP  13. load_template($_template_file = 'D:\\wamp64\\www\\wordpress/wp-includes/theme-compat/sidebar.php', $load_once = TRUE, $args = []) D:\wamp64\www\wordpress\wp-includes\template.php:745
+[18-Nov-2025 13:19:33 UTC] PHP  14. require_once() D:\wamp64\www\wordpress\wp-includes\template.php:810
+[18-Nov-2025 13:19:33 UTC] PHP  15. _deprecated_file($file = 'Theme without sidebar.php', $version = '3.0.0', $replacement = NULL, $message = 'Please include a sidebar.php template in your theme.') D:\wamp64\www\wordpress\wp-includes\theme-compat\sidebar.php:9
+[18-Nov-2025 13:19:33 UTC] PHP  16. wp_trigger_error($function_name = '', $message = 'File Theme without sidebar.php is <strong>deprecated</strong> since version 3.0.0 with no alternative available. Please include a sidebar.php template in your theme.', $error_level = 16384) D:\wamp64\www\wordpress\wp-includes\functions.php:5831
+[18-Nov-2025 13:19:33 UTC] PHP  17. trigger_error($message = 'File Theme without sidebar.php is <strong>deprecated</strong> since version 3.0.0 with no alternative available. Please include a sidebar.php template in your theme.', $error_level = 16384) D:\wamp64\www\wordpress\wp-includes\functions.php:6121
+[18-Nov-2025 13:56:12 UTC] Automatic updates starting...
+[18-Nov-2025 13:56:12 UTC]   Automatic plugin updates starting...
+[18-Nov-2025 13:56:12 UTC]   Automatic plugin updates complete.
+[18-Nov-2025 13:56:12 UTC]   Automatic theme updates starting...
+[18-Nov-2025 13:56:12 UTC]   Automatic theme updates complete.
+[18-Nov-2025 13:56:12 UTC] Automatic updates complete.

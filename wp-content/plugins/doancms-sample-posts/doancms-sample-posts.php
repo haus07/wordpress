@@ -52,11 +52,13 @@ function doAnCMS_create_sample_blog_posts()
     <figcaption style="text-align:center; font-style:italic; margin-top:5px;">Organic protein có nguồn gốc từ thực vật</figcaption>
 </figure>
 <p>Đặc điểm của organic protein là:</p>
-<ul>
-    <li>Chế biến từ nguồn nguyên liệu hoàn toàn từ thực vật, không sử dụng nguồn nguyên liệu từ động vật.</li>
-    <li>Thành phần dinh dưỡng phong phú, cung cấp đầy đủ protein, chất xơ, canxi, vitamin, khoáng chất, acid amin thiết yếu cho cơ thể.</li>
-    <li>Ngoài công dụng bổ sung protein lành mạnh, organic protein còn giúp tăng cường thể lực và sức đề kháng cho cơ thể.</li>
-</ul>
+<p>
+    <ul style="margin-left: 20px;">
+        <li>Chế biến từ nguồn nguyên liệu hoàn toàn từ thực vật, không sử dụng nguồn nguyên liệu từ động vật.</li>
+        <li>Thành phần dinh dưỡng phong phú, cung cấp đầy đủ protein, chất xơ, canxi, vitamin, khoáng chất, acid amin thiết yếu cho cơ thể.</li>
+        <li>Ngoài công dụng bổ sung protein lành mạnh, organic protein còn giúp tăng cường thể lực và sức đề kháng cho cơ thể.</li>
+    </ul>
+</p>
 <h2>Dùng organic protein có giảm cân không?</h2>
 <p>Không thể phủ nhận công dụng của organic protein, tuy nhiên, dùng organic protein có giảm cân không? Câu trả lời của các chuyên gia là hoàn toàn có thể. Cùng khám phá xem loại protein hữu cơ có nguồn gốc thực vật này sẽ giúp bạn giảm cân như thế nào nhé!</p>
 <h2>Organic protein tạo cảm giác no lâu, hạn chế thèm ăn</h2>

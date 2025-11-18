@@ -1,0 +1,210 @@
+:root {
+    --green-light: #b6e69f;
+    --green: #8BC34A;
+    --green-dark: #6aa64a;
+    --bg: #f7fbf6;
+    --text: #3d8a42;
+    --text-dark: #2a5b30;
+    --radius: 12px;
+    --transition: 0.3s;
+}
+
+body {
+    font-family: "Inter", sans-serif;
+    background: var(--bg);
+    color: var(--text);
+}
+
+/* ===== Hero Banner with Zoom ===== */
+.shop-hero {
+    height: 400px;
+    background: url('<?php echo get_stylesheet_directory_uri(); ?>/assets/images/ofs/of4.jpg') center/cover no-repeat;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: #fff;
+    overflow: hidden;
+    position: relative;
+}
+
+.shop-hero-inner {
+    z-index: 2;
+}
+
+.shop-hero h1 {
+    font-size: 40px;
+    margin-bottom: 10px;
+}
+
+.shop-hero p {
+    font-size: 18px;
+    margin-bottom: 15px;
+}
+
+.btn-cta {
+    padding: 10px 20px;
+    border-radius: 50px;
+    background: var(--green-light);
+    color: #fff;
+    text-decoration: none;
+    font-weight: 600;
+    transition: transform var(--transition), background var(--transition);
+}
+
+.btn-cta:hover {
+    background: var(--green);
+    transform: scale(1.05);
+}
+
+/* Zoom effect on banner */
+.shop-hero::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: inherit;
+    background-size: cover;
+    transform: scale(1);
+    transition: transform 12s ease-in-out;
+}
+
+.shop-hero:hover::before {
+    transform: scale(1.1);
+}
+
+/* Shop Layout */
+.shop-layout-container {
+    display: flex;
+    gap: 25px;
+}
+
+.sidebar {
+    width: 250px;
+}
+
+.shop-content {
+    flex: 1;
+}
+
+/* Toolbar */
+.shop-toolbar {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 15px;
+}
+
+/* Product Grid */
+.product-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 20px;
+}
+
+.product-card {
+    background: #fff;
+    border-radius: var(--radius);
+    overflow: hidden;
+    border: 1px solid #e9f4e4;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+    transition: transform var(--transition), box-shadow var(--transition);
+}
+
+.product-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+}
+
+.product-image {
+    width: 100%;
+    height: 200px;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.product-image img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: cover;
+    transition: transform var(--transition);
+}
+
+.product-card:hover .product-image img {
+    transform: scale(1.05);
+}
+
+.product-title {
+    font-size: 16px;
+    font-weight: 600;
+    text-align: center;
+    margin: 10px 0 5px;
+    color: var(--text-dark);
+}
+
+.product-price {
+    display: block;
+    text-align: center;
+    font-weight: 700;
+    color: var(--green-dark);
+    margin-bottom: 10px;
+}
+
+/* Add to Cart Button (Green Light) */
+.product-add-to-cart {
+    text-align: center;
+    margin-bottom: 15px;
+}
+
+.product-add-to-cart .button {
+    background: var(--green-light);
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 25px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: background var(--transition), transform var(--transition);
+}
+
+.product-add-to-cart .button:hover {
+    background: var(--green);
+    transform: scale(1.05);
+}
+
+/* Pagination */
+.pagination {
+    margin-top: 20px;
+    text-align: center;
+}
+
+.pagination a {
+    padding: 6px 10px;
+    margin: 0 3px;
+    border-radius: 6px;
+    background: #fff;
+    border: 1px solid #e9f4e4;
+    text-decoration: none;
+    color: var(--text);
+}
+
+.pagination a:hover {
+    background: var(--green);
+    color: #fff;
+}
+
+/* Responsive */
+@media(max-width:1024px) {
+    .shop-layout-container {
+        flex-direction: column;
+    }
+
+    .sidebar {
+        width: 100%;
+        margin-bottom: 20px;
+    }
+
+    .product-grid {
+        grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    }
+}
