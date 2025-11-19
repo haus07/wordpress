@@ -1,0 +1,234 @@
+/* ==================================================
+   CUSTOM GREEN CART STYLE (By DoAnCMS)
+   ================================================== */
+
+/* 1. Layout & Tổng quan */
+#custom-green-cart {
+    padding: 40px 0;
+    background-color: #ffffff; /* Nền trắng */
+    font-family: 'Segoe UI', Roboto, Arial, sans-serif;
+}
+
+#custom-green-cart .cart-title {
+    color: #2e7d32; /* Xanh lá đậm */
+    font-size: 28px;
+    font-weight: 700;
+    margin-bottom: 30px;
+    text-align: center;
+    text-transform: uppercase;
+}
+
+/* 2. Bảng giỏ hàng */
+#custom-green-cart table.shop_table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0;
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+#custom-green-cart table.shop_table thead th {
+    background-color: #4CAF50; /* Màu nền header xanh lá */
+    color: #ffffff; /* Chữ trắng */
+    font-weight: 600;
+    padding: 15px;
+    text-transform: uppercase;
+    font-size: 14px;
+    border-bottom: 2px solid #388E3C;
+}
+
+#custom-green-cart table.shop_table tbody td {
+    padding: 20px 15px;
+    background-color: #fff;
+    border-bottom: 1px solid #f1f1f1;
+    vertical-align: middle;
+    color: #333;
+}
+
+/* 3. Hình ảnh & Tên sản phẩm */
+#custom-green-cart .product-thumbnail img {
+    width: 80px;
+    height: auto;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+#custom-green-cart a.p-name {
+    color: #333;
+    font-weight: 600;
+    text-decoration: none;
+    font-size: 16px;
+    transition: color 0.2s;
+}
+
+#custom-green-cart a.p-name:hover {
+    color: #4CAF50; /* Hover ra màu xanh */
+}
+
+/* 4. Nút xóa (Dấu X) */
+#custom-green-cart a.remove-btn {
+    display: inline-block;
+    width: 24px;
+    height: 24px;
+    line-height: 22px;
+    text-align: center;
+    border-radius: 50%;
+    color: #ff5252 !important;
+    border: 1px solid #ff5252;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+#custom-green-cart a.remove-btn:hover {
+    background-color: #ff5252;
+    color: #fff !important;
+}
+
+/* 5. Input số lượng */
+#custom-green-cart .quantity input.qty {
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    padding: 5px;
+    width: 60px;
+    text-align: center;
+    font-weight: bold;
+    color: #2e7d32;
+}
+
+/* 6. Hàng Action (Coupon + Update) */
+#custom-green-cart .cart-actions td {
+    padding: 20px;
+    background-color: #f9fbe7; /* Nền xanh rất nhạt */
+}
+
+#custom-green-cart .coupon-section {
+    float: left;
+    display: flex;
+    align-items: center;
+}
+
+#custom-green-cart .coupon-section input {
+    padding: 10px;
+    border: 1px solid #4CAF50;
+    border-radius: 4px 0 0 4px;
+    outline: none;
+    height: 40px;
+}
+
+#custom-green-cart .button.coupon-btn {
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    padding: 0 20px;
+    height: 40px;
+    border-radius: 0 4px 4px 0;
+    cursor: pointer;
+    font-weight: 600;
+    transition: background 0.3s;
+}
+
+#custom-green-cart .button.update-btn {
+    float: right;
+    background-color: #fff;
+    color: #4CAF50;
+    border: 1px solid #4CAF50;
+    padding: 10px 20px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: 600;
+    height: 40px;
+    transition: all 0.3s;
+}
+
+#custom-green-cart .button:hover {
+    background-color: #388E3C; /* Xanh đậm hơn */
+    color: #fff;
+}
+
+/* 7. Cart Totals (Tổng tiền) */
+#custom-green-cart .cart-collaterals-wrapper {
+    margin-top: 40px;
+    display: flex;
+    justify-content: flex-end;
+}
+
+#custom-green-cart .cart_totals {
+    width: 100%;
+    max-width: 400px;
+    background: #fff;
+    border: 2px solid #4CAF50;
+    border-radius: 8px;
+    padding: 20px;
+}
+
+#custom-green-cart .cart_totals h2 {
+    font-size: 20px;
+    color: #2e7d32;
+    border-bottom: 1px solid #eee;
+    padding-bottom: 10px;
+    margin-bottom: 20px;
+}
+
+#custom-green-cart .cart_totals table th {
+    text-align: left;
+    padding: 10px 0;
+    color: #555;
+}
+
+#custom-green-cart .cart_totals table td {
+    text-align: right;
+    padding: 10px 0;
+    font-weight: bold;
+    color: #333;
+}
+
+#custom-green-cart .wc-proceed-to-checkout a.checkout-button {
+    display: block;
+    width: 100%;
+    background-color: #4CAF50;
+    color: white;
+    text-align: center;
+    padding: 15px;
+    border-radius: 4px;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 16px;
+    margin-top: 20px;
+    transition: background 0.3s;
+}
+
+#custom-green-cart .wc-proceed-to-checkout a.checkout-button:hover {
+    background-color: #388E3C;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    #custom-green-cart .coupon-section {
+        float: none;
+        margin-bottom: 10px;
+    }
+    #custom-green-cart .button.update-btn {
+        float: none;
+        width: 100%;
+    }
+    #custom-green-cart table.shop_table thead {
+        display: none; /* Ẩn header trên mobile */
+    }
+    #custom-green-cart table.shop_table tr {
+        display: block;
+        border: 1px solid #ddd;
+        margin-bottom: 15px;
+    }
+    #custom-green-cart table.shop_table td {
+        display: block;
+        text-align: right;
+        border-bottom: none;
+    }
+    #custom-green-cart table.shop_table td::before {
+        content: attr(data-title);
+        float: left;
+        font-weight: bold;
+        color: #4CAF50;
+    }
+}

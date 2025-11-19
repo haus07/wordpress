@@ -1,0 +1,367 @@
+/* ==========================================================================
+   MASTER GREEN CHECKOUT THEME - DOANCMS
+   (Layout 2 Cột + Theme Trắng Xanh Toàn Trang)
+   ========================================================================== */
+
+/* 1. TỔNG QUAN TOÀN TRANG (BACKGROUND & FONT) */
+#custom-green-checkout {
+    /* Nền tổng thể màu xanh bạc hà cực nhạt (White-Green Theme) */
+    background-color: #f0f7f4; 
+    padding: 60px 0;
+    font-family: 'Segoe UI', Roboto, Arial, sans-serif;
+    color: #333;
+}
+
+#custom-green-checkout .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 15px;
+}
+
+/* Tiêu đề chính to đùng ở trên cùng */
+#custom-green-checkout .checkout-title {
+    text-align: center;
+    color: #2e7d32; /* Xanh lá đậm */
+    font-size: 36px;
+    margin-bottom: 50px;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    position: relative;
+}
+
+/* Gạch chân trang trí dưới tiêu đề */
+#custom-green-checkout .checkout-title::after {
+    content: '';
+    display: block;
+    width: 80px;
+    height: 4px;
+    background: #4CAF50;
+    margin: 15px auto 0;
+    border-radius: 2px;
+}
+
+/* ==========================================================================
+   2. LAYOUT FLEXBOX (CHIA 2 CỘT NGANG HÀNG)
+   ========================================================================== */
+#custom-green-checkout form.checkout {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 30px;
+    align-items: flex-start; /* Căn hàng đầu bằng nhau */
+}
+
+/* Cột Trái: Thông tin khách hàng */
+#custom-green-checkout #customer_details {
+    flex: 1;
+    min-width: 55%;
+}
+
+/* Cột Phải: Đơn hàng */
+#custom-green-checkout .woocommerce-checkout-review-order {
+    flex: 0 0 400px; /* Chiều rộng cố định cho cột phải */
+    width: 400px;
+    position: sticky;
+    top: 20px; /* Trượt theo khi cuộn */
+}
+
+/* ==========================================================================
+   3. CARD STYLE (KHUNG TRẮNG CHO CÁC KHỐI)
+   ========================================================================== */
+/* Style chung cho Khung nhập liệu & Khung đơn hàng */
+#custom-green-checkout #customer_details .col2-set,
+#custom-green-checkout .woocommerce-checkout-review-order {
+    background: #ffffff; /* Nền trắng tinh */
+    padding: 35px;
+    border-radius: 12px; /* Bo góc mềm mại */
+    box-shadow: 0 10px 30px rgba(76, 175, 80, 0.08); /* Bóng đổ màu xanh nhẹ */
+    border: 1px solid #e8f5e9; /* Viền xanh rất nhạt */
+}
+
+/* Thêm viền xanh đậm trên đầu cột phải cho nổi bật */
+#custom-green-checkout .woocommerce-checkout-review-order {
+    border-top: 5px solid #4CAF50;
+}
+
+/* ==========================================================================
+   4. FORM INPUTS & LABELS (STYLE HIỆN ĐẠI)
+   ========================================================================== */
+/* Tiêu đề các mục nhỏ (Thông tin thanh toán...) */
+#custom-green-checkout h3 {
+    color: #2e7d32;
+    font-size: 20px;
+    font-weight: 700;
+    margin-bottom: 25px;
+    text-transform: uppercase;
+    display: flex;
+    align-items: center;
+}
+
+/* Nhãn (Họ tên, địa chỉ...) */
+#custom-green-checkout label {
+    font-weight: 600;
+    color: #555;
+    margin-bottom: 8px;
+    display: block;
+    font-size: 14px;
+}
+
+/* Ô nhập liệu */
+#custom-green-checkout .input-text,
+#custom-green-checkout select,
+#custom-green-checkout textarea {
+    background-color: #f9fbf9; /* Nền input hơi xanh nhẹ cho dịu mắt */
+    border: 1px solid #dcedc8; /* Viền xanh nhạt */
+    border-radius: 6px;
+    padding: 14px;
+    width: 100%;
+    outline: none;
+    font-size: 15px;
+    transition: all 0.3s ease;
+    color: #333;
+}
+
+/* Hiệu ứng khi click vào ô nhập */
+#custom-green-checkout .input-text:focus,
+#custom-green-checkout select:focus {
+    background-color: #fff;
+    border-color: #4CAF50; /* Viền chuyển màu xanh lá */
+    box-shadow: 0 0 0 4px rgba(76, 175, 80, 0.15); /* Tỏa sáng xanh */
+}
+
+/* Fix lỗi khoảng cách */
+#custom-green-checkout .form-row {
+    margin-bottom: 20px;
+}
+
+/* ==========================================================================
+   5. ORDER REVIEW TABLE (BẢNG ĐƠN HÀNG)
+   ========================================================================== */
+/* Ẩn tiêu đề mặc định bị lỗi */
+#custom-green-checkout #order_review_heading { display: none; }
+
+/* Tạo tiêu đề mới bên trong khung */
+#custom-green-checkout .woocommerce-checkout-review-order::before {
+    content: 'Đơn hàng của bạn';
+    display: block;
+    font-size: 22px;
+    color: #2e7d32;
+    font-weight: 700;
+    margin-bottom: 25px;
+    text-transform: uppercase;
+    text-align: center;
+    border-bottom: 2px dashed #e0e0e0;
+    padding-bottom: 15px;
+}
+
+#custom-green-checkout table.shop_table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+}
+
+#custom-green-checkout table.shop_table th,
+#custom-green-checkout table.shop_table td {
+    padding: 15px 0;
+    border-bottom: 1px solid #f1f8e9; /* Kẻ dòng màu xanh nhạt */
+    text-align: left;
+    font-size: 14px;
+}
+
+#custom-green-checkout table.shop_table thead th {
+    color: #4CAF50;
+    text-transform: uppercase;
+    font-size: 13px;
+    font-weight: 700;
+}
+
+#custom-green-checkout table.shop_table .order-total th {
+    font-size: 16px;
+    color: #333;
+}
+
+#custom-green-checkout table.shop_table .order-total td strong {
+    color: #d32f2f; /* Giá tổng màu đỏ */
+    font-size: 20px;
+}
+
+/* ==========================================================================
+   6. PAYMENT SECTION (THANH TOÁN & NÚT)
+   ========================================================================== */
+#custom-green-checkout #payment {
+    background: #f1f8e9; /* Nền xanh lá siêu nhạt cho vùng thanh toán */
+    border-radius: 8px;
+    padding: 20px;
+    margin-top: 20px;
+}
+
+#custom-green-checkout #payment ul.payment_methods {
+    padding: 0;
+    list-style: none;
+    border-bottom: 1px solid #dcedc8;
+    margin-bottom: 20px;
+    padding-bottom: 10px;
+}
+
+/* PAYMENT BOX (Mô tả phương thức thanh toán) */
+#custom-green-checkout #payment div.payment_box {
+    background-color: #fff;
+    padding: 15px;
+    font-size: 13px;
+    border-radius: 4px;
+    margin-top: 10px;
+    color: #555;
+    border-left: 3px solid #4CAF50; /* Viền trái xanh lá */
+    position: relative;
+}
+
+/* NÚT ĐẶT HÀNG (PROCEED TO CHECKOUT) */
+#custom-green-checkout #place_order {
+    display: block;
+    width: 100%;
+    background: #4CAF50; /* XANH LÁ CHỦ ĐẠO */
+    color: #fff; /* CHỮ TRẮNG */
+    font-size: 18px;
+    font-weight: 700;
+    padding: 18px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(76, 175, 80, 0.4);
+    margin-top: 10px;
+}
+
+#custom-green-checkout #place_order:hover {
+    background: #388E3C; /* Hover đậm hơn */
+    transform: translateY(-3px); /* Nút bay lên */
+    box-shadow: 0 8px 20px rgba(76, 175, 80, 0.5);
+}
+
+/* ==========================================================================
+   7. RESPONSIVE MOBILE
+   ========================================================================== */
+@media (max-width: 992px) {
+    #custom-green-checkout form.checkout {
+        flex-direction: column;
+    }
+
+    #custom-green-checkout #customer_details,
+    #custom-green-checkout .woocommerce-checkout-review-order {
+        width: 100%;
+        flex: 0 0 100%;
+        min-width: 100%;
+    }
+    
+    /* Trên mobile bỏ sticky để không bị lỗi */
+    #custom-green-checkout .woocommerce-checkout-review-order {
+        position: static;
+    }
+
+    /* ==========================================================================
+   STYLE CHO KHUNG COUPON & LOGIN (NOTICES)
+   ========================================================================== */
+
+/* 1. Hộp thông báo "Bạn có mã ưu đãi? Ấn vào đây..." */
+#custom-green-checkout .woocommerce-form-coupon-toggle .woocommerce-info,
+#custom-green-checkout .woocommerce-form-login-toggle .woocommerce-info {
+    background-color: #e8f5e9; /* Nền xanh siêu nhạt */
+    border-top: 3px solid #4CAF50; /* Viền trên xanh lá */
+    color: #2e7d32; /* Chữ xanh đậm */
+    padding: 15px 20px;
+    margin-bottom: 20px;
+    border-radius: 4px;
+    font-size: 15px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+    position: relative;
+}
+
+/* Link "Ấn vào đây" */
+#custom-green-checkout .woocommerce-form-coupon-toggle .woocommerce-info a,
+#custom-green-checkout .woocommerce-form-login-toggle .woocommerce-info a {
+    color: #1b5e20;
+    font-weight: 700;
+    text-decoration: none;
+    border-bottom: 1px dashed #1b5e20;
+}
+
+#custom-green-checkout .woocommerce-form-coupon-toggle .woocommerce-info a:hover {
+    color: #4CAF50;
+}
+
+/* Icon trước dòng thông báo (Optional) */
+#custom-green-checkout .woocommerce-form-coupon-toggle .woocommerce-info::before {
+    content: '\1F3AB'; /* Icon cái vé (Ticket) */
+    margin-right: 10px;
+    font-size: 18px;
+}
+
+/* 2. Form nhập Coupon (Khi bấm vào mới hiện ra) */
+#custom-green-checkout form.checkout_coupon {
+    background-color: #ffffff;
+    border: 2px dashed #a5d6a7; /* Viền nét đứt màu xanh */
+    padding: 25px;
+    border-radius: 8px;
+    margin-bottom: 30px;
+    display: flex; /* Xếp input và nút nằm ngang */
+    gap: 15px;
+    align-items: center;
+    flex-wrap: wrap;
+    animation: slideDown 0.3s ease-out;
+}
+
+/* Ô input nhập mã */
+#custom-green-checkout form.checkout_coupon .input-text {
+    flex: 1; /* Chiếm hết khoảng trống */
+    min-width: 200px;
+    padding: 12px 15px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    outline: none;
+    height: 45px; /* Chiều cao cố định cho đẹp */
+}
+
+#custom-green-checkout form.checkout_coupon .input-text:focus {
+    border-color: #4CAF50;
+    box-shadow: 0 0 0 3px rgba(76, 175, 80, 0.1);
+}
+
+/* Nút Áp dụng */
+#custom-green-checkout form.checkout_coupon .button {
+    background-color: #333; /* Màu đen hoặc xanh tùy bro */
+    color: #fff;
+    border: none;
+    padding: 0 25px;
+    height: 45px;
+    border-radius: 5px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+#custom-green-checkout form.checkout_coupon .button:hover {
+    background-color: #4CAF50; /* Hover ra màu xanh lá */
+}
+
+/* Hiệu ứng trượt xuống nhẹ nhàng */
+@keyframes slideDown {
+    from { opacity: 0; transform: translateY(-10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Responsive mobile */
+@media (max-width: 600px) {
+    #custom-green-checkout form.checkout_coupon {
+        flex-direction: column;
+        align-items: stretch;
+    }
+}
+
+
+
+}
+
+
