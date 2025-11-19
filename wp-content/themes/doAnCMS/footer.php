@@ -40,100 +40,100 @@
 
   <?php wp_footer(); ?>
   <script>
-document.addEventListener("DOMContentLoaded", function() {
-    new Swiper(".product-swiper-sale", {
-        slidesPerView: 4,
-        spaceBetween: 20,
-        loop: true,
-        autoplay: {
-            delay: 2500
-        },
-        navigation: {
-            nextEl: ".swiper-button-next-sale",
-            prevEl: ".swiper-button-prev-sale",
-        },
-        breakpoints: {
-            320: {
-                slidesPerView: 1
-            },
-            576: {
-                slidesPerView: 2
-            },
-            768: {
-                slidesPerView: 3
-            },
-            1200: {
-                slidesPerView: 4
-            }
-        }
-    });
+      document.addEventListener("DOMContentLoaded", function() {
+          new Swiper(".product-swiper-sale", {
+              slidesPerView: 4,
+              spaceBetween: 20,
+              loop: true,
+              autoplay: {
+                  delay: 2500
+              },
+              navigation: {
+                  nextEl: ".swiper-button-next-sale",
+                  prevEl: ".swiper-button-prev-sale",
+              },
+              breakpoints: {
+                  320: {
+                      slidesPerView: 1
+                  },
+                  576: {
+                      slidesPerView: 2
+                  },
+                  768: {
+                      slidesPerView: 3
+                  },
+                  1200: {
+                      slidesPerView: 4
+                  }
+              }
+          });
 
-    new Swiper(".product-swiper-featured", {
-        slidesPerView: 4,
-        spaceBetween: 20,
-        loop: true,
-        autoplay: {
-            delay: 2700
-        },
-        navigation: {
-            nextEl: ".swiper-button-next-featured",
-            prevEl: ".swiper-button-prev-featured",
-        },
-        breakpoints: {
-            320: {
-                slidesPerView: 1
-            },
-            576: {
-                slidesPerView: 2
-            },
-            768: {
-                slidesPerView: 3
-            },
-            1200: {
-                slidesPerView: 4
-            }
-        }
-    });
-});
+          new Swiper(".product-swiper-featured", {
+              slidesPerView: 4,
+              spaceBetween: 20,
+              loop: true,
+              autoplay: {
+                  delay: 2700
+              },
+              navigation: {
+                  nextEl: ".swiper-button-next-featured",
+                  prevEl: ".swiper-button-prev-featured",
+              },
+              breakpoints: {
+                  320: {
+                      slidesPerView: 1
+                  },
+                  576: {
+                      slidesPerView: 2
+                  },
+                  768: {
+                      slidesPerView: 3
+                  },
+                  1200: {
+                      slidesPerView: 4
+                  }
+              }
+          });
+      });
   </script>
   <script>
-document.addEventListener("DOMContentLoaded", function() {
+      document.addEventListener("DOMContentLoaded", function() {
 
-    const sections = [
-        "san-pham-huu-co",
-        "ngu-coc-dinh-duong-huu-co",
-        "dau-va-hat-huu-co",
-        "nui-mi-huu-co",
-        "thuc-pham-huu-co"
-    ];
+          const sections = [
+              "san-pham-huu-co",
+              "ngu-coc-dinh-duong-huu-co",
+              "dau-va-hat-huu-co",
+              "nui-mi-huu-co",
+              "thuc-pham-huu-co"
+          ];
 
-    sections.forEach(slug => {
-        new Swiper(`.product-swiper-${slug}`, {
-            slidesPerView: 4,
-            spaceBetween: 24,
-            loop: true,
-            navigation: {
-                nextEl: `.swiper-button-next-${slug}`,
-                prevEl: `.swiper-button-prev-${slug}`,
-            },
-            autoplay: {
-                delay: 3000,
-            },
-            breakpoints: {
-                320: {
-                    slidesPerView: 2
-                },
-                768: {
-                    slidesPerView: 3
-                },
-                1200: {
-                    slidesPerView: 4
-                }
-            }
-        });
-    });
+          sections.forEach(slug => {
+              new Swiper(`.product-swiper-${slug}`, {
+                  slidesPerView: 4,
+                  spaceBetween: 24,
+                  loop: true,
+                  navigation: {
+                      nextEl: `.swiper-button-next-${slug}`,
+                      prevEl: `.swiper-button-prev-${slug}`,
+                  },
+                  autoplay: {
+                      delay: 3000,
+                  },
+                  breakpoints: {
+                      320: {
+                          slidesPerView: 2
+                      },
+                      768: {
+                          slidesPerView: 3
+                      },
+                      1200: {
+                          slidesPerView: 4
+                      }
+                  }
+              });
+          });
 
-});
+      });
   </script>
 
 
