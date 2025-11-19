@@ -768,3 +768,46 @@ function html_cms_widgets_init()
     ));
 }
 add_action('widgets_init', 'html_cms_widgets_init');
+
+
+function doancms_enqueue_custom_cart_style() {
+    // QUAN TRỌNG: Kiểm tra xem user có đang ở đúng trang dùng template 'page-cart.php' không
+    if ( is_page_template( 'page-cart.php' ) ) {
+        
+        // Đường dẫn đến file CSS bro vừa tạo
+        // get_template_directory_uri() trỏ về thư mục theme hiện tại
+        wp_enqueue_style( 
+            'doancms-cart-css', // Handle name (đặt tên gì cũng dc, miễn là duy nhất)
+            get_template_directory_uri() . '/custom-cart.css', // Đường dẫn file
+            array(), // Dependencies (không có thì để mảng rỗng)
+            '1.0.0' // Version
+        );
+    }
+}
+add_action( 'wp_enqueue_scripts', 'doancms_enqueue_custom_cart_style' );
+
+function doancms_enqueue_custom_checkout_style() {
+    // QUAN TRỌNG: Kiểm tra xem user có đang ở đúng trang dùng template 'page-cart.php' không
+    if ( is_page_template( 'page-checkout.php' ) ) {
+        
+        // Đường dẫn đến file CSS bro vừa tạo
+        // get_template_directory_uri() trỏ về thư mục theme hiện tại
+        wp_enqueue_style( 
+            'doancms-cart-css', // Handle name (đặt tên gì cũng dc, miễn là duy nhất)
+            get_template_directory_uri() . '/custom-checkout.css', // Đường dẫn file
+            array(), // Dependencies (không có thì để mảng rỗng)
+            '1.0.0' // Version
+        );
+    }
+}
+add_action( 'wp_enqueue_scripts', 'doancms_enqueue_custom_checkout_style' );
+
+
+/* * DI CHUYỂN Ô COUPON TRONG TRANG CHECKOUT
+ * Xóa ở trên đầu -> Chuyển xuống trước nút thanh toán
+ */
+// 1. Xóa coupon ở vị trí mặc định (trên cùng)
+remove_action( 'woocommerce_before_checkout_form', 'woocommerce_checkout_coupon_form', 10 );
+
+// 2. Thêm vào vị trí mới (Trước phần chọn phương thức thanh toán)
+add_action( 'woocommerce_review_order_before_payment', 'woocommerce_checkout_coupon_form' );
