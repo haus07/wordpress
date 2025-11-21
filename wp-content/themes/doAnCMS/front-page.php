@@ -605,12 +605,6 @@ foreach ($product_sections as $section) {
     </div>
 </div>
 
-<div class="container">
-    <h2 class="section-title">Tin tức Organic</h2>
-    
-    <?php echo do_shortcode('[recent-posts posts="3"]'); ?>
-
-</div>
 <script>
 document.addEventListener('DOMContentLoaded', function () {
     

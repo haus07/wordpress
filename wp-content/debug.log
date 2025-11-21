@@ -4164,42 +4164,42 @@ Stack trace:
 [17-Nov-2025 13:13:35 UTC] PHP  15. _deprecated_file($file = 'Theme without sidebar.php', $version = '3.0.0', $replacement = NULL, $message = 'Please include a sidebar.php template in your theme.') D:\wamp64\www\wordpress\wp-includes\theme-compat\sidebar.php:9
 [17-Nov-2025 13:13:35 UTC] PHP  16. wp_trigger_error($function_name = '', $message = 'File Theme without sidebar.php is <strong>deprecated</strong> since version 3.0.0 with no alternative available. Please include a sidebar.php template in your theme.', $error_level = 16384) D:\wamp64\www\wordpress\wp-includes\functions.php:5831
 [17-Nov-2025 13:13:35 UTC] PHP  17. trigger_error($message = 'File Theme without sidebar.php is <strong>deprecated</strong> since version 3.0.0 with no alternative available. Please include a sidebar.php template in your theme.', $error_level = 16384) D:\wamp64\www\wordpress\wp-includes\functions.php:6121
-[17-Nov-2025 13:14:50 UTC] 🔹 Current User ID: 1
-[17-Nov-2025 13:14:56 UTC] ✅ Post "Lợi ích của rau hữu cơ" được tạo với ID: 1933
-[17-Nov-2025 13:15:01 UTC] ✅ Post "Cách chọn thực phẩm hữu cơ" được tạo với ID: 1935
-[17-Nov-2025 13:15:04 UTC] ✅ Post "Thực phẩm hữu cơ cho bé" được tạo với ID: 1937
-[17-Nov-2025 13:15:05 UTC] ✅ Post "Top 5 loại trái cây organic" được tạo với ID: 1939
-[17-Nov-2025 13:15:06 UTC] ✅ Post "Organic vs Thực phẩm thông thường" được tạo với ID: 1941
-[17-Nov-2025 13:15:06 UTC] ✅ Post "Cách trồng rau hữu cơ tại nhà" được tạo với ID: 1943
-[17-Nov-2025 13:15:07 UTC] ✅ Post "Smoothie healthy từ organic" được tạo với ID: 1945
-[17-Nov-2025 13:15:08 UTC] ✅ Post "Các loại hạt hữu cơ tốt cho sức khỏe" được tạo với ID: 1947
-[17-Nov-2025 13:15:09 UTC] ✅ Post "Chế độ ăn organic giảm cân" được tạo với ID: 1949
-[17-Nov-2025 13:15:09 UTC] ✅ Post "Organic food: Xu hướng 2025" được tạo với ID: 1951
-[17-Nov-2025 13:15:09 UTC] ✅ Hoàn tất tạo 10 bài viết mẫu với ảnh và content dài.
-[17-Nov-2025 13:21:58 UTC] 🔹 Current User ID: 1
-[17-Nov-2025 13:22:03 UTC] ✅ Post "Lợi ích của rau hữu cơ" được tạo với ID: 1973
-[17-Nov-2025 13:22:09 UTC] ✅ Post "Cách chọn thực phẩm hữu cơ" được tạo với ID: 1975
-[17-Nov-2025 13:22:11 UTC] ✅ Post "Thực phẩm hữu cơ cho bé" được tạo với ID: 1977
-[17-Nov-2025 13:22:12 UTC] ✅ Post "Top 5 loại trái cây organic" được tạo với ID: 1979
-[17-Nov-2025 13:22:13 UTC] ✅ Post "Organic vs Thực phẩm thông thường" được tạo với ID: 1981
-[17-Nov-2025 13:22:13 UTC] ✅ Post "Cách trồng rau hữu cơ tại nhà" được tạo với ID: 1983
-[17-Nov-2025 13:22:14 UTC] ✅ Post "Smoothie healthy từ organic" được tạo với ID: 1985
-[17-Nov-2025 13:22:16 UTC] ✅ Post "Các loại hạt hữu cơ tốt cho sức khỏe" được tạo với ID: 1987
-[17-Nov-2025 13:22:16 UTC] ✅ Post "Chế độ ăn organic giảm cân" được tạo với ID: 1989
-[17-Nov-2025 13:22:16 UTC] ✅ Post "Organic food: Xu hướng 2025" được tạo với ID: 1991
-[17-Nov-2025 13:22:16 UTC] ✅ Hoàn tất tạo 10 bài viết mẫu với ảnh và content dài.
-[17-Nov-2025 13:22:23 UTC] 🔹 Current User ID: 1
-[17-Nov-2025 13:22:28 UTC] ✅ Post "Lợi ích của rau hữu cơ" được tạo với ID: 1993
-[17-Nov-2025 13:22:35 UTC] ✅ Post "Cách chọn thực phẩm hữu cơ" được tạo với ID: 1995
-[17-Nov-2025 13:22:37 UTC] ✅ Post "Thực phẩm hữu cơ cho bé" được tạo với ID: 1997
-[17-Nov-2025 13:22:38 UTC] ✅ Post "Top 5 loại trái cây organic" được tạo với ID: 1999
-[17-Nov-2025 13:22:39 UTC] ✅ Post "Organic vs Thực phẩm thông thường" được tạo với ID: 2001
-[17-Nov-2025 13:22:39 UTC] ✅ Post "Cách trồng rau hữu cơ tại nhà" được tạo với ID: 2003
-[17-Nov-2025 13:22:40 UTC] ✅ Post "Smoothie healthy từ organic" được tạo với ID: 2005
-[17-Nov-2025 13:22:41 UTC] ✅ Post "Các loại hạt hữu cơ tốt cho sức khỏe" được tạo với ID: 2007
-[17-Nov-2025 13:22:42 UTC] ✅ Post "Chế độ ăn organic giảm cân" được tạo với ID: 2009
-[17-Nov-2025 13:22:42 UTC] ✅ Post "Organic food: Xu hướng 2025" được tạo với ID: 2011
-[17-Nov-2025 13:22:42 UTC] ✅ Hoàn tất tạo 10 bài viết mẫu với ảnh và content dài.
+[17-Nov-2025 13:14:50 UTC] ÃƒÂ°Ã…Â¸Ã¢â‚¬ï¿½Ã‚Â¹ Current User ID: 1
+[17-Nov-2025 13:14:56 UTC] ÃƒÂ¢Ã…â€œÃ¢â‚¬Â¦ Post "LÃƒÂ¡Ã‚Â»Ã‚Â£i ÃƒÆ’Ã‚Â­ch cÃƒÂ¡Ã‚Â»Ã‚Â§a rau hÃƒÂ¡Ã‚Â»Ã‚Â¯u cÃƒâ€ Ã‚Â¡" Ãƒâ€žÃ¢â‚¬ËœÃƒâ€ Ã‚Â°ÃƒÂ¡Ã‚Â»Ã‚Â£c tÃƒÂ¡Ã‚ÂºÃ‚Â¡o vÃƒÂ¡Ã‚Â»Ã¢â‚¬Âºi ID: 1933
+[17-Nov-2025 13:15:01 UTC] ÃƒÂ¢Ã…â€œÃ¢â‚¬Â¦ Post "CÃƒÆ’Ã‚Â¡ch chÃƒÂ¡Ã‚Â»Ã¯Â¿Â½n thÃƒÂ¡Ã‚Â»Ã‚Â±c phÃƒÂ¡Ã‚ÂºÃ‚Â©m hÃƒÂ¡Ã‚Â»Ã‚Â¯u cÃƒâ€ Ã‚Â¡" Ãƒâ€žÃ¢â‚¬ËœÃƒâ€ Ã‚Â°ÃƒÂ¡Ã‚Â»Ã‚Â£c tÃƒÂ¡Ã‚ÂºÃ‚Â¡o vÃƒÂ¡Ã‚Â»Ã¢â‚¬Âºi ID: 1935
+[17-Nov-2025 13:15:04 UTC] ÃƒÂ¢Ã…â€œÃ¢â‚¬Â¦ Post "ThÃƒÂ¡Ã‚Â»Ã‚Â±c phÃƒÂ¡Ã‚ÂºÃ‚Â©m hÃƒÂ¡Ã‚Â»Ã‚Â¯u cÃƒâ€ Ã‚Â¡ cho bÃƒÆ’Ã‚Â©" Ãƒâ€žÃ¢â‚¬ËœÃƒâ€ Ã‚Â°ÃƒÂ¡Ã‚Â»Ã‚Â£c tÃƒÂ¡Ã‚ÂºÃ‚Â¡o vÃƒÂ¡Ã‚Â»Ã¢â‚¬Âºi ID: 1937
+[17-Nov-2025 13:15:05 UTC] ÃƒÂ¢Ã…â€œÃ¢â‚¬Â¦ Post "Top 5 loÃƒÂ¡Ã‚ÂºÃ‚Â¡i trÃƒÆ’Ã‚Â¡i cÃƒÆ’Ã‚Â¢y organic" Ãƒâ€žÃ¢â‚¬ËœÃƒâ€ Ã‚Â°ÃƒÂ¡Ã‚Â»Ã‚Â£c tÃƒÂ¡Ã‚ÂºÃ‚Â¡o vÃƒÂ¡Ã‚Â»Ã¢â‚¬Âºi ID: 1939
+[17-Nov-2025 13:15:06 UTC] ÃƒÂ¢Ã…â€œÃ¢â‚¬Â¦ Post "Organic vs ThÃƒÂ¡Ã‚Â»Ã‚Â±c phÃƒÂ¡Ã‚ÂºÃ‚Â©m thÃƒÆ’Ã‚Â´ng thÃƒâ€ Ã‚Â°ÃƒÂ¡Ã‚Â»Ã¯Â¿Â½ng" Ãƒâ€žÃ¢â‚¬ËœÃƒâ€ Ã‚Â°ÃƒÂ¡Ã‚Â»Ã‚Â£c tÃƒÂ¡Ã‚ÂºÃ‚Â¡o vÃƒÂ¡Ã‚Â»Ã¢â‚¬Âºi ID: 1941
+[17-Nov-2025 13:15:06 UTC] ÃƒÂ¢Ã…â€œÃ¢â‚¬Â¦ Post "CÃƒÆ’Ã‚Â¡ch trÃƒÂ¡Ã‚Â»Ã¢â‚¬Å“ng rau hÃƒÂ¡Ã‚Â»Ã‚Â¯u cÃƒâ€ Ã‚Â¡ tÃƒÂ¡Ã‚ÂºÃ‚Â¡i nhÃƒÆ’Ã‚Â " Ãƒâ€žÃ¢â‚¬ËœÃƒâ€ Ã‚Â°ÃƒÂ¡Ã‚Â»Ã‚Â£c tÃƒÂ¡Ã‚ÂºÃ‚Â¡o vÃƒÂ¡Ã‚Â»Ã¢â‚¬Âºi ID: 1943
+[17-Nov-2025 13:15:07 UTC] ÃƒÂ¢Ã…â€œÃ¢â‚¬Â¦ Post "Smoothie healthy tÃƒÂ¡Ã‚Â»Ã‚Â« organic" Ãƒâ€žÃ¢â‚¬ËœÃƒâ€ Ã‚Â°ÃƒÂ¡Ã‚Â»Ã‚Â£c tÃƒÂ¡Ã‚ÂºÃ‚Â¡o vÃƒÂ¡Ã‚Â»Ã¢â‚¬Âºi ID: 1945
+[17-Nov-2025 13:15:08 UTC] ÃƒÂ¢Ã…â€œÃ¢â‚¬Â¦ Post "CÃƒÆ’Ã‚Â¡c loÃƒÂ¡Ã‚ÂºÃ‚Â¡i hÃƒÂ¡Ã‚ÂºÃ‚Â¡t hÃƒÂ¡Ã‚Â»Ã‚Â¯u cÃƒâ€ Ã‚Â¡ tÃƒÂ¡Ã‚Â»Ã¢â‚¬Ëœt cho sÃƒÂ¡Ã‚Â»Ã‚Â©c khÃƒÂ¡Ã‚Â»Ã¯Â¿Â½e" Ãƒâ€žÃ¢â‚¬ËœÃƒâ€ Ã‚Â°ÃƒÂ¡Ã‚Â»Ã‚Â£c tÃƒÂ¡Ã‚ÂºÃ‚Â¡o vÃƒÂ¡Ã‚Â»Ã¢â‚¬Âºi ID: 1947
+[17-Nov-2025 13:15:09 UTC] ÃƒÂ¢Ã…â€œÃ¢â‚¬Â¦ Post "ChÃƒÂ¡Ã‚ÂºÃ‚Â¿ Ãƒâ€žÃ¢â‚¬ËœÃƒÂ¡Ã‚Â»Ã¢â€žÂ¢ Ãƒâ€žÃ†â€™n organic giÃƒÂ¡Ã‚ÂºÃ‚Â£m cÃƒÆ’Ã‚Â¢n" Ãƒâ€žÃ¢â‚¬ËœÃƒâ€ Ã‚Â°ÃƒÂ¡Ã‚Â»Ã‚Â£c tÃƒÂ¡Ã‚ÂºÃ‚Â¡o vÃƒÂ¡Ã‚Â»Ã¢â‚¬Âºi ID: 1949
+[17-Nov-2025 13:15:09 UTC] ÃƒÂ¢Ã…â€œÃ¢â‚¬Â¦ Post "Organic food: Xu hÃƒâ€ Ã‚Â°ÃƒÂ¡Ã‚Â»Ã¢â‚¬Âºng 2025" Ãƒâ€žÃ¢â‚¬ËœÃƒâ€ Ã‚Â°ÃƒÂ¡Ã‚Â»Ã‚Â£c tÃƒÂ¡Ã‚ÂºÃ‚Â¡o vÃƒÂ¡Ã‚Â»Ã¢â‚¬Âºi ID: 1951
+[17-Nov-2025 13:15:09 UTC] ÃƒÂ¢Ã…â€œÃ¢â‚¬Â¦ HoÃƒÆ’Ã‚Â n tÃƒÂ¡Ã‚ÂºÃ‚Â¥t tÃƒÂ¡Ã‚ÂºÃ‚Â¡o 10 bÃƒÆ’Ã‚Â i viÃƒÂ¡Ã‚ÂºÃ‚Â¿t mÃƒÂ¡Ã‚ÂºÃ‚Â«u vÃƒÂ¡Ã‚Â»Ã¢â‚¬Âºi ÃƒÂ¡Ã‚ÂºÃ‚Â£nh vÃƒÆ’Ã‚Â  content dÃƒÆ’Ã‚Â i.
+[17-Nov-2025 13:21:58 UTC] ÃƒÂ°Ã…Â¸Ã¢â‚¬ï¿½Ã‚Â¹ Current User ID: 1
+[17-Nov-2025 13:22:03 UTC] ÃƒÂ¢Ã…â€œÃ¢â‚¬Â¦ Post "LÃƒÂ¡Ã‚Â»Ã‚Â£i ÃƒÆ’Ã‚Â­ch cÃƒÂ¡Ã‚Â»Ã‚Â§a rau hÃƒÂ¡Ã‚Â»Ã‚Â¯u cÃƒâ€ Ã‚Â¡" Ãƒâ€žÃ¢â‚¬ËœÃƒâ€ Ã‚Â°ÃƒÂ¡Ã‚Â»Ã‚Â£c tÃƒÂ¡Ã‚ÂºÃ‚Â¡o vÃƒÂ¡Ã‚Â»Ã¢â‚¬Âºi ID: 1973
+[17-Nov-2025 13:22:09 UTC] ÃƒÂ¢Ã…â€œÃ¢â‚¬Â¦ Post "CÃƒÆ’Ã‚Â¡ch chÃƒÂ¡Ã‚Â»Ã¯Â¿Â½n thÃƒÂ¡Ã‚Â»Ã‚Â±c phÃƒÂ¡Ã‚ÂºÃ‚Â©m hÃƒÂ¡Ã‚Â»Ã‚Â¯u cÃƒâ€ Ã‚Â¡" Ãƒâ€žÃ¢â‚¬ËœÃƒâ€ Ã‚Â°ÃƒÂ¡Ã‚Â»Ã‚Â£c tÃƒÂ¡Ã‚ÂºÃ‚Â¡o vÃƒÂ¡Ã‚Â»Ã¢â‚¬Âºi ID: 1975
+[17-Nov-2025 13:22:11 UTC] ÃƒÂ¢Ã…â€œÃ¢â‚¬Â¦ Post "ThÃƒÂ¡Ã‚Â»Ã‚Â±c phÃƒÂ¡Ã‚ÂºÃ‚Â©m hÃƒÂ¡Ã‚Â»Ã‚Â¯u cÃƒâ€ Ã‚Â¡ cho bÃƒÆ’Ã‚Â©" Ãƒâ€žÃ¢â‚¬ËœÃƒâ€ Ã‚Â°ÃƒÂ¡Ã‚Â»Ã‚Â£c tÃƒÂ¡Ã‚ÂºÃ‚Â¡o vÃƒÂ¡Ã‚Â»Ã¢â‚¬Âºi ID: 1977
+[17-Nov-2025 13:22:12 UTC] ÃƒÂ¢Ã…â€œÃ¢â‚¬Â¦ Post "Top 5 loÃƒÂ¡Ã‚ÂºÃ‚Â¡i trÃƒÆ’Ã‚Â¡i cÃƒÆ’Ã‚Â¢y organic" Ãƒâ€žÃ¢â‚¬ËœÃƒâ€ Ã‚Â°ÃƒÂ¡Ã‚Â»Ã‚Â£c tÃƒÂ¡Ã‚ÂºÃ‚Â¡o vÃƒÂ¡Ã‚Â»Ã¢â‚¬Âºi ID: 1979
+[17-Nov-2025 13:22:13 UTC] ÃƒÂ¢Ã…â€œÃ¢â‚¬Â¦ Post "Organic vs ThÃƒÂ¡Ã‚Â»Ã‚Â±c phÃƒÂ¡Ã‚ÂºÃ‚Â©m thÃƒÆ’Ã‚Â´ng thÃƒâ€ Ã‚Â°ÃƒÂ¡Ã‚Â»Ã¯Â¿Â½ng" Ãƒâ€žÃ¢â‚¬ËœÃƒâ€ Ã‚Â°ÃƒÂ¡Ã‚Â»Ã‚Â£c tÃƒÂ¡Ã‚ÂºÃ‚Â¡o vÃƒÂ¡Ã‚Â»Ã¢â‚¬Âºi ID: 1981
+[17-Nov-2025 13:22:13 UTC] ÃƒÂ¢Ã…â€œÃ¢â‚¬Â¦ Post "CÃƒÆ’Ã‚Â¡ch trÃƒÂ¡Ã‚Â»Ã¢â‚¬Å“ng rau hÃƒÂ¡Ã‚Â»Ã‚Â¯u cÃƒâ€ Ã‚Â¡ tÃƒÂ¡Ã‚ÂºÃ‚Â¡i nhÃƒÆ’Ã‚Â " Ãƒâ€žÃ¢â‚¬ËœÃƒâ€ Ã‚Â°ÃƒÂ¡Ã‚Â»Ã‚Â£c tÃƒÂ¡Ã‚ÂºÃ‚Â¡o vÃƒÂ¡Ã‚Â»Ã¢â‚¬Âºi ID: 1983
+[17-Nov-2025 13:22:14 UTC] ÃƒÂ¢Ã…â€œÃ¢â‚¬Â¦ Post "Smoothie healthy tÃƒÂ¡Ã‚Â»Ã‚Â« organic" Ãƒâ€žÃ¢â‚¬ËœÃƒâ€ Ã‚Â°ÃƒÂ¡Ã‚Â»Ã‚Â£c tÃƒÂ¡Ã‚ÂºÃ‚Â¡o vÃƒÂ¡Ã‚Â»Ã¢â‚¬Âºi ID: 1985
+[17-Nov-2025 13:22:16 UTC] ÃƒÂ¢Ã…â€œÃ¢â‚¬Â¦ Post "CÃƒÆ’Ã‚Â¡c loÃƒÂ¡Ã‚ÂºÃ‚Â¡i hÃƒÂ¡Ã‚ÂºÃ‚Â¡t hÃƒÂ¡Ã‚Â»Ã‚Â¯u cÃƒâ€ Ã‚Â¡ tÃƒÂ¡Ã‚Â»Ã¢â‚¬Ëœt cho sÃƒÂ¡Ã‚Â»Ã‚Â©c khÃƒÂ¡Ã‚Â»Ã¯Â¿Â½e" Ãƒâ€žÃ¢â‚¬ËœÃƒâ€ Ã‚Â°ÃƒÂ¡Ã‚Â»Ã‚Â£c tÃƒÂ¡Ã‚ÂºÃ‚Â¡o vÃƒÂ¡Ã‚Â»Ã¢â‚¬Âºi ID: 1987
+[17-Nov-2025 13:22:16 UTC] ÃƒÂ¢Ã…â€œÃ¢â‚¬Â¦ Post "ChÃƒÂ¡Ã‚ÂºÃ‚Â¿ Ãƒâ€žÃ¢â‚¬ËœÃƒÂ¡Ã‚Â»Ã¢â€žÂ¢ Ãƒâ€žÃ†â€™n organic giÃƒÂ¡Ã‚ÂºÃ‚Â£m cÃƒÆ’Ã‚Â¢n" Ãƒâ€žÃ¢â‚¬ËœÃƒâ€ Ã‚Â°ÃƒÂ¡Ã‚Â»Ã‚Â£c tÃƒÂ¡Ã‚ÂºÃ‚Â¡o vÃƒÂ¡Ã‚Â»Ã¢â‚¬Âºi ID: 1989
+[17-Nov-2025 13:22:16 UTC] ÃƒÂ¢Ã…â€œÃ¢â‚¬Â¦ Post "Organic food: Xu hÃƒâ€ Ã‚Â°ÃƒÂ¡Ã‚Â»Ã¢â‚¬Âºng 2025" Ãƒâ€žÃ¢â‚¬ËœÃƒâ€ Ã‚Â°ÃƒÂ¡Ã‚Â»Ã‚Â£c tÃƒÂ¡Ã‚ÂºÃ‚Â¡o vÃƒÂ¡Ã‚Â»Ã¢â‚¬Âºi ID: 1991
+[17-Nov-2025 13:22:16 UTC] ÃƒÂ¢Ã…â€œÃ¢â‚¬Â¦ HoÃƒÆ’Ã‚Â n tÃƒÂ¡Ã‚ÂºÃ‚Â¥t tÃƒÂ¡Ã‚ÂºÃ‚Â¡o 10 bÃƒÆ’Ã‚Â i viÃƒÂ¡Ã‚ÂºÃ‚Â¿t mÃƒÂ¡Ã‚ÂºÃ‚Â«u vÃƒÂ¡Ã‚Â»Ã¢â‚¬Âºi ÃƒÂ¡Ã‚ÂºÃ‚Â£nh vÃƒÆ’Ã‚Â  content dÃƒÆ’Ã‚Â i.
+[17-Nov-2025 13:22:23 UTC] ÃƒÂ°Ã…Â¸Ã¢â‚¬ï¿½Ã‚Â¹ Current User ID: 1
+[17-Nov-2025 13:22:28 UTC] ÃƒÂ¢Ã…â€œÃ¢â‚¬Â¦ Post "LÃƒÂ¡Ã‚Â»Ã‚Â£i ÃƒÆ’Ã‚Â­ch cÃƒÂ¡Ã‚Â»Ã‚Â§a rau hÃƒÂ¡Ã‚Â»Ã‚Â¯u cÃƒâ€ Ã‚Â¡" Ãƒâ€žÃ¢â‚¬ËœÃƒâ€ Ã‚Â°ÃƒÂ¡Ã‚Â»Ã‚Â£c tÃƒÂ¡Ã‚ÂºÃ‚Â¡o vÃƒÂ¡Ã‚Â»Ã¢â‚¬Âºi ID: 1993
+[17-Nov-2025 13:22:35 UTC] ÃƒÂ¢Ã…â€œÃ¢â‚¬Â¦ Post "CÃƒÆ’Ã‚Â¡ch chÃƒÂ¡Ã‚Â»Ã¯Â¿Â½n thÃƒÂ¡Ã‚Â»Ã‚Â±c phÃƒÂ¡Ã‚ÂºÃ‚Â©m hÃƒÂ¡Ã‚Â»Ã‚Â¯u cÃƒâ€ Ã‚Â¡" Ãƒâ€žÃ¢â‚¬ËœÃƒâ€ Ã‚Â°ÃƒÂ¡Ã‚Â»Ã‚Â£c tÃƒÂ¡Ã‚ÂºÃ‚Â¡o vÃƒÂ¡Ã‚Â»Ã¢â‚¬Âºi ID: 1995
+[17-Nov-2025 13:22:37 UTC] ÃƒÂ¢Ã…â€œÃ¢â‚¬Â¦ Post "ThÃƒÂ¡Ã‚Â»Ã‚Â±c phÃƒÂ¡Ã‚ÂºÃ‚Â©m hÃƒÂ¡Ã‚Â»Ã‚Â¯u cÃƒâ€ Ã‚Â¡ cho bÃƒÆ’Ã‚Â©" Ãƒâ€žÃ¢â‚¬ËœÃƒâ€ Ã‚Â°ÃƒÂ¡Ã‚Â»Ã‚Â£c tÃƒÂ¡Ã‚ÂºÃ‚Â¡o vÃƒÂ¡Ã‚Â»Ã¢â‚¬Âºi ID: 1997
+[17-Nov-2025 13:22:38 UTC] ÃƒÂ¢Ã…â€œÃ¢â‚¬Â¦ Post "Top 5 loÃƒÂ¡Ã‚ÂºÃ‚Â¡i trÃƒÆ’Ã‚Â¡i cÃƒÆ’Ã‚Â¢y organic" Ãƒâ€žÃ¢â‚¬ËœÃƒâ€ Ã‚Â°ÃƒÂ¡Ã‚Â»Ã‚Â£c tÃƒÂ¡Ã‚ÂºÃ‚Â¡o vÃƒÂ¡Ã‚Â»Ã¢â‚¬Âºi ID: 1999
+[17-Nov-2025 13:22:39 UTC] ÃƒÂ¢Ã…â€œÃ¢â‚¬Â¦ Post "Organic vs ThÃƒÂ¡Ã‚Â»Ã‚Â±c phÃƒÂ¡Ã‚ÂºÃ‚Â©m thÃƒÆ’Ã‚Â´ng thÃƒâ€ Ã‚Â°ÃƒÂ¡Ã‚Â»Ã¯Â¿Â½ng" Ãƒâ€žÃ¢â‚¬ËœÃƒâ€ Ã‚Â°ÃƒÂ¡Ã‚Â»Ã‚Â£c tÃƒÂ¡Ã‚ÂºÃ‚Â¡o vÃƒÂ¡Ã‚Â»Ã¢â‚¬Âºi ID: 2001
+[17-Nov-2025 13:22:39 UTC] ÃƒÂ¢Ã…â€œÃ¢â‚¬Â¦ Post "CÃƒÆ’Ã‚Â¡ch trÃƒÂ¡Ã‚Â»Ã¢â‚¬Å“ng rau hÃƒÂ¡Ã‚Â»Ã‚Â¯u cÃƒâ€ Ã‚Â¡ tÃƒÂ¡Ã‚ÂºÃ‚Â¡i nhÃƒÆ’Ã‚Â " Ãƒâ€žÃ¢â‚¬ËœÃƒâ€ Ã‚Â°ÃƒÂ¡Ã‚Â»Ã‚Â£c tÃƒÂ¡Ã‚ÂºÃ‚Â¡o vÃƒÂ¡Ã‚Â»Ã¢â‚¬Âºi ID: 2003
+[17-Nov-2025 13:22:40 UTC] ÃƒÂ¢Ã…â€œÃ¢â‚¬Â¦ Post "Smoothie healthy tÃƒÂ¡Ã‚Â»Ã‚Â« organic" Ãƒâ€žÃ¢â‚¬ËœÃƒâ€ Ã‚Â°ÃƒÂ¡Ã‚Â»Ã‚Â£c tÃƒÂ¡Ã‚ÂºÃ‚Â¡o vÃƒÂ¡Ã‚Â»Ã¢â‚¬Âºi ID: 2005
+[17-Nov-2025 13:22:41 UTC] ÃƒÂ¢Ã…â€œÃ¢â‚¬Â¦ Post "CÃƒÆ’Ã‚Â¡c loÃƒÂ¡Ã‚ÂºÃ‚Â¡i hÃƒÂ¡Ã‚ÂºÃ‚Â¡t hÃƒÂ¡Ã‚Â»Ã‚Â¯u cÃƒâ€ Ã‚Â¡ tÃƒÂ¡Ã‚Â»Ã¢â‚¬Ëœt cho sÃƒÂ¡Ã‚Â»Ã‚Â©c khÃƒÂ¡Ã‚Â»Ã¯Â¿Â½e" Ãƒâ€žÃ¢â‚¬ËœÃƒâ€ Ã‚Â°ÃƒÂ¡Ã‚Â»Ã‚Â£c tÃƒÂ¡Ã‚ÂºÃ‚Â¡o vÃƒÂ¡Ã‚Â»Ã¢â‚¬Âºi ID: 2007
+[17-Nov-2025 13:22:42 UTC] ÃƒÂ¢Ã…â€œÃ¢â‚¬Â¦ Post "ChÃƒÂ¡Ã‚ÂºÃ‚Â¿ Ãƒâ€žÃ¢â‚¬ËœÃƒÂ¡Ã‚Â»Ã¢â€žÂ¢ Ãƒâ€žÃ†â€™n organic giÃƒÂ¡Ã‚ÂºÃ‚Â£m cÃƒÆ’Ã‚Â¢n" Ãƒâ€žÃ¢â‚¬ËœÃƒâ€ Ã‚Â°ÃƒÂ¡Ã‚Â»Ã‚Â£c tÃƒÂ¡Ã‚ÂºÃ‚Â¡o vÃƒÂ¡Ã‚Â»Ã¢â‚¬Âºi ID: 2009
+[17-Nov-2025 13:22:42 UTC] ÃƒÂ¢Ã…â€œÃ¢â‚¬Â¦ Post "Organic food: Xu hÃƒâ€ Ã‚Â°ÃƒÂ¡Ã‚Â»Ã¢â‚¬Âºng 2025" Ãƒâ€žÃ¢â‚¬ËœÃƒâ€ Ã‚Â°ÃƒÂ¡Ã‚Â»Ã‚Â£c tÃƒÂ¡Ã‚ÂºÃ‚Â¡o vÃƒÂ¡Ã‚Â»Ã¢â‚¬Âºi ID: 2011
+[17-Nov-2025 13:22:42 UTC] ÃƒÂ¢Ã…â€œÃ¢â‚¬Â¦ HoÃƒÆ’Ã‚Â n tÃƒÂ¡Ã‚ÂºÃ‚Â¥t tÃƒÂ¡Ã‚ÂºÃ‚Â¡o 10 bÃƒÆ’Ã‚Â i viÃƒÂ¡Ã‚ÂºÃ‚Â¿t mÃƒÂ¡Ã‚ÂºÃ‚Â«u vÃƒÂ¡Ã‚Â»Ã¢â‚¬Âºi ÃƒÂ¡Ã‚ÂºÃ‚Â£nh vÃƒÆ’Ã‚Â  content dÃƒÆ’Ã‚Â i.
 [17-Nov-2025 13:59:00 UTC] Automatic updates starting...
 [17-Nov-2025 13:59:02 UTC]   Automatic plugin updates starting...
 [17-Nov-2025 13:59:02 UTC]   Automatic plugin updates complete.
@@ -4488,6 +4488,44 @@ Stack trace:
 [19-Nov-2025 00:08:43 UTC] PHP  16. _doing_it_wrong($function_name = '_load_textdomain_just_in_time', $message = 'Translation loading for the <code>wp-mail-smtp</code> domain was triggered too early. This is usually an indicator for some code in the plugin or theme running too early. Translations should be loaded at the <code>init</code> action or later.', $version = '6.7.0') C:\wamp64\www\wordpress\wp-includes\l10n.php:1371
 [19-Nov-2025 00:08:43 UTC] PHP  17. wp_trigger_error($function_name = '', $message = 'Function _load_textdomain_just_in_time was called <strong>incorrectly</strong>. Translation loading for the <code>wp-mail-smtp</code> domain was triggered too early. This is usually an indicator for some code in the plugin or theme running too early. Translations should be loaded at the <code>init</code> action or later. Please see <a href="https://developer.wordpress.org/advanced-administration/debug/debug-wordpress/">Debugging in WordPress</a> for more information. (This message was added in version 6.7.0'..., $error_level = *uninitialized*) C:\wamp64\www\wordpress\wp-includes\functions.php:6061
 [19-Nov-2025 00:08:43 UTC] PHP  18. trigger_error($message = 'Function _load_textdomain_just_in_time was called <strong>incorrectly</strong>. Translation loading for the <code>wp-mail-smtp</code> domain was triggered too early. This is usually an indicator for some code in the plugin or theme running too early. Translations should be loaded at the <code>init</code> action or later. Please see <a href="https://developer.wordpress.org/advanced-administration/debug/debug-wordpress/">Debugging in WordPress</a> for more information. (This message was added in version 6.7.0'..., $error_level = 1024) C:\wamp64\www\wordpress\wp-includes\functions.php:6121
+<<<<<<< HEAD
+[19-Nov-2025 00:55:40 UTC] PHP Warning:  session_start(): open(c:/wamp64/tmp\sess_h6ufqvnp9f02qk2voai9r6odsc, O_RDWR) failed: Permission denied (13) in C:\wamp64\www\wordpress\wp-content\themes\doAnCMS\functions.php on line 403
+[19-Nov-2025 00:55:40 UTC] PHP Stack trace:
+[19-Nov-2025 00:55:40 UTC] PHP   1. {main}() C:\wamp64\www\wordpress\index.php:0
+[19-Nov-2025 00:55:40 UTC] PHP   2. require() C:\wamp64\www\wordpress\index.php:17
+[19-Nov-2025 00:55:40 UTC] PHP   3. require_once() C:\wamp64\www\wordpress\wp-blog-header.php:13
+[19-Nov-2025 00:55:40 UTC] PHP   4. require_once() C:\wamp64\www\wordpress\wp-load.php:50
+[19-Nov-2025 00:55:40 UTC] PHP   5. require_once() C:\wamp64\www\wordpress\wp-config.php:106
+[19-Nov-2025 00:55:40 UTC] PHP   6. do_action($hook_name = 'init') C:\wamp64\www\wordpress\wp-settings.php:727
+[19-Nov-2025 00:55:40 UTC] PHP   7. WP_Hook->do_action($args = [0 => '']) C:\wamp64\www\wordpress\wp-includes\plugin.php:517
+[19-Nov-2025 00:55:40 UTC] PHP   8. WP_Hook->apply_filters($value = '', $args = [0 => '']) C:\wamp64\www\wordpress\wp-includes\class-wp-hook.php:348
+[19-Nov-2025 00:55:40 UTC] PHP   9. doAnCMS_start_session('') C:\wamp64\www\wordpress\wp-includes\class-wp-hook.php:324
+[19-Nov-2025 00:55:40 UTC] PHP  10. session_start() C:\wamp64\www\wordpress\wp-content\themes\doAnCMS\functions.php:403
+[19-Nov-2025 00:55:40 UTC] PHP Warning:  session_start(): Failed to read session data: files (path: c:/wamp64/tmp) in C:\wamp64\www\wordpress\wp-content\themes\doAnCMS\functions.php on line 403
+[19-Nov-2025 00:55:40 UTC] PHP Stack trace:
+[19-Nov-2025 00:55:40 UTC] PHP   1. {main}() C:\wamp64\www\wordpress\index.php:0
+[19-Nov-2025 00:55:40 UTC] PHP   2. require() C:\wamp64\www\wordpress\index.php:17
+[19-Nov-2025 00:55:40 UTC] PHP   3. require_once() C:\wamp64\www\wordpress\wp-blog-header.php:13
+[19-Nov-2025 00:55:40 UTC] PHP   4. require_once() C:\wamp64\www\wordpress\wp-load.php:50
+[19-Nov-2025 00:55:40 UTC] PHP   5. require_once() C:\wamp64\www\wordpress\wp-config.php:106
+[19-Nov-2025 00:55:40 UTC] PHP   6. do_action($hook_name = 'init') C:\wamp64\www\wordpress\wp-settings.php:727
+[19-Nov-2025 00:55:40 UTC] PHP   7. WP_Hook->do_action($args = [0 => '']) C:\wamp64\www\wordpress\wp-includes\plugin.php:517
+[19-Nov-2025 00:55:40 UTC] PHP   8. WP_Hook->apply_filters($value = '', $args = [0 => '']) C:\wamp64\www\wordpress\wp-includes\class-wp-hook.php:348
+[19-Nov-2025 00:55:40 UTC] PHP   9. doAnCMS_start_session('') C:\wamp64\www\wordpress\wp-includes\class-wp-hook.php:324
+[19-Nov-2025 00:55:40 UTC] PHP  10. session_start() C:\wamp64\www\wordpress\wp-content\themes\doAnCMS\functions.php:403
+[19-Nov-2025 01:22:36 UTC] 🔹 Current User ID: 1
+[19-Nov-2025 01:22:42 UTC] ✅ Post "Lợi ích của rau hữu cơ" được tạo với ID: 255
+[19-Nov-2025 01:22:50 UTC] ✅ Post "Cách chọn thực phẩm hữu cơ" được tạo với ID: 257
+[19-Nov-2025 01:22:52 UTC] ✅ Post "Thực phẩm hữu cơ cho bé" được tạo với ID: 259
+[19-Nov-2025 01:22:53 UTC] ✅ Post "Top 5 loại trái cây organic" được tạo với ID: 261
+[19-Nov-2025 01:22:54 UTC] ✅ Post "Organic vs Thực phẩm thông thường" được tạo với ID: 263
+[19-Nov-2025 01:22:55 UTC] ✅ Post "Cách trồng rau hữu cơ tại nhà" được tạo với ID: 265
+[19-Nov-2025 01:22:56 UTC] ✅ Post "Smoothie healthy từ organic" được tạo với ID: 267
+[19-Nov-2025 01:22:57 UTC] ✅ Post "Các loại hạt hữu cơ tốt cho sức khỏe" được tạo với ID: 269
+[19-Nov-2025 01:22:58 UTC] ✅ Post "Chế độ ăn organic giảm cân" được tạo với ID: 271
+[19-Nov-2025 01:22:58 UTC] ✅ Post "Organic food: Xu hướng 2025" được tạo với ID: 273
+[19-Nov-2025 01:22:58 UTC] ✅ Hoàn tất tạo 10 bài viết mẫu với ảnh và content dài.
+=======
 [19-Nov-2025 01:04:33 UTC] WordPress database error Unknown column 'is_snoozable' in 'field list' for query INSERT INTO `wp_wc_admin_notes` (`name`, `type`, `locale`, `title`, `content`, `status`, `source`, `is_snoozable`, `layout`, `image`, `is_deleted`, `is_read`, `content_data`, `date_created`, `date_reminder`) VALUES ('your-first-product', 'info', 'en_US', 'Your first product', 'That’s huge! You’re well on your way to building a successful online store — now it’s time to think about how you’ll fulfill your orders.<br /><br />Read our shipping guide to learn best practices and options for putting together your shipping strategy. And for WooCommerce stores in the United States, you can print discounted shipping labels via USPS with <a href=\"https://href.li/?https://woocommerce.com/shipping\" target=\"_blank\">WooCommerce Shipping</a>.', 'pending', 'woocommerce.com', '0', 'plain', '', '0', '0', '{}', '2025-11-19 01:04:33', NULL) made by activate_plugin, do_action('activated_plugin'), WP_Hook->do_action, WP_Hook->apply_filters, Automattic\WooCommerce\Admin\RemoteInboxNotifications\RemoteInboxNotificationsEngine::run, Automattic\WooCommerce\Admin\RemoteInboxNotifications\SpecRunner::run_spec, WC_Data->save, WC_Data_Store->create, Automattic\WooCommerce\Admin\Notes\DataStore->create
 [19-Nov-2025 01:04:33 UTC] WordPress database error Unknown column 'is_snoozable' in 'field list' for query INSERT INTO `wp_wc_admin_notes` (`name`, `type`, `locale`, `title`, `content`, `status`, `source`, `is_snoozable`, `layout`, `image`, `is_deleted`, `is_read`, `content_data`, `date_created`, `date_reminder`) VALUES ('wc-admin-optimizing-the-checkout-flow', 'info', 'en_US', 'Optimizing the checkout flow', 'It’s crucial to get your store’s checkout as smooth as possible to avoid losing sales. Let’s take a look at how you can optimize the checkout experience for your shoppers.', 'pending', 'woocommerce.com', '0', 'plain', '', '0', '0', '{}', '2025-11-19 01:04:33', NULL) made by activate_plugin, do_action('activated_plugin'), WP_Hook->do_action, WP_Hook->apply_filters, Automattic\WooCommerce\Admin\RemoteInboxNotifications\RemoteInboxNotificationsEngine::run, Automattic\WooCommerce\Admin\RemoteInboxNotifications\SpecRunner::run_spec, WC_Data->save, WC_Data_Store->create, Automattic\WooCommerce\Admin\Notes\DataStore->create
 [19-Nov-2025 01:04:33 UTC] WordPress database error Unknown column 'is_snoozable' in 'field list' for query INSERT INTO `wp_wc_admin_notes` (`name`, `type`, `locale`, `title`, `content`, `status`, `source`, `is_snoozable`, `layout`, `image`, `is_deleted`, `is_read`, `content_data`, `date_created`, `date_reminder`) VALUES ('wc-payments-qualitative-feedback', 'info', 'en_US', 'WooPayments setup - let us know what you think', 'Congrats on enabling WooPayments for your store. Please share your feedback in this 2 minute survey to help us improve the setup process.', 'pending', 'woocommerce.com', '0', 'plain', '', '0', '0', '{}', '2025-11-19 01:04:33', NULL) made by activate_plugin, do_action('activated_plugin'), WP_Hook->do_action, WP_Hook->apply_filters, Automattic\WooCommerce\Admin\RemoteInboxNotifications\RemoteInboxNotificationsEngine::run, Automattic\WooCommerce\Admin\RemoteInboxNotifications\SpecRunner::run_spec, WC_Data->save, WC_Data_Store->create, Automattic\WooCommerce\Admin\Notes\DataStore->create
@@ -4554,3 +4592,379 @@ Stack trace:
 [19-Nov-2025 01:06:12 UTC] ✅ Post "Chế độ ăn organic giảm cân" được tạo với ID: 259
 [19-Nov-2025 01:06:12 UTC] ✅ Post "Organic food: Xu hướng 2025" được tạo với ID: 261
 [19-Nov-2025 01:06:12 UTC] ✅ Hoàn tất tạo 10 bài viết mẫu với ảnh và content dài.
+>>>>>>> f054066b85f72505191eae5f4bb96414c62ad479
+[21-Nov-2025 03:54:21 UTC] Automatic updates starting...
+[21-Nov-2025 03:54:28 UTC]   Automatic plugin updates starting...
+[21-Nov-2025 03:54:28 UTC]   Automatic plugin updates complete.
+[21-Nov-2025 03:54:30 UTC]   Automatic theme updates starting...
+[21-Nov-2025 03:54:30 UTC]   Automatic theme updates complete.
+[21-Nov-2025 03:54:30 UTC] Automatic updates complete.
+[21-Nov-2025 04:51:39 UTC] PHP Warning:  Undefined variable $order_button_text in C:\wamp64\www\wordpress\wp-content\plugins\woocommerce\templates\checkout\payment.php on line 53
+[21-Nov-2025 04:51:39 UTC] PHP Stack trace:
+[21-Nov-2025 04:51:39 UTC] PHP   1. {main}() C:\wamp64\www\wordpress\index.php:0
+[21-Nov-2025 04:51:39 UTC] PHP   2. require() C:\wamp64\www\wordpress\index.php:17
+[21-Nov-2025 04:51:39 UTC] PHP   3. require_once() C:\wamp64\www\wordpress\wp-blog-header.php:19
+[21-Nov-2025 04:51:39 UTC] PHP   4. include() C:\wamp64\www\wordpress\wp-includes\template-loader.php:106
+[21-Nov-2025 04:51:39 UTC] PHP   5. wc_get_template($template_name = 'checkout/payment.php', $args = ['checkout' => class WC_Checkout { protected $fields = [...]; protected $legacy_posted_data = [...]; private $logged_in_customer = class WC_Customer { ... } }], $template_path = *uninitialized*, $default_path = *uninitialized*) C:\wamp64\www\wordpress\wp-content\themes\doAnCMS\page-checkout.php:100
+[21-Nov-2025 04:51:39 UTC] PHP   6. include() C:\wamp64\www\wordpress\wp-content\plugins\woocommerce\includes\wc-core-functions.php:346
+[21-Nov-2025 04:51:39 UTC] PHP Warning:  Undefined variable $order_button_text in C:\wamp64\www\wordpress\wp-content\plugins\woocommerce\templates\checkout\payment.php on line 53
+[21-Nov-2025 04:51:39 UTC] PHP Stack trace:
+[21-Nov-2025 04:51:39 UTC] PHP   1. {main}() C:\wamp64\www\wordpress\index.php:0
+[21-Nov-2025 04:51:39 UTC] PHP   2. require() C:\wamp64\www\wordpress\index.php:17
+[21-Nov-2025 04:51:39 UTC] PHP   3. require_once() C:\wamp64\www\wordpress\wp-blog-header.php:19
+[21-Nov-2025 04:51:39 UTC] PHP   4. include() C:\wamp64\www\wordpress\wp-includes\template-loader.php:106
+[21-Nov-2025 04:51:39 UTC] PHP   5. wc_get_template($template_name = 'checkout/payment.php', $args = ['checkout' => class WC_Checkout { protected $fields = [...]; protected $legacy_posted_data = [...]; private $logged_in_customer = class WC_Customer { ... } }], $template_path = *uninitialized*, $default_path = *uninitialized*) C:\wamp64\www\wordpress\wp-content\themes\doAnCMS\page-checkout.php:100
+[21-Nov-2025 04:51:39 UTC] PHP   6. include() C:\wamp64\www\wordpress\wp-content\plugins\woocommerce\includes\wc-core-functions.php:346
+[21-Nov-2025 04:51:39 UTC] PHP Warning:  Undefined variable $order_button_text in C:\wamp64\www\wordpress\wp-content\plugins\woocommerce\templates\checkout\payment.php on line 53
+[21-Nov-2025 04:51:39 UTC] PHP Stack trace:
+[21-Nov-2025 04:51:39 UTC] PHP   1. {main}() C:\wamp64\www\wordpress\index.php:0
+[21-Nov-2025 04:51:39 UTC] PHP   2. require() C:\wamp64\www\wordpress\index.php:17
+[21-Nov-2025 04:51:39 UTC] PHP   3. require_once() C:\wamp64\www\wordpress\wp-blog-header.php:19
+[21-Nov-2025 04:51:39 UTC] PHP   4. include() C:\wamp64\www\wordpress\wp-includes\template-loader.php:106
+[21-Nov-2025 04:51:39 UTC] PHP   5. wc_get_template($template_name = 'checkout/payment.php', $args = ['checkout' => class WC_Checkout { protected $fields = [...]; protected $legacy_posted_data = [...]; private $logged_in_customer = class WC_Customer { ... } }], $template_path = *uninitialized*, $default_path = *uninitialized*) C:\wamp64\www\wordpress\wp-content\themes\doAnCMS\page-checkout.php:100
+[21-Nov-2025 04:51:39 UTC] PHP   6. include() C:\wamp64\www\wordpress\wp-content\plugins\woocommerce\includes\wc-core-functions.php:346
+[21-Nov-2025 04:59:28 UTC] PHP Warning:  Undefined variable $order_button_text in C:\wamp64\www\wordpress\wp-content\plugins\woocommerce\templates\checkout\payment.php on line 53
+[21-Nov-2025 04:59:28 UTC] PHP Stack trace:
+[21-Nov-2025 04:59:28 UTC] PHP   1. {main}() C:\wamp64\www\wordpress\index.php:0
+[21-Nov-2025 04:59:28 UTC] PHP   2. require() C:\wamp64\www\wordpress\index.php:17
+[21-Nov-2025 04:59:28 UTC] PHP   3. require_once() C:\wamp64\www\wordpress\wp-blog-header.php:19
+[21-Nov-2025 04:59:28 UTC] PHP   4. include() C:\wamp64\www\wordpress\wp-includes\template-loader.php:106
+[21-Nov-2025 04:59:28 UTC] PHP   5. wc_get_template($template_name = 'checkout/payment.php', $args = ['checkout' => class WC_Checkout { protected $fields = [...]; protected $legacy_posted_data = [...]; private $logged_in_customer = class WC_Customer { ... } }], $template_path = *uninitialized*, $default_path = *uninitialized*) C:\wamp64\www\wordpress\wp-content\themes\doAnCMS\page-checkout.php:119
+[21-Nov-2025 04:59:28 UTC] PHP   6. include() C:\wamp64\www\wordpress\wp-content\plugins\woocommerce\includes\wc-core-functions.php:346
+[21-Nov-2025 04:59:28 UTC] PHP Warning:  Undefined variable $order_button_text in C:\wamp64\www\wordpress\wp-content\plugins\woocommerce\templates\checkout\payment.php on line 53
+[21-Nov-2025 04:59:28 UTC] PHP Stack trace:
+[21-Nov-2025 04:59:28 UTC] PHP   1. {main}() C:\wamp64\www\wordpress\index.php:0
+[21-Nov-2025 04:59:28 UTC] PHP   2. require() C:\wamp64\www\wordpress\index.php:17
+[21-Nov-2025 04:59:28 UTC] PHP   3. require_once() C:\wamp64\www\wordpress\wp-blog-header.php:19
+[21-Nov-2025 04:59:28 UTC] PHP   4. include() C:\wamp64\www\wordpress\wp-includes\template-loader.php:106
+[21-Nov-2025 04:59:28 UTC] PHP   5. wc_get_template($template_name = 'checkout/payment.php', $args = ['checkout' => class WC_Checkout { protected $fields = [...]; protected $legacy_posted_data = [...]; private $logged_in_customer = class WC_Customer { ... } }], $template_path = *uninitialized*, $default_path = *uninitialized*) C:\wamp64\www\wordpress\wp-content\themes\doAnCMS\page-checkout.php:119
+[21-Nov-2025 04:59:28 UTC] PHP   6. include() C:\wamp64\www\wordpress\wp-content\plugins\woocommerce\includes\wc-core-functions.php:346
+[21-Nov-2025 04:59:28 UTC] PHP Warning:  Undefined variable $order_button_text in C:\wamp64\www\wordpress\wp-content\plugins\woocommerce\templates\checkout\payment.php on line 53
+[21-Nov-2025 04:59:28 UTC] PHP Stack trace:
+[21-Nov-2025 04:59:28 UTC] PHP   1. {main}() C:\wamp64\www\wordpress\index.php:0
+[21-Nov-2025 04:59:28 UTC] PHP   2. require() C:\wamp64\www\wordpress\index.php:17
+[21-Nov-2025 04:59:28 UTC] PHP   3. require_once() C:\wamp64\www\wordpress\wp-blog-header.php:19
+[21-Nov-2025 04:59:28 UTC] PHP   4. include() C:\wamp64\www\wordpress\wp-includes\template-loader.php:106
+[21-Nov-2025 04:59:28 UTC] PHP   5. wc_get_template($template_name = 'checkout/payment.php', $args = ['checkout' => class WC_Checkout { protected $fields = [...]; protected $legacy_posted_data = [...]; private $logged_in_customer = class WC_Customer { ... } }], $template_path = *uninitialized*, $default_path = *uninitialized*) C:\wamp64\www\wordpress\wp-content\themes\doAnCMS\page-checkout.php:119
+[21-Nov-2025 04:59:28 UTC] PHP   6. include() C:\wamp64\www\wordpress\wp-content\plugins\woocommerce\includes\wc-core-functions.php:346
+[21-Nov-2025 05:04:26 UTC] PHP Warning:  Undefined variable $order_button_text in C:\wamp64\www\wordpress\wp-content\plugins\woocommerce\templates\checkout\payment.php on line 53
+[21-Nov-2025 05:04:26 UTC] PHP Stack trace:
+[21-Nov-2025 05:04:26 UTC] PHP   1. {main}() C:\wamp64\www\wordpress\index.php:0
+[21-Nov-2025 05:04:26 UTC] PHP   2. require() C:\wamp64\www\wordpress\index.php:17
+[21-Nov-2025 05:04:26 UTC] PHP   3. require_once() C:\wamp64\www\wordpress\wp-blog-header.php:19
+[21-Nov-2025 05:04:26 UTC] PHP   4. include() C:\wamp64\www\wordpress\wp-includes\template-loader.php:106
+[21-Nov-2025 05:04:26 UTC] PHP   5. wc_get_template($template_name = 'checkout/payment.php', $args = ['checkout' => class WC_Checkout { protected $fields = [...]; protected $legacy_posted_data = [...]; private $logged_in_customer = class WC_Customer { ... } }], $template_path = *uninitialized*, $default_path = *uninitialized*) C:\wamp64\www\wordpress\wp-content\themes\doAnCMS\page-checkout.php:119
+[21-Nov-2025 05:04:26 UTC] PHP   6. include() C:\wamp64\www\wordpress\wp-content\plugins\woocommerce\includes\wc-core-functions.php:346
+[21-Nov-2025 05:04:26 UTC] PHP Warning:  Undefined variable $order_button_text in C:\wamp64\www\wordpress\wp-content\plugins\woocommerce\templates\checkout\payment.php on line 53
+[21-Nov-2025 05:04:26 UTC] PHP Stack trace:
+[21-Nov-2025 05:04:26 UTC] PHP   1. {main}() C:\wamp64\www\wordpress\index.php:0
+[21-Nov-2025 05:04:26 UTC] PHP   2. require() C:\wamp64\www\wordpress\index.php:17
+[21-Nov-2025 05:04:26 UTC] PHP   3. require_once() C:\wamp64\www\wordpress\wp-blog-header.php:19
+[21-Nov-2025 05:04:26 UTC] PHP   4. include() C:\wamp64\www\wordpress\wp-includes\template-loader.php:106
+[21-Nov-2025 05:04:26 UTC] PHP   5. wc_get_template($template_name = 'checkout/payment.php', $args = ['checkout' => class WC_Checkout { protected $fields = [...]; protected $legacy_posted_data = [...]; private $logged_in_customer = class WC_Customer { ... } }], $template_path = *uninitialized*, $default_path = *uninitialized*) C:\wamp64\www\wordpress\wp-content\themes\doAnCMS\page-checkout.php:119
+[21-Nov-2025 05:04:26 UTC] PHP   6. include() C:\wamp64\www\wordpress\wp-content\plugins\woocommerce\includes\wc-core-functions.php:346
+[21-Nov-2025 05:04:26 UTC] PHP Warning:  Undefined variable $order_button_text in C:\wamp64\www\wordpress\wp-content\plugins\woocommerce\templates\checkout\payment.php on line 53
+[21-Nov-2025 05:04:26 UTC] PHP Stack trace:
+[21-Nov-2025 05:04:26 UTC] PHP   1. {main}() C:\wamp64\www\wordpress\index.php:0
+[21-Nov-2025 05:04:26 UTC] PHP   2. require() C:\wamp64\www\wordpress\index.php:17
+[21-Nov-2025 05:04:26 UTC] PHP   3. require_once() C:\wamp64\www\wordpress\wp-blog-header.php:19
+[21-Nov-2025 05:04:26 UTC] PHP   4. include() C:\wamp64\www\wordpress\wp-includes\template-loader.php:106
+[21-Nov-2025 05:04:26 UTC] PHP   5. wc_get_template($template_name = 'checkout/payment.php', $args = ['checkout' => class WC_Checkout { protected $fields = [...]; protected $legacy_posted_data = [...]; private $logged_in_customer = class WC_Customer { ... } }], $template_path = *uninitialized*, $default_path = *uninitialized*) C:\wamp64\www\wordpress\wp-content\themes\doAnCMS\page-checkout.php:119
+[21-Nov-2025 05:04:26 UTC] PHP   6. include() C:\wamp64\www\wordpress\wp-content\plugins\woocommerce\includes\wc-core-functions.php:346
+[21-Nov-2025 05:07:17 UTC] PHP Parse error:  syntax error, unexpected token "else", expecting end of file in C:\wamp64\www\wordpress\wp-content\themes\doAnCMS\page-checkout.php on line 119
+[21-Nov-2025 05:12:58 UTC] PHP Warning:  Undefined variable $order_button_text in C:\wamp64\www\wordpress\wp-content\plugins\woocommerce\templates\checkout\payment.php on line 53
+[21-Nov-2025 05:12:58 UTC] PHP Stack trace:
+[21-Nov-2025 05:12:58 UTC] PHP   1. {main}() C:\wamp64\www\wordpress\index.php:0
+[21-Nov-2025 05:12:58 UTC] PHP   2. require() C:\wamp64\www\wordpress\index.php:17
+[21-Nov-2025 05:12:58 UTC] PHP   3. require_once() C:\wamp64\www\wordpress\wp-blog-header.php:19
+[21-Nov-2025 05:12:58 UTC] PHP   4. include() C:\wamp64\www\wordpress\wp-includes\template-loader.php:106
+[21-Nov-2025 05:12:58 UTC] PHP   5. wc_get_template($template_name = 'checkout/payment.php', $args = ['checkout' => class WC_Checkout { protected $fields = [...]; protected $legacy_posted_data = [...]; private $logged_in_customer = class WC_Customer { ... } }], $template_path = *uninitialized*, $default_path = *uninitialized*) C:\wamp64\www\wordpress\wp-content\themes\doAnCMS\page-checkout.php:74
+[21-Nov-2025 05:12:58 UTC] PHP   6. include() C:\wamp64\www\wordpress\wp-content\plugins\woocommerce\includes\wc-core-functions.php:346
+[21-Nov-2025 05:12:58 UTC] PHP Warning:  Undefined variable $order_button_text in C:\wamp64\www\wordpress\wp-content\plugins\woocommerce\templates\checkout\payment.php on line 53
+[21-Nov-2025 05:12:58 UTC] PHP Stack trace:
+[21-Nov-2025 05:12:58 UTC] PHP   1. {main}() C:\wamp64\www\wordpress\index.php:0
+[21-Nov-2025 05:12:58 UTC] PHP   2. require() C:\wamp64\www\wordpress\index.php:17
+[21-Nov-2025 05:12:58 UTC] PHP   3. require_once() C:\wamp64\www\wordpress\wp-blog-header.php:19
+[21-Nov-2025 05:12:58 UTC] PHP   4. include() C:\wamp64\www\wordpress\wp-includes\template-loader.php:106
+[21-Nov-2025 05:12:58 UTC] PHP   5. wc_get_template($template_name = 'checkout/payment.php', $args = ['checkout' => class WC_Checkout { protected $fields = [...]; protected $legacy_posted_data = [...]; private $logged_in_customer = class WC_Customer { ... } }], $template_path = *uninitialized*, $default_path = *uninitialized*) C:\wamp64\www\wordpress\wp-content\themes\doAnCMS\page-checkout.php:74
+[21-Nov-2025 05:12:58 UTC] PHP   6. include() C:\wamp64\www\wordpress\wp-content\plugins\woocommerce\includes\wc-core-functions.php:346
+[21-Nov-2025 05:12:58 UTC] PHP Warning:  Undefined variable $order_button_text in C:\wamp64\www\wordpress\wp-content\plugins\woocommerce\templates\checkout\payment.php on line 53
+[21-Nov-2025 05:12:58 UTC] PHP Stack trace:
+[21-Nov-2025 05:12:58 UTC] PHP   1. {main}() C:\wamp64\www\wordpress\index.php:0
+[21-Nov-2025 05:12:58 UTC] PHP   2. require() C:\wamp64\www\wordpress\index.php:17
+[21-Nov-2025 05:12:58 UTC] PHP   3. require_once() C:\wamp64\www\wordpress\wp-blog-header.php:19
+[21-Nov-2025 05:12:58 UTC] PHP   4. include() C:\wamp64\www\wordpress\wp-includes\template-loader.php:106
+[21-Nov-2025 05:12:58 UTC] PHP   5. wc_get_template($template_name = 'checkout/payment.php', $args = ['checkout' => class WC_Checkout { protected $fields = [...]; protected $legacy_posted_data = [...]; private $logged_in_customer = class WC_Customer { ... } }], $template_path = *uninitialized*, $default_path = *uninitialized*) C:\wamp64\www\wordpress\wp-content\themes\doAnCMS\page-checkout.php:74
+[21-Nov-2025 05:12:58 UTC] PHP   6. include() C:\wamp64\www\wordpress\wp-content\plugins\woocommerce\includes\wc-core-functions.php:346
+[21-Nov-2025 05:14:48 UTC] PHP Warning:  Undefined variable $order_button_text in C:\wamp64\www\wordpress\wp-content\plugins\woocommerce\templates\checkout\payment.php on line 53
+[21-Nov-2025 05:14:48 UTC] PHP Stack trace:
+[21-Nov-2025 05:14:48 UTC] PHP   1. {main}() C:\wamp64\www\wordpress\index.php:0
+[21-Nov-2025 05:14:48 UTC] PHP   2. require() C:\wamp64\www\wordpress\index.php:17
+[21-Nov-2025 05:14:48 UTC] PHP   3. require_once() C:\wamp64\www\wordpress\wp-blog-header.php:19
+[21-Nov-2025 05:14:48 UTC] PHP   4. include() C:\wamp64\www\wordpress\wp-includes\template-loader.php:106
+[21-Nov-2025 05:14:48 UTC] PHP   5. wc_get_template($template_name = 'checkout/payment.php', $args = ['checkout' => class WC_Checkout { protected $fields = [...]; protected $legacy_posted_data = [...]; private $logged_in_customer = class WC_Customer { ... } }], $template_path = *uninitialized*, $default_path = *uninitialized*) C:\wamp64\www\wordpress\wp-content\themes\doAnCMS\page-checkout.php:74
+[21-Nov-2025 05:14:48 UTC] PHP   6. include() C:\wamp64\www\wordpress\wp-content\plugins\woocommerce\includes\wc-core-functions.php:346
+[21-Nov-2025 05:14:48 UTC] PHP Warning:  Undefined variable $order_button_text in C:\wamp64\www\wordpress\wp-content\plugins\woocommerce\templates\checkout\payment.php on line 53
+[21-Nov-2025 05:14:48 UTC] PHP Stack trace:
+[21-Nov-2025 05:14:48 UTC] PHP   1. {main}() C:\wamp64\www\wordpress\index.php:0
+[21-Nov-2025 05:14:48 UTC] PHP   2. require() C:\wamp64\www\wordpress\index.php:17
+[21-Nov-2025 05:14:48 UTC] PHP   3. require_once() C:\wamp64\www\wordpress\wp-blog-header.php:19
+[21-Nov-2025 05:14:48 UTC] PHP   4. include() C:\wamp64\www\wordpress\wp-includes\template-loader.php:106
+[21-Nov-2025 05:14:48 UTC] PHP   5. wc_get_template($template_name = 'checkout/payment.php', $args = ['checkout' => class WC_Checkout { protected $fields = [...]; protected $legacy_posted_data = [...]; private $logged_in_customer = class WC_Customer { ... } }], $template_path = *uninitialized*, $default_path = *uninitialized*) C:\wamp64\www\wordpress\wp-content\themes\doAnCMS\page-checkout.php:74
+[21-Nov-2025 05:14:48 UTC] PHP   6. include() C:\wamp64\www\wordpress\wp-content\plugins\woocommerce\includes\wc-core-functions.php:346
+[21-Nov-2025 05:14:48 UTC] PHP Warning:  Undefined variable $order_button_text in C:\wamp64\www\wordpress\wp-content\plugins\woocommerce\templates\checkout\payment.php on line 53
+[21-Nov-2025 05:14:48 UTC] PHP Stack trace:
+[21-Nov-2025 05:14:48 UTC] PHP   1. {main}() C:\wamp64\www\wordpress\index.php:0
+[21-Nov-2025 05:14:48 UTC] PHP   2. require() C:\wamp64\www\wordpress\index.php:17
+[21-Nov-2025 05:14:48 UTC] PHP   3. require_once() C:\wamp64\www\wordpress\wp-blog-header.php:19
+[21-Nov-2025 05:14:48 UTC] PHP   4. include() C:\wamp64\www\wordpress\wp-includes\template-loader.php:106
+[21-Nov-2025 05:14:48 UTC] PHP   5. wc_get_template($template_name = 'checkout/payment.php', $args = ['checkout' => class WC_Checkout { protected $fields = [...]; protected $legacy_posted_data = [...]; private $logged_in_customer = class WC_Customer { ... } }], $template_path = *uninitialized*, $default_path = *uninitialized*) C:\wamp64\www\wordpress\wp-content\themes\doAnCMS\page-checkout.php:74
+[21-Nov-2025 05:14:48 UTC] PHP   6. include() C:\wamp64\www\wordpress\wp-content\plugins\woocommerce\includes\wc-core-functions.php:346
+[21-Nov-2025 05:15:36 UTC] PHP Warning:  Undefined variable $order_button_text in C:\wamp64\www\wordpress\wp-content\plugins\woocommerce\templates\checkout\payment.php on line 53
+[21-Nov-2025 05:15:36 UTC] PHP Stack trace:
+[21-Nov-2025 05:15:36 UTC] PHP   1. {main}() C:\wamp64\www\wordpress\index.php:0
+[21-Nov-2025 05:15:36 UTC] PHP   2. require() C:\wamp64\www\wordpress\index.php:17
+[21-Nov-2025 05:15:36 UTC] PHP   3. require_once() C:\wamp64\www\wordpress\wp-blog-header.php:19
+[21-Nov-2025 05:15:36 UTC] PHP   4. include() C:\wamp64\www\wordpress\wp-includes\template-loader.php:106
+[21-Nov-2025 05:15:36 UTC] PHP   5. wc_get_template($template_name = 'checkout/payment.php', $args = ['checkout' => class WC_Checkout { protected $fields = [...]; protected $legacy_posted_data = [...]; private $logged_in_customer = class WC_Customer { ... } }], $template_path = *uninitialized*, $default_path = *uninitialized*) C:\wamp64\www\wordpress\wp-content\themes\doAnCMS\page-checkout.php:74
+[21-Nov-2025 05:15:36 UTC] PHP   6. include() C:\wamp64\www\wordpress\wp-content\plugins\woocommerce\includes\wc-core-functions.php:346
+[21-Nov-2025 05:15:36 UTC] PHP Warning:  Undefined variable $order_button_text in C:\wamp64\www\wordpress\wp-content\plugins\woocommerce\templates\checkout\payment.php on line 53
+[21-Nov-2025 05:15:36 UTC] PHP Stack trace:
+[21-Nov-2025 05:15:36 UTC] PHP   1. {main}() C:\wamp64\www\wordpress\index.php:0
+[21-Nov-2025 05:15:36 UTC] PHP   2. require() C:\wamp64\www\wordpress\index.php:17
+[21-Nov-2025 05:15:36 UTC] PHP   3. require_once() C:\wamp64\www\wordpress\wp-blog-header.php:19
+[21-Nov-2025 05:15:36 UTC] PHP   4. include() C:\wamp64\www\wordpress\wp-includes\template-loader.php:106
+[21-Nov-2025 05:15:36 UTC] PHP   5. wc_get_template($template_name = 'checkout/payment.php', $args = ['checkout' => class WC_Checkout { protected $fields = [...]; protected $legacy_posted_data = [...]; private $logged_in_customer = class WC_Customer { ... } }], $template_path = *uninitialized*, $default_path = *uninitialized*) C:\wamp64\www\wordpress\wp-content\themes\doAnCMS\page-checkout.php:74
+[21-Nov-2025 05:15:36 UTC] PHP   6. include() C:\wamp64\www\wordpress\wp-content\plugins\woocommerce\includes\wc-core-functions.php:346
+[21-Nov-2025 05:15:36 UTC] PHP Warning:  Undefined variable $order_button_text in C:\wamp64\www\wordpress\wp-content\plugins\woocommerce\templates\checkout\payment.php on line 53
+[21-Nov-2025 05:15:36 UTC] PHP Stack trace:
+[21-Nov-2025 05:15:36 UTC] PHP   1. {main}() C:\wamp64\www\wordpress\index.php:0
+[21-Nov-2025 05:15:36 UTC] PHP   2. require() C:\wamp64\www\wordpress\index.php:17
+[21-Nov-2025 05:15:36 UTC] PHP   3. require_once() C:\wamp64\www\wordpress\wp-blog-header.php:19
+[21-Nov-2025 05:15:36 UTC] PHP   4. include() C:\wamp64\www\wordpress\wp-includes\template-loader.php:106
+[21-Nov-2025 05:15:36 UTC] PHP   5. wc_get_template($template_name = 'checkout/payment.php', $args = ['checkout' => class WC_Checkout { protected $fields = [...]; protected $legacy_posted_data = [...]; private $logged_in_customer = class WC_Customer { ... } }], $template_path = *uninitialized*, $default_path = *uninitialized*) C:\wamp64\www\wordpress\wp-content\themes\doAnCMS\page-checkout.php:74
+[21-Nov-2025 05:15:36 UTC] PHP   6. include() C:\wamp64\www\wordpress\wp-content\plugins\woocommerce\includes\wc-core-functions.php:346
+[21-Nov-2025 05:16:44 UTC] PHP Warning:  Undefined variable $order_button_text in C:\wamp64\www\wordpress\wp-content\plugins\woocommerce\templates\checkout\payment.php on line 53
+[21-Nov-2025 05:16:44 UTC] PHP Stack trace:
+[21-Nov-2025 05:16:44 UTC] PHP   1. {main}() C:\wamp64\www\wordpress\index.php:0
+[21-Nov-2025 05:16:44 UTC] PHP   2. require() C:\wamp64\www\wordpress\index.php:17
+[21-Nov-2025 05:16:44 UTC] PHP   3. require_once() C:\wamp64\www\wordpress\wp-blog-header.php:19
+[21-Nov-2025 05:16:44 UTC] PHP   4. include() C:\wamp64\www\wordpress\wp-includes\template-loader.php:106
+[21-Nov-2025 05:16:44 UTC] PHP   5. wc_get_template($template_name = 'checkout/payment.php', $args = ['checkout' => class WC_Checkout { protected $fields = [...]; protected $legacy_posted_data = [...]; private $logged_in_customer = class WC_Customer { ... } }], $template_path = *uninitialized*, $default_path = *uninitialized*) C:\wamp64\www\wordpress\wp-content\themes\doAnCMS\page-checkout.php:74
+[21-Nov-2025 05:16:44 UTC] PHP   6. include() C:\wamp64\www\wordpress\wp-content\plugins\woocommerce\includes\wc-core-functions.php:346
+[21-Nov-2025 05:16:44 UTC] PHP Warning:  Undefined variable $order_button_text in C:\wamp64\www\wordpress\wp-content\plugins\woocommerce\templates\checkout\payment.php on line 53
+[21-Nov-2025 05:16:44 UTC] PHP Stack trace:
+[21-Nov-2025 05:16:44 UTC] PHP   1. {main}() C:\wamp64\www\wordpress\index.php:0
+[21-Nov-2025 05:16:44 UTC] PHP   2. require() C:\wamp64\www\wordpress\index.php:17
+[21-Nov-2025 05:16:44 UTC] PHP   3. require_once() C:\wamp64\www\wordpress\wp-blog-header.php:19
+[21-Nov-2025 05:16:44 UTC] PHP   4. include() C:\wamp64\www\wordpress\wp-includes\template-loader.php:106
+[21-Nov-2025 05:16:44 UTC] PHP   5. wc_get_template($template_name = 'checkout/payment.php', $args = ['checkout' => class WC_Checkout { protected $fields = [...]; protected $legacy_posted_data = [...]; private $logged_in_customer = class WC_Customer { ... } }], $template_path = *uninitialized*, $default_path = *uninitialized*) C:\wamp64\www\wordpress\wp-content\themes\doAnCMS\page-checkout.php:74
+[21-Nov-2025 05:16:44 UTC] PHP   6. include() C:\wamp64\www\wordpress\wp-content\plugins\woocommerce\includes\wc-core-functions.php:346
+[21-Nov-2025 05:16:44 UTC] PHP Warning:  Undefined variable $order_button_text in C:\wamp64\www\wordpress\wp-content\plugins\woocommerce\templates\checkout\payment.php on line 53
+[21-Nov-2025 05:16:44 UTC] PHP Stack trace:
+[21-Nov-2025 05:16:44 UTC] PHP   1. {main}() C:\wamp64\www\wordpress\index.php:0
+[21-Nov-2025 05:16:44 UTC] PHP   2. require() C:\wamp64\www\wordpress\index.php:17
+[21-Nov-2025 05:16:44 UTC] PHP   3. require_once() C:\wamp64\www\wordpress\wp-blog-header.php:19
+[21-Nov-2025 05:16:44 UTC] PHP   4. include() C:\wamp64\www\wordpress\wp-includes\template-loader.php:106
+[21-Nov-2025 05:16:44 UTC] PHP   5. wc_get_template($template_name = 'checkout/payment.php', $args = ['checkout' => class WC_Checkout { protected $fields = [...]; protected $legacy_posted_data = [...]; private $logged_in_customer = class WC_Customer { ... } }], $template_path = *uninitialized*, $default_path = *uninitialized*) C:\wamp64\www\wordpress\wp-content\themes\doAnCMS\page-checkout.php:74
+[21-Nov-2025 05:16:44 UTC] PHP   6. include() C:\wamp64\www\wordpress\wp-content\plugins\woocommerce\includes\wc-core-functions.php:346
+[21-Nov-2025 05:18:08 UTC] PHP Warning:  Undefined variable $order_button_text in C:\wamp64\www\wordpress\wp-content\plugins\woocommerce\templates\checkout\payment.php on line 53
+[21-Nov-2025 05:18:08 UTC] PHP Stack trace:
+[21-Nov-2025 05:18:08 UTC] PHP   1. {main}() C:\wamp64\www\wordpress\index.php:0
+[21-Nov-2025 05:18:08 UTC] PHP   2. require() C:\wamp64\www\wordpress\index.php:17
+[21-Nov-2025 05:18:08 UTC] PHP   3. require_once() C:\wamp64\www\wordpress\wp-blog-header.php:19
+[21-Nov-2025 05:18:08 UTC] PHP   4. include() C:\wamp64\www\wordpress\wp-includes\template-loader.php:106
+[21-Nov-2025 05:18:08 UTC] PHP   5. wc_get_template($template_name = 'checkout/payment.php', $args = ['checkout' => class WC_Checkout { protected $fields = [...]; protected $legacy_posted_data = [...]; private $logged_in_customer = class WC_Customer { ... } }], $template_path = *uninitialized*, $default_path = *uninitialized*) C:\wamp64\www\wordpress\wp-content\themes\doAnCMS\page-checkout.php:74
+[21-Nov-2025 05:18:08 UTC] PHP   6. include() C:\wamp64\www\wordpress\wp-content\plugins\woocommerce\includes\wc-core-functions.php:346
+[21-Nov-2025 05:18:08 UTC] PHP Warning:  Undefined variable $order_button_text in C:\wamp64\www\wordpress\wp-content\plugins\woocommerce\templates\checkout\payment.php on line 53
+[21-Nov-2025 05:18:08 UTC] PHP Stack trace:
+[21-Nov-2025 05:18:08 UTC] PHP   1. {main}() C:\wamp64\www\wordpress\index.php:0
+[21-Nov-2025 05:18:08 UTC] PHP   2. require() C:\wamp64\www\wordpress\index.php:17
+[21-Nov-2025 05:18:08 UTC] PHP   3. require_once() C:\wamp64\www\wordpress\wp-blog-header.php:19
+[21-Nov-2025 05:18:08 UTC] PHP   4. include() C:\wamp64\www\wordpress\wp-includes\template-loader.php:106
+[21-Nov-2025 05:18:08 UTC] PHP   5. wc_get_template($template_name = 'checkout/payment.php', $args = ['checkout' => class WC_Checkout { protected $fields = [...]; protected $legacy_posted_data = [...]; private $logged_in_customer = class WC_Customer { ... } }], $template_path = *uninitialized*, $default_path = *uninitialized*) C:\wamp64\www\wordpress\wp-content\themes\doAnCMS\page-checkout.php:74
+[21-Nov-2025 05:18:08 UTC] PHP   6. include() C:\wamp64\www\wordpress\wp-content\plugins\woocommerce\includes\wc-core-functions.php:346
+[21-Nov-2025 05:18:08 UTC] PHP Warning:  Undefined variable $order_button_text in C:\wamp64\www\wordpress\wp-content\plugins\woocommerce\templates\checkout\payment.php on line 53
+[21-Nov-2025 05:18:08 UTC] PHP Stack trace:
+[21-Nov-2025 05:18:08 UTC] PHP   1. {main}() C:\wamp64\www\wordpress\index.php:0
+[21-Nov-2025 05:18:08 UTC] PHP   2. require() C:\wamp64\www\wordpress\index.php:17
+[21-Nov-2025 05:18:08 UTC] PHP   3. require_once() C:\wamp64\www\wordpress\wp-blog-header.php:19
+[21-Nov-2025 05:18:08 UTC] PHP   4. include() C:\wamp64\www\wordpress\wp-includes\template-loader.php:106
+[21-Nov-2025 05:18:08 UTC] PHP   5. wc_get_template($template_name = 'checkout/payment.php', $args = ['checkout' => class WC_Checkout { protected $fields = [...]; protected $legacy_posted_data = [...]; private $logged_in_customer = class WC_Customer { ... } }], $template_path = *uninitialized*, $default_path = *uninitialized*) C:\wamp64\www\wordpress\wp-content\themes\doAnCMS\page-checkout.php:74
+[21-Nov-2025 05:18:08 UTC] PHP   6. include() C:\wamp64\www\wordpress\wp-content\plugins\woocommerce\includes\wc-core-functions.php:346
+[21-Nov-2025 05:20:08 UTC] PHP Warning:  Undefined variable $order_button_text in C:\wamp64\www\wordpress\wp-content\plugins\woocommerce\templates\checkout\payment.php on line 53
+[21-Nov-2025 05:20:08 UTC] PHP Stack trace:
+[21-Nov-2025 05:20:08 UTC] PHP   1. {main}() C:\wamp64\www\wordpress\index.php:0
+[21-Nov-2025 05:20:08 UTC] PHP   2. require() C:\wamp64\www\wordpress\index.php:17
+[21-Nov-2025 05:20:08 UTC] PHP   3. require_once() C:\wamp64\www\wordpress\wp-blog-header.php:19
+[21-Nov-2025 05:20:08 UTC] PHP   4. include() C:\wamp64\www\wordpress\wp-includes\template-loader.php:106
+[21-Nov-2025 05:20:08 UTC] PHP   5. wc_get_template($template_name = 'checkout/payment.php', $args = ['checkout' => class WC_Checkout { protected $fields = [...]; protected $legacy_posted_data = [...]; private $logged_in_customer = class WC_Customer { ... } }], $template_path = *uninitialized*, $default_path = *uninitialized*) C:\wamp64\www\wordpress\wp-content\themes\doAnCMS\page-checkout.php:74
+[21-Nov-2025 05:20:08 UTC] PHP   6. include() C:\wamp64\www\wordpress\wp-content\plugins\woocommerce\includes\wc-core-functions.php:346
+[21-Nov-2025 05:20:08 UTC] PHP Warning:  Undefined variable $order_button_text in C:\wamp64\www\wordpress\wp-content\plugins\woocommerce\templates\checkout\payment.php on line 53
+[21-Nov-2025 05:20:08 UTC] PHP Stack trace:
+[21-Nov-2025 05:20:08 UTC] PHP   1. {main}() C:\wamp64\www\wordpress\index.php:0
+[21-Nov-2025 05:20:08 UTC] PHP   2. require() C:\wamp64\www\wordpress\index.php:17
+[21-Nov-2025 05:20:08 UTC] PHP   3. require_once() C:\wamp64\www\wordpress\wp-blog-header.php:19
+[21-Nov-2025 05:20:08 UTC] PHP   4. include() C:\wamp64\www\wordpress\wp-includes\template-loader.php:106
+[21-Nov-2025 05:20:08 UTC] PHP   5. wc_get_template($template_name = 'checkout/payment.php', $args = ['checkout' => class WC_Checkout { protected $fields = [...]; protected $legacy_posted_data = [...]; private $logged_in_customer = class WC_Customer { ... } }], $template_path = *uninitialized*, $default_path = *uninitialized*) C:\wamp64\www\wordpress\wp-content\themes\doAnCMS\page-checkout.php:74
+[21-Nov-2025 05:20:08 UTC] PHP   6. include() C:\wamp64\www\wordpress\wp-content\plugins\woocommerce\includes\wc-core-functions.php:346
+[21-Nov-2025 05:20:08 UTC] PHP Warning:  Undefined variable $order_button_text in C:\wamp64\www\wordpress\wp-content\plugins\woocommerce\templates\checkout\payment.php on line 53
+[21-Nov-2025 05:20:08 UTC] PHP Stack trace:
+[21-Nov-2025 05:20:08 UTC] PHP   1. {main}() C:\wamp64\www\wordpress\index.php:0
+[21-Nov-2025 05:20:08 UTC] PHP   2. require() C:\wamp64\www\wordpress\index.php:17
+[21-Nov-2025 05:20:08 UTC] PHP   3. require_once() C:\wamp64\www\wordpress\wp-blog-header.php:19
+[21-Nov-2025 05:20:08 UTC] PHP   4. include() C:\wamp64\www\wordpress\wp-includes\template-loader.php:106
+[21-Nov-2025 05:20:08 UTC] PHP   5. wc_get_template($template_name = 'checkout/payment.php', $args = ['checkout' => class WC_Checkout { protected $fields = [...]; protected $legacy_posted_data = [...]; private $logged_in_customer = class WC_Customer { ... } }], $template_path = *uninitialized*, $default_path = *uninitialized*) C:\wamp64\www\wordpress\wp-content\themes\doAnCMS\page-checkout.php:74
+[21-Nov-2025 05:20:08 UTC] PHP   6. include() C:\wamp64\www\wordpress\wp-content\plugins\woocommerce\includes\wc-core-functions.php:346
+[21-Nov-2025 05:22:26 UTC] PHP Warning:  Undefined variable $order_button_text in C:\wamp64\www\wordpress\wp-content\plugins\woocommerce\templates\checkout\payment.php on line 53
+[21-Nov-2025 05:22:26 UTC] PHP Stack trace:
+[21-Nov-2025 05:22:26 UTC] PHP   1. {main}() C:\wamp64\www\wordpress\index.php:0
+[21-Nov-2025 05:22:26 UTC] PHP   2. require() C:\wamp64\www\wordpress\index.php:17
+[21-Nov-2025 05:22:26 UTC] PHP   3. require_once() C:\wamp64\www\wordpress\wp-blog-header.php:19
+[21-Nov-2025 05:22:26 UTC] PHP   4. include() C:\wamp64\www\wordpress\wp-includes\template-loader.php:106
+[21-Nov-2025 05:22:26 UTC] PHP   5. wc_get_template($template_name = 'checkout/payment.php', $args = ['checkout' => class WC_Checkout { protected $fields = [...]; protected $legacy_posted_data = [...]; private $logged_in_customer = class WC_Customer { ... } }], $template_path = *uninitialized*, $default_path = *uninitialized*) C:\wamp64\www\wordpress\wp-content\themes\doAnCMS\page-checkout.php:74
+[21-Nov-2025 05:22:26 UTC] PHP   6. include() C:\wamp64\www\wordpress\wp-content\plugins\woocommerce\includes\wc-core-functions.php:346
+[21-Nov-2025 05:22:26 UTC] PHP Warning:  Undefined variable $order_button_text in C:\wamp64\www\wordpress\wp-content\plugins\woocommerce\templates\checkout\payment.php on line 53
+[21-Nov-2025 05:22:26 UTC] PHP Stack trace:
+[21-Nov-2025 05:22:26 UTC] PHP   1. {main}() C:\wamp64\www\wordpress\index.php:0
+[21-Nov-2025 05:22:26 UTC] PHP   2. require() C:\wamp64\www\wordpress\index.php:17
+[21-Nov-2025 05:22:26 UTC] PHP   3. require_once() C:\wamp64\www\wordpress\wp-blog-header.php:19
+[21-Nov-2025 05:22:26 UTC] PHP   4. include() C:\wamp64\www\wordpress\wp-includes\template-loader.php:106
+[21-Nov-2025 05:22:27 UTC] PHP   5. wc_get_template($template_name = 'checkout/payment.php', $args = ['checkout' => class WC_Checkout { protected $fields = [...]; protected $legacy_posted_data = [...]; private $logged_in_customer = class WC_Customer { ... } }], $template_path = *uninitialized*, $default_path = *uninitialized*) C:\wamp64\www\wordpress\wp-content\themes\doAnCMS\page-checkout.php:74
+[21-Nov-2025 05:22:27 UTC] PHP   6. include() C:\wamp64\www\wordpress\wp-content\plugins\woocommerce\includes\wc-core-functions.php:346
+[21-Nov-2025 05:22:27 UTC] PHP Warning:  Undefined variable $order_button_text in C:\wamp64\www\wordpress\wp-content\plugins\woocommerce\templates\checkout\payment.php on line 53
+[21-Nov-2025 05:22:27 UTC] PHP Stack trace:
+[21-Nov-2025 05:22:27 UTC] PHP   1. {main}() C:\wamp64\www\wordpress\index.php:0
+[21-Nov-2025 05:22:27 UTC] PHP   2. require() C:\wamp64\www\wordpress\index.php:17
+[21-Nov-2025 05:22:27 UTC] PHP   3. require_once() C:\wamp64\www\wordpress\wp-blog-header.php:19
+[21-Nov-2025 05:22:27 UTC] PHP   4. include() C:\wamp64\www\wordpress\wp-includes\template-loader.php:106
+[21-Nov-2025 05:22:27 UTC] PHP   5. wc_get_template($template_name = 'checkout/payment.php', $args = ['checkout' => class WC_Checkout { protected $fields = [...]; protected $legacy_posted_data = [...]; private $logged_in_customer = class WC_Customer { ... } }], $template_path = *uninitialized*, $default_path = *uninitialized*) C:\wamp64\www\wordpress\wp-content\themes\doAnCMS\page-checkout.php:74
+[21-Nov-2025 05:22:27 UTC] PHP   6. include() C:\wamp64\www\wordpress\wp-content\plugins\woocommerce\includes\wc-core-functions.php:346
+[21-Nov-2025 05:25:52 UTC] PHP Warning:  Undefined variable $order_button_text in C:\wamp64\www\wordpress\wp-content\plugins\woocommerce\templates\checkout\payment.php on line 53
+[21-Nov-2025 05:25:52 UTC] PHP Stack trace:
+[21-Nov-2025 05:25:52 UTC] PHP   1. {main}() C:\wamp64\www\wordpress\index.php:0
+[21-Nov-2025 05:25:52 UTC] PHP   2. require() C:\wamp64\www\wordpress\index.php:17
+[21-Nov-2025 05:25:52 UTC] PHP   3. require_once() C:\wamp64\www\wordpress\wp-blog-header.php:19
+[21-Nov-2025 05:25:52 UTC] PHP   4. include() C:\wamp64\www\wordpress\wp-includes\template-loader.php:106
+[21-Nov-2025 05:25:52 UTC] PHP   5. wc_get_template($template_name = 'checkout/payment.php', $args = ['checkout' => class WC_Checkout { protected $fields = [...]; protected $legacy_posted_data = [...]; private $logged_in_customer = class WC_Customer { ... } }], $template_path = *uninitialized*, $default_path = *uninitialized*) C:\wamp64\www\wordpress\wp-content\themes\doAnCMS\page-checkout.php:74
+[21-Nov-2025 05:25:52 UTC] PHP   6. include() C:\wamp64\www\wordpress\wp-content\plugins\woocommerce\includes\wc-core-functions.php:346
+[21-Nov-2025 05:25:52 UTC] PHP Warning:  Undefined variable $order_button_text in C:\wamp64\www\wordpress\wp-content\plugins\woocommerce\templates\checkout\payment.php on line 53
+[21-Nov-2025 05:25:52 UTC] PHP Stack trace:
+[21-Nov-2025 05:25:52 UTC] PHP   1. {main}() C:\wamp64\www\wordpress\index.php:0
+[21-Nov-2025 05:25:52 UTC] PHP   2. require() C:\wamp64\www\wordpress\index.php:17
+[21-Nov-2025 05:25:52 UTC] PHP   3. require_once() C:\wamp64\www\wordpress\wp-blog-header.php:19
+[21-Nov-2025 05:25:52 UTC] PHP   4. include() C:\wamp64\www\wordpress\wp-includes\template-loader.php:106
+[21-Nov-2025 05:25:52 UTC] PHP   5. wc_get_template($template_name = 'checkout/payment.php', $args = ['checkout' => class WC_Checkout { protected $fields = [...]; protected $legacy_posted_data = [...]; private $logged_in_customer = class WC_Customer { ... } }], $template_path = *uninitialized*, $default_path = *uninitialized*) C:\wamp64\www\wordpress\wp-content\themes\doAnCMS\page-checkout.php:74
+[21-Nov-2025 05:25:52 UTC] PHP   6. include() C:\wamp64\www\wordpress\wp-content\plugins\woocommerce\includes\wc-core-functions.php:346
+[21-Nov-2025 05:25:52 UTC] PHP Warning:  Undefined variable $order_button_text in C:\wamp64\www\wordpress\wp-content\plugins\woocommerce\templates\checkout\payment.php on line 53
+[21-Nov-2025 05:25:52 UTC] PHP Stack trace:
+[21-Nov-2025 05:25:52 UTC] PHP   1. {main}() C:\wamp64\www\wordpress\index.php:0
+[21-Nov-2025 05:25:52 UTC] PHP   2. require() C:\wamp64\www\wordpress\index.php:17
+[21-Nov-2025 05:25:52 UTC] PHP   3. require_once() C:\wamp64\www\wordpress\wp-blog-header.php:19
+[21-Nov-2025 05:25:52 UTC] PHP   4. include() C:\wamp64\www\wordpress\wp-includes\template-loader.php:106
+[21-Nov-2025 05:25:52 UTC] PHP   5. wc_get_template($template_name = 'checkout/payment.php', $args = ['checkout' => class WC_Checkout { protected $fields = [...]; protected $legacy_posted_data = [...]; private $logged_in_customer = class WC_Customer { ... } }], $template_path = *uninitialized*, $default_path = *uninitialized*) C:\wamp64\www\wordpress\wp-content\themes\doAnCMS\page-checkout.php:74
+[21-Nov-2025 05:25:52 UTC] PHP   6. include() C:\wamp64\www\wordpress\wp-content\plugins\woocommerce\includes\wc-core-functions.php:346
+[21-Nov-2025 05:27:46 UTC] PHP Warning:  Undefined variable $order_id in C:\wamp64\www\wordpress\wp-content\plugins\woocommerce\templates\order\order-details.php on line 24
+[21-Nov-2025 05:27:46 UTC] PHP Stack trace:
+[21-Nov-2025 05:27:46 UTC] PHP   1. {main}() C:\wamp64\www\wordpress\index.php:0
+[21-Nov-2025 05:27:46 UTC] PHP   2. require() C:\wamp64\www\wordpress\index.php:17
+[21-Nov-2025 05:27:46 UTC] PHP   3. require_once() C:\wamp64\www\wordpress\wp-blog-header.php:19
+[21-Nov-2025 05:27:46 UTC] PHP   4. include() C:\wamp64\www\wordpress\wp-includes\template-loader.php:106
+[21-Nov-2025 05:27:46 UTC] PHP   5. wc_get_template($template_name = 'order/order-details.php', $args = ['order' => class Automattic\WooCommerce\Admin\Overrides\Order { protected $id = 297; protected $data = [...]; protected $changes = [...]; protected $object_read = TRUE; protected $object_type = 'order'; protected $extra_data = [...]; protected $default_data = [...]; protected $data_store = class WC_Data_Store { ... }; protected $cache_group = 'orders'; protected $meta_data = [...]; protected $legacy_datastore_props = [...]; protected $items = [...]; protected $items_to_delete = [...]; protected $data_store_name = 'order'; protected array $item_types_to_group = [...]; protected $status_transition = FALSE; public $refunds = [...]; protected $refunded_line_items = NULL; public $customer_id = NULL }], $template_path = *uninitialized*, $default_path = *uninitialized*) C:\wamp64\www\wordpress\wp-content\themes\doAnCMS\page-thankyou.php:194
+[21-Nov-2025 05:27:46 UTC] PHP   6. include() C:\wamp64\www\wordpress\wp-content\plugins\woocommerce\includes\wc-core-functions.php:346
+[21-Nov-2025 05:31:00 UTC] PHP Warning:  Undefined variable $order_button_text in C:\wamp64\www\wordpress\wp-content\plugins\woocommerce\templates\checkout\payment.php on line 53
+[21-Nov-2025 05:31:00 UTC] PHP Stack trace:
+[21-Nov-2025 05:31:00 UTC] PHP   1. {main}() C:\wamp64\www\wordpress\index.php:0
+[21-Nov-2025 05:31:00 UTC] PHP   2. require() C:\wamp64\www\wordpress\index.php:17
+[21-Nov-2025 05:31:00 UTC] PHP   3. require_once() C:\wamp64\www\wordpress\wp-blog-header.php:19
+[21-Nov-2025 05:31:00 UTC] PHP   4. include() C:\wamp64\www\wordpress\wp-includes\template-loader.php:106
+[21-Nov-2025 05:31:00 UTC] PHP   5. wc_get_template($template_name = 'checkout/payment.php', $args = ['checkout' => class WC_Checkout { protected $fields = [...]; protected $legacy_posted_data = [...]; private $logged_in_customer = class WC_Customer { ... } }], $template_path = *uninitialized*, $default_path = *uninitialized*) C:\wamp64\www\wordpress\wp-content\themes\doAnCMS\page-checkout.php:74
+[21-Nov-2025 05:31:00 UTC] PHP   6. include() C:\wamp64\www\wordpress\wp-content\plugins\woocommerce\includes\wc-core-functions.php:346
+[21-Nov-2025 05:31:00 UTC] PHP Warning:  Undefined variable $order_button_text in C:\wamp64\www\wordpress\wp-content\plugins\woocommerce\templates\checkout\payment.php on line 53
+[21-Nov-2025 05:31:00 UTC] PHP Stack trace:
+[21-Nov-2025 05:31:00 UTC] PHP   1. {main}() C:\wamp64\www\wordpress\index.php:0
+[21-Nov-2025 05:31:00 UTC] PHP   2. require() C:\wamp64\www\wordpress\index.php:17
+[21-Nov-2025 05:31:00 UTC] PHP   3. require_once() C:\wamp64\www\wordpress\wp-blog-header.php:19
+[21-Nov-2025 05:31:00 UTC] PHP   4. include() C:\wamp64\www\wordpress\wp-includes\template-loader.php:106
+[21-Nov-2025 05:31:00 UTC] PHP   5. wc_get_template($template_name = 'checkout/payment.php', $args = ['checkout' => class WC_Checkout { protected $fields = [...]; protected $legacy_posted_data = [...]; private $logged_in_customer = class WC_Customer { ... } }], $template_path = *uninitialized*, $default_path = *uninitialized*) C:\wamp64\www\wordpress\wp-content\themes\doAnCMS\page-checkout.php:74
+[21-Nov-2025 05:31:00 UTC] PHP   6. include() C:\wamp64\www\wordpress\wp-content\plugins\woocommerce\includes\wc-core-functions.php:346
+[21-Nov-2025 05:31:00 UTC] PHP Warning:  Undefined variable $order_button_text in C:\wamp64\www\wordpress\wp-content\plugins\woocommerce\templates\checkout\payment.php on line 53
+[21-Nov-2025 05:31:00 UTC] PHP Stack trace:
+[21-Nov-2025 05:31:00 UTC] PHP   1. {main}() C:\wamp64\www\wordpress\index.php:0
+[21-Nov-2025 05:31:00 UTC] PHP   2. require() C:\wamp64\www\wordpress\index.php:17
+[21-Nov-2025 05:31:00 UTC] PHP   3. require_once() C:\wamp64\www\wordpress\wp-blog-header.php:19
+[21-Nov-2025 05:31:00 UTC] PHP   4. include() C:\wamp64\www\wordpress\wp-includes\template-loader.php:106
+[21-Nov-2025 05:31:00 UTC] PHP   5. wc_get_template($template_name = 'checkout/payment.php', $args = ['checkout' => class WC_Checkout { protected $fields = [...]; protected $legacy_posted_data = [...]; private $logged_in_customer = class WC_Customer { ... } }], $template_path = *uninitialized*, $default_path = *uninitialized*) C:\wamp64\www\wordpress\wp-content\themes\doAnCMS\page-checkout.php:74
+[21-Nov-2025 05:31:00 UTC] PHP   6. include() C:\wamp64\www\wordpress\wp-content\plugins\woocommerce\includes\wc-core-functions.php:346
+[21-Nov-2025 05:36:56 UTC] PHP Warning:  Undefined variable $order_button_text in C:\wamp64\www\wordpress\wp-content\plugins\woocommerce\templates\checkout\payment.php on line 53
+[21-Nov-2025 05:36:56 UTC] PHP Stack trace:
+[21-Nov-2025 05:36:56 UTC] PHP   1. {main}() C:\wamp64\www\wordpress\index.php:0
+[21-Nov-2025 05:36:56 UTC] PHP   2. require() C:\wamp64\www\wordpress\index.php:17
+[21-Nov-2025 05:36:56 UTC] PHP   3. require_once() C:\wamp64\www\wordpress\wp-blog-header.php:19
+[21-Nov-2025 05:36:56 UTC] PHP   4. include() C:\wamp64\www\wordpress\wp-includes\template-loader.php:106
+[21-Nov-2025 05:36:56 UTC] PHP   5. wc_get_template($template_name = 'checkout/payment.php', $args = ['checkout' => class WC_Checkout { protected $fields = [...]; protected $legacy_posted_data = [...]; private $logged_in_customer = class WC_Customer { ... } }], $template_path = *uninitialized*, $default_path = *uninitialized*) C:\wamp64\www\wordpress\wp-content\themes\doAnCMS\page-checkout.php:74
+[21-Nov-2025 05:36:56 UTC] PHP   6. include() C:\wamp64\www\wordpress\wp-content\plugins\woocommerce\includes\wc-core-functions.php:346
+[21-Nov-2025 05:36:56 UTC] PHP Warning:  Undefined variable $order_button_text in C:\wamp64\www\wordpress\wp-content\plugins\woocommerce\templates\checkout\payment.php on line 53
+[21-Nov-2025 05:36:56 UTC] PHP Stack trace:
+[21-Nov-2025 05:36:56 UTC] PHP   1. {main}() C:\wamp64\www\wordpress\index.php:0
+[21-Nov-2025 05:36:56 UTC] PHP   2. require() C:\wamp64\www\wordpress\index.php:17
+[21-Nov-2025 05:36:56 UTC] PHP   3. require_once() C:\wamp64\www\wordpress\wp-blog-header.php:19
+[21-Nov-2025 05:36:56 UTC] PHP   4. include() C:\wamp64\www\wordpress\wp-includes\template-loader.php:106
+[21-Nov-2025 05:36:56 UTC] PHP   5. wc_get_template($template_name = 'checkout/payment.php', $args = ['checkout' => class WC_Checkout { protected $fields = [...]; protected $legacy_posted_data = [...]; private $logged_in_customer = class WC_Customer { ... } }], $template_path = *uninitialized*, $default_path = *uninitialized*) C:\wamp64\www\wordpress\wp-content\themes\doAnCMS\page-checkout.php:74
+[21-Nov-2025 05:36:56 UTC] PHP   6. include() C:\wamp64\www\wordpress\wp-content\plugins\woocommerce\includes\wc-core-functions.php:346
+[21-Nov-2025 05:36:56 UTC] PHP Warning:  Undefined variable $order_button_text in C:\wamp64\www\wordpress\wp-content\plugins\woocommerce\templates\checkout\payment.php on line 53
+[21-Nov-2025 05:36:56 UTC] PHP Stack trace:
+[21-Nov-2025 05:36:56 UTC] PHP   1. {main}() C:\wamp64\www\wordpress\index.php:0
+[21-Nov-2025 05:36:56 UTC] PHP   2. require() C:\wamp64\www\wordpress\index.php:17
+[21-Nov-2025 05:36:56 UTC] PHP   3. require_once() C:\wamp64\www\wordpress\wp-blog-header.php:19
+[21-Nov-2025 05:36:56 UTC] PHP   4. include() C:\wamp64\www\wordpress\wp-includes\template-loader.php:106
+[21-Nov-2025 05:36:56 UTC] PHP   5. wc_get_template($template_name = 'checkout/payment.php', $args = ['checkout' => class WC_Checkout { protected $fields = [...]; protected $legacy_posted_data = [...]; private $logged_in_customer = class WC_Customer { ... } }], $template_path = *uninitialized*, $default_path = *uninitialized*) C:\wamp64\www\wordpress\wp-content\themes\doAnCMS\page-checkout.php:74
+[21-Nov-2025 05:36:56 UTC] PHP   6. include() C:\wamp64\www\wordpress\wp-content\plugins\woocommerce\includes\wc-core-functions.php:346
+[21-Nov-2025 05:41:19 UTC] PHP Warning:  Undefined variable $order_button_text in C:\wamp64\www\wordpress\wp-content\plugins\woocommerce\templates\checkout\payment.php on line 53
+[21-Nov-2025 05:41:19 UTC] PHP Stack trace:
+[21-Nov-2025 05:41:19 UTC] PHP   1. {main}() C:\wamp64\www\wordpress\index.php:0
+[21-Nov-2025 05:41:19 UTC] PHP   2. require() C:\wamp64\www\wordpress\index.php:17
+[21-Nov-2025 05:41:19 UTC] PHP   3. require_once() C:\wamp64\www\wordpress\wp-blog-header.php:19
+[21-Nov-2025 05:41:19 UTC] PHP   4. include() C:\wamp64\www\wordpress\wp-includes\template-loader.php:106
+[21-Nov-2025 05:41:19 UTC] PHP   5. wc_get_template($template_name = 'checkout/payment.php', $args = ['checkout' => class WC_Checkout { protected $fields = [...]; protected $legacy_posted_data = [...]; private $logged_in_customer = class WC_Customer { ... } }], $template_path = *uninitialized*, $default_path = *uninitialized*) C:\wamp64\www\wordpress\wp-content\themes\doAnCMS\page-checkout.php:74
+[21-Nov-2025 05:41:19 UTC] PHP   6. include() C:\wamp64\www\wordpress\wp-content\plugins\woocommerce\includes\wc-core-functions.php:346
+[21-Nov-2025 05:41:19 UTC] PHP Warning:  Undefined variable $order_button_text in C:\wamp64\www\wordpress\wp-content\plugins\woocommerce\templates\checkout\payment.php on line 53
+[21-Nov-2025 05:41:19 UTC] PHP Stack trace:
+[21-Nov-2025 05:41:19 UTC] PHP   1. {main}() C:\wamp64\www\wordpress\index.php:0
+[21-Nov-2025 05:41:19 UTC] PHP   2. require() C:\wamp64\www\wordpress\index.php:17
+[21-Nov-2025 05:41:19 UTC] PHP   3. require_once() C:\wamp64\www\wordpress\wp-blog-header.php:19
+[21-Nov-2025 05:41:19 UTC] PHP   4. include() C:\wamp64\www\wordpress\wp-includes\template-loader.php:106
+[21-Nov-2025 05:41:19 UTC] PHP   5. wc_get_template($template_name = 'checkout/payment.php', $args = ['checkout' => class WC_Checkout { protected $fields = [...]; protected $legacy_posted_data = [...]; private $logged_in_customer = class WC_Customer { ... } }], $template_path = *uninitialized*, $default_path = *uninitialized*) C:\wamp64\www\wordpress\wp-content\themes\doAnCMS\page-checkout.php:74
+[21-Nov-2025 05:41:19 UTC] PHP   6. include() C:\wamp64\www\wordpress\wp-content\plugins\woocommerce\includes\wc-core-functions.php:346
+[21-Nov-2025 05:41:19 UTC] PHP Warning:  Undefined variable $order_button_text in C:\wamp64\www\wordpress\wp-content\plugins\woocommerce\templates\checkout\payment.php on line 53
+[21-Nov-2025 05:41:19 UTC] PHP Stack trace:
+[21-Nov-2025 05:41:19 UTC] PHP   1. {main}() C:\wamp64\www\wordpress\index.php:0
+[21-Nov-2025 05:41:19 UTC] PHP   2. require() C:\wamp64\www\wordpress\index.php:17
+[21-Nov-2025 05:41:19 UTC] PHP   3. require_once() C:\wamp64\www\wordpress\wp-blog-header.php:19
+[21-Nov-2025 05:41:19 UTC] PHP   4. include() C:\wamp64\www\wordpress\wp-includes\template-loader.php:106
+[21-Nov-2025 05:41:19 UTC] PHP   5. wc_get_template($template_name = 'checkout/payment.php', $args = ['checkout' => class WC_Checkout { protected $fields = [...]; protected $legacy_posted_data = [...]; private $logged_in_customer = class WC_Customer { ... } }], $template_path = *uninitialized*, $default_path = *uninitialized*) C:\wamp64\www\wordpress\wp-content\themes\doAnCMS\page-checkout.php:74
+[21-Nov-2025 05:41:19 UTC] PHP   6. include() C:\wamp64\www\wordpress\wp-content\plugins\woocommerce\includes\wc-core-functions.php:346
+[21-Nov-2025 05:46:15 UTC] PHP Warning:  Undefined variable $order_button_text in C:\wamp64\www\wordpress\wp-content\plugins\woocommerce\templates\checkout\payment.php on line 53
+[21-Nov-2025 05:46:15 UTC] PHP Stack trace:
+[21-Nov-2025 05:46:15 UTC] PHP   1. {main}() C:\wamp64\www\wordpress\index.php:0
+[21-Nov-2025 05:46:15 UTC] PHP   2. require() C:\wamp64\www\wordpress\index.php:17
+[21-Nov-2025 05:46:15 UTC] PHP   3. require_once() C:\wamp64\www\wordpress\wp-blog-header.php:19
+[21-Nov-2025 05:46:15 UTC] PHP   4. include() C:\wamp64\www\wordpress\wp-includes\template-loader.php:106
+[21-Nov-2025 05:46:15 UTC] PHP   5. wc_get_template($template_name = 'checkout/payment.php', $args = ['checkout' => class WC_Checkout { protected $fields = [...]; protected $legacy_posted_data = [...]; private $logged_in_customer = class WC_Customer { ... } }], $template_path = *uninitialized*, $default_path = *uninitialized*) C:\wamp64\www\wordpress\wp-content\themes\doAnCMS\page-checkout.php:74
+[21-Nov-2025 05:46:15 UTC] PHP   6. include() C:\wamp64\www\wordpress\wp-content\plugins\woocommerce\includes\wc-core-functions.php:346
+[21-Nov-2025 05:46:15 UTC] PHP Warning:  Undefined variable $order_button_text in C:\wamp64\www\wordpress\wp-content\plugins\woocommerce\templates\checkout\payment.php on line 53
+[21-Nov-2025 05:46:15 UTC] PHP Stack trace:
+[21-Nov-2025 05:46:15 UTC] PHP   1. {main}() C:\wamp64\www\wordpress\index.php:0
+[21-Nov-2025 05:46:15 UTC] PHP   2. require() C:\wamp64\www\wordpress\index.php:17
+[21-Nov-2025 05:46:15 UTC] PHP   3. require_once() C:\wamp64\www\wordpress\wp-blog-header.php:19
+[21-Nov-2025 05:46:15 UTC] PHP   4. include() C:\wamp64\www\wordpress\wp-includes\template-loader.php:106
+[21-Nov-2025 05:46:15 UTC] PHP   5. wc_get_template($template_name = 'checkout/payment.php', $args = ['checkout' => class WC_Checkout { protected $fields = [...]; protected $legacy_posted_data = [...]; private $logged_in_customer = class WC_Customer { ... } }], $template_path = *uninitialized*, $default_path = *uninitialized*) C:\wamp64\www\wordpress\wp-content\themes\doAnCMS\page-checkout.php:74
+[21-Nov-2025 05:46:15 UTC] PHP   6. include() C:\wamp64\www\wordpress\wp-content\plugins\woocommerce\includes\wc-core-functions.php:346
+[21-Nov-2025 05:46:15 UTC] PHP Warning:  Undefined variable $order_button_text in C:\wamp64\www\wordpress\wp-content\plugins\woocommerce\templates\checkout\payment.php on line 53
+[21-Nov-2025 05:46:15 UTC] PHP Stack trace:
+[21-Nov-2025 05:46:15 UTC] PHP   1. {main}() C:\wamp64\www\wordpress\index.php:0
+[21-Nov-2025 05:46:15 UTC] PHP   2. require() C:\wamp64\www\wordpress\index.php:17
+[21-Nov-2025 05:46:15 UTC] PHP   3. require_once() C:\wamp64\www\wordpress\wp-blog-header.php:19
+[21-Nov-2025 05:46:15 UTC] PHP   4. include() C:\wamp64\www\wordpress\wp-includes\template-loader.php:106
+[21-Nov-2025 05:46:15 UTC] PHP   5. wc_get_template($template_name = 'checkout/payment.php', $args = ['checkout' => class WC_Checkout { protected $fields = [...]; protected $legacy_posted_data = [...]; private $logged_in_customer = class WC_Customer { ... } }], $template_path = *uninitialized*, $default_path = *uninitialized*) C:\wamp64\www\wordpress\wp-content\themes\doAnCMS\page-checkout.php:74
+[21-Nov-2025 05:46:15 UTC] PHP   6. include() C:\wamp64\www\wordpress\wp-content\plugins\woocommerce\includes\wc-core-functions.php:346
