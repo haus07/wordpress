@@ -118,32 +118,32 @@ add_filter('woocommerce_output_related_products_args', 'doAnCMS_change_related_p
 // Sale badge CSS + functions
 // =======================
 add_action('wp_head', function () { ?>
-    <style>
-        .woocommerce ul.products li.product,
-        .product-card,
-        .product-thumb {
-            position: relative;
-        }
+<style>
+.woocommerce ul.products li.product,
+.product-card,
+.product-thumb {
+    position: relative;
+}
 
-        .custom-sale-badge {
-            position: absolute;
-            top: 10px;
-            left: 10px;
-            background: #e74c3c;
-            color: #fff;
-            padding: 5px 10px;
-            border-radius: 5px;
-            font-weight: bold;
-            z-index: 10;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, .15);
-        }
+.custom-sale-badge {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    background: #e74c3c;
+    color: #fff;
+    padding: 5px 10px;
+    border-radius: 5px;
+    font-weight: bold;
+    z-index: 10;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, .15);
+}
 
-        .custom-sale-single {
-            font-size: 16px;
-            color: #e74c3c;
-            margin-bottom: 10px;
-        }
-    </style>
+.custom-sale-single {
+    font-size: 16px;
+    color: #e74c3c;
+    margin-bottom: 10px;
+}
+</style>
 <?php });
 
 add_action('woocommerce_before_shop_loop_item_title', 'doAnCMS_show_sale_badge', 9);
@@ -519,14 +519,14 @@ function doAnCMS_load_product_quick_view()
     ob_start();
 ?>
 
-    <div class="product">
+<div class="product">
 
-        <div class="woocommerce-product-gallery">
-            <?php echo $product->get_image('woocommerce_single'); ?>
-        </div>
+    <div class="woocommerce-product-gallery">
+        <?php echo $product->get_image('woocommerce_single'); ?>
+    </div>
 
-        <div class="summary entry-summary">
-            <?php
+    <div class="summary entry-summary">
+        <?php
             // Hiển thị tên (An toàn)
             echo '<h1 class="product_title entry-title">' . esc_html($product->get_name()) . '</h1>';
 
@@ -548,11 +548,11 @@ function doAnCMS_load_product_quick_view()
                 // 1. NẾU LÀ SẢN PHẨM ĐƠN (SIMPLE)
                 // Dùng link AJAX an toàn + Text tự gõ (hardcode)
             ?>
-                <a href="<?php echo esc_url($product->add_to_cart_url()); ?>"
-                    value="<?php echo esc_attr($product->get_id()); ?>" class="button alt ajax_add_to_cart add_to_cart_button"
-                    data-product_id="<?php echo esc_attr($product->get_id()); ?>" data-quantity="1" rel="nofollow">
-                    🛒 Thêm vào giỏ hàng </a>
-            <?php
+        <a href="<?php echo esc_url($product->add_to_cart_url()); ?>"
+            value="<?php echo esc_attr($product->get_id()); ?>" class="button alt ajax_add_to_cart add_to_cart_button"
+            data-product_id="<?php echo esc_attr($product->get_id()); ?>" data-quantity="1" rel="nofollow">
+            🛒 Thêm vào giỏ hàng </a>
+        <?php
 
             } else {
 
@@ -564,16 +564,16 @@ function doAnCMS_load_product_quick_view()
                 }
 
             ?>
-                <a href="<?php echo esc_url($product->get_permalink()); ?>" class="button alt">
-                    <?php echo esc_html($button_text); ?>
-                </a>
-            <?php
+        <a href="<?php echo esc_url($product->get_permalink()); ?>" class="button alt">
+            <?php echo esc_html($button_text); ?>
+        </a>
+        <?php
             }
             ?>
-        </div>
     </div>
+</div>
 
-    <?php
+<?php
     // Lấy HTML đã "bắt" và dọn dẹp
     $html = ob_get_clean();
 
@@ -591,115 +591,115 @@ add_action('wp_head', function () {
     // Chỉ load CSS này ở trang chủ (nơi có modal)
     if (is_front_page()) { ?>
 
-        <!-- 
+<!-- 
 ======================================================
 === CSS "TÚT LẠI" CHO QUICK VIEW (CHO ĐẸP HƠN) ===
 === Bro THAY THẾ TOÀN BỘ style cũ bằng cái này ===
 ====================================================== 
 -->
-        <style>
-            /* 1. Layout 2 cột (Giữ nguyên) */
-            #quick-view-content-wrapper .product {
-                display: grid;
-                grid-template-columns: 1fr;
-                /* 1 cột mobile */
-                gap: 20px;
-                padding: 30px;
-                /* Tăng padding cho "thở" */
-            }
+<style>
+/* 1. Layout 2 cột (Giữ nguyên) */
+#quick-view-content-wrapper .product {
+    display: grid;
+    grid-template-columns: 1fr;
+    /* 1 cột mobile */
+    gap: 20px;
+    padding: 30px;
+    /* Tăng padding cho "thở" */
+}
 
-            @media (min-width: 600px) {
-                #quick-view-content-wrapper .product {
-                    grid-template-columns: 1fr 1fr;
-                    /* 2 cột desktop */
-                    gap: 30px;
-                }
-            }
+@media (min-width: 600px) {
+    #quick-view-content-wrapper .product {
+        grid-template-columns: 1fr 1fr;
+        /* 2 cột desktop */
+        gap: 30px;
+    }
+}
 
-            /* 2. Tút lại CỘT HÌNH ẢNH (Bo góc) */
-            #quick-view-content-wrapper .woocommerce-product-gallery {
-                border-radius: 10px;
-                overflow: hidden;
-                /* Bo góc cho ảnh */
-                border: 1px solid #eee;
-            }
+/* 2. Tút lại CỘT HÌNH ẢNH (Bo góc) */
+#quick-view-content-wrapper .woocommerce-product-gallery {
+    border-radius: 10px;
+    overflow: hidden;
+    /* Bo góc cho ảnh */
+    border: 1px solid #eee;
+}
 
-            #quick-view-content-wrapper .woocommerce-product-gallery img {
-                width: 100%;
-                height: auto;
-                display: block;
-                /* Bỏ khoảng trống thừa */
-            }
+#quick-view-content-wrapper .woocommerce-product-gallery img {
+    width: 100%;
+    height: auto;
+    display: block;
+    /* Bỏ khoảng trống thừa */
+}
 
-            /* 3. Tút lại CỘT NỘI DUNG */
-            #quick-view-content-wrapper .product .summary {
-                display: flex;
-                flex-direction: column;
-                /* Sắp xếp nội dung */
-            }
+/* 3. Tút lại CỘT NỘI DUNG */
+#quick-view-content-wrapper .product .summary {
+    display: flex;
+    flex-direction: column;
+    /* Sắp xếp nội dung */
+}
 
-            /* 4. Tút lại TÊN SẢN PHẨM */
-            #quick-view-content-wrapper .product .summary .product_title {
-                font-size: 24px;
-                /* Giảm size cho hợp popup */
-                line-height: 1.3;
-                margin-bottom: 10px;
-                color: #333;
-            }
+/* 4. Tút lại TÊN SẢN PHẨM */
+#quick-view-content-wrapper .product .summary .product_title {
+    font-size: 24px;
+    /* Giảm size cho hợp popup */
+    line-height: 1.3;
+    margin-bottom: 10px;
+    color: #333;
+}
 
-            /* 5. Tút lại GIÁ (nổi bật) */
-            #quick-view-content-wrapper .product .summary .price {
-                font-size: 22px;
-                font-weight: bold;
-                color: #6b9d3e;
-                /* Màu xanh theme */
-                margin-bottom: 15px;
-            }
+/* 5. Tút lại GIÁ (nổi bật) */
+#quick-view-content-wrapper .product .summary .price {
+    font-size: 22px;
+    font-weight: bold;
+    color: #6b9d3e;
+    /* Màu xanh theme */
+    margin-bottom: 15px;
+}
 
-            /* 6. Tút lại MÔ TẢ NGẮN */
-            #quick-view-content-wrapper .product .summary .woocommerce-product-details__short-description {
-                font-size: 15px;
-                line-height: 1.6;
-                color: #555;
-                margin-bottom: 20px;
-                padding-bottom: 20px;
-                border-bottom: 1px solid #f0f0f0;
-                /* Thêm 1 đường kẻ mờ */
-                flex-grow: 1;
-                /* Đẩy nút bấm xuống dưới */
-            }
+/* 6. Tút lại MÔ TẢ NGẮN */
+#quick-view-content-wrapper .product .summary .woocommerce-product-details__short-description {
+    font-size: 15px;
+    line-height: 1.6;
+    color: #555;
+    margin-bottom: 20px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid #f0f0f0;
+    /* Thêm 1 đường kẻ mờ */
+    flex-grow: 1;
+    /* Đẩy nút bấm xuống dưới */
+}
 
-            /* 7. Tút lại NÚT BẤM (Xịn hơn) */
-            #quick-view-content-wrapper .product .summary .cart {
-                margin-top: 0;
-                /* Bỏ margin-top cũ vì đã có border */
-            }
+/* 7. Tút lại NÚT BẤM (Xịn hơn) */
+#quick-view-content-wrapper .product .summary .cart {
+    margin-top: 0;
+    /* Bỏ margin-top cũ vì đã có border */
+}
 
-            #quick-view-content-wrapper .product .summary .button {
-                width: 100%;
-                padding: 14px !important;
-                /* To hơn 1 chút */
-                font-size: 16px !important;
-                font-weight: bold !important;
-                background-color: #6b9d3e !important;
-                color: #fff !important;
-                border: none !important;
-                border-radius: 5px !important;
-                /* Bo góc */
-                cursor: pointer;
-                transition: all 0.3s ease;
-                text-align: center !important;
-                /* 1. Căn giữa chữ */
-                text-decoration: none !important;
-            }
+#quick-view-content-wrapper .product .summary .button {
+    width: 100%;
+    padding: 14px !important;
+    /* To hơn 1 chút */
+    font-size: 16px !important;
+    font-weight: bold !important;
+    background-color: #6b9d3e !important;
+    color: #fff !important;
+    border: none !important;
+    border-radius: 5px !important;
+    /* Bo góc */
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-align: center !important;
+    /* 1. Căn giữa chữ */
+    text-decoration: none !important;
+}
 
-            #quick-view-content-wrapper .product .summary .button:hover {
-                background-color: #557c2a !important;
-                transform: translateY(-2px);
-                /* Hiệu ứng 3D */
-                box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-            }
-        </style>
+#quick-view-content-wrapper .product .summary .button:hover {
+    background-color: #557c2a !important;
+    transform: translateY(-2px);
+    /* Hiệu ứng 3D */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+</style>
 <?php }
 });
 
