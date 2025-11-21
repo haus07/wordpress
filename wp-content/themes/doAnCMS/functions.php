@@ -812,45 +812,45 @@ add_action('widgets_init', 'html_cms_widgets_init');
 // // =========================
 // // AJAX LIVE SEARCH PRODUCT
 // // =========================
-// add_action('wp_ajax_live_search', 'live_search_handler');
-// add_action('wp_ajax_nopriv_live_search', 'live_search_handler');
+add_action('wp_ajax_live_search', 'live_search_handler');
+add_action('wp_ajax_nopriv_live_search', 'live_search_handler');
 
-// function live_search_handler()
-// {
-//     $keyword = isset($_GET['s']) ? sanitize_text_field($_GET['s']) : '';
+function live_search_handler()
+{
+    $keyword = isset($_GET['s']) ? sanitize_text_field($_GET['s']) : '';
 
-//     if (empty($keyword)) {
-//         wp_send_json([]);
-//     }
+    if (empty($keyword)) {
+        wp_send_json([]);
+    }
 
-//     $args = [
-//         'post_type'      => 'product',
-//         'posts_per_page' => 8,
-//         's'              => $keyword,
-//         'post_status'    => 'publish'
-//     ];
+    $args = [
+        'post_type'      => 'product',
+        'posts_per_page' => 8,
+        's'              => $keyword,
+        'post_status'    => 'publish'
+    ];
 
-//     $query = new WP_Query($args);
-//     $results = [];
+    $query = new WP_Query($args);
+    $results = [];
 
-//     if ($query->have_posts()) {
-//         while ($query->have_posts()) {
-//             $query->the_post();
+    if ($query->have_posts()) {
+        while ($query->have_posts()) {
+            $query->the_post();
 
-//             $product = wc_get_product(get_the_ID());
+            $product = wc_get_product(get_the_ID());
 
-//             $results[] = [
-//                 'title' => get_the_title(),
-//                 'url'   => get_permalink(),
-//                 'price' => $product ? $product->get_price_html() : '',
-//                 'image' => get_the_post_thumbnail_url(get_the_ID(), 'thumbnail')
-//             ];
-//         }
-//         wp_reset_postdata();
-//     }
+            $results[] = [
+                'title' => get_the_title(),
+                'url'   => get_permalink(),
+                'price' => $product ? $product->get_price_html() : '',
+                'image' => get_the_post_thumbnail_url(get_the_ID(), 'thumbnail')
+            ];
+        }
+        wp_reset_postdata();
+    }
 
-//     wp_send_json($results);
-// }
+    wp_send_json($results);
+}
 
 function doancms_enqueue_custom_cart_style() {
     // QUAN TRỌNG: Kiểm tra xem user có đang ở đúng trang dùng template 'page-cart.php' không

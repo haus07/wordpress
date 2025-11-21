@@ -4488,3 +4488,39 @@ Stack trace:
 [19-Nov-2025 00:08:43 UTC] PHP  16. _doing_it_wrong($function_name = '_load_textdomain_just_in_time', $message = 'Translation loading for the <code>wp-mail-smtp</code> domain was triggered too early. This is usually an indicator for some code in the plugin or theme running too early. Translations should be loaded at the <code>init</code> action or later.', $version = '6.7.0') C:\wamp64\www\wordpress\wp-includes\l10n.php:1371
 [19-Nov-2025 00:08:43 UTC] PHP  17. wp_trigger_error($function_name = '', $message = 'Function _load_textdomain_just_in_time was called <strong>incorrectly</strong>. Translation loading for the <code>wp-mail-smtp</code> domain was triggered too early. This is usually an indicator for some code in the plugin or theme running too early. Translations should be loaded at the <code>init</code> action or later. Please see <a href="https://developer.wordpress.org/advanced-administration/debug/debug-wordpress/">Debugging in WordPress</a> for more information. (This message was added in version 6.7.0'..., $error_level = *uninitialized*) C:\wamp64\www\wordpress\wp-includes\functions.php:6061
 [19-Nov-2025 00:08:43 UTC] PHP  18. trigger_error($message = 'Function _load_textdomain_just_in_time was called <strong>incorrectly</strong>. Translation loading for the <code>wp-mail-smtp</code> domain was triggered too early. This is usually an indicator for some code in the plugin or theme running too early. Translations should be loaded at the <code>init</code> action or later. Please see <a href="https://developer.wordpress.org/advanced-administration/debug/debug-wordpress/">Debugging in WordPress</a> for more information. (This message was added in version 6.7.0'..., $error_level = 1024) C:\wamp64\www\wordpress\wp-includes\functions.php:6121
+[19-Nov-2025 00:55:40 UTC] PHP Warning:  session_start(): open(c:/wamp64/tmp\sess_h6ufqvnp9f02qk2voai9r6odsc, O_RDWR) failed: Permission denied (13) in C:\wamp64\www\wordpress\wp-content\themes\doAnCMS\functions.php on line 403
+[19-Nov-2025 00:55:40 UTC] PHP Stack trace:
+[19-Nov-2025 00:55:40 UTC] PHP   1. {main}() C:\wamp64\www\wordpress\index.php:0
+[19-Nov-2025 00:55:40 UTC] PHP   2. require() C:\wamp64\www\wordpress\index.php:17
+[19-Nov-2025 00:55:40 UTC] PHP   3. require_once() C:\wamp64\www\wordpress\wp-blog-header.php:13
+[19-Nov-2025 00:55:40 UTC] PHP   4. require_once() C:\wamp64\www\wordpress\wp-load.php:50
+[19-Nov-2025 00:55:40 UTC] PHP   5. require_once() C:\wamp64\www\wordpress\wp-config.php:106
+[19-Nov-2025 00:55:40 UTC] PHP   6. do_action($hook_name = 'init') C:\wamp64\www\wordpress\wp-settings.php:727
+[19-Nov-2025 00:55:40 UTC] PHP   7. WP_Hook->do_action($args = [0 => '']) C:\wamp64\www\wordpress\wp-includes\plugin.php:517
+[19-Nov-2025 00:55:40 UTC] PHP   8. WP_Hook->apply_filters($value = '', $args = [0 => '']) C:\wamp64\www\wordpress\wp-includes\class-wp-hook.php:348
+[19-Nov-2025 00:55:40 UTC] PHP   9. doAnCMS_start_session('') C:\wamp64\www\wordpress\wp-includes\class-wp-hook.php:324
+[19-Nov-2025 00:55:40 UTC] PHP  10. session_start() C:\wamp64\www\wordpress\wp-content\themes\doAnCMS\functions.php:403
+[19-Nov-2025 00:55:40 UTC] PHP Warning:  session_start(): Failed to read session data: files (path: c:/wamp64/tmp) in C:\wamp64\www\wordpress\wp-content\themes\doAnCMS\functions.php on line 403
+[19-Nov-2025 00:55:40 UTC] PHP Stack trace:
+[19-Nov-2025 00:55:40 UTC] PHP   1. {main}() C:\wamp64\www\wordpress\index.php:0
+[19-Nov-2025 00:55:40 UTC] PHP   2. require() C:\wamp64\www\wordpress\index.php:17
+[19-Nov-2025 00:55:40 UTC] PHP   3. require_once() C:\wamp64\www\wordpress\wp-blog-header.php:13
+[19-Nov-2025 00:55:40 UTC] PHP   4. require_once() C:\wamp64\www\wordpress\wp-load.php:50
+[19-Nov-2025 00:55:40 UTC] PHP   5. require_once() C:\wamp64\www\wordpress\wp-config.php:106
+[19-Nov-2025 00:55:40 UTC] PHP   6. do_action($hook_name = 'init') C:\wamp64\www\wordpress\wp-settings.php:727
+[19-Nov-2025 00:55:40 UTC] PHP   7. WP_Hook->do_action($args = [0 => '']) C:\wamp64\www\wordpress\wp-includes\plugin.php:517
+[19-Nov-2025 00:55:40 UTC] PHP   8. WP_Hook->apply_filters($value = '', $args = [0 => '']) C:\wamp64\www\wordpress\wp-includes\class-wp-hook.php:348
+[19-Nov-2025 00:55:40 UTC] PHP   9. doAnCMS_start_session('') C:\wamp64\www\wordpress\wp-includes\class-wp-hook.php:324
+[19-Nov-2025 00:55:40 UTC] PHP  10. session_start() C:\wamp64\www\wordpress\wp-content\themes\doAnCMS\functions.php:403
+[19-Nov-2025 01:22:36 UTC] 🔹 Current User ID: 1
+[19-Nov-2025 01:22:42 UTC] ✅ Post "Lợi ích của rau hữu cơ" được tạo với ID: 255
+[19-Nov-2025 01:22:50 UTC] ✅ Post "Cách chọn thực phẩm hữu cơ" được tạo với ID: 257
+[19-Nov-2025 01:22:52 UTC] ✅ Post "Thực phẩm hữu cơ cho bé" được tạo với ID: 259
+[19-Nov-2025 01:22:53 UTC] ✅ Post "Top 5 loại trái cây organic" được tạo với ID: 261
+[19-Nov-2025 01:22:54 UTC] ✅ Post "Organic vs Thực phẩm thông thường" được tạo với ID: 263
+[19-Nov-2025 01:22:55 UTC] ✅ Post "Cách trồng rau hữu cơ tại nhà" được tạo với ID: 265
+[19-Nov-2025 01:22:56 UTC] ✅ Post "Smoothie healthy từ organic" được tạo với ID: 267
+[19-Nov-2025 01:22:57 UTC] ✅ Post "Các loại hạt hữu cơ tốt cho sức khỏe" được tạo với ID: 269
+[19-Nov-2025 01:22:58 UTC] ✅ Post "Chế độ ăn organic giảm cân" được tạo với ID: 271
+[19-Nov-2025 01:22:58 UTC] ✅ Post "Organic food: Xu hướng 2025" được tạo với ID: 273
+[19-Nov-2025 01:22:58 UTC] ✅ Hoàn tất tạo 10 bài viết mẫu với ảnh và content dài.

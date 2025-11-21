@@ -6,10 +6,9 @@
 
 defined( 'ABSPATH' ) || exit;
 
-get_header(); // Gọi Header
+get_header(); 
 ?>
 
-<!-- Bắt đầu vùng chứa Custom Checkout -->
 <div id="custom-green-checkout" class="custom-checkout-wrapper">
     <div class="container">
 
@@ -27,14 +26,10 @@ get_header(); // Gọi Header
             </div>
             <?php
         } else {
-            // 2. Hiển thị thông báo Login / Coupon nếu chưa đăng nhập
-            // WooCommerce dùng hook để hiển thị các notice này
-            echo '<div class="woo-notices-wrapper">';
-            do_action( 'woocommerce_before_checkout_form', WC()->checkout() );
-            echo '</div>';
-
-            // 3. Hiển thị Form Checkout chính
-            // Sử dụng shortcode là cách an toàn nhất để đảm bảo AJAX và Payment Gateways hoạt động đúng
+            // 2. XÓA ĐOẠN do_action VÀ woo-notices-wrapper THỦ CÔNG ĐI
+            // Shortcode [woocommerce_checkout] sẽ tự động render phần Login/Coupon và Notices
+            
+            // Hiển thị Form Checkout chính
             echo do_shortcode('[woocommerce_checkout]');
         }
         ?>
@@ -42,4 +37,4 @@ get_header(); // Gọi Header
     </div>
 </div>
 
-<?php get_footer(); // Gọi Footer ?>
+<?php get_footer(); ?>
