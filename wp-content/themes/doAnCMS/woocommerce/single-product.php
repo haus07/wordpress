@@ -27,6 +27,7 @@ get_header('shop');
                 woocommerce_template_single_title();
                 woocommerce_template_single_price();
                 ?>
+                <p class="view-count">Lượt xem: <?php echo deluxe_get_post_views(get_the_ID()); ?></p>
 
                 <div class="product-stock">
                     <?php if (! $product->is_in_stock()) : ?>

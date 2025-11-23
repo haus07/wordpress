@@ -812,53 +812,54 @@ add_action('widgets_init', 'html_cms_widgets_init');
 // // =========================
 // // AJAX LIVE SEARCH PRODUCT
 // // =========================
-// add_action('wp_ajax_live_search', 'live_search_handler');
-// add_action('wp_ajax_nopriv_live_search', 'live_search_handler');
+add_action('wp_ajax_live_search', 'live_search_handler');
+add_action('wp_ajax_nopriv_live_search', 'live_search_handler');
 
-// function live_search_handler()
-// {
-//     $keyword = isset($_GET['s']) ? sanitize_text_field($_GET['s']) : '';
+function live_search_handler()
+{
+    $keyword = isset($_GET['s']) ? sanitize_text_field($_GET['s']) : '';
 
-//     if (empty($keyword)) {
-//         wp_send_json([]);
-//     }
+    if (empty($keyword)) {
+        wp_send_json([]);
+    }
 
-//     $args = [
-//         'post_type'      => 'product',
-//         'posts_per_page' => 8,
-//         's'              => $keyword,
-//         'post_status'    => 'publish'
-//     ];
+    $args = [
+        'post_type'      => 'product',
+        'posts_per_page' => 8,
+        's'              => $keyword,
+        'post_status'    => 'publish'
+    ];
 
-//     $query = new WP_Query($args);
-//     $results = [];
+    $query = new WP_Query($args);
+    $results = [];
 
-//     if ($query->have_posts()) {
-//         while ($query->have_posts()) {
-//             $query->the_post();
+    if ($query->have_posts()) {
+        while ($query->have_posts()) {
+            $query->the_post();
 
-//             $product = wc_get_product(get_the_ID());
+            $product = wc_get_product(get_the_ID());
 
-//             $results[] = [
-//                 'title' => get_the_title(),
-//                 'url'   => get_permalink(),
-//                 'price' => $product ? $product->get_price_html() : '',
-//                 'image' => get_the_post_thumbnail_url(get_the_ID(), 'thumbnail')
-//             ];
-//         }
-//         wp_reset_postdata();
-//     }
+            $results[] = [
+                'title' => get_the_title(),
+                'url'   => get_permalink(),
+                'price' => $product ? $product->get_price_html() : '',
+                'image' => get_the_post_thumbnail_url(get_the_ID(), 'thumbnail')
+            ];
+        }
+        wp_reset_postdata();
+    }
 
-//     wp_send_json($results);
-// }
+    wp_send_json($results);
+}
 
-function doancms_enqueue_custom_cart_style() {
+function doancms_enqueue_custom_cart_style()
+{
     // QUAN TRỌNG: Kiểm tra xem user có đang ở đúng trang dùng template 'page-cart.php' không
-    if ( is_page_template( 'page-cart.php' ) ) {
-        
+    if (is_page_template('page-cart.php')) {
+
         // Đường dẫn đến file CSS bro vừa tạo
         // get_template_directory_uri() trỏ về thư mục theme hiện tại
-        wp_enqueue_style( 
+        wp_enqueue_style(
             'doancms-cart-css', // Handle name (đặt tên gì cũng dc, miễn là duy nhất)
             get_template_directory_uri() . '/custom-cart.css', // Đường dẫn file
             array(), // Dependencies (không có thì để mảng rỗng)
@@ -866,15 +867,16 @@ function doancms_enqueue_custom_cart_style() {
         );
     }
 }
-add_action( 'wp_enqueue_scripts', 'doancms_enqueue_custom_cart_style' );
+add_action('wp_enqueue_scripts', 'doancms_enqueue_custom_cart_style');
 
-function doancms_enqueue_custom_checkout_style() {
+function doancms_enqueue_custom_checkout_style()
+{
     // QUAN TRỌNG: Kiểm tra xem user có đang ở đúng trang dùng template 'page-cart.php' không
-    if ( is_page_template( 'page-checkout.php' ) ) {
-        
+    if (is_page_template('page-checkout.php')) {
+
         // Đường dẫn đến file CSS bro vừa tạo
         // get_template_directory_uri() trỏ về thư mục theme hiện tại
-        wp_enqueue_style( 
+        wp_enqueue_style(
             'doancms-cart-css', // Handle name (đặt tên gì cũng dc, miễn là duy nhất)
             get_template_directory_uri() . '/custom-checkout.css', // Đường dẫn file
             array(), // Dependencies (không có thì để mảng rỗng)
@@ -882,14 +884,55 @@ function doancms_enqueue_custom_checkout_style() {
         );
     }
 }
-add_action( 'wp_enqueue_scripts', 'doancms_enqueue_custom_checkout_style' );
+add_action('wp_enqueue_scripts', 'doancms_enqueue_custom_checkout_style');
 
 
 /* * DI CHUYỂN Ô COUPON TRONG TRANG CHECKOUT
  * Xóa ở trên đầu -> Chuyển xuống trước nút thanh toán
  */
 // 1. Xóa coupon ở vị trí mặc định (trên cùng)
-remove_action( 'woocommerce_before_checkout_form', 'woocommerce_checkout_coupon_form', 10 );
+remove_action('woocommerce_before_checkout_form', 'woocommerce_checkout_coupon_form', 10);
 
 // 2. Thêm vào vị trí mới (Trước phần chọn phương thức thanh toán)
-add_action( 'woocommerce_review_order_before_payment', 'woocommerce_checkout_coupon_form' );
+add_action('woocommerce_review_order_before_payment', 'woocommerce_checkout_coupon_form');
+
+// =========================
+// VIEW COUNT
+// =========================
+
+// Tăng view mỗi lần truy cập single
+function deluxe_set_post_views($postID)
+{
+    $count_key = 'post_view_count';
+    $count = get_post_meta($postID, $count_key, true);
+
+    if ($count == '') {
+        delete_post_meta($postID, $count_key);
+        add_post_meta($postID, $count_key, 1);
+    } else {
+        $count++;
+        update_post_meta($postID, $count_key, $count);
+    }
+}
+
+// Lấy số view
+function deluxe_get_post_views($postID)
+{
+    $count_key = 'post_view_count';
+    $count = get_post_meta($postID, $count_key, true);
+
+    if ($count == '') {
+        return 0;
+    }
+    return $count;
+}
+
+// Auto tăng view khi vào bài viết
+function deluxe_count_views_single()
+{
+    if (is_single()) {
+        $post_id = get_the_ID();
+        deluxe_set_post_views($post_id);
+    }
+}
+add_action('wp_head', 'deluxe_count_views_single');
