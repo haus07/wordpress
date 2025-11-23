@@ -462,46 +462,32 @@ foreach ($product_sections as $section) {
 
     <div class="marquee-wrapper">
         <div class="marquee-content">
-            
-            <div class="marquee-item">
-                <img src="<?php echo get_template_directory_uri(); ?>/assets/images/ofs/ofs1.jpg" alt="Organic Shop 1">
-            </div>
-            <div class="marquee-item">
-                <img src="<?php echo get_template_directory_uri(); ?>/assets/images/ofs/of2.jpg" alt="Organic Shop 2">
-            </div>
-            <div class="marquee-item">
-                <img src="<?php echo get_template_directory_uri(); ?>/assets/images/ofs/of3.jpg" alt="Organic Shop 3">
-            </div>
-            <div class="marquee-item">
-                <img src="<?php echo get_template_directory_uri(); ?>/assets/images/ofs/of4.jpg" alt="Organic Shop 4">
-            </div>
-            <div class="marquee-item">
-                <img src="<?php echo get_template_directory_uri(); ?>/assets/images/ofs/of5.jpg" alt="Organic Shop 5">
-            </div>
-            <div class="marquee-item">
-                <img src="<?php echo get_template_directory_uri(); ?>/assets/images/ofs/of6.jpg" alt="Organic Shop 6">
-            </div>
+    <?php
+    // 1. Query lấy 10 bài mới nhất
+    $slider_query = new WP_Query(array(
+        'post_type'      => 'post',
+        'posts_per_page' => 10, // Lấy 10 bài
+    ));
+
+    if ($slider_query->have_posts()) {
+        while ($slider_query->have_posts()) {
+            $slider_query->the_post();
+            $link = get_permalink();
+            $img_url = has_post_thumbnail() ? get_the_post_thumbnail_url(get_the_ID(), 'medium') : get_template_directory_uri() . '/assets/images/ofs/ofs1.jpg';
+            ?>
 
             <div class="marquee-item">
-                <img src="<?php echo get_template_directory_uri(); ?>/assets/images/ofs/ofs1.jpg" alt="Organic Shop 1">
-            </div>
-            <div class="marquee-item">
-                <img src="<?php echo get_template_directory_uri(); ?>/assets/images/ofs/of2.jpg" alt="Organic Shop 2">
-            </div>
-            <div class="marquee-item">
-                <img src="<?php echo get_template_directory_uri(); ?>/assets/images/ofs/of3.jpg" alt="Organic Shop 3">
-            </div>
-            <div class="marquee-item">
-                <img src="<?php echo get_template_directory_uri(); ?>/assets/images/ofs/of4.jpg" alt="Organic Shop 4">
-            </div>
-            <div class="marquee-item">
-                <img src="<?php echo get_template_directory_uri(); ?>/assets/images/ofs/of5.jpg" alt="Organic Shop 5">
-            </div>
-            <div class="marquee-item">
-                <img src="<?php echo get_template_directory_uri(); ?>/assets/images/ofs/of6.jpg" alt="Organic Shop 6">
+                <a href="<?php echo esc_url($link); ?>" title="<?php the_title(); ?>">
+                    <img src="<?php echo esc_url($img_url); ?>" alt="<?php the_title(); ?>">
+                </a>
             </div>
 
-        </div>
+            <?php
+        }
+        wp_reset_postdata(); // Reset query sau khi chạy xong
+    }
+    ?>
+</div>
     </div>
     
     <div class="container" style="text-align: center; margin-top: 30px;">

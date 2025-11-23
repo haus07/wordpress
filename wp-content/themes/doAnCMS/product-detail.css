@@ -17,6 +17,12 @@ body.single-product {
 /* ==========================================================================
    LAYOUT CHÍNH
    ========================================================================== */
+/* ==========================================================================
+   FIX LAYOUT SẢN PHẨM (CHIA 50 - 50)
+   ========================================================================== */
+
+/* 1. Khung bao ngoài */
+/* 1. Khung bao ngoài: Vẫn giữ nguyên */
 .product-section {
     max-width: 1200px;
     margin: 40px auto;
@@ -24,19 +30,39 @@ body.single-product {
     background-color: #fff;
     border-radius: 12px;
     display: flex;
-    gap: 50px;
+    gap: 40px; /* Giảm gap xuống một chút cho 2 bên gần nhau hơn */
     flex-wrap: wrap;
+    align-items: flex-start;
     box-shadow: 0 10px 25px rgba(0,0,0,0.08);
 }
 
+/* 2. Cột Ảnh (Gallery): Ép buộc chiếm 50% */
 .product-gallery {
-    flex: 1 1 450px;
+    /* Dùng !important để ghi đè mọi thứ khác */
+    flex: 0 0 calc(50% - 20px) !important; /* 50% trừ đi một nửa gap */
+    max-width: calc(50% - 20px) !important;
+    width: calc(50% - 20px) !important; /* Thêm width cho chắc */
+    
+    /* Tạm bỏ sticky để debug cho dễ */
+    /* position: sticky; */
+    /* top: 20px; */
+    /* z-index: 10; */
 }
 
+/* 3. Cột Thông tin (Info): Cũng ép chiếm 50% */
 .product-info {
-    flex: 1 1 450px;
+    flex: 0 0 calc(50% - 20px) !important;
+    max-width: calc(50% - 20px) !important;
+    width: calc(50% - 20px) !important;
 }
 
+/* Responsive cho mobile */
+@media (max-width: 768px) {
+    .product-section { flex-direction: column; gap: 30px; }
+    .product-gallery, .product-info {
+        flex: 0 0 100% !important; max-width: 100% !important; width: 100% !important;
+    }
+}
 /* ==========================================================================
    GALLERY ẢNH
    ========================================================================== */
@@ -202,102 +228,169 @@ body.single-product .woocommerce-tabs .panel {
    ========================================================================== */
 /* Related Products đẹp full width */
 /* ===================== Related Products nâng cấp ===================== */
+/* ==========================================================================
+   RELATED PRODUCTS - PREMIUM STYLE
+   ========================================================================== */
+
+/* 1. Container chính */
 body.single-product .related.products {
     max-width: 1200px;
-    margin: 50px auto;
+    margin: 60px auto 80px; /* Tăng khoảng cách cho thoáng */
     padding: 0 15px;
 }
 
+/* 2. Tiêu đề mục (Có gạch chân trang trí) */
 body.single-product .related.products > h2 {
-    font-size: 28px;
+    font-size: 26px;
     text-align: center;
     margin-bottom: 40px;
-    color: #333;
+    color: #2c3e50;
     font-weight: 700;
-}
-
-/* Grid */
-body.single-product .related.products ul.products {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 25px;
-    margin: 0;
-    padding: 0;
-    list-style: none;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    position: relative;
+    display: inline-block;
     width: 100%;
 }
 
-/* Card sản phẩm */
+/* Kẻ gạch chân xanh dưới tiêu đề */
+body.single-product .related.products > h2::after {
+    content: '';
+    display: block;
+    width: 60px;
+    height: 3px;
+    background-color: #6b9d3e;
+    margin: 15px auto 0;
+    border-radius: 2px;
+}
+
+/* 3. GRID SYSTEM (Đã fix lỗi + Nâng cấp khoảng cách) */
+body.single-product .related.products ul.products::before,
+body.single-product .related.products ul.products::after {
+    content: none !important;
+    display: none !important;
+}
+
+body.single-product .related.products ul.products {
+    display: grid !important;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 30px; /* Tăng khoảng cách giữa các ô cho thoáng */
+    width: 100%;
+    margin: 0 !important;
+    padding: 0 !important;
+}
+
+/* 4. PRODUCT CARD (Card sản phẩm) */
 body.single-product .related.products ul.products li.product {
     background-color: #fff;
-    border-radius: 12px;
+    border-radius: 15px; /* Bo góc tròn trịa hơn */
     overflow: hidden;
-    border: 1px solid #eee;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
-    transition: transform 0.3s, box-shadow 0.3s;
+    border: none; /* Bỏ viền đen, dùng shadow cho đẹp */
+    box-shadow: 0 5px 15px rgba(0,0,0,0.05); /* Bóng mờ nhẹ */
+    transition: all 0.4s ease;
+    
+    /* Flexbox để căn chỉnh nội dung dọc */
     display: flex;
     flex-direction: column;
-    width: 100%;
+    height: 100%; /* Đảm bảo các card cao bằng nhau */
+    
+    /* Reset layout cũ */
+    width: auto !important;
+    margin: 0 !important;
+    float: none !important;
 }
 
-/* Hover card */
+/* Hover vào card: Nổi lên và bóng đậm hơn */
 body.single-product .related.products ul.products li.product:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 10px 25px rgba(0,0,0,0.12);
+    transform: translateY(-8px);
+    box-shadow: 0 15px 30px rgba(0,0,0,0.15);
 }
 
-/* Ảnh sản phẩm */
-body.single-product .related.products ul.products li.product img {
+/* 5. ẢNH SẢN PHẨM (Hiệu ứng Zoom) */
+body.single-product .related.products ul.products li.product a img {
     width: 100%;
     height: 220px;
     object-fit: cover;
-    border-bottom: 1px solid #eee;
+    transition: transform 0.6s ease; /* Chuyển động mượt */
+    border-bottom: 1px solid #f0f0f0;
 }
 
-/* Nội dung card: tên + giá */
+/* Zoom ảnh khi hover vào card */
+body.single-product .related.products ul.products li.product:hover img {
+    transform: scale(1.1); /* Phóng to nhẹ ảnh */
+}
+
+/* Wrapper cho ảnh để khi zoom không bị tràn ra ngoài */
+body.single-product .related.products ul.products li.product a:first-child {
+    display: block;
+    overflow: hidden; /* Cắt phần ảnh thừa khi zoom */
+    border-radius: 15px 15px 0 0;
+}
+
+/* 6. TIÊU ĐỀ SẢN PHẨM (Tên) */
 body.single-product .related.products ul.products li.product .woocommerce-loop-product__title {
     font-size: 16px;
     font-weight: 600;
     color: #333;
-    margin: 15px;
+    margin: 15px 15px 5px; /* Margin gọn gàng */
     line-height: 1.4;
+    
+    /* Giới hạn 2 dòng, nếu dài hơn thì hiện dấu ... */
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    min-height: 44px; /* Giữ chiều cao cố định để card đều nhau */
 }
 
+/* Đổi màu tên khi hover */
+body.single-product .related.products ul.products li.product:hover .woocommerce-loop-product__title {
+    color: #6b9d3e;
+}
+
+/* 7. GIÁ SẢN PHẨM */
 body.single-product .related.products ul.products li.product .price {
     color: #6b9d3e;
-    font-weight: 700;
-    font-size: 15px;
-    margin: 0 15px 15px;
+    font-weight: 800;
+    font-size: 16px;
+    margin: 0 15px 10px;
+    display: block;
 }
 
-/* Nút Add to cart */
+body.single-product .related.products ul.products li.product .price del {
+    color: #999; /* Giá cũ làm mờ đi */
+    font-weight: 400;
+    font-size: 14px;
+    margin-right: 5px;
+}
+
+/* 8. NÚT ADD TO CART (Đẩy xuống đáy) */
 body.single-product .related.products ul.products li.product .button {
-    margin: 0 15px 15px;
+    margin: auto 15px 20px; /* auto ở top giúp đẩy nút xuống đáy card */
     text-align: center;
     display: block;
-    background: linear-gradient(135deg,#6b9d3e,#a0c05a);
+    background: #6b9d3e; /* Màu phẳng hiện đại */
     color: #fff;
-    padding: 10px 0;
-    border-radius: 8px;
+    padding: 12px 0;
+    border-radius: 30px; /* Bo tròn kiểu viên thuốc (Pill shape) */
     font-size: 14px;
-    font-weight: 700;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
     text-decoration: none;
-    transition: all 0.3s;
+    transition: all 0.3s ease;
+    border: 2px solid #6b9d3e; /* Viền trùng màu */
 }
 
+/* Hover vào nút: Đổi sang style outline hoặc đậm hơn */
 body.single-product .related.products ul.products li.product .button:hover {
-    background: linear-gradient(135deg,#557c2a,#8bb135);
-    transform: translateY(-2px);
-    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    background: #fff;
+    color: #6b9d3e;
+    box-shadow: 0 5px 15px rgba(107, 157, 62, 0.4); /* Bóng xanh */
 }
 
-/* Responsive */
+/* 9. RESPONSIVE (Di động) */
 @media (max-width: 1200px) {
-    body.single-product .related.products ul.products {
-        grid-template-columns: repeat(4, 1fr);
-    }
-}
-@media (max-width: 992px) {
     body.single-product .related.products ul.products {
         grid-template-columns: repeat(3, 1fr);
     }
@@ -305,10 +398,152 @@ body.single-product .related.products ul.products li.product .button:hover {
 @media (max-width: 768px) {
     body.single-product .related.products ul.products {
         grid-template-columns: repeat(2, 1fr);
+        gap: 15px;
     }
 }
 @media (max-width: 480px) {
     body.single-product .related.products ul.products {
-        grid-template-columns: 1fr;
+        grid-template-columns: 1fr; /* 1 cột trên điện thoại nhỏ */
     }
+}
+
+
+/* ==========================================================================
+   BỔ SUNG TRANG SINGLE PRODUCT
+   ========================================================================== */
+
+/* 1. Style cho Mô tả ngắn (Short Description) */
+body.single-product .woocommerce-product-details__short-description {
+    font-size: 15px;
+    color: #666;
+    margin-bottom: 20px;
+    padding-bottom: 20px;
+    border-bottom: 1px dashed #ddd; /* Đường gạch nét đứt ngăn cách */
+    line-height: 1.8;
+}
+
+/* 2. Style cho Hộp Chính Sách (Trust Badges) */
+.product-trust-badges {
+    background-color: #f9fff0; /* Nền xanh siêu nhạt */
+    border: 1px solid #e1f0c4;
+    border-radius: 10px;
+    padding: 20px;
+    margin: 25px 0;
+    display: grid;
+    grid-template-columns: 1fr; /* Xếp dọc cho gọn */
+    gap: 15px;
+}
+
+.badge-item {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.badge-item img {
+    width: 35px;
+    height: 35px;
+    object-fit: contain;
+}
+
+.badge-text {
+    display: flex;
+    flex-direction: column;
+}
+
+.badge-text strong {
+    font-size: 14px;
+    color: #333;
+    font-weight: 700;
+}
+
+.badge-text span {
+    font-size: 12px;
+    color: #777;
+}
+
+/* 3. Style cho Nút Chia sẻ */
+.product-share-box {
+    margin-top: 20px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 14px;
+    color: #555;
+    font-weight: 600;
+}
+
+.share-btn {
+    padding: 6px 15px;
+    border-radius: 20px;
+    font-size: 12px;
+    color: #fff !important; /* Force màu chữ trắng */
+    text-decoration: none;
+    transition: opacity 0.3s;
+    font-weight: 500;
+}
+
+.share-btn:hover {
+    opacity: 0.8;
+    color: #fff;
+    transform: translateY(-2px);
+}
+
+.share-btn.fb { background-color: #1877f2; }
+.share-btn.zalo { background-color: #0068ff; }
+.share-btn.tw { background-color: #1da1f2; }
+
+/* 4. Tinh chỉnh lại ô nhập số lượng (Quantity) cho đẹp hơn */
+body.single-product form.cart .quantity {
+    margin-right: 15px;
+}
+
+body.single-product form.cart .quantity .input-text.qty {
+    width: 60px;
+    height: 45px; /* Cao bằng nút Add to cart */
+    border: 2px solid #eee;
+    font-weight: 700;
+    color: #333;
+}
+body.single-product form.cart .quantity .input-text.qty:focus {
+    border-color: #6b9d3e;
+    outline: none;
+}
+
+
+
+/* ==========================================================================
+   FIX ẢNH SẢN PHẨM TO HẾT CỠ
+   ========================================================================== */
+
+/* 1. Cái hộp chứa ảnh (WooCommerce Gallery Wrapper) */
+/* Đảm bảo hộp này không có padding/margin thừa và chiếm 100% chiều rộng cột */
+body.single-product .woocommerce-product-gallery {
+    width: 100% !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    border: none !important; /* Bỏ border nếu có */
+    box-shadow: none !important; /* Bỏ shadow của hộp con, để hộp to bên ngoài lo */
+    background: transparent !important; /* Bỏ nền trắng nếu có */
+}
+
+/* 2. Cái ảnh chính (The Main Image) */
+/* Ép buộc ảnh bung ra 100% chiều rộng của hộp chứa nó */
+body.single-product .woocommerce-product-gallery .woocommerce-product-gallery__image,
+body.single-product .woocommerce-product-gallery img {
+    width: 100% !important;
+    height: auto !important; /* Chiều cao tự động theo tỉ lệ ảnh */
+    display: block !important; /* Xóa bỏ các khoảng trắng thừa */
+    max-width: 100% !important; /* Không được vượt quá container */
+    
+    /* Nếu muốn ảnh nó "vuông vức" hơn một chút thì có thể set min-height, ví dụ: */
+    /* min-height: 400px; */
+    /* object-fit: cover; */ /* Nếu set min-height thì phải có cái này */
+}
+
+/* 3. Wrapper của ảnh (đề phòng theme có thêm wrapper lạ) */
+.woocommerce-product-gallery figure {
+    margin: 0 !important;
+    padding: 0 !important;
+    width: 100% !important;
 }
