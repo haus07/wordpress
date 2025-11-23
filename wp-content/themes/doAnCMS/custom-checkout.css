@@ -360,6 +360,40 @@
     }
 }
 
+/* Style lại khung thanh toán cho hợp theme Green */
+#custom-green-checkout #payment {
+    background: #f0fff4 !important; /* Nền xanh nhạt */
+    border-radius: 8px;
+    border: 1px solid #2ecc71;
+}
+
+#custom-green-checkout #payment ul.payment_methods {
+    border-bottom: 1px solid #2ecc71;
+}
+
+/* Nút đặt hàng màu xanh */
+#custom-green-checkout #payment #place_order {
+    background-color: #2ecc71;
+    color: white;
+    font-weight: bold;
+    border-radius: 5px;
+    padding: 15px;
+    font-size: 18px;
+    transition: 0.3s;
+}
+
+#custom-green-checkout #payment #place_order:hover {
+    background-color: #27ae60; /* Xanh đậm hơn khi hover */
+}
+
+/* Style cái hộp thông báo lỗi/chú ý */
+.woocommerce-info, .woocommerce-error, .woocommerce-message {
+    border-top-color: #2ecc71 !important;
+}
+.woocommerce-info::before {
+    color: #2ecc71 !important;
+}
+
 
 
 }

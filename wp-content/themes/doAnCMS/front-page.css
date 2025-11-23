@@ -772,62 +772,64 @@ body {
 
 
 /* ===================== SECTION: INSTAGRAM (Ý TƯỞNG 3) ===================== */
+/* 1. Khung bao ngoài: Ẩn những phần tràn ra */
 .marquee-wrapper {
     width: 100%;
-    overflow: hidden; /* Cắt phần ảnh bị thừa */
-    margin-top: 30px; /* Thêm margin cho đẹp */
+    overflow: hidden; /* Quan trọng: che phần ảnh chạy ra ngoài màn hình */
+    background-color: #f9f9f9; /* Màu nền nhẹ cho nổi bật */
+    padding: 20px 0; /* Khoảng cách trên dưới */
+    border-bottom: 1px solid #eee;
 }
 
-/* THÊM MỚI: Dải ảnh (chứa 12 ảnh) */
+/* 2. Phần nội dung chạy: Xếp ngang và gắn animation */
 .marquee-content {
-    display: flex; /* Xếp 12 ảnh trên 1 hàng */
-    /* Animation:
-      - tên: marquee
-      - 25s: chạy hết 1 vòng trong 25 giây
-      - linear: tốc độ đều
-      - infinite: lặp vô tận
-    */
-    animation: marquee 25s linear infinite;
+    display: flex; /* Xếp các item thành hàng ngang */
+    width: fit-content; /* Chiều rộng tự động theo nội dung con */
+    /* Animation tên là 'scroll', chạy trong 30s, đều đặn (linear), lặp vô tận */
+    animation: scroll 30s linear infinite;
 }
 
-/* THÊM MỚI: Từng ảnh */
+/* 3. Từng item (ảnh): Kích thước cố định để không bị vỡ layout */
 .marquee-item {
-    flex-shrink: 0; /* Không cho ảnh bị bóp */
-    width: 250px; /* Chiều rộng mỗi ảnh */
-    height: 250px; /* Chiều cao mỗi ảnh */
-    margin: 0 10px; /* Khoảng cách giữa các ảnh */
-    border-radius: 8px;
-    overflow: hidden;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    flex: 0 0 250px; /* Không co giãn, chiều rộng cứng là 250px */
+    margin-right: 20px; /* Khoảng cách giữa các ảnh */
+    transition: transform 0.3s ease; /* Hiệu ứng nhẹ khi hover vào từng ảnh */
 }
 
+/* 4. Style cho ảnh bên trong */
 .marquee-item img {
     width: 100%;
-    height: 100%;
-    object-fit: cover; /* Đảm bảo ảnh lấp đầy khung */
-    transition: transform 0.4s ease;
+    height: 180px; /* Chiều cao cố định để các ảnh bằng nhau */
+    object-fit: cover; /* Cắt ảnh chuẩn, không bị méo */
+    border-radius: 10px; /* Bo góc cho mềm mại */
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1); /* Đổ bóng nhẹ */
+    display: block; /* Xóa khoảng trắng thừa dưới ảnh */
 }
 
-/* Tùy chọn: Dừng lại khi hover */
+/* 5. Định nghĩa chuyển động (Keyframes) */
+@keyframes scroll {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        /* Vì không còn bản sao nối đuôi, phải chạy hết chiều dài nội dung (-100%) */
+        /* Lưu ý: Chạy hết nó sẽ để lộ khoảng trắng rồi mới nhảy về 0 */
+        transform: translateX(-100%); 
+    }
+}
+
+/* --- UX Nâng cao --- */
+
+/* Khi chuột hover vào khung lớn -> Dừng chạy để khách dễ click */
 .marquee-wrapper:hover .marquee-content {
     animation-play-state: paused;
 }
-.marquee-item:hover img {
-    transform: scale(1.05); /* Zoom nhẹ khi hover */
-}
 
-/* THÊM MỚI: Định nghĩa animation */
-@keyframes marquee {
-    0% {
-        transform: translateX(0); /* Bắt đầu ở 0 */
-    }
-    100% {
-        transform: translateX(-50%); /* Di chuyển 1 đoạn bằng 50% (vì 1 dải là 6 ảnh, 
-            tổng là 12 ảnh, di chuyển 6 ảnh = -50%)
-        */
-    }
+/* Khi hover vào từng item -> Phóng to nhẹ tạo cảm giác click được */
+.marquee-item:hover {
+    transform: scale(1.05);
+    opacity: 0.9;
 }
-
 
 
 /* ===================== SECTION: GÓC ẨM THỰC (Ý TƯỞNG 1) ===================== */
