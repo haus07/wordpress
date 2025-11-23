@@ -936,3 +936,70 @@ function deluxe_count_views_single()
     }
 }
 add_action('wp_head', 'deluxe_count_views_single');
+add_action('woocommerce_review_order_before_payment', 'woocommerce_checkout_coupon_form');
+
+
+// HARD BLOCK: Chặn toàn bộ HTML notices của WooCommerce trước khi in ra
+add_action('template_redirect', function () {
+    ob_start(function ($buffer) {
+
+        // Xóa các wrapper lỗi của WooCommerce
+        $patterns = [
+            '/<div class="woocommerce-error">(.*?)<\/div>/s',
+            '/<ul class="woocommerce-error">(.*?)<\/ul>/s',
+            '/<div class="woocommerce-message">(.*?)<\/div>/s',
+            '/<div class="woocommerce-notices-wrapper">(.*?)<\/div>/s'
+        ];
+
+        return preg_replace($patterns, '', $buffer);
+    });
+});
+
+
+
+/*
+ * Redirect sang trang 'cam-on' sau khi thanh toán thành công
+ */
+/*
+ * Redirect CHUẨN sang trang Cảm ơn tùy chỉnh + Kèm theo Order ID
+ * Dán đè code cũ trong functions.php
+ */
+add_filter('woocommerce_payment_successful_result', 'custom_redirect_with_order_id', 10, 2);
+
+function custom_redirect_with_order_id($result, $order_id)
+{
+
+    // 1. Lấy đối tượng đơn hàng để đảm bảo nó tồn tại và lấy key bảo mật
+    $order = wc_get_order($order_id);
+
+    if (! $order) {
+        // Nếu lỗi không lấy được đơn thì về trang chủ cho an toàn
+        $result['redirect'] = home_url();
+        return $result;
+    }
+
+    // 2. Thay '/cam-on/' bằng đúng slug trang của bro
+    // Chúng ta thêm tham số order_id và key vào URL để bảo mật
+    $thankyou_url = home_url('/cam-on/');
+
+    $final_url = add_query_arg(array(
+        'order_id' => $order_id,
+        'key'      => $order->get_order_key(), // Thêm key để người khác không đoán mò được ID đơn hàng
+    ), $thankyou_url);
+
+    $result['redirect'] = $final_url;
+
+    return $result;
+}
+
+
+/**
+ * Chỉnh sửa số lượng sản phẩm liên quan (Related Products)
+ */
+function my_custom_related_products_args($args)
+{
+    $args['posts_per_page'] = 4; // Số lượng sản phẩm hiển thị (để 4 cho đẹp 1 hàng)
+    $args['columns']        = 4; // Số cột (khai báo cho Woo biết)
+    return $args;
+}
+add_filter('woocommerce_output_related_products_args', 'my_custom_related_products_args', 20);
