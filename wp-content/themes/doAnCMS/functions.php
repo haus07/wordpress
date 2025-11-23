@@ -62,6 +62,7 @@ function doAnCMS_enqueue_styles()
         }
     }
 
+
     // Front page
     if (is_front_page()) {
         wp_enqueue_style(
@@ -73,6 +74,22 @@ function doAnCMS_enqueue_styles()
     }
 }
 add_action('wp_enqueue_scripts', 'doAnCMS_enqueue_styles', 99);
+
+add_action('wp_enqueue_scripts', 'doAnCMS_enqueue_wishlist');
+function doAnCMS_enqueue_wishlist()
+{
+    wp_enqueue_script(
+        'doAnCMS-wishlist',
+        get_template_directory_uri() . '/assets/js/wishlist.js',
+        ['jquery'],
+        false,
+        true
+    );
+
+    wp_localize_script('doAnCMS-wishlist', 'wp_ajax', [
+        'ajax_url' => admin_url('admin-ajax.php'),
+    ]);
+}
 
 // Load CSS riêng cho template blog
 function doAnCMS_enqueue_blog_styles()
@@ -118,32 +135,32 @@ add_filter('woocommerce_output_related_products_args', 'doAnCMS_change_related_p
 // Sale badge CSS + functions
 // =======================
 add_action('wp_head', function () { ?>
-<style>
-.woocommerce ul.products li.product,
-.product-card,
-.product-thumb {
-    position: relative;
-}
+    <style>
+        .woocommerce ul.products li.product,
+        .product-card,
+        .product-thumb {
+            position: relative;
+        }
 
-.custom-sale-badge {
-    position: absolute;
-    top: 10px;
-    left: 10px;
-    background: #e74c3c;
-    color: #fff;
-    padding: 5px 10px;
-    border-radius: 5px;
-    font-weight: bold;
-    z-index: 10;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, .15);
-}
+        .custom-sale-badge {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            background: #e74c3c;
+            color: #fff;
+            padding: 5px 10px;
+            border-radius: 5px;
+            font-weight: bold;
+            z-index: 10;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, .15);
+        }
 
-.custom-sale-single {
-    font-size: 16px;
-    color: #e74c3c;
-    margin-bottom: 10px;
-}
-</style>
+        .custom-sale-single {
+            font-size: 16px;
+            color: #e74c3c;
+            margin-bottom: 10px;
+        }
+    </style>
 <?php });
 
 add_action('woocommerce_before_shop_loop_item_title', 'doAnCMS_show_sale_badge', 9);
@@ -519,14 +536,14 @@ function doAnCMS_load_product_quick_view()
     ob_start();
 ?>
 
-<div class="product">
+    <div class="product">
 
-    <div class="woocommerce-product-gallery">
-        <?php echo $product->get_image('woocommerce_single'); ?>
-    </div>
+        <div class="woocommerce-product-gallery">
+            <?php echo $product->get_image('woocommerce_single'); ?>
+        </div>
 
-    <div class="summary entry-summary">
-        <?php
+        <div class="summary entry-summary">
+            <?php
             // Hiển thị tên (An toàn)
             echo '<h1 class="product_title entry-title">' . esc_html($product->get_name()) . '</h1>';
 
@@ -548,11 +565,11 @@ function doAnCMS_load_product_quick_view()
                 // 1. NẾU LÀ SẢN PHẨM ĐƠN (SIMPLE)
                 // Dùng link AJAX an toàn + Text tự gõ (hardcode)
             ?>
-        <a href="<?php echo esc_url($product->add_to_cart_url()); ?>"
-            value="<?php echo esc_attr($product->get_id()); ?>" class="button alt ajax_add_to_cart add_to_cart_button"
-            data-product_id="<?php echo esc_attr($product->get_id()); ?>" data-quantity="1" rel="nofollow">
-            🛒 Thêm vào giỏ hàng </a>
-        <?php
+                <a href="<?php echo esc_url($product->add_to_cart_url()); ?>"
+                    value="<?php echo esc_attr($product->get_id()); ?>" class="button alt ajax_add_to_cart add_to_cart_button"
+                    data-product_id="<?php echo esc_attr($product->get_id()); ?>" data-quantity="1" rel="nofollow">
+                    🛒 Thêm vào giỏ hàng </a>
+            <?php
 
             } else {
 
@@ -564,16 +581,16 @@ function doAnCMS_load_product_quick_view()
                 }
 
             ?>
-        <a href="<?php echo esc_url($product->get_permalink()); ?>" class="button alt">
-            <?php echo esc_html($button_text); ?>
-        </a>
-        <?php
+                <a href="<?php echo esc_url($product->get_permalink()); ?>" class="button alt">
+                    <?php echo esc_html($button_text); ?>
+                </a>
+            <?php
             }
             ?>
+        </div>
     </div>
-</div>
 
-<?php
+    <?php
     // Lấy HTML đã "bắt" và dọn dẹp
     $html = ob_get_clean();
 
@@ -591,116 +608,116 @@ add_action('wp_head', function () {
     // Chỉ load CSS này ở trang chủ (nơi có modal)
     if (is_front_page()) { ?>
 
-<!-- 
+        <!-- 
 ======================================================
 === CSS "TÚT LẠI" CHO QUICK VIEW (CHO ĐẸP HƠN) ===
 === Bro THAY THẾ TOÀN BỘ style cũ bằng cái này ===
 ====================================================== 
 -->
-<style>
-/* 1. Layout 2 cột (Giữ nguyên) */
-#quick-view-content-wrapper .product {
-    display: grid;
-    grid-template-columns: 1fr;
-    /* 1 cột mobile */
-    gap: 20px;
-    padding: 30px;
-    /* Tăng padding cho "thở" */
-}
+        <style>
+            /* 1. Layout 2 cột (Giữ nguyên) */
+            #quick-view-content-wrapper .product {
+                display: grid;
+                grid-template-columns: 1fr;
+                /* 1 cột mobile */
+                gap: 20px;
+                padding: 30px;
+                /* Tăng padding cho "thở" */
+            }
 
-@media (min-width: 600px) {
-    #quick-view-content-wrapper .product {
-        grid-template-columns: 1fr 1fr;
-        /* 2 cột desktop */
-        gap: 30px;
-    }
-}
+            @media (min-width: 600px) {
+                #quick-view-content-wrapper .product {
+                    grid-template-columns: 1fr 1fr;
+                    /* 2 cột desktop */
+                    gap: 30px;
+                }
+            }
 
-/* 2. Tút lại CỘT HÌNH ẢNH (Bo góc) */
-#quick-view-content-wrapper .woocommerce-product-gallery {
-    border-radius: 10px;
-    overflow: hidden;
-    /* Bo góc cho ảnh */
-    border: 1px solid #eee;
-}
+            /* 2. Tút lại CỘT HÌNH ẢNH (Bo góc) */
+            #quick-view-content-wrapper .woocommerce-product-gallery {
+                border-radius: 10px;
+                overflow: hidden;
+                /* Bo góc cho ảnh */
+                border: 1px solid #eee;
+            }
 
-#quick-view-content-wrapper .woocommerce-product-gallery img {
-    width: 100%;
-    height: auto;
-    display: block;
-    /* Bỏ khoảng trống thừa */
-}
+            #quick-view-content-wrapper .woocommerce-product-gallery img {
+                width: 100%;
+                height: auto;
+                display: block;
+                /* Bỏ khoảng trống thừa */
+            }
 
-/* 3. Tút lại CỘT NỘI DUNG */
-#quick-view-content-wrapper .product .summary {
-    display: flex;
-    flex-direction: column;
-    /* Sắp xếp nội dung */
-}
+            /* 3. Tút lại CỘT NỘI DUNG */
+            #quick-view-content-wrapper .product .summary {
+                display: flex;
+                flex-direction: column;
+                /* Sắp xếp nội dung */
+            }
 
-/* 4. Tút lại TÊN SẢN PHẨM */
-#quick-view-content-wrapper .product .summary .product_title {
-    font-size: 24px;
-    /* Giảm size cho hợp popup */
-    line-height: 1.3;
-    margin-bottom: 10px;
-    color: #333;
-}
+            /* 4. Tút lại TÊN SẢN PHẨM */
+            #quick-view-content-wrapper .product .summary .product_title {
+                font-size: 24px;
+                /* Giảm size cho hợp popup */
+                line-height: 1.3;
+                margin-bottom: 10px;
+                color: #333;
+            }
 
-/* 5. Tút lại GIÁ (nổi bật) */
-#quick-view-content-wrapper .product .summary .price {
-    font-size: 22px;
-    font-weight: bold;
-    color: #6b9d3e;
-    /* Màu xanh theme */
-    margin-bottom: 15px;
-}
+            /* 5. Tút lại GIÁ (nổi bật) */
+            #quick-view-content-wrapper .product .summary .price {
+                font-size: 22px;
+                font-weight: bold;
+                color: #6b9d3e;
+                /* Màu xanh theme */
+                margin-bottom: 15px;
+            }
 
-/* 6. Tút lại MÔ TẢ NGẮN */
-#quick-view-content-wrapper .product .summary .woocommerce-product-details__short-description {
-    font-size: 15px;
-    line-height: 1.6;
-    color: #555;
-    margin-bottom: 20px;
-    padding-bottom: 20px;
-    border-bottom: 1px solid #f0f0f0;
-    /* Thêm 1 đường kẻ mờ */
-    flex-grow: 1;
-    /* Đẩy nút bấm xuống dưới */
-}
+            /* 6. Tút lại MÔ TẢ NGẮN */
+            #quick-view-content-wrapper .product .summary .woocommerce-product-details__short-description {
+                font-size: 15px;
+                line-height: 1.6;
+                color: #555;
+                margin-bottom: 20px;
+                padding-bottom: 20px;
+                border-bottom: 1px solid #f0f0f0;
+                /* Thêm 1 đường kẻ mờ */
+                flex-grow: 1;
+                /* Đẩy nút bấm xuống dưới */
+            }
 
-/* 7. Tút lại NÚT BẤM (Xịn hơn) */
-#quick-view-content-wrapper .product .summary .cart {
-    margin-top: 0;
-    /* Bỏ margin-top cũ vì đã có border */
-}
+            /* 7. Tút lại NÚT BẤM (Xịn hơn) */
+            #quick-view-content-wrapper .product .summary .cart {
+                margin-top: 0;
+                /* Bỏ margin-top cũ vì đã có border */
+            }
 
-#quick-view-content-wrapper .product .summary .button {
-    width: 100%;
-    padding: 14px !important;
-    /* To hơn 1 chút */
-    font-size: 16px !important;
-    font-weight: bold !important;
-    background-color: #6b9d3e !important;
-    color: #fff !important;
-    border: none !important;
-    border-radius: 5px !important;
-    /* Bo góc */
-    cursor: pointer;
-    transition: all 0.3s ease;
-    text-align: center !important;
-    /* 1. Căn giữa chữ */
-    text-decoration: none !important;
-}
+            #quick-view-content-wrapper .product .summary .button {
+                width: 100%;
+                padding: 14px !important;
+                /* To hơn 1 chút */
+                font-size: 16px !important;
+                font-weight: bold !important;
+                background-color: #6b9d3e !important;
+                color: #fff !important;
+                border: none !important;
+                border-radius: 5px !important;
+                /* Bo góc */
+                cursor: pointer;
+                transition: all 0.3s ease;
+                text-align: center !important;
+                /* 1. Căn giữa chữ */
+                text-decoration: none !important;
+            }
 
-#quick-view-content-wrapper .product .summary .button:hover {
-    background-color: #557c2a !important;
-    transform: translateY(-2px);
-    /* Hiệu ứng 3D */
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-}
-</style>
-<?php }
+            #quick-view-content-wrapper .product .summary .button:hover {
+                background-color: #557c2a !important;
+                transform: translateY(-2px);
+                /* Hiệu ứng 3D */
+                box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            }
+        </style>
+    <?php }
 });
 
 
@@ -852,13 +869,14 @@ function live_search_handler()
     wp_send_json($results);
 }
 
-function doancms_enqueue_custom_cart_style() {
+function doancms_enqueue_custom_cart_style()
+{
     // QUAN TRỌNG: Kiểm tra xem user có đang ở đúng trang dùng template 'page-cart.php' không
-    if ( is_page_template( 'page-cart.php' ) ) {
-        
+    if (is_page_template('page-cart.php')) {
+
         // Đường dẫn đến file CSS bro vừa tạo
         // get_template_directory_uri() trỏ về thư mục theme hiện tại
-        wp_enqueue_style( 
+        wp_enqueue_style(
             'doancms-cart-css', // Handle name (đặt tên gì cũng dc, miễn là duy nhất)
             get_template_directory_uri() . '/custom-cart.css', // Đường dẫn file
             array(), // Dependencies (không có thì để mảng rỗng)
@@ -866,15 +884,16 @@ function doancms_enqueue_custom_cart_style() {
         );
     }
 }
-add_action( 'wp_enqueue_scripts', 'doancms_enqueue_custom_cart_style' );
+add_action('wp_enqueue_scripts', 'doancms_enqueue_custom_cart_style');
 
-function doancms_enqueue_custom_checkout_style() {
+function doancms_enqueue_custom_checkout_style()
+{
     // QUAN TRỌNG: Kiểm tra xem user có đang ở đúng trang dùng template 'page-cart.php' không
-    if ( is_page_template( 'page-checkout.php' ) ) {
-        
+    if (is_page_template('page-checkout.php')) {
+
         // Đường dẫn đến file CSS bro vừa tạo
         // get_template_directory_uri() trỏ về thư mục theme hiện tại
-        wp_enqueue_style( 
+        wp_enqueue_style(
             'doancms-cart-css', // Handle name (đặt tên gì cũng dc, miễn là duy nhất)
             get_template_directory_uri() . '/custom-checkout.css', // Đường dẫn file
             array(), // Dependencies (không có thì để mảng rỗng)
@@ -882,17 +901,17 @@ function doancms_enqueue_custom_checkout_style() {
         );
     }
 }
-add_action( 'wp_enqueue_scripts', 'doancms_enqueue_custom_checkout_style' );
+add_action('wp_enqueue_scripts', 'doancms_enqueue_custom_checkout_style');
 
 
 /* * DI CHUYỂN Ô COUPON TRONG TRANG CHECKOUT
  * Xóa ở trên đầu -> Chuyển xuống trước nút thanh toán
  */
 // 1. Xóa coupon ở vị trí mặc định (trên cùng)
-remove_action( 'woocommerce_before_checkout_form', 'woocommerce_checkout_coupon_form', 10 );
+remove_action('woocommerce_before_checkout_form', 'woocommerce_checkout_coupon_form', 10);
 
 // 2. Thêm vào vị trí mới (Trước phần chọn phương thức thanh toán)
-add_action( 'woocommerce_review_order_before_payment', 'woocommerce_checkout_coupon_form' );
+add_action('woocommerce_review_order_before_payment', 'woocommerce_checkout_coupon_form');
 
 
 // HARD BLOCK: Chặn toàn bộ HTML notices của WooCommerce trước khi in ra
@@ -920,27 +939,28 @@ add_action('template_redirect', function () {
  * Redirect CHUẨN sang trang Cảm ơn tùy chỉnh + Kèm theo Order ID
  * Dán đè code cũ trong functions.php
  */
-add_filter( 'woocommerce_payment_successful_result', 'custom_redirect_with_order_id', 10, 2 );
+add_filter('woocommerce_payment_successful_result', 'custom_redirect_with_order_id', 10, 2);
 
-function custom_redirect_with_order_id( $result, $order_id ) {
-    
+function custom_redirect_with_order_id($result, $order_id)
+{
+
     // 1. Lấy đối tượng đơn hàng để đảm bảo nó tồn tại và lấy key bảo mật
-    $order = wc_get_order( $order_id );
+    $order = wc_get_order($order_id);
 
-    if ( ! $order ) {
+    if (! $order) {
         // Nếu lỗi không lấy được đơn thì về trang chủ cho an toàn
-        $result['redirect'] = home_url(); 
+        $result['redirect'] = home_url();
         return $result;
     }
 
     // 2. Thay '/cam-on/' bằng đúng slug trang của bro
     // Chúng ta thêm tham số order_id và key vào URL để bảo mật
-    $thankyou_url = home_url( '/cam-on/' );
-    
-    $final_url = add_query_arg( array(
+    $thankyou_url = home_url('/cam-on/');
+
+    $final_url = add_query_arg(array(
         'order_id' => $order_id,
         'key'      => $order->get_order_key(), // Thêm key để người khác không đoán mò được ID đơn hàng
-    ), $thankyou_url );
+    ), $thankyou_url);
 
     $result['redirect'] = $final_url;
 
@@ -951,9 +971,179 @@ function custom_redirect_with_order_id( $result, $order_id ) {
 /**
  * Chỉnh sửa số lượng sản phẩm liên quan (Related Products)
  */
-function my_custom_related_products_args( $args ) {
+function my_custom_related_products_args($args)
+{
     $args['posts_per_page'] = 4; // Số lượng sản phẩm hiển thị (để 4 cho đẹp 1 hàng)
     $args['columns']        = 4; // Số cột (khai báo cho Woo biết)
     return $args;
 }
-add_filter( 'woocommerce_output_related_products_args', 'my_custom_related_products_args', 20 );
+add_filter('woocommerce_output_related_products_args', 'my_custom_related_products_args', 20);
+// Wishtlist
+add_action('woocommerce_after_add_to_cart_button', 'doAnCMS_add_wishlist_button');
+
+function doAnCMS_add_wishlist_button()
+{
+    echo '<button class="doAnCMS-wishlist-btn" data-product-id="' . get_the_ID() . '">
+            ♥ Add to Wishlist
+          </button>';
+}
+// AJAX thêm sản phẩm vào wishlist
+add_action('wp_ajax_doAddToWishlist', 'doAddToWishlist');
+add_action('wp_ajax_nopriv_doAddToWishlist', 'doAddToWishlist_guest');
+
+function doAddToWishlist()
+{
+    $product_id = intval($_POST['product_id']);
+    $user_id = get_current_user_id();
+
+    if (!$user_id) {
+        wp_send_json_error(['message' => 'Bạn cần đăng nhập để dùng wishlist.']);
+    }
+
+    $wishlist = get_user_meta($user_id, '_doAnCMS_wishlist', true);
+    if (!is_array($wishlist)) $wishlist = [];
+
+    if (!in_array($product_id, $wishlist)) {
+        $wishlist[] = $product_id;
+        update_user_meta($user_id, '_doAnCMS_wishlist', $wishlist);
+    }
+
+    wp_send_json_success(['message' => 'Đã thêm vào wishlist!']);
+}
+/**
+ * Thêm nút Wishlist vào loop sản phẩm (shop/category/archive)
+ */
+add_action('woocommerce_after_shop_loop_item', 'doAnCMS_add_wishlist_button_archive', 15);
+
+function doAnCMS_add_wishlist_button_archive()
+{
+    global $product;
+
+    echo '<button class="doAnCMS-wishlist-btn-archive" 
+                  data-product-id="' . esc_attr($product->get_id()) . '" 
+                  style="
+                      background: transparent;
+                      border: 2px solid #e74c3c;
+                      color: #e74c3c;
+                      padding: 8px 15px;
+                      cursor: pointer;
+                      border-radius: 5px;
+                      margin-top: 10px;
+                      transition: all 0.3s;
+                      font-size: 14px;
+                      width: 100%;
+                  "
+                  onmouseover="this.style.background=\'#e74c3c\'; this.style.color=\'white\';"
+                  onmouseout="this.style.background=\'transparent\'; this.style.color=\'#e74c3c\';">
+        ♥ Add to Wishlist
+    </button>';
+}
+
+
+// Guest user: Lưu tạm bằng cookie
+function doAddToWishlist_guest()
+{
+    $product_id = intval($_POST['product_id']);
+
+    $cookie = isset($_COOKIE['doAnCMS_wishlist']) ? explode(',', $_COOKIE['doAnCMS_wishlist']) : [];
+
+    if (!in_array($product_id, $cookie)) {
+        $cookie[] = $product_id;
+    }
+
+    setcookie('doAnCMS_wishlist', implode(',', $cookie), time() + 3600 * 24 * 30, '/');
+
+    wp_send_json_success(['message' => 'Đã lưu tạm wishlist (khách).']);
+}
+
+// AJAX xóa sản phẩm khỏi wishlist
+add_action('wp_ajax_doRemoveFromWishlist', 'doRemoveFromWishlist');
+add_action('wp_ajax_nopriv_doRemoveFromWishlist', 'doRemoveFromWishlist_guest');
+
+function doRemoveFromWishlist()
+{
+    $product_id = intval($_POST['product_id']);
+    $user_id = get_current_user_id();
+
+    if (!$user_id) {
+        wp_send_json_error(['message' => 'Bạn cần đăng nhập.']);
+    }
+
+    $wishlist = get_user_meta($user_id, '_doAnCMS_wishlist', true);
+    if (!is_array($wishlist)) $wishlist = [];
+
+    $wishlist = array_diff($wishlist, [$product_id]);
+    update_user_meta($user_id, '_doAnCMS_wishlist', $wishlist);
+
+    wp_send_json_success(['message' => 'Đã xóa khỏi wishlist!']);
+}
+
+function doRemoveFromWishlist_guest()
+{
+    $product_id = intval($_POST['product_id']);
+    $cookie = isset($_COOKIE['doAnCMS_wishlist']) ? explode(',', $_COOKIE['doAnCMS_wishlist']) : [];
+
+    $cookie = array_diff($cookie, [$product_id]);
+    setcookie('doAnCMS_wishlist', implode(',', $cookie), time() + 3600 * 24 * 30, '/');
+
+    wp_send_json_success(['message' => 'Đã xóa (khách).']);
+}
+
+add_action('wp_footer', 'doAnCMS_wishlist_archive_script');
+
+function doAnCMS_wishlist_archive_script()
+{
+    ?>
+    <script>
+        jQuery(document).ready(function($) {
+            // Xử lý click nút wishlist trên trang shop/archive
+            $(document).on('click', '.doAnCMS-wishlist-btn-archive', function(e) {
+                e.preventDefault();
+
+                var btn = $(this);
+                var productId = btn.data('product-id');
+                var originalText = btn.html();
+
+                // Disable button tạm thời
+                btn.prop('disabled', true).html('⏳ Đang thêm...');
+
+                $.ajax({
+                    url: '<?php echo admin_url('admin-ajax.php'); ?>',
+                    type: 'POST',
+                    data: {
+                        action: '<?php echo is_user_logged_in() ? 'doAddToWishlist' : 'doAddToWishlist_guest'; ?>',
+                        product_id: productId
+                    },
+                    success: function(response) {
+                        if (response.success) {
+                            btn.html('✓ Đã thêm!').css({
+                                'background': '#27ae60',
+                                'color': 'white',
+                                'border-color': '#27ae60'
+                            });
+
+                            // Reset sau 2 giây
+                            setTimeout(function() {
+                                btn.prop('disabled', false)
+                                    .html(originalText)
+                                    .css({
+                                        'background': 'transparent',
+                                        'color': '#e74c3c',
+                                        'border-color': '#e74c3c'
+                                    });
+                            }, 2000);
+                        } else {
+                            alert(response.data.message);
+                            btn.prop('disabled', false).html(originalText);
+                        }
+                    },
+                    error: function() {
+                        alert('Có lỗi xảy ra!');
+                        btn.prop('disabled', false).html(originalText);
+                    }
+                });
+            });
+        });
+    </script>
+<?php
+}

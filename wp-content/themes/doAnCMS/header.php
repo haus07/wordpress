@@ -335,6 +335,11 @@
                 <a href="<?php echo esc_url(home_url('/about-us')); ?>">VỀ ORGANIC SHOP</a>
                 <a href="<?php echo esc_url(home_url('/blog-page')); ?>">BLOGS ORGANIC</a>
                 <a href="<?php echo esc_url(home_url('/contact')); ?>">LIÊN HỆ</a>
+                <a href="<?php echo esc_url(home_url('/page-wishlist')); ?>" class="wishlist-link">
+                    ❤️ Wishlist
+                    <span
+                        class="wishlist-count"><?php echo count(get_user_meta(get_current_user_id(), '_doAnCMS_wishlist', true) ?: []); ?></span>
+                </a>
             </div>
 
             <div class="login-btn">
