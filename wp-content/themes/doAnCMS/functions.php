@@ -946,3 +946,14 @@ function custom_redirect_with_order_id( $result, $order_id ) {
 
     return $result;
 }
+
+
+/**
+ * Chỉnh sửa số lượng sản phẩm liên quan (Related Products)
+ */
+function my_custom_related_products_args( $args ) {
+    $args['posts_per_page'] = 4; // Số lượng sản phẩm hiển thị (để 4 cho đẹp 1 hàng)
+    $args['columns']        = 4; // Số cột (khai báo cho Woo biết)
+    return $args;
+}
+add_filter( 'woocommerce_output_related_products_args', 'my_custom_related_products_args', 20 );
