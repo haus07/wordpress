@@ -62,6 +62,7 @@ function doAnCMS_enqueue_styles()
         }
     }
 
+
     // Front page
     if (is_front_page()) {
         wp_enqueue_style(
@@ -73,6 +74,22 @@ function doAnCMS_enqueue_styles()
     }
 }
 add_action('wp_enqueue_scripts', 'doAnCMS_enqueue_styles', 99);
+
+add_action('wp_enqueue_scripts', 'doAnCMS_enqueue_wishlist');
+function doAnCMS_enqueue_wishlist()
+{
+    wp_enqueue_script(
+        'doAnCMS-wishlist',
+        get_template_directory_uri() . '/assets/js/wishlist.js',
+        ['jquery'],
+        false,
+        true
+    );
+
+    wp_localize_script('doAnCMS-wishlist', 'wp_ajax', [
+        'ajax_url' => admin_url('admin-ajax.php'),
+    ]);
+}
 
 // Load CSS riêng cho template blog
 function doAnCMS_enqueue_blog_styles()
@@ -894,48 +911,6 @@ add_action('wp_enqueue_scripts', 'doancms_enqueue_custom_checkout_style');
 remove_action('woocommerce_before_checkout_form', 'woocommerce_checkout_coupon_form', 10);
 
 // 2. Thêm vào vị trí mới (Trước phần chọn phương thức thanh toán)
-add_action('woocommerce_review_order_before_payment', 'woocommerce_checkout_coupon_form');
-
-// =========================
-// VIEW COUNT
-// =========================
-
-// Tăng view mỗi lần truy cập single
-function deluxe_set_post_views($postID)
-{
-    $count_key = 'post_view_count';
-    $count = get_post_meta($postID, $count_key, true);
-
-    if ($count == '') {
-        delete_post_meta($postID, $count_key);
-        add_post_meta($postID, $count_key, 1);
-    } else {
-        $count++;
-        update_post_meta($postID, $count_key, $count);
-    }
-}
-
-// Lấy số view
-function deluxe_get_post_views($postID)
-{
-    $count_key = 'post_view_count';
-    $count = get_post_meta($postID, $count_key, true);
-
-    if ($count == '') {
-        return 0;
-    }
-    return $count;
-}
-
-// Auto tăng view khi vào bài viết
-function deluxe_count_views_single()
-{
-    if (is_single()) {
-        $post_id = get_the_ID();
-        deluxe_set_post_views($post_id);
-    }
-}
-add_action('wp_head', 'deluxe_count_views_single');
 add_action('woocommerce_review_order_before_payment', 'woocommerce_checkout_coupon_form');
 
 
