@@ -5233,3 +5233,15 @@ Stack trace:
 [23-Nov-2025 08:11:58 UTC] PHP   4. include() D:\wamp64\www\wordpress\wp-includes\template-loader.php:106
 [23-Nov-2025 08:11:58 UTC] PHP   5. wc_get_template($template_name = 'checkout/payment.php', $args = ['checkout' => class WC_Checkout { protected $fields = [...]; protected $legacy_posted_data = [...]; private $logged_in_customer = class WC_Customer { ... } }], $template_path = *uninitialized*, $default_path = *uninitialized*) D:\wamp64\www\wordpress\wp-content\themes\doAnCMS\page-checkout.php:74
 [23-Nov-2025 08:11:58 UTC] PHP   6. include() D:\wamp64\www\wordpress\wp-content\plugins\woocommerce\includes\wc-core-functions.php:346
+[23-Nov-2025 08:41:08 UTC] 🔹 Current User ID: 1
+[23-Nov-2025 08:41:13 UTC] ✅ Post "Lợi ích của rau hữu cơ" được tạo với ID: 2133
+[23-Nov-2025 08:41:18 UTC] ✅ Post "Cách chọn thực phẩm hữu cơ" được tạo với ID: 2135
+[23-Nov-2025 08:41:21 UTC] ✅ Post "Thực phẩm hữu cơ cho bé" được tạo với ID: 2137
+[23-Nov-2025 08:41:22 UTC] ✅ Post "Top 5 loại trái cây organic" được tạo với ID: 2139
+[23-Nov-2025 08:41:22 UTC] ✅ Post "Organic vs Thực phẩm thông thường" được tạo với ID: 2141
+[23-Nov-2025 08:41:23 UTC] ✅ Post "Cách trồng rau hữu cơ tại nhà" được tạo với ID: 2143
+[23-Nov-2025 08:41:23 UTC] ✅ Post "Smoothie healthy từ organic" được tạo với ID: 2145
+[23-Nov-2025 08:41:24 UTC] ✅ Post "Các loại hạt hữu cơ tốt cho sức khỏe" được tạo với ID: 2147
+[23-Nov-2025 08:41:25 UTC] ✅ Post "Chế độ ăn organic giảm cân" được tạo với ID: 2149
+[23-Nov-2025 08:41:25 UTC] ✅ Post "Organic food: Xu hướng 2025" được tạo với ID: 2151
+[23-Nov-2025 08:41:25 UTC] ✅ Hoàn tất tạo 10 bài viết mẫu với ảnh và content dài.
