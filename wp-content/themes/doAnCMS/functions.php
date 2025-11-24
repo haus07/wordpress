@@ -717,7 +717,7 @@ add_action('wp_head', function () {
                 box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
             }
         </style>
-    <?php }
+<?php }
 });
 
 

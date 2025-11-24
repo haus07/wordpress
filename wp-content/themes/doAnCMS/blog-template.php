@@ -88,6 +88,7 @@ get_header(); ?>
                             Posted on <?php the_time('F j, Y'); ?> by <?php the_author(); ?> |
                             Category: <?php the_category(', '); ?> |
                             <?php comments_number('0 Comments', '1 Comment', '% Comments'); ?>
+                        <p class="post-view">Lượt xem: <?php echo deluxe_get_post_views(get_the_ID()); ?></p>
                         </p>
 
                         <!-- Excerpt -->
