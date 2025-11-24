@@ -5072,3 +5072,129 @@ Stack trace:
 [23-Nov-2025 17:16:29 UTC]   Automatic theme updates starting...
 [23-Nov-2025 17:16:29 UTC]   Automatic theme updates complete.
 [23-Nov-2025 17:16:29 UTC] Automatic updates complete.
+[24-Nov-2025 00:09:03 UTC] Automatic updates starting...
+[24-Nov-2025 00:09:08 UTC]   Automatic plugin updates starting...
+[24-Nov-2025 00:09:08 UTC]   Automatic plugin updates complete.
+[24-Nov-2025 00:09:09 UTC]   Automatic theme updates starting...
+[24-Nov-2025 00:09:09 UTC]   Automatic theme updates complete.
+[24-Nov-2025 00:09:09 UTC] Automatic updates complete.
+[24-Nov-2025 00:46:23 UTC] PHP Warning:  Undefined variable $order_button_text in C:\wamp64\www\wordpress\wp-content\plugins\woocommerce\templates\checkout\payment.php on line 53
+[24-Nov-2025 00:46:23 UTC] PHP Stack trace:
+[24-Nov-2025 00:46:23 UTC] PHP   1. {main}() C:\wamp64\www\wordpress\index.php:0
+[24-Nov-2025 00:46:23 UTC] PHP   2. require() C:\wamp64\www\wordpress\index.php:17
+[24-Nov-2025 00:46:23 UTC] PHP   3. require_once() C:\wamp64\www\wordpress\wp-blog-header.php:19
+[24-Nov-2025 00:46:23 UTC] PHP   4. include() C:\wamp64\www\wordpress\wp-includes\template-loader.php:106
+[24-Nov-2025 00:46:23 UTC] PHP   5. wc_get_template($template_name = 'checkout/payment.php', $args = ['checkout' => class WC_Checkout { protected $fields = [...]; protected $legacy_posted_data = [...]; private $logged_in_customer = class WC_Customer { ... } }], $template_path = *uninitialized*, $default_path = *uninitialized*) C:\wamp64\www\wordpress\wp-content\themes\doAnCMS\page-checkout.php:74
+[24-Nov-2025 00:46:23 UTC] PHP   6. include() C:\wamp64\www\wordpress\wp-content\plugins\woocommerce\includes\wc-core-functions.php:346
+[24-Nov-2025 00:46:23 UTC] PHP Warning:  Undefined variable $order_button_text in C:\wamp64\www\wordpress\wp-content\plugins\woocommerce\templates\checkout\payment.php on line 53
+[24-Nov-2025 00:46:23 UTC] PHP Stack trace:
+[24-Nov-2025 00:46:23 UTC] PHP   1. {main}() C:\wamp64\www\wordpress\index.php:0
+[24-Nov-2025 00:46:23 UTC] PHP   2. require() C:\wamp64\www\wordpress\index.php:17
+[24-Nov-2025 00:46:23 UTC] PHP   3. require_once() C:\wamp64\www\wordpress\wp-blog-header.php:19
+[24-Nov-2025 00:46:23 UTC] PHP   4. include() C:\wamp64\www\wordpress\wp-includes\template-loader.php:106
+[24-Nov-2025 00:46:23 UTC] PHP   5. wc_get_template($template_name = 'checkout/payment.php', $args = ['checkout' => class WC_Checkout { protected $fields = [...]; protected $legacy_posted_data = [...]; private $logged_in_customer = class WC_Customer { ... } }], $template_path = *uninitialized*, $default_path = *uninitialized*) C:\wamp64\www\wordpress\wp-content\themes\doAnCMS\page-checkout.php:74
+[24-Nov-2025 00:46:23 UTC] PHP   6. include() C:\wamp64\www\wordpress\wp-content\plugins\woocommerce\includes\wc-core-functions.php:346
+[24-Nov-2025 00:46:23 UTC] PHP Warning:  Undefined variable $order_button_text in C:\wamp64\www\wordpress\wp-content\plugins\woocommerce\templates\checkout\payment.php on line 53
+[24-Nov-2025 00:46:23 UTC] PHP Stack trace:
+[24-Nov-2025 00:46:23 UTC] PHP   1. {main}() C:\wamp64\www\wordpress\index.php:0
+[24-Nov-2025 00:46:23 UTC] PHP   2. require() C:\wamp64\www\wordpress\index.php:17
+[24-Nov-2025 00:46:23 UTC] PHP   3. require_once() C:\wamp64\www\wordpress\wp-blog-header.php:19
+[24-Nov-2025 00:46:23 UTC] PHP   4. include() C:\wamp64\www\wordpress\wp-includes\template-loader.php:106
+[24-Nov-2025 00:46:23 UTC] PHP   5. wc_get_template($template_name = 'checkout/payment.php', $args = ['checkout' => class WC_Checkout { protected $fields = [...]; protected $legacy_posted_data = [...]; private $logged_in_customer = class WC_Customer { ... } }], $template_path = *uninitialized*, $default_path = *uninitialized*) C:\wamp64\www\wordpress\wp-content\themes\doAnCMS\page-checkout.php:74
+[24-Nov-2025 00:46:23 UTC] PHP   6. include() C:\wamp64\www\wordpress\wp-content\plugins\woocommerce\includes\wc-core-functions.php:346
+[24-Nov-2025 01:07:16 UTC] PHP Warning:  session_start(): open(c:/wamp64/tmp\sess_jc4ijde6n2086alo0b6a38rfs3, O_RDWR) failed: Permission denied (13) in C:\wamp64\www\wordpress\wp-content\themes\doAnCMS\functions.php on line 420
+[24-Nov-2025 01:07:16 UTC] PHP Stack trace:
+[24-Nov-2025 01:07:16 UTC] PHP   1. {main}() C:\wamp64\www\wordpress\index.php:0
+[24-Nov-2025 01:07:16 UTC] PHP   2. require() C:\wamp64\www\wordpress\index.php:17
+[24-Nov-2025 01:07:16 UTC] PHP   3. require_once() C:\wamp64\www\wordpress\wp-blog-header.php:13
+[24-Nov-2025 01:07:16 UTC] PHP   4. require_once() C:\wamp64\www\wordpress\wp-load.php:50
+[24-Nov-2025 01:07:16 UTC] PHP   5. require_once() C:\wamp64\www\wordpress\wp-config.php:106
+[24-Nov-2025 01:07:16 UTC] PHP   6. do_action($hook_name = 'init') C:\wamp64\www\wordpress\wp-settings.php:727
+[24-Nov-2025 01:07:16 UTC] PHP   7. WP_Hook->do_action($args = [0 => '']) C:\wamp64\www\wordpress\wp-includes\plugin.php:517
+[24-Nov-2025 01:07:16 UTC] PHP   8. WP_Hook->apply_filters($value = '', $args = [0 => '']) C:\wamp64\www\wordpress\wp-includes\class-wp-hook.php:348
+[24-Nov-2025 01:07:16 UTC] PHP   9. doAnCMS_start_session('') C:\wamp64\www\wordpress\wp-includes\class-wp-hook.php:324
+[24-Nov-2025 01:07:16 UTC] PHP  10. session_start() C:\wamp64\www\wordpress\wp-content\themes\doAnCMS\functions.php:420
+[24-Nov-2025 01:07:16 UTC] PHP Warning:  session_start(): Failed to read session data: files (path: c:/wamp64/tmp) in C:\wamp64\www\wordpress\wp-content\themes\doAnCMS\functions.php on line 420
+[24-Nov-2025 01:07:16 UTC] PHP Stack trace:
+[24-Nov-2025 01:07:16 UTC] PHP   1. {main}() C:\wamp64\www\wordpress\index.php:0
+[24-Nov-2025 01:07:16 UTC] PHP   2. require() C:\wamp64\www\wordpress\index.php:17
+[24-Nov-2025 01:07:16 UTC] PHP   3. require_once() C:\wamp64\www\wordpress\wp-blog-header.php:13
+[24-Nov-2025 01:07:16 UTC] PHP   4. require_once() C:\wamp64\www\wordpress\wp-load.php:50
+[24-Nov-2025 01:07:16 UTC] PHP   5. require_once() C:\wamp64\www\wordpress\wp-config.php:106
+[24-Nov-2025 01:07:16 UTC] PHP   6. do_action($hook_name = 'init') C:\wamp64\www\wordpress\wp-settings.php:727
+[24-Nov-2025 01:07:16 UTC] PHP   7. WP_Hook->do_action($args = [0 => '']) C:\wamp64\www\wordpress\wp-includes\plugin.php:517
+[24-Nov-2025 01:07:16 UTC] PHP   8. WP_Hook->apply_filters($value = '', $args = [0 => '']) C:\wamp64\www\wordpress\wp-includes\class-wp-hook.php:348
+[24-Nov-2025 01:07:16 UTC] PHP   9. doAnCMS_start_session('') C:\wamp64\www\wordpress\wp-includes\class-wp-hook.php:324
+[24-Nov-2025 01:07:16 UTC] PHP  10. session_start() C:\wamp64\www\wordpress\wp-content\themes\doAnCMS\functions.php:420
+[24-Nov-2025 01:07:17 UTC] PHP Warning:  session_start(): open(c:/wamp64/tmp\sess_jc4ijde6n2086alo0b6a38rfs3, O_RDWR) failed: Permission denied (13) in C:\wamp64\www\wordpress\wp-content\themes\doAnCMS\functions.php on line 420
+[24-Nov-2025 01:07:17 UTC] PHP Stack trace:
+[24-Nov-2025 01:07:17 UTC] PHP   1. {main}() C:\wamp64\www\wordpress\index.php:0
+[24-Nov-2025 01:07:17 UTC] PHP   2. require() C:\wamp64\www\wordpress\index.php:17
+[24-Nov-2025 01:07:17 UTC] PHP   3. require_once() C:\wamp64\www\wordpress\wp-blog-header.php:13
+[24-Nov-2025 01:07:17 UTC] PHP   4. require_once() C:\wamp64\www\wordpress\wp-load.php:50
+[24-Nov-2025 01:07:17 UTC] PHP   5. require_once() C:\wamp64\www\wordpress\wp-config.php:106
+[24-Nov-2025 01:07:17 UTC] PHP   6. do_action($hook_name = 'init') C:\wamp64\www\wordpress\wp-settings.php:727
+[24-Nov-2025 01:07:17 UTC] PHP   7. WP_Hook->do_action($args = [0 => '']) C:\wamp64\www\wordpress\wp-includes\plugin.php:517
+[24-Nov-2025 01:07:17 UTC] PHP   8. WP_Hook->apply_filters($value = '', $args = [0 => '']) C:\wamp64\www\wordpress\wp-includes\class-wp-hook.php:348
+[24-Nov-2025 01:07:17 UTC] PHP   9. doAnCMS_start_session('') C:\wamp64\www\wordpress\wp-includes\class-wp-hook.php:324
+[24-Nov-2025 01:07:17 UTC] PHP  10. session_start() C:\wamp64\www\wordpress\wp-content\themes\doAnCMS\functions.php:420
+[24-Nov-2025 01:07:17 UTC] PHP Warning:  session_start(): Failed to read session data: files (path: c:/wamp64/tmp) in C:\wamp64\www\wordpress\wp-content\themes\doAnCMS\functions.php on line 420
+[24-Nov-2025 01:07:17 UTC] PHP Stack trace:
+[24-Nov-2025 01:07:17 UTC] PHP   1. {main}() C:\wamp64\www\wordpress\index.php:0
+[24-Nov-2025 01:07:17 UTC] PHP   2. require() C:\wamp64\www\wordpress\index.php:17
+[24-Nov-2025 01:07:17 UTC] PHP   3. require_once() C:\wamp64\www\wordpress\wp-blog-header.php:13
+[24-Nov-2025 01:07:17 UTC] PHP   4. require_once() C:\wamp64\www\wordpress\wp-load.php:50
+[24-Nov-2025 01:07:17 UTC] PHP   5. require_once() C:\wamp64\www\wordpress\wp-config.php:106
+[24-Nov-2025 01:07:17 UTC] PHP   6. do_action($hook_name = 'init') C:\wamp64\www\wordpress\wp-settings.php:727
+[24-Nov-2025 01:07:17 UTC] PHP   7. WP_Hook->do_action($args = [0 => '']) C:\wamp64\www\wordpress\wp-includes\plugin.php:517
+[24-Nov-2025 01:07:17 UTC] PHP   8. WP_Hook->apply_filters($value = '', $args = [0 => '']) C:\wamp64\www\wordpress\wp-includes\class-wp-hook.php:348
+[24-Nov-2025 01:07:17 UTC] PHP   9. doAnCMS_start_session('') C:\wamp64\www\wordpress\wp-includes\class-wp-hook.php:324
+[24-Nov-2025 01:07:17 UTC] PHP  10. session_start() C:\wamp64\www\wordpress\wp-content\themes\doAnCMS\functions.php:420
+[24-Nov-2025 01:07:19 UTC] PHP Warning:  session_start(): open(c:/wamp64/tmp\sess_jc4ijde6n2086alo0b6a38rfs3, O_RDWR) failed: Permission denied (13) in C:\wamp64\www\wordpress\wp-content\themes\doAnCMS\functions.php on line 420
+[24-Nov-2025 01:07:19 UTC] PHP Stack trace:
+[24-Nov-2025 01:07:19 UTC] PHP   1. {main}() C:\wamp64\www\wordpress\index.php:0
+[24-Nov-2025 01:07:19 UTC] PHP   2. require() C:\wamp64\www\wordpress\index.php:17
+[24-Nov-2025 01:07:19 UTC] PHP   3. require_once() C:\wamp64\www\wordpress\wp-blog-header.php:13
+[24-Nov-2025 01:07:19 UTC] PHP   4. require_once() C:\wamp64\www\wordpress\wp-load.php:50
+[24-Nov-2025 01:07:19 UTC] PHP   5. require_once() C:\wamp64\www\wordpress\wp-config.php:106
+[24-Nov-2025 01:07:19 UTC] PHP   6. do_action($hook_name = 'init') C:\wamp64\www\wordpress\wp-settings.php:727
+[24-Nov-2025 01:07:19 UTC] PHP   7. WP_Hook->do_action($args = [0 => '']) C:\wamp64\www\wordpress\wp-includes\plugin.php:517
+[24-Nov-2025 01:07:19 UTC] PHP   8. WP_Hook->apply_filters($value = '', $args = [0 => '']) C:\wamp64\www\wordpress\wp-includes\class-wp-hook.php:348
+[24-Nov-2025 01:07:19 UTC] PHP   9. doAnCMS_start_session('') C:\wamp64\www\wordpress\wp-includes\class-wp-hook.php:324
+[24-Nov-2025 01:07:19 UTC] PHP  10. session_start() C:\wamp64\www\wordpress\wp-content\themes\doAnCMS\functions.php:420
+[24-Nov-2025 01:07:19 UTC] PHP Warning:  session_start(): Failed to read session data: files (path: c:/wamp64/tmp) in C:\wamp64\www\wordpress\wp-content\themes\doAnCMS\functions.php on line 420
+[24-Nov-2025 01:07:19 UTC] PHP Stack trace:
+[24-Nov-2025 01:07:19 UTC] PHP   1. {main}() C:\wamp64\www\wordpress\index.php:0
+[24-Nov-2025 01:07:19 UTC] PHP   2. require() C:\wamp64\www\wordpress\index.php:17
+[24-Nov-2025 01:07:19 UTC] PHP   3. require_once() C:\wamp64\www\wordpress\wp-blog-header.php:13
+[24-Nov-2025 01:07:19 UTC] PHP   4. require_once() C:\wamp64\www\wordpress\wp-load.php:50
+[24-Nov-2025 01:07:19 UTC] PHP   5. require_once() C:\wamp64\www\wordpress\wp-config.php:106
+[24-Nov-2025 01:07:19 UTC] PHP   6. do_action($hook_name = 'init') C:\wamp64\www\wordpress\wp-settings.php:727
+[24-Nov-2025 01:07:19 UTC] PHP   7. WP_Hook->do_action($args = [0 => '']) C:\wamp64\www\wordpress\wp-includes\plugin.php:517
+[24-Nov-2025 01:07:19 UTC] PHP   8. WP_Hook->apply_filters($value = '', $args = [0 => '']) C:\wamp64\www\wordpress\wp-includes\class-wp-hook.php:348
+[24-Nov-2025 01:07:19 UTC] PHP   9. doAnCMS_start_session('') C:\wamp64\www\wordpress\wp-includes\class-wp-hook.php:324
+[24-Nov-2025 01:07:19 UTC] PHP  10. session_start() C:\wamp64\www\wordpress\wp-content\themes\doAnCMS\functions.php:420
+[24-Nov-2025 01:07:21 UTC] PHP Warning:  session_start(): open(c:/wamp64/tmp\sess_jc4ijde6n2086alo0b6a38rfs3, O_RDWR) failed: Permission denied (13) in C:\wamp64\www\wordpress\wp-content\themes\doAnCMS\functions.php on line 420
+[24-Nov-2025 01:07:21 UTC] PHP Stack trace:
+[24-Nov-2025 01:07:21 UTC] PHP   1. {main}() C:\wamp64\www\wordpress\index.php:0
+[24-Nov-2025 01:07:21 UTC] PHP   2. require() C:\wamp64\www\wordpress\index.php:17
+[24-Nov-2025 01:07:21 UTC] PHP   3. require_once() C:\wamp64\www\wordpress\wp-blog-header.php:13
+[24-Nov-2025 01:07:21 UTC] PHP   4. require_once() C:\wamp64\www\wordpress\wp-load.php:50
+[24-Nov-2025 01:07:21 UTC] PHP   5. require_once() C:\wamp64\www\wordpress\wp-config.php:106
+[24-Nov-2025 01:07:21 UTC] PHP   6. do_action($hook_name = 'init') C:\wamp64\www\wordpress\wp-settings.php:727
+[24-Nov-2025 01:07:21 UTC] PHP   7. WP_Hook->do_action($args = [0 => '']) C:\wamp64\www\wordpress\wp-includes\plugin.php:517
+[24-Nov-2025 01:07:21 UTC] PHP   8. WP_Hook->apply_filters($value = '', $args = [0 => '']) C:\wamp64\www\wordpress\wp-includes\class-wp-hook.php:348
+[24-Nov-2025 01:07:21 UTC] PHP   9. doAnCMS_start_session('') C:\wamp64\www\wordpress\wp-includes\class-wp-hook.php:324
+[24-Nov-2025 01:07:21 UTC] PHP  10. session_start() C:\wamp64\www\wordpress\wp-content\themes\doAnCMS\functions.php:420
+[24-Nov-2025 01:07:21 UTC] PHP Warning:  session_start(): Failed to read session data: files (path: c:/wamp64/tmp) in C:\wamp64\www\wordpress\wp-content\themes\doAnCMS\functions.php on line 420
+[24-Nov-2025 01:07:21 UTC] PHP Stack trace:
+[24-Nov-2025 01:07:21 UTC] PHP   1. {main}() C:\wamp64\www\wordpress\index.php:0
+[24-Nov-2025 01:07:21 UTC] PHP   2. require() C:\wamp64\www\wordpress\index.php:17
+[24-Nov-2025 01:07:21 UTC] PHP   3. require_once() C:\wamp64\www\wordpress\wp-blog-header.php:13
+[24-Nov-2025 01:07:21 UTC] PHP   4. require_once() C:\wamp64\www\wordpress\wp-load.php:50
+[24-Nov-2025 01:07:21 UTC] PHP   5. require_once() C:\wamp64\www\wordpress\wp-config.php:106
+[24-Nov-2025 01:07:21 UTC] PHP   6. do_action($hook_name = 'init') C:\wamp64\www\wordpress\wp-settings.php:727
+[24-Nov-2025 01:07:21 UTC] PHP   7. WP_Hook->do_action($args = [0 => '']) C:\wamp64\www\wordpress\wp-includes\plugin.php:517
+[24-Nov-2025 01:07:21 UTC] PHP   8. WP_Hook->apply_filters($value = '', $args = [0 => '']) C:\wamp64\www\wordpress\wp-includes\class-wp-hook.php:348
+[24-Nov-2025 01:07:21 UTC] PHP   9. doAnCMS_start_session('') C:\wamp64\www\wordpress\wp-includes\class-wp-hook.php:324
+[24-Nov-2025 01:07:21 UTC] PHP  10. session_start() C:\wamp64\www\wordpress\wp-content\themes\doAnCMS\functions.php:420

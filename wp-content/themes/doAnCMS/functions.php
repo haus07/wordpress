@@ -1147,3 +1147,74 @@ function doAnCMS_wishlist_archive_script()
     </script>
 <?php
 }
+
+
+/**
+ * Enqueue CSS riêng cho trang View Order (Chi tiết đơn hàng)
+ */
+function custom_enqueue_view_order_style() {
+    // Chỉ load khi đang ở trang My Account VÀ là endpoint view-order
+    if ( is_account_page() && is_wc_endpoint_url( 'view-order' ) ) {
+        
+        wp_enqueue_style( 
+            'custom-view-order-css', // Handle name (đặt sao cũng dc)
+            get_template_directory_uri() . '/view-order.css', // Đường dẫn tới file
+            array(), // Dependencies
+            '1.0.0', // Version
+            'all' // Media
+        );
+    }
+}
+add_action( 'wp_enqueue_scripts', 'custom_enqueue_view_order_style' );
+
+
+function ha_enqueue_custom_my_account_style() {
+    // Kiểm tra nếu đang dùng Template "Trang cá nhân"
+    if ( is_page_template( 'page-my-account.php' ) ) {
+        wp_enqueue_style( 
+            'ha-modern-account', 
+             get_template_directory_uri() . '/my-account.css',
+            array(), 
+            '1.0.0' 
+        );
+    }
+}
+add_action( 'wp_enqueue_scripts', 'ha_enqueue_custom_my_account_style' );
+
+
+
+function ha_enqueue_edit_account_style() {
+    // Chỉ load CSS khi đang ở trang template "Chỉnh sửa thông tin"
+    if ( is_page_template( 'page-edit-account.php' ) ) {
+        wp_enqueue_style( 
+            'ha-edit-account-css', 
+            get_template_directory_uri() . '/edit-account.css', 
+            array(), 
+            '1.0.0' 
+        );
+    }
+}
+add_action( 'wp_enqueue_scripts', 'ha_enqueue_edit_account_style' );
+
+/**
+ * FORCE Redirect về lại trang Custom sau khi lưu thông tin
+ */
+/**
+ * Redirect dựa trên link được gửi kèm trong Form
+ */
+function ha_force_hard_redirect_custom_account( $location ) {
+    // 1. Kiểm tra xem người dùng có đang bấm nút Lưu thông tin không
+    if ( isset( $_POST['action'] ) && $_POST['action'] === 'save_account_details' ) {
+        
+        // 2. Kiểm tra xem trong form có gửi kèm cái Link "bảo bối" của mình không
+        if ( ! empty( $_POST['ha_redirect_url'] ) ) {
+            // 3. Nếu có -> Bẻ lái ngay lập tức về link đó!
+            return esc_url_raw( $_POST['ha_redirect_url'] );
+        }
+    }
+    
+    // Nếu không phải trường hợp trên, cho đi bình thường
+    return $location;
+}
+// Hook vào wp_redirect thay vì hook của WooCommerce
+add_filter( 'wp_redirect', 'ha_force_hard_redirect_custom_account', 999999 );

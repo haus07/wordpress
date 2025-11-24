@@ -1,0 +1,160 @@
+/* --- STYLE CHO TRANG CHỈNH SỬA THÔNG TIN --- */
+
+.edit-account-page-wrapper {
+    background-color: #f8f9fa;
+    min-height: 80vh;
+    padding: 60px 20px;
+    font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+.edit-account-container {
+    background: #ffffff;
+    max-width: 700px;
+    width: 100%;
+    border-radius: 16px;
+    box-shadow: 0 10px 40px rgba(0,0,0,0.08);
+    padding: 40px 50px;
+    border-top: 5px solid #28a745; /* Điểm nhấn xanh lá */
+    position: relative;
+}
+
+/* Tiêu đề trang */
+.edit-account-title {
+    color: #28a745;
+    font-size: 28px;
+    font-weight: 700;
+    margin-bottom: 10px;
+    text-align: center;
+    text-transform: uppercase;
+}
+
+.edit-account-subtitle {
+    text-align: center;
+    color: #666;
+    margin-bottom: 40px;
+    font-size: 14px;
+}
+
+/* Form Styling - Ghi đè CSS WooCommerce */
+.woocommerce-EditAccountForm fieldset {
+    background: #f9fdf9;
+    border: 1px dashed #c3e6cb;
+    padding: 25px;
+    border-radius: 8px;
+    margin-top: 30px;
+    margin-bottom: 20px;
+}
+
+.woocommerce-EditAccountForm fieldset legend {
+    color: #28a745;
+    font-weight: 600;
+    background: #fff;
+    padding: 0 10px;
+}
+
+/* Label & Input */
+.woocommerce-form-row {
+    margin-bottom: 20px;
+}
+
+.woocommerce-form-row label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 600;
+    color: #333;
+    font-size: 14px;
+}
+
+.woocommerce-form-row .input-text {
+    width: 100%;
+    padding: 12px 15px;
+    border: 2px solid #eee;
+    border-radius: 8px;
+    font-size: 15px;
+    transition: all 0.3s;
+    background: #fff;
+    box-sizing: border-box; /* Quan trọng để không bị vỡ khung */
+}
+
+.woocommerce-form-row .input-text:focus {
+    border-color: #28a745;
+    box-shadow: 0 0 0 4px rgba(40, 167, 69, 0.1);
+    outline: none;
+}
+
+/* Layout 2 cột cho Họ & Tên */
+.woocommerce-form-row--first,
+.woocommerce-form-row--last {
+    width: 48%;
+    display: inline-block;
+}
+.woocommerce-form-row--last {
+    float: right;
+}
+/* Fix lỗi float của Woo */
+.clear {
+    clear: both;
+}
+
+/* Nút Lưu thay đổi */
+.woocommerce-EditAccountForm p:last-child {
+    text-align: center;
+    margin-top: 30px;
+}
+
+.woocommerce-Button.button {
+    background: linear-gradient(45deg, #28a745, #218838);
+    color: #fff;
+    padding: 15px 50px;
+    border-radius: 50px;
+    border: none;
+    font-size: 16px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.3s;
+    box-shadow: 0 5px 15px rgba(40, 167, 69, 0.3);
+    width: 100%; /* Full width trên mobile */
+}
+
+.woocommerce-Button.button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(40, 167, 69, 0.4);
+    background: linear-gradient(45deg, #218838, #1e7e34);
+}
+
+/* Thông báo lỗi/thành công */
+.woocommerce-message {
+    background: #e8f5e9;
+    color: #155724;
+    padding: 15px;
+    border-radius: 6px;
+    margin-bottom: 20px;
+    border-left: 5px solid #28a745;
+}
+.woocommerce-error {
+    background: #f8d7da;
+    color: #721c24;
+    padding: 15px;
+    list-style: none;
+    border-radius: 6px;
+    margin-bottom: 20px;
+    border-left: 5px solid #dc3545;
+}
+
+/* Responsive Mobile */
+@media (max-width: 768px) {
+    .edit-account-container {
+        padding: 30px 20px;
+    }
+    .woocommerce-form-row--first,
+    .woocommerce-form-row--last {
+        width: 100%;
+        float: none;
+    }
+    .edit-account-title {
+        font-size: 24px;
+    }
+}
