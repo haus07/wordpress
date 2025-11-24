@@ -717,7 +717,7 @@ add_action('wp_head', function () {
                 box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
             }
         </style>
-<?php }
+    <?php }
 });
 
 
@@ -1119,3 +1119,247 @@ function faq_search_ajax()
     wp_reset_postdata();
     wp_send_json($results);
 }
+// Wishtlist
+add_action('woocommerce_after_add_to_cart_button', 'doAnCMS_add_wishlist_button');
+
+function doAnCMS_add_wishlist_button()
+{
+    echo '<button class="doAnCMS-wishlist-btn" data-product-id="' . get_the_ID() . '">
+            ♥ Add to Wishlist
+          </button>';
+}
+// AJAX thêm sản phẩm vào wishlist
+add_action('wp_ajax_doAddToWishlist', 'doAddToWishlist');
+add_action('wp_ajax_nopriv_doAddToWishlist', 'doAddToWishlist_guest');
+
+function doAddToWishlist()
+{
+    $product_id = intval($_POST['product_id']);
+    $user_id = get_current_user_id();
+
+    if (!$user_id) {
+        wp_send_json_error(['message' => 'Bạn cần đăng nhập để dùng wishlist.']);
+    }
+
+    $wishlist = get_user_meta($user_id, '_doAnCMS_wishlist', true);
+    if (!is_array($wishlist)) $wishlist = [];
+
+    if (!in_array($product_id, $wishlist)) {
+        $wishlist[] = $product_id;
+        update_user_meta($user_id, '_doAnCMS_wishlist', $wishlist);
+    }
+
+    wp_send_json_success(['message' => 'Đã thêm vào wishlist!']);
+}
+/**
+ * Thêm nút Wishlist vào loop sản phẩm (shop/category/archive)
+ */
+add_action('woocommerce_after_shop_loop_item', 'doAnCMS_add_wishlist_button_archive', 15);
+
+function doAnCMS_add_wishlist_button_archive()
+{
+    global $product;
+
+    echo '<button class="doAnCMS-wishlist-btn-archive" 
+                  data-product-id="' . esc_attr($product->get_id()) . '" 
+                  style="
+                      background: transparent;
+                      border: 2px solid #e74c3c;
+                      color: #e74c3c;
+                      padding: 8px 15px;
+                      cursor: pointer;
+                      border-radius: 5px;
+                      margin-top: 10px;
+                      transition: all 0.3s;
+                      font-size: 14px;
+                      width: 100%;
+                  "
+                  onmouseover="this.style.background=\'#e74c3c\'; this.style.color=\'white\';"
+                  onmouseout="this.style.background=\'transparent\'; this.style.color=\'#e74c3c\';">
+        ♥ Add to Wishlist
+    </button>';
+}
+
+
+// Guest user: Lưu tạm bằng cookie
+function doAddToWishlist_guest()
+{
+    $product_id = intval($_POST['product_id']);
+
+    $cookie = isset($_COOKIE['doAnCMS_wishlist']) ? explode(',', $_COOKIE['doAnCMS_wishlist']) : [];
+
+    if (!in_array($product_id, $cookie)) {
+        $cookie[] = $product_id;
+    }
+
+    setcookie('doAnCMS_wishlist', implode(',', $cookie), time() + 3600 * 24 * 30, '/');
+
+    wp_send_json_success(['message' => 'Đã lưu tạm wishlist (khách).']);
+}
+
+// AJAX xóa sản phẩm khỏi wishlist
+add_action('wp_ajax_doRemoveFromWishlist', 'doRemoveFromWishlist');
+add_action('wp_ajax_nopriv_doRemoveFromWishlist', 'doRemoveFromWishlist_guest');
+
+function doRemoveFromWishlist()
+{
+    $product_id = intval($_POST['product_id']);
+    $user_id = get_current_user_id();
+
+    if (!$user_id) {
+        wp_send_json_error(['message' => 'Bạn cần đăng nhập.']);
+    }
+
+    $wishlist = get_user_meta($user_id, '_doAnCMS_wishlist', true);
+    if (!is_array($wishlist)) $wishlist = [];
+
+    $wishlist = array_diff($wishlist, [$product_id]);
+    update_user_meta($user_id, '_doAnCMS_wishlist', $wishlist);
+
+    wp_send_json_success(['message' => 'Đã xóa khỏi wishlist!']);
+}
+
+function doRemoveFromWishlist_guest()
+{
+    $product_id = intval($_POST['product_id']);
+    $cookie = isset($_COOKIE['doAnCMS_wishlist']) ? explode(',', $_COOKIE['doAnCMS_wishlist']) : [];
+
+    $cookie = array_diff($cookie, [$product_id]);
+    setcookie('doAnCMS_wishlist', implode(',', $cookie), time() + 3600 * 24 * 30, '/');
+
+    wp_send_json_success(['message' => 'Đã xóa (khách).']);
+}
+
+add_action('wp_footer', 'doAnCMS_wishlist_archive_script');
+
+function doAnCMS_wishlist_archive_script()
+{
+    ?>
+    <script>
+        jQuery(document).ready(function($) {
+            // Xử lý click nút wishlist trên trang shop/archive
+            $(document).on('click', '.doAnCMS-wishlist-btn-archive', function(e) {
+                e.preventDefault();
+
+                var btn = $(this);
+                var productId = btn.data('product-id');
+                var originalText = btn.html();
+
+                // Disable button tạm thời
+                btn.prop('disabled', true).html('⏳ Đang thêm...');
+
+                $.ajax({
+                    url: '<?php echo admin_url('admin-ajax.php'); ?>',
+                    type: 'POST',
+                    data: {
+                        action: '<?php echo is_user_logged_in() ? 'doAddToWishlist' : 'doAddToWishlist_guest'; ?>',
+                        product_id: productId
+                    },
+                    success: function(response) {
+                        if (response.success) {
+                            btn.html('✓ Đã thêm!').css({
+                                'background': '#27ae60',
+                                'color': 'white',
+                                'border-color': '#27ae60'
+                            });
+
+                            // Reset sau 2 giây
+                            setTimeout(function() {
+                                btn.prop('disabled', false)
+                                    .html(originalText)
+                                    .css({
+                                        'background': 'transparent',
+                                        'color': '#e74c3c',
+                                        'border-color': '#e74c3c'
+                                    });
+                            }, 2000);
+                        } else {
+                            alert(response.data.message);
+                            btn.prop('disabled', false).html(originalText);
+                        }
+                    },
+                    error: function() {
+                        alert('Có lỗi xảy ra!');
+                        btn.prop('disabled', false).html(originalText);
+                    }
+                });
+            });
+        });
+    </script>
+<?php
+}
+
+
+/**
+ * Enqueue CSS riêng cho trang View Order (Chi tiết đơn hàng)
+ */
+function custom_enqueue_view_order_style()
+{
+    // Chỉ load khi đang ở trang My Account VÀ là endpoint view-order
+    if (is_account_page() && is_wc_endpoint_url('view-order')) {
+
+        wp_enqueue_style(
+            'custom-view-order-css', // Handle name (đặt sao cũng dc)
+            get_template_directory_uri() . '/view-order.css', // Đường dẫn tới file
+            array(), // Dependencies
+            '1.0.0', // Version
+            'all' // Media
+        );
+    }
+}
+add_action('wp_enqueue_scripts', 'custom_enqueue_view_order_style');
+
+
+function ha_enqueue_custom_my_account_style()
+{
+    // Kiểm tra nếu đang dùng Template "Trang cá nhân"
+    if (is_page_template('page-my-account.php')) {
+        wp_enqueue_style(
+            'ha-modern-account',
+            get_template_directory_uri() . '/my-account.css',
+            array(),
+            '1.0.0'
+        );
+    }
+}
+add_action('wp_enqueue_scripts', 'ha_enqueue_custom_my_account_style');
+
+
+
+function ha_enqueue_edit_account_style()
+{
+    // Chỉ load CSS khi đang ở trang template "Chỉnh sửa thông tin"
+    if (is_page_template('page-edit-account.php')) {
+        wp_enqueue_style(
+            'ha-edit-account-css',
+            get_template_directory_uri() . '/edit-account.css',
+            array(),
+            '1.0.0'
+        );
+    }
+}
+add_action('wp_enqueue_scripts', 'ha_enqueue_edit_account_style');
+
+/**
+ * FORCE Redirect về lại trang Custom sau khi lưu thông tin
+ */
+/**
+ * Redirect dựa trên link được gửi kèm trong Form
+ */
+function ha_force_hard_redirect_custom_account($location)
+{
+    // 1. Kiểm tra xem người dùng có đang bấm nút Lưu thông tin không
+    if (isset($_POST['action']) && $_POST['action'] === 'save_account_details') {
+
+        // 2. Kiểm tra xem trong form có gửi kèm cái Link "bảo bối" của mình không
+        if (! empty($_POST['ha_redirect_url'])) {
+            // 3. Nếu có -> Bẻ lái ngay lập tức về link đó!
+            return esc_url_raw($_POST['ha_redirect_url']);
+        }
+    }
+
+    // Nếu không phải trường hợp trên, cho đi bình thường
+    return $location;
+}
+// Hook vào wp_redirect thay vì hook của WooCommerce
+add_filter('wp_redirect', 'ha_force_hard_redirect_custom_account', 999999);

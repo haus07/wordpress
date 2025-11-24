@@ -1,0 +1,126 @@
+/* --- BẮT ĐẦU STYLE TRANG VIEW ORDER (CHI TIẾT ĐƠN HÀNG) --- */
+
+/* 1. Tổng thể khung đơn hàng */
+.woocommerce-view-order {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
+    background: #ffffff;
+    padding: 20px;
+    border-radius: 8px;
+    border-top: 4px solid #28a745; /* Viền xanh lá trên cùng */
+    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+}
+
+/* 2. Tiêu đề và thông báo */
+.woocommerce-view-order p {
+    color: #555;
+    line-height: 1.6;
+}
+.woocommerce-view-order mark.order-number {
+    background-color: #e8f5e9;
+    color: #28a745;
+    padding: 2px 8px;
+    border-radius: 4px;
+    font-weight: bold;
+}
+.woocommerce-view-order mark.order-status {
+    background: transparent;
+    color: #28a745;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+/* 3. Bảng chi tiết sản phẩm (Order Details Table) */
+.woocommerce-table--order-details {
+    border: 1px solid #eee;
+    border-collapse: collapse;
+    width: 100%;
+    margin-bottom: 30px;
+    border-radius: 8px;
+    overflow: hidden; /* Để bo góc bảng */
+}
+
+.woocommerce-table--order-details thead th {
+    background-color: #28a745; /* Nền xanh header */
+    color: #ffffff;
+    padding: 15px;
+    text-transform: uppercase;
+    font-size: 14px;
+    border-bottom: none;
+}
+
+.woocommerce-table--order-details td, 
+.woocommerce-table--order-details tfoot th, 
+.woocommerce-table--order-details tfoot td {
+    padding: 15px;
+    border-bottom: 1px solid #eee;
+    color: #333;
+}
+
+/* Phần chân bảng (Tổng tiền, Ship...) */
+.woocommerce-table--order-details tfoot th {
+    background-color: #f9f9f9;
+    color: #555;
+    font-weight: 600;
+    width: 60%; /* Căn chỉnh cột tiêu đề rộng chút */
+}
+.woocommerce-table--order-details tfoot td {
+    background-color: #ffffff;
+    font-weight: bold;
+    color: #28a745; /* Số tiền màu xanh */
+}
+
+/* 4. Thông tin khách hàng (Customer Details) */
+.woocommerce-customer-details {
+    background: #f8f9fa;
+    padding: 20px;
+    border-radius: 8px;
+    margin-top: 30px;
+}
+
+.woocommerce-column__title {
+    color: #28a745;
+    font-size: 18px;
+    border-bottom: 2px solid #e8f5e9;
+    padding-bottom: 10px;
+    margin-bottom: 15px;
+}
+
+.woocommerce-customer-details address {
+    font-style: normal;
+    color: #666;
+    border: 1px solid #eee;
+    padding: 15px;
+    background: #fff;
+    border-radius: 5px;
+}
+
+/* 5. Nút "Đặt hàng lại" (nếu có) */
+.order-again .button {
+    background-color: #28a745 !important;
+    color: white !important;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    text-decoration: none;
+}
+.order-again .button:hover {
+    background-color: #218838 !important;
+}
+
+
+/* --- ẨN SIDEBAR Ở TRANG CHI TIẾT ĐƠN HÀNG --- */
+
+/* 1. Ẩn cái cột menu (Dashboard, Orders...) */
+.woocommerce-view-order .woocommerce-MyAccount-navigation {
+    display: none !important;
+}
+
+/* 2. Kéo phần nội dung đơn hàng ra 100% chiều rộng */
+.woocommerce-view-order .woocommerce-MyAccount-content {
+    width: 100% !important;
+    float: none !important; /* Reset float nếu theme dùng */
+    margin: 0 !important;
+    padding: 0 !important;
+}
+
+/* Bonus: Ẩn luôn cái tiêu đề "Order #300..." mặc định nếu thấy thừa (vì trong bảng có rồi) */

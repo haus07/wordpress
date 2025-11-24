@@ -14,14 +14,28 @@
         }
 
         /* HEADER */
-        .header {
-            background-color: #fff;
-            padding: 15px 20px;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
-            position: sticky;
-            top: 0;
-            z-index: 999;
-        }
+        /* Sửa lại đoạn này trong <style> */
+.header {
+    background-color: #fff;
+    padding: 15px 20px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+    
+    /* QUAN TRỌNG: Sticky header cần z-index cực cao */
+    position: sticky; 
+    top: 0;
+    z-index: 999999 !important; /* Thêm !important để đè bẹp mọi slider */
+    
+    /* Đảm bảo menu xổ xuống không bị cắt mất */
+    overflow: visible !important; 
+}
+
+/* Thêm đoạn này để fix riêng cho trang chủ */
+body.home .header {
+    /* Đôi khi trang chủ có class lạ đè vào, dòng này để reset */
+    overflow: visible !important;
+    position: sticky !important;
+    z-index: 999999 !important;
+}
 
         .header-container {
             max-width: 1200px;
@@ -355,6 +369,10 @@
                         <div class="menu-toggle" id="userMenuToggle">⋮</div>
                         <div class="user-dropdown" id="userDropdown">
                             <a href="<?php echo wc_get_cart_url(); ?>">🛒 Giỏ hàng</a>
+                            <a href="<?php echo site_url('/page-my-account'); ?>">🚪 Cá nhân</a>
+                            <a href="<?php echo site_url('/page-history'); ?>" class="btn-link-green">
+                                📜 Lịch sử đơn hàng
+                            </a>
                             <a href="<?php echo wp_logout_url(home_url()); ?>">🚪 Đăng xuất</a>
                         </div>
                     </div>
