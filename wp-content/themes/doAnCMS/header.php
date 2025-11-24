@@ -5,6 +5,7 @@
     <meta charset="<?php bloginfo('charset'); ?>">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title><?php bloginfo('name'); ?> - <?php bloginfo('description'); ?></title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
     <?php wp_head(); ?>
     <style>
         body {
@@ -334,6 +335,7 @@
                 <a href="<?php echo esc_url(home_url('/')); ?>">HOME</a>
                 <a href="<?php echo esc_url(home_url('/about-us')); ?>">VỀ ORGANIC SHOP</a>
                 <a href="<?php echo esc_url(home_url('/blog-page')); ?>">BLOGS ORGANIC</a>
+                <a href="<?php echo esc_url(home_url('/faq-category')); ?>">FAQ CENTER</a>
                 <a href="<?php echo esc_url(home_url('/contact')); ?>">LIÊN HỆ</a>
                 <a href="<?php echo esc_url(home_url('/page-wishlist')); ?>" class="wishlist-link">
                     ❤️ Wishlist
