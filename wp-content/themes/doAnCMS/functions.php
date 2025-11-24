@@ -717,7 +717,7 @@ add_action('wp_head', function () {
                 box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
             }
         </style>
-<?php }
+    <?php }
 });
 
 
@@ -978,6 +978,147 @@ function my_custom_related_products_args($args)
     return $args;
 }
 add_filter('woocommerce_output_related_products_args', 'my_custom_related_products_args', 20);
+
+// =========================
+// VIEW COUNT
+// =========================
+
+// Tăng view mỗi lần truy cập single
+function deluxe_set_post_views($postID)
+{
+    $count_key = 'post_view_count';
+    $count = get_post_meta($postID, $count_key, true);
+
+    if ($count == '') {
+        delete_post_meta($postID, $count_key);
+        add_post_meta($postID, $count_key, 1);
+    } else {
+        $count++;
+        update_post_meta($postID, $count_key, $count);
+    }
+}
+
+// Lấy số view
+function deluxe_get_post_views($postID)
+{
+    $count_key = 'post_view_count';
+    $count = get_post_meta($postID, $count_key, true);
+
+    if ($count == '') {
+        return 0;
+    }
+    return $count;
+}
+
+// Auto tăng view khi vào bài viết
+function deluxe_count_views_single()
+{
+    if (is_single()) {
+        $post_id = get_the_ID();
+        deluxe_set_post_views($post_id);
+    }
+}
+add_action('wp_head', 'deluxe_count_views_single');
+
+// ===== CUSTOM POST TYPE: FAQ =====
+function create_faq_post_type()
+{
+    $labels = array(
+        'name'               => 'FAQs',
+        'singular_name'      => 'FAQ',
+        'menu_name'          => 'FAQ Center',
+        'name_admin_bar'     => 'FAQ',
+        'add_new'            => 'Thêm câu hỏi',
+        'add_new_item'       => 'Thêm câu hỏi mới',
+        'edit_item'          => 'Sửa câu hỏi',
+        'new_item'           => 'Câu hỏi mới',
+        'view_item'          => 'Xem câu hỏi',
+        'search_items'       => 'Tìm câu hỏi',
+    );
+
+    $args = array(
+        'labels'             => $labels,
+        'public'             => true,
+        'menu_icon'          => 'dashicons-editor-help',
+        'supports'           => array('title', 'editor'),
+        'has_archive'        => false,
+        'rewrite'            => array('slug' => 'faq'),
+        'show_in_rest'       => true, // GutenBerg support
+    );
+
+    register_post_type('faq', $args);
+}
+add_action('init', 'create_faq_post_type');
+
+// ===== TAXONOMY FOR FAQ =====
+function faq_register_taxonomy()
+{
+    $labels = array(
+        'name'              => 'FAQ Categories',
+        'singular_name'     => 'FAQ Category',
+        'search_items'      => 'Tìm category',
+        'all_items'         => 'Tất cả category',
+        'edit_item'         => 'Sửa category',
+        'add_new_item'      => 'Thêm category mới',
+        'menu_name'         => 'FAQ Category',
+    );
+
+    $args = array(
+        'labels'            => $labels,
+        'hierarchical'      => true,
+        'rewrite'           => array('slug' => 'faq-category'),
+        'show_in_rest'      => true,
+    );
+
+    register_taxonomy('faq_category', array('faq'), $args);
+}
+add_action('init', 'faq_register_taxonomy');
+
+add_action('wp_ajax_faq_search', 'faq_search_ajax');
+add_action('wp_ajax_nopriv_faq_search', 'faq_search_ajax');
+
+function faq_search_ajax()
+{
+    if (!isset($_GET['keyword'])) {
+        wp_send_json([]);
+        wp_die();
+    }
+
+    $keyword = sanitize_text_field($_GET['keyword']);
+    $faq_cat = isset($_GET['faq_cat']) ? sanitize_text_field($_GET['faq_cat']) : '';
+
+    $args = [
+        'post_type' => 'faq',
+        'posts_per_page' => 5, // hiển thị 5 gợi ý
+        's' => $keyword
+    ];
+
+    if ($faq_cat) {
+        $args['tax_query'] = [
+            [
+                'taxonomy' => 'faq_category',
+                'field'    => 'slug',
+                'terms'    => $faq_cat
+            ]
+        ];
+    }
+
+    $query = new WP_Query($args);
+    $results = [];
+
+    if ($query->have_posts()) {
+        while ($query->have_posts()) {
+            $query->the_post();
+            $results[] = [
+                'title' => get_the_title(),
+                'link'  => get_permalink()
+            ];
+        }
+    }
+
+    wp_reset_postdata();
+    wp_send_json($results);
+}
 // Wishtlist
 add_action('woocommerce_after_add_to_cart_button', 'doAnCMS_add_wishlist_button');
 
@@ -1152,11 +1293,12 @@ function doAnCMS_wishlist_archive_script()
 /**
  * Enqueue CSS riêng cho trang View Order (Chi tiết đơn hàng)
  */
-function custom_enqueue_view_order_style() {
+function custom_enqueue_view_order_style()
+{
     // Chỉ load khi đang ở trang My Account VÀ là endpoint view-order
-    if ( is_account_page() && is_wc_endpoint_url( 'view-order' ) ) {
-        
-        wp_enqueue_style( 
+    if (is_account_page() && is_wc_endpoint_url('view-order')) {
+
+        wp_enqueue_style(
             'custom-view-order-css', // Handle name (đặt sao cũng dc)
             get_template_directory_uri() . '/view-order.css', // Đường dẫn tới file
             array(), // Dependencies
@@ -1165,36 +1307,38 @@ function custom_enqueue_view_order_style() {
         );
     }
 }
-add_action( 'wp_enqueue_scripts', 'custom_enqueue_view_order_style' );
+add_action('wp_enqueue_scripts', 'custom_enqueue_view_order_style');
 
 
-function ha_enqueue_custom_my_account_style() {
+function ha_enqueue_custom_my_account_style()
+{
     // Kiểm tra nếu đang dùng Template "Trang cá nhân"
-    if ( is_page_template( 'page-my-account.php' ) ) {
-        wp_enqueue_style( 
-            'ha-modern-account', 
-             get_template_directory_uri() . '/my-account.css',
-            array(), 
-            '1.0.0' 
+    if (is_page_template('page-my-account.php')) {
+        wp_enqueue_style(
+            'ha-modern-account',
+            get_template_directory_uri() . '/my-account.css',
+            array(),
+            '1.0.0'
         );
     }
 }
-add_action( 'wp_enqueue_scripts', 'ha_enqueue_custom_my_account_style' );
+add_action('wp_enqueue_scripts', 'ha_enqueue_custom_my_account_style');
 
 
 
-function ha_enqueue_edit_account_style() {
+function ha_enqueue_edit_account_style()
+{
     // Chỉ load CSS khi đang ở trang template "Chỉnh sửa thông tin"
-    if ( is_page_template( 'page-edit-account.php' ) ) {
-        wp_enqueue_style( 
-            'ha-edit-account-css', 
-            get_template_directory_uri() . '/edit-account.css', 
-            array(), 
-            '1.0.0' 
+    if (is_page_template('page-edit-account.php')) {
+        wp_enqueue_style(
+            'ha-edit-account-css',
+            get_template_directory_uri() . '/edit-account.css',
+            array(),
+            '1.0.0'
         );
     }
 }
-add_action( 'wp_enqueue_scripts', 'ha_enqueue_edit_account_style' );
+add_action('wp_enqueue_scripts', 'ha_enqueue_edit_account_style');
 
 /**
  * FORCE Redirect về lại trang Custom sau khi lưu thông tin
@@ -1202,19 +1346,20 @@ add_action( 'wp_enqueue_scripts', 'ha_enqueue_edit_account_style' );
 /**
  * Redirect dựa trên link được gửi kèm trong Form
  */
-function ha_force_hard_redirect_custom_account( $location ) {
+function ha_force_hard_redirect_custom_account($location)
+{
     // 1. Kiểm tra xem người dùng có đang bấm nút Lưu thông tin không
-    if ( isset( $_POST['action'] ) && $_POST['action'] === 'save_account_details' ) {
-        
+    if (isset($_POST['action']) && $_POST['action'] === 'save_account_details') {
+
         // 2. Kiểm tra xem trong form có gửi kèm cái Link "bảo bối" của mình không
-        if ( ! empty( $_POST['ha_redirect_url'] ) ) {
+        if (! empty($_POST['ha_redirect_url'])) {
             // 3. Nếu có -> Bẻ lái ngay lập tức về link đó!
-            return esc_url_raw( $_POST['ha_redirect_url'] );
+            return esc_url_raw($_POST['ha_redirect_url']);
         }
     }
-    
+
     // Nếu không phải trường hợp trên, cho đi bình thường
     return $location;
 }
 // Hook vào wp_redirect thay vì hook của WooCommerce
-add_filter( 'wp_redirect', 'ha_force_hard_redirect_custom_account', 999999 );
+add_filter('wp_redirect', 'ha_force_hard_redirect_custom_account', 999999);
