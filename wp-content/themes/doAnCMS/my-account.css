@@ -1,0 +1,178 @@
+/* --- DASHBOARD HERO SECTION --- */
+.ma-dashboard-hero {
+    background: linear-gradient(135deg, #28a745 0%, #218838 100%);
+    border-radius: 20px;
+    padding: 40px;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 40px;
+    box-shadow: 0 10px 30px rgba(40, 167, 69, 0.3);
+    position: relative;
+    overflow: hidden;
+}
+
+/* Hiệu ứng hình nền mờ ảo */
+.ma-dashboard-hero::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    right: -10%;
+    width: 300px;
+    height: 300px;
+    background: rgba(255,255,255,0.1);
+    border-radius: 50%;
+}
+
+.ma-user-info {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    z-index: 1;
+}
+
+.ma-avatar img {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    border: 4px solid rgba(255,255,255,0.3);
+    object-fit: cover;
+}
+
+.ma-welcome h2 {
+    margin: 0;
+    color: #fff;
+    font-size: 24px;
+    font-weight: 700;
+}
+
+.ma-welcome p {
+    margin: 5px 0 0;
+    opacity: 0.9;
+    font-size: 14px;
+}
+
+.ma-stats {
+    display: flex;
+    gap: 30px;
+    z-index: 1;
+}
+
+.ma-stat-item {
+    text-align: center;
+    background: rgba(255,255,255,0.15);
+    padding: 10px 20px;
+    border-radius: 12px;
+    backdrop-filter: blur(5px);
+}
+
+.ma-stat-number {
+    display: block;
+    font-size: 20px;
+    font-weight: 800;
+}
+
+.ma-stat-label {
+    font-size: 12px;
+    opacity: 0.9;
+}
+
+/* --- DASHBOARD GRID MENU --- */
+.ma-grid-menu {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 25px;
+    margin-bottom: 50px;
+}
+
+.ma-card {
+    background: #fff;
+    border-radius: 16px;
+    padding: 30px;
+    text-decoration: none;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    border: 1px solid #f0f0f0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Hover Effect: Nổi lên và đổ bóng */
+.ma-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 30px rgba(0,0,0,0.08);
+    border-color: #28a745;
+}
+
+.ma-card-icon {
+    width: 60px;
+    height: 60px;
+    background: #f1f8f2;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 15px;
+    color: #28a745;
+    font-size: 24px;
+    transition: all 0.3s;
+}
+
+.ma-card:hover .ma-card-icon {
+    background: #28a745;
+    color: #fff;
+    transform: scale(1.1);
+}
+
+.ma-card-title {
+    font-weight: 700;
+    color: #333;
+    font-size: 16px;
+    margin-bottom: 5px;
+}
+
+.ma-card-desc {
+    font-size: 13px;
+    color: #888;
+}
+
+/* Card Logout màu đỏ */
+.ma-card.logout:hover {
+    border-color: #dc3545;
+}
+.ma-card.logout:hover .ma-card-icon {
+    background: #dc3545;
+}
+.ma-card.logout .ma-card-icon {
+    color: #dc3545;
+    background: #fdf2f2;
+}
+
+/* --- RESPONSIVE --- */
+@media (max-width: 768px) {
+    .ma-dashboard-hero {
+        flex-direction: column;
+        text-align: center;
+        padding: 30px;
+    }
+    .ma-user-info {
+        flex-direction: column;
+        margin-bottom: 20px;
+    }
+    .ma-grid-menu {
+        grid-template-columns: repeat(2, 1fr); /* Mobile hiện 2 cột */
+        gap: 15px;
+    }
+    .ma-card {
+        padding: 20px;
+    }
+}
+@media (max-width: 480px) {
+    .ma-grid-menu {
+        grid-template-columns: 1fr; /* Mobile nhỏ quá thì 1 cột */
+    }
+}
