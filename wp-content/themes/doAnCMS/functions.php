@@ -1290,7 +1290,8 @@ function ha_force_hard_redirect_custom_account($location)
 add_filter('wp_redirect', 'ha_force_hard_redirect_custom_account', 999999);
 
 
-function n1_master_customizer_register($wp_customize) {
+function n1_master_customizer_register($wp_customize)
+{
 
     // ------------------------------------------------------------------------
     // KHU VỰC 1: TÙY CHỈNH CƠ BẢN (Màu sắc, Font chữ)
@@ -1331,7 +1332,9 @@ function n1_master_customizer_register($wp_customize) {
         'section'     => 'n1_theme_options',
         'type'        => 'range',
         'input_attrs' => array(
-            'min'  => 10, 'max'  => 30, 'step' => 1,
+            'min'  => 10,
+            'max'  => 30,
+            'step' => 1,
         ),
     ));
 
@@ -1345,7 +1348,9 @@ function n1_master_customizer_register($wp_customize) {
         'section'     => 'n1_theme_options',
         'type'        => 'range',
         'input_attrs' => array(
-            'min'  => 0, 'max'  => 50, 'step' => 5,
+            'min'  => 0,
+            'max'  => 50,
+            'step' => 5,
         ),
     ));
 
@@ -1390,7 +1395,9 @@ function n1_master_customizer_register($wp_customize) {
         'section'     => 'n1_advanced_options',
         'type'        => 'range',
         'input_attrs' => array(
-            'min'  => 0, 'max'  => 50, 'step' => 1,
+            'min'  => 0,
+            'max'  => 50,
+            'step' => 1,
         ),
     ));
 
@@ -1445,21 +1452,28 @@ add_action('customize_register', 'n1_master_customizer_register');
  * XUẤT TOÀN BỘ CSS RA HTML (HEAD)
  * ============================================================================
  */
-function n1_master_customizer_css() {
-    ?>
+function n1_master_customizer_css()
+{
+?>
     <style type="text/css">
         /* ==================== PHẦN 1: CƠ BẢN ==================== */
-        
+
         /* 1. Màu chủ đạo */
-        .nav, .btn-primary, .flash-sale-section,
+        .nav,
+        .btn-primary,
+        .flash-sale-section,
         .swiper-button-next-testimonial:hover,
         .swiper-button-prev-testimonial:hover,
         .btn-quick-view:hover {
             background-color: <?php echo get_theme_mod('main_theme_color', '#6b9d3e'); ?> !important;
         }
-        
-        .product-price, .view-all, .section-subtitle, .btn-secondary,
-        .swiper-button-next-testimonial, .swiper-button-prev-testimonial,
+
+        .product-price,
+        .view-all,
+        .section-subtitle,
+        .btn-secondary,
+        .swiper-button-next-testimonial,
+        .swiper-button-prev-testimonial,
         .btn-quick-view {
             color: <?php echo get_theme_mod('main_theme_color', '#6b9d3e'); ?> !important;
         }
@@ -1474,7 +1488,8 @@ function n1_master_customizer_css() {
         }
 
         /* 3. Cỡ chữ tên sản phẩm */
-        .product-name, .product-name a {
+        .product-name,
+        .product-name a {
             font-size: <?php echo get_theme_mod('product_name_size', '14'); ?>px !important;
         }
 
@@ -1491,17 +1506,23 @@ function n1_master_customizer_css() {
         /* ==================== PHẦN 2: NÂNG CAO ==================== */
 
         /* 1. Ẩn/Hiện Search Bar */
-        <?php if ( get_theme_mod('show_search_bar', true) == false ) : ?>
-            .search-bar { display: none !important; }
+        <?php if (get_theme_mod('show_search_bar', true) == false) : ?>.search-bar {
+            display: none !important;
+        }
+
         <?php endif; ?>
 
         /* 2. Bo tròn góc */
-        .product-card, .category-card, .banner-image, .blog-card img {
+        .product-card,
+        .category-card,
+        .banner-image,
+        .blog-card img {
             border-radius: <?php echo get_theme_mod('card_border_radius', '8'); ?>px !important;
         }
 
         /* 3. Căn lề tiêu đề */
-        .section-title, .section-header {
+        .section-title,
+        .section-header {
             text-align: <?php echo get_theme_mod('title_alignment', 'left'); ?> !important;
             justify-content: <?php echo (get_theme_mod('title_alignment', 'left') == 'center') ? 'center' : 'space-between'; ?>;
         }
@@ -1512,15 +1533,17 @@ function n1_master_customizer_css() {
         }
 
         /* 5. Màu Badge Sale */
-        .onsale, .sale-badge {
+        .onsale,
+        .sale-badge {
             background-color: <?php echo get_theme_mod('sale_badge_color', '#ff4d4d'); ?> !important;
         }
     </style>
-    <?php
+<?php
 }
 add_action('wp_head', 'n1_master_customizer_css');
 
-function n1_checkout_customizer_register($wp_customize) {
+function n1_checkout_customizer_register($wp_customize)
+{
 
     // 1. TẠO SECTION DUY NHẤT
     $wp_customize->add_section('n1_checkout_options', array(
@@ -1651,8 +1674,9 @@ add_action('customize_register', 'n1_checkout_customizer_register');
 /**
  * XUẤT CSS RA HEADER
  */
-function n1_checkout_customizer_css() {
-    
+function n1_checkout_customizer_css()
+{
+
     // Lấy các giá trị (kèm mặc định)
     $primary_color = get_theme_mod('checkout_primary_color', '#4CAF50');
     $page_bg       = get_theme_mod('checkout_page_bg', '#f0f7f4');
@@ -1665,7 +1689,7 @@ function n1_checkout_customizer_css() {
     $btn_radius    = get_theme_mod('checkout_btn_radius', '8');
     $total_color   = get_theme_mod('checkout_total_price_color', '#d32f2f');
 
-    ?>
+?>
     <style type="text/css">
         /* 1. MÀU NỀN TOÀN TRANG */
         #custom-green-checkout {
@@ -1677,35 +1701,43 @@ function n1_checkout_customizer_css() {
         #custom-green-checkout .checkout-title::after {
             background: <?php echo $primary_color; ?> !important;
         }
+
         /* Viền trên của bảng đơn hàng */
         #custom-green-checkout .woocommerce-checkout-review-order {
             border-top-color: <?php echo $primary_color; ?> !important;
         }
+
         /* Viền khi focus vào ô input */
         #custom-green-checkout .input-text:focus,
         #custom-green-checkout select:focus {
             border-color: <?php echo $primary_color; ?> !important;
-            box-shadow: 0 0 0 4px <?php echo $primary_color; ?>26 !important; /* Thêm độ trong suốt 15% */
+            box-shadow: 0 0 0 4px <?php echo $primary_color; ?>26 !important;
+            /* Thêm độ trong suốt 15% */
         }
+
         /* Header bảng đơn hàng */
         #custom-green-checkout table.shop_table thead th {
             color: <?php echo $primary_color; ?> !important;
         }
+
         /* Viền trái payment box */
         #custom-green-checkout #payment div.payment_box {
             border-left-color: <?php echo $primary_color; ?> !important;
         }
+
         /* NỀN NÚT ĐẶT HÀNG */
         #custom-green-checkout #place_order,
         #custom-green-checkout #payment #place_order {
             background: <?php echo $primary_color; ?> !important;
             background-color: <?php echo $primary_color; ?> !important;
         }
+
         /* Các thông báo coupon/login */
         #custom-green-checkout .woocommerce-form-coupon-toggle .woocommerce-info,
         #custom-green-checkout .woocommerce-form-login-toggle .woocommerce-info {
             border-top-color: <?php echo $primary_color; ?> !important;
         }
+
         #custom-green-checkout .woocommerce-form-coupon-toggle .woocommerce-info a:hover {
             color: <?php echo $primary_color; ?> !important;
         }
@@ -1715,6 +1747,7 @@ function n1_checkout_customizer_css() {
             color: <?php echo $title_color; ?> !important;
             font-size: <?php echo $title_size; ?>px !important;
         }
+
         #custom-green-checkout h3,
         #custom-green-checkout .woocommerce-checkout-review-order::before {
             color: <?php echo $title_color; ?> !important;
@@ -1747,14 +1780,14 @@ function n1_checkout_customizer_css() {
         #custom-green-checkout table.shop_table .order-total td strong {
             color: <?php echo $total_color; ?> !important;
         }
-
     </style>
-    <?php
+<?php
 }
 add_action('wp_head', 'n1_checkout_customizer_css');
 
 
-function n1_login_customizer_register($wp_customize) {
+function n1_login_customizer_register($wp_customize)
+{
 
     // 1. TẠO SECTION MỚI
     $wp_customize->add_section('n1_login_options', array(
@@ -1822,8 +1855,9 @@ add_action('customize_register', 'n1_login_customizer_register');
 /**
  * XUẤT CSS RA HEADER (DÙNG !IMPORTANT ĐỂ ĐÈ CODE CŨ)
  */
-function n1_login_customizer_css() {
-    
+function n1_login_customizer_css()
+{
+
     // Lấy giá trị từ Customizer
     $primary_color = get_theme_mod('login_primary_color', '#2aa64f');
     $grad_top      = get_theme_mod('login_grad_top', '#e9f7ee');
@@ -1831,21 +1865,25 @@ function n1_login_customizer_css() {
     $radius        = get_theme_mod('login_container_radius', '12');
     $input_bg      = get_theme_mod('login_input_bg', '#ffffff');
 
-    ?>
+?>
     <style type="text/css">
-        
         /* 1. MÀU CHỦ ĐẠO (Nút, Link, Tab Active, Chữ bên trái) */
         .ca-btn {
             background: <?php echo $primary_color; ?> !important;
         }
+
         .ca-link {
             color: <?php echo $primary_color; ?> !important;
         }
+
         .ca-tab.active {
             color: <?php echo $primary_color; ?> !important;
-            background-color: <?php echo $primary_color; ?>1A !important; /* Thêm độ trong suốt 10% */
-            border-color: <?php echo $primary_color; ?>4D !important; /* Thêm độ trong suốt 30% */
+            background-color: <?php echo $primary_color; ?>1A !important;
+            /* Thêm độ trong suốt 10% */
+            border-color: <?php echo $primary_color; ?>4D !important;
+            /* Thêm độ trong suốt 30% */
         }
+
         /* Đổi luôn màu chữ bên trái cho tông xuyệt tông */
         .ca-left {
             color: <?php echo $primary_color; ?> !important;
@@ -1869,17 +1907,18 @@ function n1_login_customizer_css() {
         .ca-form input:focus {
             border-color: <?php echo $primary_color; ?> !important;
             outline: none !important;
-            box-shadow: 0 0 0 3px <?php echo $primary_color; ?>33 !important; /* Glow nhẹ */
+            box-shadow: 0 0 0 3px <?php echo $primary_color; ?>33 !important;
+            /* Glow nhẹ */
         }
-
     </style>
-    <?php
+<?php
 }
 add_action('wp_head', 'n1_login_customizer_css');
 
 
 
-function n1_thankyou_customizer_register($wp_customize) {
+function n1_thankyou_customizer_register($wp_customize)
+{
 
     // 1. TẠO SECTION "TRANG CẢM ƠN"
     $wp_customize->add_section('n1_thankyou_options', array(
@@ -1957,8 +1996,9 @@ add_action('customize_register', 'n1_thankyou_customizer_register');
 /**
  * XUẤT CSS RA HEADER
  */
-function n1_thankyou_customizer_css() {
-    
+function n1_thankyou_customizer_css()
+{
+
     // Lấy giá trị
     $main_color   = get_theme_mod('ty_main_theme_color', '#2ecc71');
     $page_bg      = get_theme_mod('ty_page_bg', '#f4f7f6');
@@ -1967,13 +2007,14 @@ function n1_thankyou_customizer_css() {
     $pending_text = get_theme_mod('ty_pending_text', '#856404');
     $title_color  = get_theme_mod('ty_title_color', '#333333');
 
-    ?>
+?>
     <style type="text/css">
         /* 1. THAY ĐỔI BIẾN CSS GỐC (CHIÊU MỚI) */
         /* Việc này sẽ đổi màu đồng loạt cho: .check-icon, .icon-line, .btn-green, .custom-table tr:last-child */
         :root {
             --green-theme: <?php echo $main_color; ?> !important;
-            --green-dark:  <?php echo $main_color; ?> !important; /* Dùng tạm màu chính cho dark luôn hoặc để mặc định */
+            --green-dark: <?php echo $main_color; ?> !important;
+            /* Dùng tạm màu chính cho dark luôn hoặc để mặc định */
         }
 
         /* 2. MÀU NỀN TRANG */
@@ -1996,19 +2037,19 @@ function n1_thankyou_customizer_css() {
         .main-title {
             color: <?php echo $title_color; ?> !important;
         }
-        
+
         /* Fix màu nút Hover cho đẹp (làm tối đi 10% bằng filter) */
         .btn-green:hover {
             filter: brightness(0.9);
         }
-
     </style>
-    <?php
+<?php
 }
 add_action('wp_head', 'n1_thankyou_customizer_css');
 
 
-function n1_edit_account_customizer_register($wp_customize) {
+function n1_edit_account_customizer_register($wp_customize)
+{
 
     // 1. TẠO SECTION MỚI
     $wp_customize->add_section('n1_edit_account_options', array(
@@ -2077,8 +2118,9 @@ add_action('customize_register', 'n1_edit_account_customizer_register');
 /**
  * XUẤT CSS RA HEADER
  */
-function n1_edit_account_customizer_css() {
-    
+function n1_edit_account_customizer_css()
+{
+
     // Lấy giá trị
     $primary_color    = get_theme_mod('ea_primary_color', '#28a745');
     $page_bg          = get_theme_mod('ea_page_bg', '#f8f9fa');
@@ -2086,9 +2128,8 @@ function n1_edit_account_customizer_css() {
     $btn_radius       = get_theme_mod('ea_btn_radius', '50');
     $input_bg         = get_theme_mod('ea_input_bg', '#ffffff');
 
-    ?>
+?>
     <style type="text/css">
-        
         /* 1. MÀU NỀN TRANG */
         .edit-account-page-wrapper {
             background-color: <?php echo $page_bg; ?> !important;
@@ -2098,11 +2139,12 @@ function n1_edit_account_customizer_css() {
         /* Viền trên của hộp */
         .edit-account-container {
             border-top-color: <?php echo $primary_color; ?> !important;
-            border-radius: <?php echo $container_radius; ?>px !important; /* Bo góc hộp */
+            border-radius: <?php echo $container_radius; ?>px !important;
+            /* Bo góc hộp */
         }
 
         /* Tiêu đề */
-        .edit-account-title, 
+        .edit-account-title,
         .woocommerce-EditAccountForm fieldset legend {
             color: <?php echo $primary_color; ?> !important;
         }
@@ -2110,16 +2152,19 @@ function n1_edit_account_customizer_css() {
         /* Input khi focus (viền và shadow) */
         .woocommerce-form-row .input-text:focus {
             border-color: <?php echo $primary_color; ?> !important;
-            box-shadow: 0 0 0 4px <?php echo $primary_color; ?>1A !important; /* Thêm độ trong suốt */
+            box-shadow: 0 0 0 4px <?php echo $primary_color; ?>1A !important;
+            /* Thêm độ trong suốt */
         }
 
         /* Nút bấm (Ghi đè Gradient bằng màu đơn sắc cho dễ chỉnh) */
         .woocommerce-Button.button {
             background: <?php echo $primary_color; ?> !important;
-            border-radius: <?php echo $btn_radius; ?>px !important; /* Bo góc nút */
-            box-shadow: 0 5px 15px <?php echo $primary_color; ?>4D !important; /* Bóng đổ cùng màu */
+            border-radius: <?php echo $btn_radius; ?>px !important;
+            /* Bo góc nút */
+            box-shadow: 0 5px 15px <?php echo $primary_color; ?>4D !important;
+            /* Bóng đổ cùng màu */
         }
-        
+
         .woocommerce-Button.button:hover {
             /* Làm tối đi 1 chút khi hover bằng filter */
             filter: brightness(0.9);
@@ -2136,14 +2181,14 @@ function n1_edit_account_customizer_css() {
         .woocommerce-form-row .input-text {
             background: <?php echo $input_bg; ?> !important;
         }
-
     </style>
-    <?php
+<?php
 }
 add_action('wp_head', 'n1_edit_account_customizer_css');
 
 
-function n1_history_customizer_register($wp_customize) {
+function n1_history_customizer_register($wp_customize)
+{
 
     // 1. TẠO SECTION MỚI
     $wp_customize->add_section('n1_history_options', array(
@@ -2200,17 +2245,17 @@ add_action('customize_register', 'n1_history_customizer_register');
 /**
  * XUẤT CSS RA HEADER
  */
-function n1_history_customizer_css() {
-    
+function n1_history_customizer_css()
+{
+
     // Lấy giá trị
     $primary_color = get_theme_mod('hist_primary_color', '#28a745');
     $head_bg       = get_theme_mod('hist_table_head_bg', '#e8f5e9');
     $page_bg       = get_theme_mod('hist_page_bg', '#f8f9fa');
     $radius        = get_theme_mod('hist_card_radius', '10');
 
-    ?>
+?>
     <style type="text/css">
-        
         /* 1. MÀU NỀN TRANG */
         .my-order-history-page {
             background-color: <?php echo $page_bg; ?> !important;
@@ -2221,7 +2266,7 @@ function n1_history_customizer_css() {
         .page-title {
             color: <?php echo $primary_color; ?> !important;
         }
-        
+
         /* Viền trên của Card */
         .order-card {
             border-top-color: <?php echo $primary_color; ?> !important;
@@ -2231,7 +2276,8 @@ function n1_history_customizer_css() {
         /* Viền dưới của Table Header */
         .custom-table th {
             border-bottom-color: <?php echo $primary_color; ?> !important;
-            color: <?php echo $primary_color; ?> !important; /* Đổi màu chữ header luôn cho đồng bộ */
+            color: <?php echo $primary_color; ?> !important;
+            /* Đổi màu chữ header luôn cho đồng bộ */
             /* Màu nền header */
             background-color: <?php echo $head_bg; ?> !important;
         }
@@ -2241,8 +2287,10 @@ function n1_history_customizer_css() {
             background-color: <?php echo $primary_color; ?> !important;
             border-color: <?php echo $primary_color; ?> !important;
         }
+
         .btn-view:hover {
-            filter: brightness(0.9); /* Tối đi chút khi hover */
+            filter: brightness(0.9);
+            /* Tối đi chút khi hover */
         }
 
         /* Responsive Mobile Label Color */
@@ -2251,21 +2299,22 @@ function n1_history_customizer_css() {
                 color: <?php echo $primary_color; ?> !important;
             }
         }
-        
+
         /* Thông báo Woo */
         .woocommerce-message {
             border-left-color: <?php echo $primary_color; ?> !important;
             color: <?php echo $primary_color; ?> !important;
-            background-color: <?php echo $head_bg; ?> !important; /* Dùng chung màu nền nhạt */
+            background-color: <?php echo $head_bg; ?> !important;
+            /* Dùng chung màu nền nhạt */
         }
-
     </style>
-    <?php
+<?php
 }
 add_action('wp_head', 'n1_history_customizer_css');
 
 
-function n1_my_account_customizer_register($wp_customize) {
+function n1_my_account_customizer_register($wp_customize)
+{
 
     // 1. TẠO SECTION
     $wp_customize->add_section('n1_my_account_options', array(
@@ -2347,8 +2396,9 @@ add_action('customize_register', 'n1_my_account_customizer_register');
 /**
  * XUẤT CSS RA HEADER
  */
-function n1_my_account_customizer_css() {
-    
+function n1_my_account_customizer_css()
+{
+
     // Lấy giá trị
     $hero_start    = get_theme_mod('ma_hero_start', '#28a745');
     $hero_end      = get_theme_mod('ma_hero_end', '#218838');
@@ -2357,9 +2407,8 @@ function n1_my_account_customizer_css() {
     $grid_gap      = get_theme_mod('ma_grid_gap', '25');
     $avatar_radius = get_theme_mod('ma_avatar_radius', '50');
 
-    ?>
+?>
     <style type="text/css">
-        
         /* 1. HERO SECTION GRADIENT */
         .ma-dashboard-hero {
             background: linear-gradient(135deg, <?php echo $hero_start; ?> 0%, <?php echo $hero_end; ?> 100%) !important;
@@ -2371,13 +2420,14 @@ function n1_my_account_customizer_css() {
         .ma-card-icon {
             color: <?php echo $icon_color; ?> !important;
             /* Nền icon nhạt (lấy màu chính giảm độ đậm đi rất nhiều) */
-            background: <?php echo $icon_color; ?>1A !important; 
+            background: <?php echo $icon_color; ?>1A !important;
         }
 
         /* Khi Hover vào Card */
         .ma-card:hover {
             border-color: <?php echo $icon_color; ?> !important;
         }
+
         .ma-card:hover .ma-card-icon {
             background: <?php echo $icon_color; ?> !important;
             /* Chữ chuyển sang trắng */
@@ -2396,10 +2446,186 @@ function n1_my_account_customizer_css() {
 
         /* 5. AVATAR SHAPE */
         .ma-avatar img {
-            border-radius: <?php echo $avatar_radius; ?>% !important;
+            border-radius: <?= $avatar_radius ?>% !important;
         }
-
     </style>
-    <?php
+<?php
 }
 add_action('wp_head', 'n1_my_account_customizer_css');
+?>
+
+<?php
+add_action('customize_register', 'ma_customize_pages_advanced');
+function ma_customize_pages_advanced($wp_customize)
+{
+
+    /* ================= About Us ================= */
+    $wp_customize->add_section('ma_about_section', [
+        'title' => 'About Us (Nhóm2)',
+        'priority' => 10
+    ]);
+
+    // Background color + image
+    $wp_customize->add_setting('ma_about_bg_color', ['default' => '#ffffff', 'sanitize_callback' => 'sanitize_hex_color']);
+    $wp_customize->add_control(new WP_Customize_Color_Control($wp_customize, 'ma_about_bg_color', [
+        'label' => 'Background Color',
+        'section' => 'ma_about_section'
+    ]));
+    $wp_customize->add_setting('ma_about_bg_image', ['sanitize_callback' => 'esc_url']);
+    $wp_customize->add_control(new WP_Customize_Image_Control($wp_customize, 'ma_about_bg_image', [
+        'label' => 'Background Image',
+        'section' => 'ma_about_section'
+    ]));
+
+    // Text
+    $wp_customize->add_setting('ma_about_text_color', ['default' => '#333', 'sanitize_callback' => 'sanitize_hex_color']);
+    $wp_customize->add_control(new WP_Customize_Color_Control($wp_customize, 'ma_about_text_color', [
+        'label' => 'Text Color',
+        'section' => 'ma_about_section'
+    ]));
+    $wp_customize->add_setting('ma_about_font_size', ['default' => 16, 'sanitize_callback' => 'absint']);
+    $wp_customize->add_control('ma_about_font_size', [
+        'label' => 'Font Size (px)',
+        'section' => 'ma_about_section',
+        'type' => 'range',
+        'input_attrs' => ['min' => 12, 'max' => 50]
+    ]);
+    $wp_customize->add_setting('ma_about_font_family', ['default' => 'Arial', 'sanitize_callback' => 'sanitize_text_field']);
+    $wp_customize->add_control('ma_about_font_family', [
+        'label' => 'Font Family',
+        'section' => 'ma_about_section',
+        'type' => 'select',
+        'choices' => ['Arial' => 'Arial', 'Helvetica' => 'Helvetica', 'Times New Roman' => 'Times New Roman', 'Roboto' => 'Roboto']
+    ]);
+
+    // Spacing
+    $wp_customize->add_setting('ma_about_padding', ['default' => 20, 'sanitize_callback' => 'absint']);
+    $wp_customize->add_control('ma_about_padding', ['label' => 'Padding', 'section' => 'ma_about_section', 'type' => 'range', 'input_attrs' => ['min' => 0, 'max' => 200]]);
+    $wp_customize->add_setting('ma_about_margin', ['default' => 20, 'sanitize_callback' => 'absint']);
+    $wp_customize->add_control('ma_about_margin', ['label' => 'Margin', 'section' => 'ma_about_section', 'type' => 'range', 'input_attrs' => ['min' => 0, 'max' => 200]]);
+
+    // Border & Shadow
+    $wp_customize->add_setting('ma_about_radius', ['default' => 10, 'sanitize_callback' => 'absint']);
+    $wp_customize->add_control('ma_about_radius', ['label' => 'Border Radius', 'section' => 'ma_about_section', 'type' => 'range', 'input_attrs' => ['min' => 0, 'max' => 100]]);
+    $wp_customize->add_setting('ma_about_shadow', ['default' => '0 4px 12px rgba(0,0,0,0.08)', 'sanitize_callback' => 'sanitize_text_field']);
+    $wp_customize->add_control('ma_about_shadow', ['label' => 'Box Shadow', 'section' => 'ma_about_section']);
+
+    /* ================= Blog ================= */
+    $wp_customize->add_section('ma_blog_section', ['title' => 'Blog (Nhóm1)', 'priority' => 20]);
+
+    $wp_customize->add_setting('ma_blog_bg_color', ['default' => '#fff', 'sanitize_callback' => 'sanitize_hex_color']);
+    $wp_customize->add_control(new WP_Customize_Color_Control($wp_customize, 'ma_blog_bg_color', ['label' => 'Background Color', 'section' => 'ma_blog_section']));
+    $wp_customize->add_setting('ma_blog_bg_image', ['sanitize_callback' => 'esc_url']);
+    $wp_customize->add_control(new WP_Customize_Image_Control($wp_customize, 'ma_blog_bg_image', ['label' => 'Background Image', 'section' => 'ma_blog_section']));
+
+    $wp_customize->add_setting('ma_blog_text_color', ['default' => '#333', 'sanitize_callback' => 'sanitize_hex_color']);
+    $wp_customize->add_control(new WP_Customize_Color_Control($wp_customize, 'ma_blog_text_color', ['label' => 'Text Color', 'section' => 'ma_blog_section']));
+    $wp_customize->add_setting('ma_blog_font_size', ['default' => 16, 'sanitize_callback' => 'absint']);
+    $wp_customize->add_control('ma_blog_font_size', ['label' => 'Font Size', 'section' => 'ma_blog_section', 'type' => 'range', 'input_attrs' => ['min' => 12, 'max' => 50]]);
+    $wp_customize->add_setting('ma_blog_font_family', ['default' => 'Arial', 'sanitize_callback' => 'sanitize_text_field']);
+    $wp_customize->add_control('ma_blog_font_family', ['label' => 'Font Family', 'section' => 'ma_blog_section', 'type' => 'select', 'choices' => ['Arial' => 'Arial', 'Helvetica' => 'Helvetica', 'Times New Roman' => 'Times New Roman', 'Roboto' => 'Roboto']]);
+
+    $wp_customize->add_setting('ma_blog_padding', ['default' => 20, 'sanitize_callback' => 'absint']);
+    $wp_customize->add_control('ma_blog_padding', ['label' => 'Padding', 'section' => 'ma_blog_section', 'type' => 'range', 'input_attrs' => ['min' => 0, 'max' => 200]]);
+    $wp_customize->add_setting('ma_blog_margin', ['default' => 20, 'sanitize_callback' => 'absint']);
+    $wp_customize->add_control('ma_blog_margin', ['label' => 'Margin', 'section' => 'ma_blog_section', 'type' => 'range', 'input_attrs' => ['min' => 0, 'max' => 200]]);
+
+    $wp_customize->add_setting('ma_blog_card_radius', ['default' => 10, 'sanitize_callback' => 'absint']);
+    $wp_customize->add_control('ma_blog_card_radius', ['label' => 'Post Card Border Radius', 'section' => 'ma_blog_section', 'type' => 'range', 'input_attrs' => ['min' => 0, 'max' => 50]]);
+    $wp_customize->add_setting('ma_blog_card_shadow', ['default' => '0 4px 12px rgba(0,0,0,0.08)', 'sanitize_callback' => 'sanitize_text_field']);
+    $wp_customize->add_control('ma_blog_card_shadow', ['label' => 'Post Card Shadow', 'section' => 'ma_blog_section']);
+
+    /* ================= Shop ================= */
+    $wp_customize->add_section('ma_shop_section', ['title' => 'Shop (Nhóm3)', 'priority' => 30]);
+
+    $wp_customize->add_setting('ma_shop_bg_color', ['default' => '#fff', 'sanitize_callback' => 'sanitize_hex_color']);
+    $wp_customize->add_control(new WP_Customize_Color_Control($wp_customize, 'ma_shop_bg_color', ['label' => 'Background Color', 'section' => 'ma_shop_section']));
+    $wp_customize->add_setting('ma_shop_bg_image', ['sanitize_callback' => 'esc_url']);
+    $wp_customize->add_control(new WP_Customize_Image_Control($wp_customize, 'ma_shop_bg_image', ['label' => 'Background Image', 'section' => 'ma_shop_section']));
+
+    $wp_customize->add_setting('ma_shop_text_color', ['default' => '#333', 'sanitize_callback' => 'sanitize_hex_color']);
+    $wp_customize->add_control(new WP_Customize_Color_Control($wp_customize, 'ma_shop_text_color', ['label' => 'Text Color', 'section' => 'ma_shop_section']));
+    $wp_customize->add_setting('ma_shop_font_size', ['default' => 16, 'sanitize_callback' => 'absint']);
+    $wp_customize->add_control('ma_shop_font_size', ['label' => 'Font Size', 'section' => 'ma_shop_section', 'type' => 'range', 'input_attrs' => ['min' => 12, 'max' => 50]]);
+    $wp_customize->add_setting('ma_shop_font_family', ['default' => 'Arial', 'sanitize_callback' => 'sanitize_text_field']);
+    $wp_customize->add_control('ma_shop_font_family', ['label' => 'Font Family', 'section' => 'ma_shop_section', 'type' => 'select', 'choices' => ['Arial' => 'Arial', 'Helvetica' => 'Helvetica', 'Times New Roman' => 'Times New Roman', 'Roboto' => 'Roboto']]);
+
+    $wp_customize->add_setting('ma_shop_padding', ['default' => 20, 'sanitize_callback' => 'absint']);
+    $wp_customize->add_control('ma_shop_padding', ['label' => 'Padding', 'section' => 'ma_shop_section', 'type' => 'range', 'input_attrs' => ['min' => 0, 'max' => 200]]);
+    $wp_customize->add_setting('ma_shop_margin', ['default' => 20, 'sanitize_callback' => 'absint']);
+    $wp_customize->add_control('ma_shop_margin', ['label' => 'Margin', 'section' => 'ma_shop_section', 'type' => 'range', 'input_attrs' => ['min' => 0, 'max' => 200]]);
+
+    $wp_customize->add_setting('ma_shop_card_radius', ['default' => 10, 'sanitize_callback' => 'absint']);
+    $wp_customize->add_control('ma_shop_card_radius', ['label' => 'Product Card Border Radius', 'section' => 'ma_shop_section', 'type' => 'range', 'input_attrs' => ['min' => 0, 'max' => 50]]);
+    $wp_customize->add_setting('ma_shop_card_shadow', ['default' => '0 4px 12px rgba(0,0,0,0.08)', 'sanitize_callback' => 'sanitize_text_field']);
+    $wp_customize->add_control('ma_shop_card_shadow', ['label' => 'Product Card Shadow', 'section' => 'ma_shop_section']);
+    $wp_customize->add_setting('ma_shop_btn_color', ['default' => '#8BC34A', 'sanitize_callback' => 'sanitize_hex_color']);
+    $wp_customize->add_control(new WP_Customize_Color_Control($wp_customize, 'ma_shop_btn_color', ['label' => 'Button Color', 'section' => 'ma_shop_section']));
+    $wp_customize->add_setting('ma_shop_btn_hover_color', ['default' => '#7cb342', 'sanitize_callback' => 'sanitize_hex_color']);
+    $wp_customize->add_control(new WP_Customize_Color_Control($wp_customize, 'ma_shop_btn_hover_color', ['label' => 'Button Hover Color', 'section' => 'ma_shop_section']));
+}
+
+// Xuất CSS trực tiếp ra front-end
+add_action('wp_head', 'ma_pages_advanced_css');
+function ma_pages_advanced_css()
+{ ?>
+    <style>
+        /* About Us */
+        .about-deluxe {
+            background-color: <?php echo get_theme_mod('ma_about_bg_color', '#fff'); ?>;
+            background-image: url('<?php echo get_theme_mod('ma_about_bg_image', ''); ?>');
+            color: <?php echo get_theme_mod('ma_about_text_color', '#333'); ?>;
+            font-size: <?php echo get_theme_mod('ma_about_font_size', 16); ?>px;
+            font-family: <?php echo get_theme_mod('ma_about_font_family', 'Arial'); ?>;
+            padding: <?php echo get_theme_mod('ma_about_padding', 20); ?>px;
+            margin: <?php echo get_theme_mod('ma_about_margin', 20); ?>px;
+        }
+
+        .about-deluxe img,
+        .about-deluxe .value-card,
+        .about-deluxe .team-card {
+            border-radius: <?php echo get_theme_mod('ma_about_radius', 10); ?>px;
+            box-shadow: <?php echo get_theme_mod('ma_about_shadow', '0 4px 12px rgba(0,0,0,0.08)'); ?>;
+        }
+
+        /* Blog */
+        .doAnCMS-blog-container {
+            background-color: <?php echo get_theme_mod('ma_blog_bg_color', '#fff'); ?>;
+            background-image: url('<?php echo get_theme_mod('ma_blog_bg_image', ''); ?>');
+            color: <?php echo get_theme_mod('ma_blog_text_color', '#333'); ?>;
+            font-size: <?php echo get_theme_mod('ma_blog_font_size', 16); ?>px;
+            font-family: <?php echo get_theme_mod('ma_blog_font_family', 'Arial'); ?>;
+            padding: <?php echo get_theme_mod('ma_blog_padding', 20); ?>px;
+            margin: <?php echo get_theme_mod('ma_blog_margin', 20); ?>px;
+        }
+
+        .doAnCMS-blog-item {
+            border-radius: <?php echo get_theme_mod('ma_blog_card_radius', 10); ?>px;
+            box-shadow: <?php echo get_theme_mod('ma_blog_card_shadow', '0 4px 12px rgba(0,0,0,0.08)'); ?>;
+        }
+
+        /* Shop */
+        .shop-container {
+            background-color: <?php echo get_theme_mod('ma_shop_bg_color', '#fff'); ?>;
+            background-image: url('<?php echo get_theme_mod('ma_shop_bg_image', ''); ?>');
+            color: <?php echo get_theme_mod('ma_shop_text_color', '#333'); ?>;
+            font-size: <?php echo get_theme_mod('ma_shop_font_size', 16); ?>px;
+            font-family: <?php echo get_theme_mod('ma_shop_font_family', 'Arial'); ?>;
+            padding: <?php echo get_theme_mod('ma_shop_padding', 20); ?>px;
+            margin: <?php echo get_theme_mod('ma_shop_margin', 20); ?>px;
+        }
+
+        .product-card {
+            border-radius: <?php echo get_theme_mod('ma_shop_card_radius', 10); ?>px;
+            box-shadow: <?php echo get_theme_mod('ma_shop_card_shadow', '0 4px 12px rgba(0,0,0,0.08)'); ?>;
+        }
+
+        .custom-cart-button {
+            background-color: <?php echo get_theme_mod('ma_shop_btn_color', '#8BC34A'); ?> !important;
+        }
+
+        .custom-cart-button:hover {
+            background-color: <?php echo get_theme_mod('ma_shop_btn_hover_color', '#7cb342'); ?> !important;
+        }
+    </style>
+<?php }
