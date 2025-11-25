@@ -1147,3 +1147,593 @@ function doAnCMS_wishlist_archive_script()
     </script>
 <?php
 }
+/**
+ * Customizer: Contact Page Style Options
+ */
+function theme_customize_contact($wp_customize)
+{
+    // === SECTION ===
+    $wp_customize->add_section('contact_style_section', array(
+        'title'       => 'Contact Page Style',
+        'priority'    => 30,
+        'description' => 'Tùy chỉnh giao diện trang Contact.',
+    ));
+
+    // === BACKGROUND COLOR ===
+    $wp_customize->add_setting('contact_bg_color', array(
+        'default'   => '#f9f9f9',
+        'transport' => 'postMessage',
+    ));
+
+    $wp_customize->add_control(new WP_Customize_Color_Control(
+        $wp_customize,
+        'contact_bg_color_control',
+        array(
+            'label'    => 'Màu nền trang',
+            'section'  => 'contact_style_section',
+            'settings' => 'contact_bg_color',
+        )
+    ));
+
+    // === BOX BACKGROUND ===
+    $wp_customize->add_setting('contact_box_bg', array(
+        'default'   => '#ffffff',
+        'transport' => 'postMessage',
+    ));
+
+    $wp_customize->add_control(new WP_Customize_Color_Control(
+        $wp_customize,
+        'contact_box_bg_control',
+        array(
+            'label'    => 'Màu nền khung',
+            'section'  => 'contact_style_section',
+            'settings' => 'contact_box_bg',
+        )
+    ));
+
+    // === FONT SIZE ===
+    $wp_customize->add_setting('contact_font_size', array(
+        'default'   => 14,
+        'transport' => 'postMessage',
+    ));
+
+    $wp_customize->add_control('contact_font_size_control', array(
+        'label'       => 'Cỡ chữ (px)',
+        'section'     => 'contact_style_section',
+        'settings'    => 'contact_font_size',
+        'type'        => 'range',
+        'input_attrs' => array(
+            'min'  => 10,
+            'max'  => 24,
+            'step' => 1,
+        ),
+    ));
+
+    // === PRIMARY COLOR ===
+    $wp_customize->add_setting('contact_primary_color', array(
+        'default'   => '#6b9d3e',
+        'transport' => 'postMessage',
+    ));
+
+    $wp_customize->add_control(new WP_Customize_Color_Control(
+        $wp_customize,
+        'contact_primary_color_control',
+        array(
+            'label'    => 'Màu chủ đạo (tiêu đề)',
+            'section'  => 'contact_style_section',
+            'settings' => 'contact_primary_color',
+        )
+    ));
+
+    // === BUTTON BACKGROUND ===
+    $wp_customize->add_setting('contact_button_bg', array(
+        'default'   => '#6b9d3e',
+        'transport' => 'postMessage',
+    ));
+
+    $wp_customize->add_control(new WP_Customize_Color_Control(
+        $wp_customize,
+        'contact_button_bg_control',
+        array(
+            'label'    => 'Màu nút Button',
+            'section'  => 'contact_style_section',
+            'settings' => 'contact_button_bg',
+        )
+    ));
+
+    // === BUTTON HOVER ===
+    $wp_customize->add_setting('contact_button_hover', array(
+        'default'   => '#557c2a',
+        'transport' => 'postMessage',
+    ));
+
+    $wp_customize->add_control(new WP_Customize_Color_Control(
+        $wp_customize,
+        'contact_button_hover_control',
+        array(
+            'label'    => 'Màu hover Button',
+            'section'  => 'contact_style_section',
+            'settings' => 'contact_button_hover',
+        )
+    ));
+
+    // === BUTTON PADDING ===
+    $wp_customize->add_setting('contact_button_padding', array(
+        'default'   => 12,
+        'transport' => 'postMessage',
+    ));
+
+    $wp_customize->add_control('contact_button_padding_control', array(
+        'label'       => 'Kích thước nút (padding)',
+        'section'     => 'contact_style_section',
+        'settings'    => 'contact_button_padding',
+        'type'        => 'range',
+        'input_attrs' => array(
+            'min'  => 8,
+            'max'  => 20,
+            'step' => 1,
+        ),
+    ));
+
+    // === BORDER RADIUS ===
+    $wp_customize->add_setting('contact_border_radius', array(
+        'default'   => 12,
+        'transport' => 'postMessage',
+    ));
+
+    $wp_customize->add_control('contact_border_radius_control', array(
+        'label'       => 'Bo góc (px)',
+        'section'     => 'contact_style_section',
+        'settings'    => 'contact_border_radius',
+        'type'        => 'range',
+        'input_attrs' => array(
+            'min'  => 0,
+            'max'  => 30,
+            'step' => 1,
+        ),
+    ));
+}
+add_action('customize_register', 'theme_customize_contact');
+
+/**
+ * In CSS áp dụng cho trang Contact
+ */
+function theme_contact_custom_style()
+{
+    $bg_color        = get_theme_mod('contact_bg_color', '#f9f9f9');
+    $box_bg          = get_theme_mod('contact_box_bg', '#ffffff');
+    $font_size       = get_theme_mod('contact_font_size', 14);
+    $primary_color   = get_theme_mod('contact_primary_color', '#6b9d3e');
+    $button_bg       = get_theme_mod('contact_button_bg', '#6b9d3e');
+    $button_hover    = get_theme_mod('contact_button_hover', '#557c2a');
+    $button_padding  = get_theme_mod('contact_button_padding', 12);
+    $border_radius   = get_theme_mod('contact_border_radius', 12);
+
+    echo "<style>
+        /* Background trang - GHI ĐÈ CSS TRONG TEMPLATE */
+        body.page-template-contact {
+            background-color: {$bg_color} !important;
+        }
+
+        /* Container chính */
+        .contact-page {
+            background-color: transparent !important;
+        }
+
+        /* Khung form và info */
+        .contact-form,
+        .contact-info {
+            background-color: {$box_bg} !important;
+            border-radius: {$border_radius}px !important;
+            font-size: {$font_size}px !important;
+        }
+
+        /* Tiêu đề */
+        .contact-form h2,
+        .contact-info h2 {
+            color: {$primary_color} !important;
+        }
+
+        /* Input và textarea */
+        .contact-form form input,
+        .contact-form form textarea,
+        .contact-info form input {
+            border-radius: {$border_radius}px !important;
+        }
+
+        /* Button */
+        .contact-form form button,
+        .contact-info form button,
+        #open-chat {
+            background: {$button_bg} !important;
+            padding: {$button_padding}px !important;
+            border-radius: {$border_radius}px !important;
+        }
+
+        .contact-form form button:hover,
+        .contact-info form button:hover,
+        #open-chat:hover {
+            background: {$button_hover} !important;
+        }
+
+        /* Info span color */
+        .contact-info div span {
+            color: {$primary_color} !important;
+        }
+    </style>";
+}
+add_action('wp_head', 'theme_contact_custom_style', 999); // Priority 999 để load sau cùng
+
+/**
+ * Load JS Customizer
+ */
+function theme_enqueue_contact_customizer_script()
+{
+    if (is_customize_preview()) {
+        wp_enqueue_script('jquery-ui-draggable');
+        wp_enqueue_script(
+            'contact-customizer-js',
+            get_template_directory_uri() . '/assets/js/contact-customizer.js',
+            array('jquery', 'customize-preview', 'jquery-ui-draggable'),
+            '1.0.1', // Tăng version để force reload
+            true
+        );
+    }
+}
+add_action('wp_enqueue_scripts', 'theme_enqueue_contact_customizer_script');
+
+/**
+ * ============================================================================
+ * CUSTOMIZER CHO SINGLE PRODUCT PAGE
+ * ============================================================================
+ */
+
+function theme_customize_single_product($wp_customize)
+{
+    // ===== SECTION =====
+    $wp_customize->add_section('single_product_style', array(
+        'title'       => '🛍️ Single Product Style',
+        'priority'    => 35,
+        'description' => 'Tùy chỉnh giao diện trang chi tiết sản phẩm',
+    ));
+
+    // 1. BACKGROUND COLOR
+    $wp_customize->add_setting('sp_bg_color', array(
+        'default'   => '#f4f6f8',
+        'transport' => 'postMessage',
+    ));
+    $wp_customize->add_control(new WP_Customize_Color_Control($wp_customize, 'sp_bg_color_ctrl', array(
+        'label'    => 'Màu nền trang',
+        'section'  => 'single_product_style',
+        'settings' => 'sp_bg_color',
+    )));
+
+    // 2. BOX BACKGROUND
+    $wp_customize->add_setting('sp_box_bg', array(
+        'default'   => '#ffffff',
+        'transport' => 'postMessage',
+    ));
+    $wp_customize->add_control(new WP_Customize_Color_Control($wp_customize, 'sp_box_bg_ctrl', array(
+        'label'    => 'Màu nền khung sản phẩm',
+        'section'  => 'single_product_style',
+        'settings' => 'sp_box_bg',
+    )));
+
+    // 3. PRIMARY COLOR (Button, price, hover)
+    $wp_customize->add_setting('sp_primary_color', array(
+        'default'   => '#6b9d3e',
+        'transport' => 'postMessage',
+    ));
+    $wp_customize->add_control(new WP_Customize_Color_Control($wp_customize, 'sp_primary_color_ctrl', array(
+        'label'    => 'Màu chủ đạo (Giá, nút)',
+        'section'  => 'single_product_style',
+        'settings' => 'sp_primary_color',
+    )));
+
+    // 4. TITLE FONT SIZE
+    $wp_customize->add_setting('sp_title_size', array(
+        'default'   => 32,
+        'transport' => 'postMessage',
+    ));
+    $wp_customize->add_control('sp_title_size_ctrl', array(
+        'label'       => 'Cỡ chữ tiêu đề (px)',
+        'section'     => 'single_product_style',
+        'settings'    => 'sp_title_size',
+        'type'        => 'range',
+        'input_attrs' => array('min' => 20, 'max' => 50, 'step' => 1),
+    ));
+
+    // 5. PRICE FONT SIZE
+    $wp_customize->add_setting('sp_price_size', array(
+        'default'   => 36,
+        'transport' => 'postMessage',
+    ));
+    $wp_customize->add_control('sp_price_size_ctrl', array(
+        'label'       => 'Cỡ chữ giá (px)',
+        'section'     => 'single_product_style',
+        'settings'    => 'sp_price_size',
+        'type'        => 'range',
+        'input_attrs' => array('min' => 20, 'max' => 60, 'step' => 1),
+    ));
+
+    // 6. BUTTON BG COLOR
+    $wp_customize->add_setting('sp_button_bg', array(
+        'default'   => '#6b9d3e',
+        'transport' => 'postMessage',
+    ));
+    $wp_customize->add_control(new WP_Customize_Color_Control($wp_customize, 'sp_button_bg_ctrl', array(
+        'label'    => 'Màu nút Add to Cart',
+        'section'  => 'single_product_style',
+        'settings' => 'sp_button_bg',
+    )));
+
+    // 7. BUTTON HOVER COLOR
+    $wp_customize->add_setting('sp_button_hover', array(
+        'default'   => '#557c2a',
+        'transport' => 'postMessage',
+    ));
+    $wp_customize->add_control(new WP_Customize_Color_Control($wp_customize, 'sp_button_hover_ctrl', array(
+        'label'    => 'Màu hover nút',
+        'section'  => 'single_product_style',
+        'settings' => 'sp_button_hover',
+    )));
+
+    // 8. BUTTON SIZE
+    $wp_customize->add_setting('sp_button_padding', array(
+        'default'   => 14,
+        'transport' => 'postMessage',
+    ));
+    $wp_customize->add_control('sp_button_padding_ctrl', array(
+        'label'       => 'Kích thước nút (padding)',
+        'section'     => 'single_product_style',
+        'settings'    => 'sp_button_padding',
+        'type'        => 'range',
+        'input_attrs' => array('min' => 8, 'max' => 25, 'step' => 1),
+    ));
+
+    // 9. BORDER RADIUS
+    $wp_customize->add_setting('sp_border_radius', array(
+        'default'   => 12,
+        'transport' => 'postMessage',
+    ));
+    $wp_customize->add_control('sp_border_radius_ctrl', array(
+        'label'       => 'Bo góc (px)',
+        'section'     => 'single_product_style',
+        'settings'    => 'sp_border_radius',
+        'type'        => 'range',
+        'input_attrs' => array('min' => 0, 'max' => 30, 'step' => 1),
+    ));
+
+    // 10. RELATED PRODUCTS TITLE SIZE
+    $wp_customize->add_setting('sp_related_title_size', array(
+        'default'   => 26,
+        'transport' => 'postMessage',
+    ));
+    $wp_customize->add_control('sp_related_title_size_ctrl', array(
+        'label'       => 'Cỡ chữ "Sản phẩm liên quan"',
+        'section'     => 'single_product_style',
+        'settings'    => 'sp_related_title_size',
+        'type'        => 'range',
+        'input_attrs' => array('min' => 16, 'max' => 40, 'step' => 1),
+    ));
+
+    // 11. RELATED CARD BG
+    $wp_customize->add_setting('sp_related_card_bg', array(
+        'default'   => '#ffffff',
+        'transport' => 'postMessage',
+    ));
+    $wp_customize->add_control(new WP_Customize_Color_Control($wp_customize, 'sp_related_card_bg_ctrl', array(
+        'label'    => 'Màu nền card SP liên quan',
+        'section'  => 'single_product_style',
+        'settings' => 'sp_related_card_bg',
+    )));
+}
+add_action('customize_register', 'theme_customize_single_product');
+
+/**
+ * In CSS động cho Single Product
+ */
+function theme_single_product_custom_style()
+{
+    // Chỉ chạy trên trang single product
+    if (!is_product()) return;
+
+    // Lấy giá trị từ Customizer
+    $bg_color          = get_theme_mod('sp_bg_color', '#f4f6f8');
+    $box_bg            = get_theme_mod('sp_box_bg', '#ffffff');
+    $primary_color     = get_theme_mod('sp_primary_color', '#6b9d3e');
+    $title_size        = get_theme_mod('sp_title_size', 32);
+    $price_size        = get_theme_mod('sp_price_size', 36);
+    $button_bg         = get_theme_mod('sp_button_bg', '#6b9d3e');
+    $button_hover      = get_theme_mod('sp_button_hover', '#557c2a');
+    $button_padding    = get_theme_mod('sp_button_padding', 14);
+    $border_radius     = get_theme_mod('sp_border_radius', 12);
+    $related_title_size = get_theme_mod('sp_related_title_size', 26);
+    $related_card_bg   = get_theme_mod('sp_related_card_bg', '#ffffff');
+
+    echo "<style>
+        /* Background trang */
+        body.single-product {
+            background-color: {$bg_color};
+        }
+
+        /* Khung sản phẩm chính */
+        .product-section {
+            background-color: {$box_bg};
+            border-radius: {$border_radius}px;
+        }
+
+        /* Tiêu đề sản phẩm */
+        body.single-product h1.product_title {
+            font-size: {$title_size}px;
+            color: #333;
+        }
+
+        /* Giá */
+        body.single-product p.price .woocommerce-Price-amount {
+            font-size: {$price_size}px;
+            color: {$primary_color};
+        }
+
+        /* Nút Add to Cart */
+        body.single-product form.cart .single_add_to_cart_button {
+            background: {$button_bg};
+            padding: {$button_padding}px 30px;
+            border-radius: {$border_radius}px;
+        }
+
+        body.single-product form.cart .single_add_to_cart_button:hover {
+            background: {$button_hover};
+        }
+
+        /* Gallery images */
+        body.single-product .woocommerce-product-gallery img {
+            border-radius: {$border_radius}px;
+        }
+
+        /* Meta links */
+        body.single-product .product_meta a {
+            color: {$primary_color};
+        }
+
+        /* Tabs active */
+        body.single-product .woocommerce-tabs ul.tabs li.active a {
+            color: {$primary_color};
+            border-bottom-color: {$primary_color};
+        }
+
+        /* Related Products Title */
+        body.single-product .related.products > h2 {
+            font-size: {$related_title_size}px;
+        }
+
+        body.single-product .related.products > h2::after {
+            background-color: {$primary_color};
+        }
+
+        /* Related Product Cards */
+        body.single-product .related.products ul.products li.product {
+            background-color: {$related_card_bg};
+            border-radius: {$border_radius}px;
+        }
+
+        body.single-product .related.products ul.products li.product .button {
+            background: {$primary_color};
+            border-color: {$primary_color};
+            border-radius: {$border_radius}px;
+        }
+
+        body.single-product .related.products ul.products li.product .button:hover {
+            color: {$primary_color};
+        }
+
+        body.single-product .related.products ul.products li.product .price {
+            color: {$primary_color};
+        }
+
+        body.single-product .related.products ul.products li.product:hover .woocommerce-loop-product__title {
+            color: {$primary_color};
+        }
+
+        /* Stock in-stock color */
+        .product-stock .in-stock {
+            color: {$primary_color};
+        }
+    </style>";
+}
+add_action('wp_head', 'theme_single_product_custom_style');
+
+/**
+ * Load JS Customizer cho live preview
+ */
+function theme_enqueue_single_product_customizer_script()
+{
+    if (is_customize_preview()) {
+        wp_enqueue_script(
+            'single-product-customizer-js',
+            get_template_directory_uri() . '/assets/js/single-product-customizer.js',
+            array('jquery', 'customize-preview'),
+            '1.0.0',
+            true
+        );
+    }
+}
+add_action('wp_enqueue_scripts', 'theme_enqueue_single_product_customizer_script');
+
+// =====================
+// Customizer Wishlist
+// =====================
+function doAnCMS_customize_wishlist($wp_customize)
+{
+    $wp_customize->add_section('wishlist_section', [
+        'title' => __('Wishlist Page', 'doAnCMS'),
+        'priority' => 30,
+    ]);
+
+    // Tiêu đề
+    $wp_customize->add_setting('wishlist_title', [
+        'default' => '❤️ Danh sách yêu thích của bạn',
+        'sanitize_callback' => 'sanitize_text_field',
+    ]);
+    $wp_customize->add_control('wishlist_title', [
+        'label' => __('Tiêu đề trang', 'doAnCMS'),
+        'section' => 'wishlist_section',
+        'type' => 'text',
+    ]);
+
+    // Text trống
+    $wp_customize->add_setting('wishlist_empty_text', [
+        'default' => 'Chưa có sản phẩm nào trong wishlist.',
+        'sanitize_callback' => 'sanitize_text_field',
+    ]);
+    $wp_customize->add_control('wishlist_empty_text', [
+        'label' => __('Text khi wishlist trống', 'doAnCMS'),
+        'section' => 'wishlist_section',
+        'type' => 'text',
+    ]);
+
+    // Background
+    $wp_customize->add_setting('wishlist_bg_color', [
+        'default' => '#fff',
+        'sanitize_callback' => 'sanitize_hex_color',
+    ]);
+    $wp_customize->add_control(new WP_Customize_Color_Control($wp_customize, 'wishlist_bg_color_control', [
+        'label' => __('Background Color', 'doAnCMS'),
+        'section' => 'wishlist_section',
+        'settings' => 'wishlist_bg_color',
+    ]));
+
+    // Title color
+    $wp_customize->add_setting('wishlist_title_color', [
+        'default' => '#333',
+        'sanitize_callback' => 'sanitize_hex_color',
+    ]);
+    $wp_customize->add_control(new WP_Customize_Color_Control($wp_customize, 'wishlist_title_color_control', [
+        'label' => __('Title Color', 'doAnCMS'),
+        'section' => 'wishlist_section',
+        'settings' => 'wishlist_title_color',
+    ]));
+
+    // Button color
+    $wp_customize->add_setting('wishlist_button_color', [
+        'default' => '#27ae60',
+        'sanitize_callback' => 'sanitize_hex_color',
+    ]);
+    $wp_customize->add_control(new WP_Customize_Color_Control($wp_customize, 'wishlist_button_color_control', [
+        'label' => __('Button Color', 'doAnCMS'),
+        'section' => 'wishlist_section',
+        'settings' => 'wishlist_button_color',
+    ]));
+}
+add_action('customize_register', 'doAnCMS_customize_wishlist');
+function doAnCMS_customize_wishlist_preview()
+{
+    wp_enqueue_script(
+        'wishlist-customizer-preview',
+        get_stylesheet_directory_uri() . '/assets/js/wishlist-customizer-preview.js',
+        ['customize-preview', 'jquery'],
+        '1.0',
+        true
+    );
+}
+add_action('customize_preview_init', 'doAnCMS_customize_wishlist_preview');

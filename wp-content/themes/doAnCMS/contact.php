@@ -4,149 +4,148 @@ Template Name: Contact
 */
 get_header();
 ?>
-
 <style>
-    /* ====== Contact Page Container ====== */
+/* ====== Contact Page Container ====== */
+.contact-page {
+    max-width: 1200px;
+    margin: 50px auto;
+    padding: 20px;
+    display: flex;
+    gap: 40px;
+    flex-wrap: wrap;
+}
+
+/* ====== Contact Form & Info Boxes ====== */
+.contact-form,
+.contact-info {
+    flex: 1 1 400px;
+    background-color: #fff;
+    padding: 25px;
+    border-radius: 12px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+}
+
+.contact-form h2,
+.contact-info h2 {
+    font-size: 24px;
+    color: #6b9d3e;
+    margin-bottom: 20px;
+}
+
+/* ====== Form Inputs ====== */
+.contact-form form input,
+.contact-form form textarea,
+.contact-form form button,
+.contact-info form input,
+.contact-info form button {
+    width: 100%;
+    margin-bottom: 15px;
+    font-size: 14px;
+}
+
+.contact-form form input,
+.contact-form form textarea,
+.contact-info form input {
+    padding: 10px;
+    border-radius: 8px;
+    border: 1px solid #ddd;
+}
+
+.contact-form form textarea {
+    min-height: 120px;
+}
+
+.contact-form form button,
+.contact-info form button {
+    background: linear-gradient(135deg, #6b9d3e, #a0c05a);
+    color: #fff;
+    padding: 12px;
+    border: none;
+    border-radius: 8px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.contact-form form button:hover,
+.contact-info form button:hover {
+    background: linear-gradient(135deg, #557c2a, #8bb135);
+    transform: translateY(-2px);
+}
+
+/* ====== Newsletter Form Flex ====== */
+.contact-info form {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.contact-info form input[type="email"] {
+    flex: 1 1 200px;
+}
+
+/* ====== Contact Info Text ====== */
+.contact-info div {
+    margin-bottom: 15px;
+    font-size: 16px;
+}
+
+.contact-info div span {
+    font-weight: 600;
+    color: #6b9d3e;
+}
+
+/* ====== Chat Box ====== */
+#chat-box {
+    display: none;
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    width: 300px;
+    height: 400px;
+    background: #fff;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    padding: 10px;
+    flex-direction: column;
+    z-index: 9999;
+}
+
+#chat-box header {
+    font-weight: bold;
+    color: #6b9d3e;
+    margin-bottom: 10px;
+}
+
+#chat-messages {
+    flex: 1;
+    overflow-y: auto;
+    margin-bottom: 10px;
+    font-size: 14px;
+}
+
+#chat-input {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+}
+
+/* ====== Responsive ====== */
+@media(max-width: 768px) {
     .contact-page {
-        max-width: 1200px;
-        margin: 50px auto;
-        padding: 20px;
-        display: flex;
-        gap: 40px;
-        flex-wrap: wrap;
+        flex-direction: column;
     }
 
-    /* ====== Contact Form & Info Boxes ====== */
-    .contact-form,
-    .contact-info {
-        flex: 1 1 400px;
-        background-color: #fff;
-        padding: 25px;
-        border-radius: 12px;
-        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
-    }
-
-    .contact-form h2,
-    .contact-info h2 {
-        font-size: 24px;
-        color: #6b9d3e;
-        margin-bottom: 20px;
-    }
-
-    /* ====== Form Inputs ====== */
-    .contact-form form input,
-    .contact-form form textarea,
-    .contact-form form button,
-    .contact-info form input,
-    .contact-info form button {
-        width: 100%;
-        margin-bottom: 15px;
-        font-size: 14px;
-    }
-
-    .contact-form form input,
-    .contact-form form textarea,
-    .contact-info form input {
-        padding: 10px;
-        border-radius: 8px;
-        border: 1px solid #ddd;
-    }
-
-    .contact-form form textarea {
-        min-height: 120px;
-    }
-
-    .contact-form form button,
-    .contact-info form button {
-        background: linear-gradient(135deg, #6b9d3e, #a0c05a);
-        color: #fff;
-        padding: 12px;
-        border: none;
-        border-radius: 8px;
-        font-weight: 600;
-        cursor: pointer;
-        transition: all 0.3s;
-    }
-
-    .contact-form form button:hover,
-    .contact-info form button:hover {
-        background: linear-gradient(135deg, #557c2a, #8bb135);
-        transform: translateY(-2px);
-    }
-
-    /* ====== Newsletter Form Flex ====== */
     .contact-info form {
-        display: flex;
-        gap: 10px;
-        flex-wrap: wrap;
+        flex-direction: column;
     }
 
     .contact-info form input[type="email"] {
-        flex: 1 1 200px;
+        flex: 1 1 100%;
     }
-
-    /* ====== Contact Info Text ====== */
-    .contact-info div {
-        margin-bottom: 15px;
-        font-size: 16px;
-    }
-
-    .contact-info div span {
-        font-weight: 600;
-        color: #6b9d3e;
-    }
-
-    /* ====== Chat Box ====== */
-    #chat-box {
-        display: none;
-        position: fixed;
-        bottom: 20px;
-        right: 20px;
-        width: 300px;
-        height: 400px;
-        background: #fff;
-        border: 1px solid #ddd;
-        border-radius: 10px;
-        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
-        padding: 10px;
-        flex-direction: column;
-        z-index: 9999;
-    }
-
-    #chat-box header {
-        font-weight: bold;
-        color: #6b9d3e;
-        margin-bottom: 10px;
-    }
-
-    #chat-messages {
-        flex: 1;
-        overflow-y: auto;
-        margin-bottom: 10px;
-        font-size: 14px;
-    }
-
-    #chat-input {
-        width: 100%;
-        padding: 8px;
-        border: 1px solid #ddd;
-        border-radius: 6px;
-    }
-
-    /* ====== Responsive ====== */
-    @media(max-width: 768px) {
-        .contact-page {
-            flex-direction: column;
-        }
-
-        .contact-info form {
-            flex-direction: column;
-        }
-
-        .contact-info form input[type="email"] {
-            flex: 1 1 100%;
-        }
-    }
+}
 </style>
 
 <div class="contact-page">
@@ -156,9 +155,9 @@ get_header();
         <h2>Liên hệ với chúng tôi</h2>
 
         <?php if (isset($_GET['status']) && $_GET['status'] === 'success') : ?>
-            <p style="color:green;">✅ Cảm ơn bạn! Chúng tôi đã nhận được liên hệ.</p>
+        <p style="color:green;">✅ Cảm ơn bạn! Chúng tôi đã nhận được liên hệ.</p>
         <?php elseif (isset($_GET['status']) && $_GET['status'] === 'error') : ?>
-            <p style="color:red;">❌ Vui lòng điền đầy đủ thông tin.</p>
+        <p style="color:red;">❌ Vui lòng điền đầy đủ thông tin.</p>
         <?php endif; ?>
 
         <form method="post" action="<?php echo esc_url(admin_url('admin-post.php')); ?>">
@@ -182,9 +181,9 @@ get_header();
         <h2>Đăng ký nhận tin sản phẩm mới</h2>
 
         <?php if (isset($_GET['newsletter']) && $_GET['newsletter'] === 'success') : ?>
-            <p style="color:green;">✅ Cảm ơn bạn đã đăng ký!</p>
+        <p style="color:green;">✅ Cảm ơn bạn đã đăng ký!</p>
         <?php elseif (isset($_GET['newsletter']) && $_GET['newsletter'] === 'invalid') : ?>
-            <p style="color:red;">❌ Email không hợp lệ!</p>
+        <p style="color:red;">❌ Email không hợp lệ!</p>
         <?php endif; ?>
 
         <form method="post" action="<?php echo esc_url(admin_url('admin-post.php')); ?>">
@@ -210,28 +209,28 @@ get_header();
 </div>
 
 <script>
-    const chatBtn = document.getElementById('open-chat');
-    const chatBox = document.getElementById('chat-box');
-    const chatInput = document.getElementById('chat-input');
-    const chatMessages = document.getElementById('chat-messages');
+const chatBtn = document.getElementById('open-chat');
+const chatBox = document.getElementById('chat-box');
+const chatInput = document.getElementById('chat-input');
+const chatMessages = document.getElementById('chat-messages');
 
-    chatBtn.addEventListener('click', () => {
-        chatBox.style.display = chatBox.style.display === 'flex' ? 'none' : 'flex';
-        chatBox.style.flexDirection = 'column';
-    });
+chatBtn.addEventListener('click', () => {
+    chatBox.style.display = chatBox.style.display === 'flex' ? 'none' : 'flex';
+    chatBox.style.flexDirection = 'column';
+});
 
-    chatInput.addEventListener('keypress', function(e) {
-        if (e.key === 'Enter') {
-            const msg = chatInput.value.trim();
-            if (msg) {
-                const p = document.createElement('p');
-                p.textContent = 'Bạn: ' + msg;
-                chatMessages.appendChild(p);
-                chatInput.value = '';
-                chatMessages.scrollTop = chatMessages.scrollHeight;
-            }
+chatInput.addEventListener('keypress', function(e) {
+    if (e.key === 'Enter') {
+        const msg = chatInput.value.trim();
+        if (msg) {
+            const p = document.createElement('p');
+            p.textContent = 'Bạn: ' + msg;
+            chatMessages.appendChild(p);
+            chatInput.value = '';
+            chatMessages.scrollTop = chatMessages.scrollHeight;
         }
-    });
+    }
+});
 </script>
 
 <?php get_footer(); ?>
