@@ -2,9 +2,9 @@
 
 <!-- ===================== BANNER KHUYẾN MÃI ===================== -->
 <div class="container">
-    
-      <div class="top-banner-grid">
-        
+
+    <div class="top-banner-grid">
+
         <!-- CỘT TRÁI: SLIDER CHÍNH (Giữ nguyên) -->
         <div class="main-slider-wrapper">
             <?php echo do_shortcode('[smartslider3 slider="3"]'); ?>
@@ -42,11 +42,11 @@
         </a>
     </div>
 
-</div> 
+</div>
 
 
 
-</div> 
+</div>
 
 <div class="trust-badge-bar">
     <div class="container">
@@ -123,7 +123,7 @@
 </div>
 
 <!-- ===================== HẾT THANH CAM KẾT ===================== -->
-</div> 
+</div>
 
 
 <!-- ===================== DEAL SỐC (Ý TƯỞNG 2) ===================== -->
@@ -161,7 +161,7 @@ $flash_sale_query = new WP_Query($flash_sale_args);
 // 2. Chỉ hiển thị nếu query tìm thấy sản phẩm
 if ($flash_sale_query->have_posts()) :
     while ($flash_sale_query->have_posts()) : $flash_sale_query->the_post();
-        
+
         // 3. Lấy data thật
         global $product;
 
@@ -169,7 +169,7 @@ if ($flash_sale_query->have_posts()) :
         $product_name  = $product->get_name();
         $product_desc  = $product->get_short_description();
         $cart_url      = $product->add_to_cart_url(); // Link add-to-cart an toàn
-        
+
         // Lấy ảnh
         if (has_post_thumbnail()) {
             $image_url = get_the_post_thumbnail_url($product_id, 'medium');
@@ -181,47 +181,49 @@ if ($flash_sale_query->have_posts()) :
         $regular_price = (float) $product->get_regular_price();
         $sale_price    = (float) $product->get_sale_price();
         $percentage    = 0;
-        
+
         if ($regular_price > 0 && $sale_price > 0) {
             $percentage = round((($regular_price - $sale_price) / $regular_price) * 100);
         }
 ?>
 
-<div class="flash-sale-section">
-    <div class="container">
-        <div class="flash-sale-box">
-            <div class="flash-sale-content">
-                
-                <h3>DEAL SỐC HÔM NAY</h3>
-                
-                <h2>Giảm <?php echo esc_html($percentage); ?>% <?php echo esc_html($product_name); ?></h2>
-                
-                <div class="flash-sale-desc">
-                    <?php echo wp_kses_post($product_desc); // Dùng kses_post cho an toàn ?>
-                </div>
-                
-                <a href="<?php echo esc_url($cart_url); ?>" class="btn-primary">
-                    Mua ngay chỉ <?php echo wc_price($sale_price); // Tự format giá (ví dụ: 199.000₫) ?>
-                </a>
-            </div>
-            
-            <div class="flash-sale-timer">
-                <p>Kết thúc sau:</p>
-                <div id="countdown-timer">
-                    <span id="countdown-hours">00</span>
-                    <span class="colon">:</span>
-                    <span id="countdown-mins">00</span>
-                    <span class="colon">:</span>
-                    <span id="countdown-secs">00</span>
-                </div>
-            </div>
+        <div class="flash-sale-section">
+            <div class="container">
+                <div class="flash-sale-box">
+                    <div class="flash-sale-content">
 
-            <div class="flash-sale-image">
-                <img src="<?php echo esc_url($image_url); ?>" alt="Flash Sale: <?php echo esc_attr($product_name); ?>">
+                        <h3>DEAL SỐC HÔM NAY</h3>
+
+                        <h2>Giảm <?php echo esc_html($percentage); ?>% <?php echo esc_html($product_name); ?></h2>
+
+                        <div class="flash-sale-desc">
+                            <?php echo wp_kses_post($product_desc); // Dùng kses_post cho an toàn 
+                            ?>
+                        </div>
+
+                        <a href="<?php echo esc_url($cart_url); ?>" class="btn-primary">
+                            Mua ngay chỉ <?php echo wc_price($sale_price); // Tự format giá (ví dụ: 199.000₫) 
+                                            ?>
+                        </a>
+                    </div>
+
+                    <div class="flash-sale-timer">
+                        <p>Kết thúc sau:</p>
+                        <div id="countdown-timer">
+                            <span id="countdown-hours">00</span>
+                            <span class="colon">:</span>
+                            <span id="countdown-mins">00</span>
+                            <span class="colon">:</span>
+                            <span id="countdown-secs">00</span>
+                        </div>
+                    </div>
+
+                    <div class="flash-sale-image">
+                        <img src="<?php echo esc_url($image_url); ?>" alt="Flash Sale: <?php echo esc_attr($product_name); ?>">
+                    </div>
+                </div>
             </div>
         </div>
-    </div>
-</div>
 
 <?php
     endwhile;
@@ -383,7 +385,7 @@ foreach ($product_sections as $section) {
         <h2 class="section-title" style="text-align: center;">Công thức từ Bếp Organic</h2>
 
         <div class="recipe-grid">
-            
+
             <?php
             // 1. Setup Query: Lấy 3 bài viết từ category "cong-thuc"
             $recipe_args = [
@@ -410,7 +412,7 @@ foreach ($product_sections as $section) {
                     // 3. Lấy data thật
                     $recipe_link = get_permalink();
                     $recipe_title = get_the_title();
-                    
+
                     // Lấy ảnh (Featured Image)
                     if (has_post_thumbnail()) {
                         $recipe_image = get_the_post_thumbnail_url(get_the_ID(), 'large'); // Dùng size 'large' cho đẹp
@@ -418,36 +420,36 @@ foreach ($product_sections as $section) {
                         // Ảnh dự phòng nếu bro quên set
                         $recipe_image = 'https://placehold.co/400x300/e8f5e9/333?text=Kh%C3%B4ng+C%C3%B3+%E1%BA%A2nh';
                     }
-                    
+
                     // Lấy mô tả ngắn (Excerpt), rút gọn 15 chữ
-                    $recipe_excerpt = wp_trim_words(get_the_excerpt(), 15, '...'); 
+                    $recipe_excerpt = wp_trim_words(get_the_excerpt(), 15, '...');
 
             ?>
 
-            <div class="recipe-card">
-                <a href="<?php echo esc_url($recipe_link); ?>" class="recipe-image-link">
-                    <img src="<?php echo esc_url($recipe_image); ?>" alt="<?php echo esc_attr($recipe_title); ?>">
-                </a>
-                <div class="recipe-content">
-                    <h4><a href="<?php echo esc_url($recipe_link); ?>"><?php echo esc_html($recipe_title); ?></a></h4>
-                    <p><?php echo esc_html($recipe_excerpt); ?></p>
-                    <a href="<?php echo esc_url($recipe_link); ?>" class="btn-secondary">Xem công thức →</a>
-                </div>
-            </div>
+                    <div class="recipe-card">
+                        <a href="<?php echo esc_url($recipe_link); ?>" class="recipe-image-link">
+                            <img src="<?php echo esc_url($recipe_image); ?>" alt="<?php echo esc_attr($recipe_title); ?>">
+                        </a>
+                        <div class="recipe-content">
+                            <h4><a href="<?php echo esc_url($recipe_link); ?>"><?php echo esc_html($recipe_title); ?></a></h4>
+                            <p><?php echo esc_html($recipe_excerpt); ?></p>
+                            <a href="<?php echo esc_url($recipe_link); ?>" class="btn-secondary">Xem công thức →</a>
+                        </div>
+                    </div>
 
-            <?php
+                <?php
                 endwhile;
                 wp_reset_postdata(); // Quan trọng: reset query
             else :
                 // Nếu không có bài viết nào trong category "cong-thuc"
-            ?>
+                ?>
                 <p style="text-align: center; grid-column: 1 / -1; color: #777;">
                     Chưa có công thức nào. Bro vào WP Admin tạo category "Công Thức" (slug: `cong-thuc`) và thêm bài viết vào đó nhé!
                 </p>
             <?php
             endif;
             ?>
-            
+
         </div>
     </div>
 </div>
@@ -462,36 +464,36 @@ foreach ($product_sections as $section) {
 
     <div class="marquee-wrapper">
         <div class="marquee-content">
-    <?php
-    // 1. Query lấy 10 bài mới nhất
-    $slider_query = new WP_Query(array(
-        'post_type'      => 'post',
-        'posts_per_page' => 10, // Lấy 10 bài
-    ));
+            <?php
+            // 1. Query lấy 10 bài mới nhất
+            $slider_query = new WP_Query(array(
+                'post_type'      => 'post',
+                'posts_per_page' => 10, // Lấy 10 bài
+            ));
 
-    if ($slider_query->have_posts()) {
-        while ($slider_query->have_posts()) {
-            $slider_query->the_post();
-            $link = get_permalink();
-            $img_url = has_post_thumbnail() ? get_the_post_thumbnail_url(get_the_ID(), 'medium') : get_template_directory_uri() . '/assets/images/ofs/ofs1.jpg';
+            if ($slider_query->have_posts()) {
+                while ($slider_query->have_posts()) {
+                    $slider_query->the_post();
+                    $link = get_permalink();
+                    $img_url = has_post_thumbnail() ? get_the_post_thumbnail_url(get_the_ID(), 'medium') : get_template_directory_uri() . '/assets/images/ofs/ofs1.jpg';
             ?>
 
-            <div class="marquee-item">
-                <a href="<?php echo esc_url($link); ?>" title="<?php the_title(); ?>">
-                    <img src="<?php echo esc_url($img_url); ?>" alt="<?php the_title(); ?>">
-                </a>
-            </div>
+                    <div class="marquee-item">
+                        <a href="<?php echo esc_url($link); ?>" title="<?php the_title(); ?>">
+                            <img src="<?php echo esc_url($img_url); ?>" alt="<?php the_title(); ?>">
+                        </a>
+                    </div>
 
             <?php
-        }
-        wp_reset_postdata(); // Reset query sau khi chạy xong
-    }
-    ?>
-</div>
+                }
+                wp_reset_postdata(); // Reset query sau khi chạy xong
+            }
+            ?>
+        </div>
     </div>
-    
+
     <div class="container" style="text-align: center; margin-top: 30px;">
-        <a href="https://instagram.com" class="btn-primary" target="_blank" rel="noopener noreferrer">
+        <a href="https://www.instagram.com/tu.farm.organic/" class="btn-primary" target="_blank" rel="noopener noreferrer">
             Theo dõi ngay trên Instagram
         </a>
     </div>
@@ -505,25 +507,25 @@ foreach ($product_sections as $section) {
     <div class="container">
         <h3 class="section-subtitle" style="text-align: center;">ĐÁNH GIÁ TỪ KHÁCH HÀNG</h3>
         <h2 class="section-title" style="text-align: center;">Khách hàng nói gì về chúng tôi</h2>
-        
+
         <div class="swiper testimonial-swiper">
             <div class="swiper-wrapper">
-                
+
                 <!-- Testimonial 1 -->
                 <div class="swiper-slide">
                     <div class="testimonial-card">
                         <div class="testimonial-stars">★★★★★</div>
                         <p class="testimonial-quote">
-                            "Rau củ rất tươi và sạch. Giao hàng nhanh. Từ khi 
-                            biết shop mình đã không còn phải đi siêu thị nữa. 
+                            "Rau củ rất tươi và sạch. Giao hàng nhanh. Từ khi
+                            biết shop mình đã không còn phải đi siêu thị nữa.
                             Rất tin tưởng!"
                         </p>
-                        
+
                         <!-- === SỬA LẠI KHỐI AUTHOR === -->
                         <div class="testimonial-author-wrapper">
-                            <img class="testimonial-avatar" 
-                                 src="<?php echo get_template_directory_uri(); ?>/assets/images/avatar/batman.png" 
-                                 alt="Avatar Chị Thu Hoài">
+                            <img class="testimonial-avatar"
+                                src="<?php echo get_template_directory_uri(); ?>/assets/images/avatar/batman.png"
+                                alt="Avatar Chị Thu Hoài">
                             <div class="testimonial-author">
                                 <strong>Chị Thu Hoài</strong>
                                 <span>- Nhân viên văn phòng, Q.1</span>
@@ -539,15 +541,15 @@ foreach ($product_sections as $section) {
                     <div class="testimonial-card">
                         <div class="testimonial-stars">★★★★★</div>
                         <p class="testimonial-quote">
-                            "Các loại hạt hữu cơ ở đây là ngon nhất mình từng thử. 
+                            "Các loại hạt hữu cơ ở đây là ngon nhất mình từng thử.
                             Bé nhà mình rất thích sữa hạt do shop tư vấn công thức."
                         </p>
-                        
+
                         <!-- === SỬA LẠI KHỐI AUTHOR === -->
                         <div class="testimonial-author-wrapper">
-                            <img class="testimonial-avatar" 
-                                 src="<?php echo get_template_directory_uri(); ?>/assets/images/avatar/joker.png" 
-                                 alt="Avatar Anh Minh Quân">
+                            <img class="testimonial-avatar"
+                                src="<?php echo get_template_directory_uri(); ?>/assets/images/avatar/joker.png"
+                                alt="Avatar Anh Minh Quân">
                             <div class="testimonial-author">
                                 <strong>Anh Minh Quân</strong>
                                 <span>- Freelancer, Gò Vấp</span>
@@ -560,18 +562,18 @@ foreach ($product_sections as $section) {
 
                 <!-- Testimonial 3 -->
                 <div class="swiper-slide">
-                     <div class="testimonial-card">
+                    <div class="testimonial-card">
                         <div class="testimonial-stars">★★★★★</div>
                         <p class="testimonial-quote">
-                            "Đã mua hàng ở đây 3 năm. Chưa bao giờ thất vọng. 
+                            "Đã mua hàng ở đây 3 năm. Chưa bao giờ thất vọng.
                             Giá cả hợp lý cho chất lượng organic 100%."
                         </p>
-                        
+
                         <!-- === SỬA LẠI KHỐI AUTHOR === -->
                         <div class="testimonial-author-wrapper">
-                             <img class="testimonial-avatar" 
-                                 src="<?php echo get_template_directory_uri(); ?>/assets/images/avatar/the-flash.png" 
-                                 alt="Avatar Cô Lan Anh">
+                            <img class="testimonial-avatar"
+                                src="<?php echo get_template_directory_uri(); ?>/assets/images/avatar/the-flash.png"
+                                alt="Avatar Cô Lan Anh">
                             <div class="testimonial-author">
                                 <strong>Cô Lan Anh</strong>
                                 <span>- Nội trợ, Q.7</span>
@@ -583,7 +585,7 @@ foreach ($product_sections as $section) {
                 </div>
 
             </div> <!-- Hết swiper-wrapper -->
-            
+
             <div class="swiper-button-next swiper-button-next-testimonial"></div>
             <div class="swiper-button-prev swiper-button-prev-testimonial"></div>
 
@@ -592,202 +594,212 @@ foreach ($product_sections as $section) {
 </div>
 
 <script>
-document.addEventListener('DOMContentLoaded', function () {
-    
-    // --- KHỞI TẠO SWIPER CHO CÁC SLIDER SẢN PHẨM ---
-    const swiperContainers = document.querySelectorAll('[class*="product-swiper-"]');
-    swiperContainers.forEach(function(swiperContainer) {
-        
-        let uniqueSuffix = '';
-        swiperContainer.classList.forEach(function(className) {
-            if (className.startsWith('product-swiper-')) {
-                uniqueSuffix = className.replace('product-swiper-', '');
+    document.addEventListener('DOMContentLoaded', function() {
+
+        // --- KHỞI TẠO SWIPER CHO CÁC SLIDER SẢN PHẨM ---
+        const swiperContainers = document.querySelectorAll('[class*="product-swiper-"]');
+        swiperContainers.forEach(function(swiperContainer) {
+
+            let uniqueSuffix = '';
+            swiperContainer.classList.forEach(function(className) {
+                if (className.startsWith('product-swiper-')) {
+                    uniqueSuffix = className.replace('product-swiper-', '');
+                }
+            });
+
+            if (uniqueSuffix) {
+                new Swiper(swiperContainer, {
+                    slidesPerView: 2, // Mobile
+                    spaceBetween: 20,
+                    breakpoints: {
+                        640: {
+                            slidesPerView: 3
+                        },
+                        768: {
+                            slidesPerView: 4
+                        },
+                        1024: {
+                            slidesPerView: 5
+                        },
+                    },
+                    navigation: {
+                        nextEl: '.swiper-button-next-' + uniqueSuffix,
+                        prevEl: '.swiper-button-prev-' + uniqueSuffix,
+                    },
+                });
             }
         });
 
-        if (uniqueSuffix) {
-            new Swiper(swiperContainer, {
-                slidesPerView: 2, // Mobile
-                spaceBetween: 20,
-                breakpoints: {
-                    640: { slidesPerView: 3 },
-                    768: { slidesPerView: 4 },
-                    1024: { slidesPerView: 5 },
+        // --- THÊM MỚI: KHỞI TẠO SWIPER CHO TESTIMONIALS (Ý TƯỞNG 2) ---
+        new Swiper('.testimonial-swiper', {
+            slidesPerView: 1, // Mobile: 1 cột
+            spaceBetween: 30,
+
+            // Responsive breakpoints
+            breakpoints: {
+                768: { // Tablet
+                    slidesPerView: 2,
+                    spaceBetween: 30,
                 },
-                navigation: {
-                    nextEl: '.swiper-button-next-' + uniqueSuffix,
-                    prevEl: '.swiper-button-prev-' + uniqueSuffix,
+                1024: { // Desktop
+                    slidesPerView: 3,
+                    spaceBetween: 30,
                 },
+            },
+
+            // Kích hoạt 2 nút điều hướng
+            navigation: {
+                nextEl: '.swiper-button-next-testimonial',
+                prevEl: '.swiper-button-prev-testimonial',
+            },
+        });
+
+    });
+
+    document.addEventListener('DOMContentLoaded', function() {
+
+        // ... (code Swiper của bro) ...
+
+        // --- THÊM MỚI: KÍCH HOẠT COUNTDOWN (Ý TƯỞNG 2) ---
+        function startCountdown() {
+            // Set thời gian kết thúc (ví dụ: nửa đêm hôm nay)
+            const endTime = new Date();
+            endTime.setHours(23, 59, 59, 999);
+
+            const timer = setInterval(function() {
+                const now = new Date().getTime();
+                const distance = endTime - now;
+
+                if (distance < 0) {
+                    clearInterval(timer);
+                    document.getElementById("countdown-timer").innerHTML = "HẾT HẠN";
+                    return;
+                }
+
+                // Tính toán giờ, phút, giây
+                const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+                const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+                // Thêm số 0 đằng trước nếu < 10
+                const f = (n) => (n < 10 ? '0' + n : n);
+
+                // Hiển thị
+                document.getElementById("countdown-hours").innerText = f(hours);
+                document.getElementById("countdown-mins").innerText = f(minutes);
+                document.getElementById("countdown-secs").innerText = f(seconds);
+
+            }, 1000);
+        }
+
+        // Kiểm tra xem có element timer không
+        if (document.getElementById('countdown-timer')) {
+            startCountdown();
+        }
+
+    }); // Hết DOMContentLoaded
+
+    // ... bên trong thẻ <script>
+    document.addEventListener('DOMContentLoaded', function() {
+
+        // ... (code Swiper & Countdown của bro) ...
+
+        // --- THÊM MỚI: KÍCH HOẠT POPUP (Ý TƯỞNG 3) ---
+        const modalOverlay = document.getElementById('newsletter-modal-overlay');
+        const modalCloseBtn = document.getElementById('modal-close-btn');
+
+        if (modalOverlay && modalCloseBtn) {
+
+            // 1. Set 1 cái cookie (localStorage) để nó không hiện lại
+            const hasSeenPopup = localStorage.getItem('seenNewsletterPopup');
+
+            // Nếu chưa thấy popup, thì cho hiện sau 5 giây
+            if (!hasSeenPopup) {
+                setTimeout(function() {
+                    modalOverlay.classList.add('active');
+                }, 5000); // 5000ms = 5 giây
+            }
+
+            // 2. Hàm đóng popup
+            const closeModal = function() {
+                modalOverlay.classList.remove('active');
+                // Đánh dấu là đã thấy, 2 tiếng sau mới hiện lại
+                localStorage.setItem('seenNewsletterPopup', 'true', {
+                    expires: 1 / 12
+                });
+            }
+
+            // 3. Bấm nút X để đóng
+            modalCloseBtn.addEventListener('click', closeModal);
+
+            // 4. Bấm ra ngoài vùng mờ cũng đóng
+            modalOverlay.addEventListener('click', function(e) {
+                // Chỉ đóng khi bấm vào lớp mờ (overlay), 
+                // không phải bấm vào cái popup
+                if (e.target === modalOverlay) {
+                    closeModal();
+                }
             });
         }
+
     });
 
-    // --- THÊM MỚI: KHỞI TẠO SWIPER CHO TESTIMONIALS (Ý TƯỞNG 2) ---
-    new Swiper('.testimonial-swiper', {
-        slidesPerView: 1, // Mobile: 1 cột
-        spaceBetween: 30,
-        
-        // Responsive breakpoints
-        breakpoints: {
-            768: { // Tablet
-                slidesPerView: 2,
-                spaceBetween: 30,
-            },
-            1024: { // Desktop
-                slidesPerView: 3,
-                spaceBetween: 30,
-            },
-        },
-        
-        // Kích hoạt 2 nút điều hướng
-        navigation: {
-            nextEl: '.swiper-button-next-testimonial',
-            prevEl: '.swiper-button-prev-testimonial',
-        },
-    });
+    // ... bên trong thẻ <script>
+    document.addEventListener('DOMContentLoaded', function() {
 
-});
+        // ... (code Swiper, Countdown, Popup... của bro) ...
 
-document.addEventListener('DOMContentLoaded', function () {
-    
-    // ... (code Swiper của bro) ...
+        // --- THÊM MỚI: KÍCH HOẠT QUICK VIEW (Ý TƯỞNG 2) ---
+        const qvOverlay = document.getElementById('quick-view-modal-overlay');
+        const qvCloseBtn = document.getElementById('quick-view-close-btn');
+        const qvContent = document.getElementById('quick-view-content-wrapper');
+        const allQuickViewBtns = document.querySelectorAll('.btn-quick-view');
 
-    // --- THÊM MỚI: KÍCH HOẠT COUNTDOWN (Ý TƯỞNG 2) ---
-    function startCountdown() {
-        // Set thời gian kết thúc (ví dụ: nửa đêm hôm nay)
-        const endTime = new Date();
-        endTime.setHours(23, 59, 59, 999); 
+        if (qvOverlay && qvCloseBtn && qvContent) {
 
-        const timer = setInterval(function() {
-            const now = new Date().getTime();
-            const distance = endTime - now;
+            // 1. Mở modal khi bấm nút
+            allQuickViewBtns.forEach(btn => {
+                btn.addEventListener('click', function(e) {
+                    e.preventDefault(); // Ngăn link #
+                    const productId = this.dataset.productId;
 
-            if (distance < 0) {
-                clearInterval(timer);
-                document.getElementById("countdown-timer").innerHTML = "HẾT HẠN";
-                return;
-            }
+                    // Hiển thị modal với icon loading
+                    qvContent.innerHTML = '<div class="loading-spinner"></div>';
+                    qvOverlay.classList.add('active');
 
-            // Tính toán giờ, phút, giây
-            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-            const seconds = Math.floor((distance % (1000 * 60)) / 1000);
-
-            // Thêm số 0 đằng trước nếu < 10
-            const f = (n) => (n < 10 ? '0' + n : n);
-
-            // Hiển thị
-            document.getElementById("countdown-hours").innerText = f(hours);
-            document.getElementById("countdown-mins").innerText = f(minutes);
-            document.getElementById("countdown-secs").innerText = f(seconds);
-
-        }, 1000);
-    }
-    
-    // Kiểm tra xem có element timer không
-    if (document.getElementById('countdown-timer')) {
-        startCountdown();
-    }
-    
-}); // Hết DOMContentLoaded
-
-// ... bên trong thẻ <script>
-document.addEventListener('DOMContentLoaded', function () {
-    
-    // ... (code Swiper & Countdown của bro) ...
-
-    // --- THÊM MỚI: KÍCH HOẠT POPUP (Ý TƯỞNG 3) ---
-    const modalOverlay = document.getElementById('newsletter-modal-overlay');
-    const modalCloseBtn = document.getElementById('modal-close-btn');
-
-    if (modalOverlay && modalCloseBtn) {
-        
-        // 1. Set 1 cái cookie (localStorage) để nó không hiện lại
-        const hasSeenPopup = localStorage.getItem('seenNewsletterPopup');
-
-        // Nếu chưa thấy popup, thì cho hiện sau 5 giây
-        if (!hasSeenPopup) {
-            setTimeout(function() {
-                modalOverlay.classList.add('active');
-            }, 5000); // 5000ms = 5 giây
-        }
-
-        // 2. Hàm đóng popup
-        const closeModal = function() {
-            modalOverlay.classList.remove('active');
-            // Đánh dấu là đã thấy, 2 tiếng sau mới hiện lại
-            localStorage.setItem('seenNewsletterPopup', 'true', {expires: 1/12}); 
-        }
-
-        // 3. Bấm nút X để đóng
-        modalCloseBtn.addEventListener('click', closeModal);
-
-        // 4. Bấm ra ngoài vùng mờ cũng đóng
-        modalOverlay.addEventListener('click', function(e) {
-            // Chỉ đóng khi bấm vào lớp mờ (overlay), 
-            // không phải bấm vào cái popup
-            if (e.target === modalOverlay) {
-                closeModal();
-            }
-        });
-    }
-
-});
-
-// ... bên trong thẻ <script>
-document.addEventListener('DOMContentLoaded', function () {
-    
-    // ... (code Swiper, Countdown, Popup... của bro) ...
-
-    // --- THÊM MỚI: KÍCH HOẠT QUICK VIEW (Ý TƯỞNG 2) ---
-    const qvOverlay = document.getElementById('quick-view-modal-overlay');
-    const qvCloseBtn = document.getElementById('quick-view-close-btn');
-    const qvContent = document.getElementById('quick-view-content-wrapper');
-    const allQuickViewBtns = document.querySelectorAll('.btn-quick-view');
-
-    if (qvOverlay && qvCloseBtn && qvContent) {
-
-        // 1. Mở modal khi bấm nút
-        allQuickViewBtns.forEach(btn => {
-            btn.addEventListener('click', function(e) {
-                e.preventDefault(); // Ngăn link #
-                const productId = this.dataset.productId;
-                
-                // Hiển thị modal với icon loading
-                qvContent.innerHTML = '<div class="loading-spinner"></div>';
-                qvOverlay.classList.add('active');
-
-                // Gọi AJAX để lấy nội dung
-                fetch('<?php echo admin_url('admin-ajax.php'); ?>', {
-                    method: 'POST',
-                    headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-                    body: `action=load_product_quick_view&product_id=${productId}`
-                })
-                .then(response => response.text())
-                .then(html => {
-                    // Load nội dung HTML vào modal
-                    qvContent.innerHTML = html;
-                })
-                .catch(err => {
-                    qvContent.innerHTML = '<p>Lỗi! Không thể tải sản phẩm.</p>';
+                    // Gọi AJAX để lấy nội dung
+                    fetch('<?php echo admin_url('admin-ajax.php'); ?>', {
+                            method: 'POST',
+                            headers: {
+                                'Content-Type': 'application/x-www-form-urlencoded'
+                            },
+                            body: `action=load_product_quick_view&product_id=${productId}`
+                        })
+                        .then(response => response.text())
+                        .then(html => {
+                            // Load nội dung HTML vào modal
+                            qvContent.innerHTML = html;
+                        })
+                        .catch(err => {
+                            qvContent.innerHTML = '<p>Lỗi! Không thể tải sản phẩm.</p>';
+                        });
                 });
             });
-        });
 
-        // 2. Đóng modal
-        const closeQuickView = function() {
-            qvOverlay.classList.remove('active');
-            qvContent.innerHTML = ''; // Xóa nội dung cũ
-        }
-        qvCloseBtn.addEventListener('click', closeQuickView);
-        qvOverlay.addEventListener('click', function(e) {
-            if (e.target === qvOverlay) {
-                closeQuickView();
+            // 2. Đóng modal
+            const closeQuickView = function() {
+                qvOverlay.classList.remove('active');
+                qvContent.innerHTML = ''; // Xóa nội dung cũ
             }
-        });
-    }
+            qvCloseBtn.addEventListener('click', closeQuickView);
+            qvOverlay.addEventListener('click', function(e) {
+                if (e.target === qvOverlay) {
+                    closeQuickView();
+                }
+            });
+        }
 
-}); // Hết DOMContentLoaded
+    }); // Hết DOMContentLoaded
 </script>
 
 
@@ -795,7 +807,7 @@ document.addEventListener('DOMContentLoaded', function () {
 <div id="newsletter-modal-overlay">
     <div id="newsletter-modal-popup">
         <div id="modal-close-btn">✖</div>
-        
+
         <div class="modal-image">
             <img src="https://placehold.co/200x300/6b9d3e/fff?text=Get+10%25+OFF" alt="Đăng ký nhận tin">
         </div>
@@ -803,15 +815,15 @@ document.addEventListener('DOMContentLoaded', function () {
         <div class="modal-content">
             <h3>Nhận ngay Voucher 10%</h3>
             <p>
-                Đăng ký nhận tin tức mới nhất và voucher <strong>giảm 10%</strong> 
+                Đăng ký nhận tin tức mới nhất và voucher <strong>giảm 10%</strong>
                 cho đơn hàng đầu tiên của bạn!
             </p>
-            
+
             <!-- Đây là form thật, dùng code của bro trong functions.php -->
             <form action="<?php echo esc_url(admin_url('admin-post.php')); ?>" method="post">
                 <input type="hidden" name="action" value="submit_newsletter_email">
                 <?php wp_nonce_field('newsletter_form_action', 'newsletter_form_nonce'); ?>
-                
+
                 <input type="email" name="newsletter_email" placeholder="Nhập email của bạn..." required>
                 <button type="submit" class="btn-primary">ĐĂNG KÝ NGAY</button>
             </form>

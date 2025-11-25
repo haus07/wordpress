@@ -5125,3 +5125,87 @@ Stack trace:
 [23-Nov-2025 06:53:18 UTC]   Automatic theme updates starting...
 [23-Nov-2025 06:53:18 UTC]   Automatic theme updates complete.
 [23-Nov-2025 06:53:18 UTC] Automatic updates complete.
+[24-Nov-2025 04:13:05 UTC] PHP Warning:  Undefined variable $order_button_text in D:\wamp64\www\wordpress\wp-content\plugins\woocommerce\templates\checkout\payment.php on line 53
+[24-Nov-2025 04:13:05 UTC] PHP Stack trace:
+[24-Nov-2025 04:13:05 UTC] PHP   1. {main}() D:\wamp64\www\wordpress\index.php:0
+[24-Nov-2025 04:13:05 UTC] PHP   2. require() D:\wamp64\www\wordpress\index.php:17
+[24-Nov-2025 04:13:05 UTC] PHP   3. require_once() D:\wamp64\www\wordpress\wp-blog-header.php:19
+[24-Nov-2025 04:13:05 UTC] PHP   4. include() D:\wamp64\www\wordpress\wp-includes\template-loader.php:106
+[24-Nov-2025 04:13:05 UTC] PHP   5. wc_get_template($template_name = 'checkout/payment.php', $args = ['checkout' => class WC_Checkout { protected $fields = [...]; protected $legacy_posted_data = [...]; private $logged_in_customer = class WC_Customer { ... } }], $template_path = *uninitialized*, $default_path = *uninitialized*) D:\wamp64\www\wordpress\wp-content\themes\doAnCMS\page-checkout.php:74
+[24-Nov-2025 04:13:05 UTC] PHP   6. include() D:\wamp64\www\wordpress\wp-content\plugins\woocommerce\includes\wc-core-functions.php:346
+[24-Nov-2025 04:13:05 UTC] PHP Warning:  Undefined variable $order_button_text in D:\wamp64\www\wordpress\wp-content\plugins\woocommerce\templates\checkout\payment.php on line 53
+[24-Nov-2025 04:13:05 UTC] PHP Stack trace:
+[24-Nov-2025 04:13:05 UTC] PHP   1. {main}() D:\wamp64\www\wordpress\index.php:0
+[24-Nov-2025 04:13:05 UTC] PHP   2. require() D:\wamp64\www\wordpress\index.php:17
+[24-Nov-2025 04:13:05 UTC] PHP   3. require_once() D:\wamp64\www\wordpress\wp-blog-header.php:19
+[24-Nov-2025 04:13:05 UTC] PHP   4. include() D:\wamp64\www\wordpress\wp-includes\template-loader.php:106
+[24-Nov-2025 04:13:05 UTC] PHP   5. wc_get_template($template_name = 'checkout/payment.php', $args = ['checkout' => class WC_Checkout { protected $fields = [...]; protected $legacy_posted_data = [...]; private $logged_in_customer = class WC_Customer { ... } }], $template_path = *uninitialized*, $default_path = *uninitialized*) D:\wamp64\www\wordpress\wp-content\themes\doAnCMS\page-checkout.php:74
+[24-Nov-2025 04:13:05 UTC] PHP   6. include() D:\wamp64\www\wordpress\wp-content\plugins\woocommerce\includes\wc-core-functions.php:346
+[24-Nov-2025 04:13:05 UTC] PHP Warning:  Undefined variable $order_button_text in D:\wamp64\www\wordpress\wp-content\plugins\woocommerce\templates\checkout\payment.php on line 53
+[24-Nov-2025 04:13:05 UTC] PHP Stack trace:
+[24-Nov-2025 04:13:05 UTC] PHP   1. {main}() D:\wamp64\www\wordpress\index.php:0
+[24-Nov-2025 04:13:05 UTC] PHP   2. require() D:\wamp64\www\wordpress\index.php:17
+[24-Nov-2025 04:13:05 UTC] PHP   3. require_once() D:\wamp64\www\wordpress\wp-blog-header.php:19
+[24-Nov-2025 04:13:05 UTC] PHP   4. include() D:\wamp64\www\wordpress\wp-includes\template-loader.php:106
+[24-Nov-2025 04:13:05 UTC] PHP   5. wc_get_template($template_name = 'checkout/payment.php', $args = ['checkout' => class WC_Checkout { protected $fields = [...]; protected $legacy_posted_data = [...]; private $logged_in_customer = class WC_Customer { ... } }], $template_path = *uninitialized*, $default_path = *uninitialized*) D:\wamp64\www\wordpress\wp-content\themes\doAnCMS\page-checkout.php:74
+[24-Nov-2025 04:13:05 UTC] PHP   6. include() D:\wamp64\www\wordpress\wp-content\plugins\woocommerce\includes\wc-core-functions.php:346
+[25-Nov-2025 14:20:08 UTC] PHP Fatal error:  Maximum execution time of 120 seconds exceeded in D:\wamp64\www\wordpress\wp-includes\sodium_compat\src\Core\BLAKE2b.php on line 3
+[25-Nov-2025 14:20:08 UTC] PHP Stack trace:
+[25-Nov-2025 14:20:08 UTC] PHP   1. {main}() D:\wamp64\www\wordpress\index.php:0
+[25-Nov-2025 14:20:08 UTC] PHP   2. require() D:\wamp64\www\wordpress\index.php:17
+[25-Nov-2025 14:20:08 UTC] PHP   3. require_once() D:\wamp64\www\wordpress\wp-blog-header.php:13
+[25-Nov-2025 14:20:08 UTC] PHP   4. require_once() D:\wamp64\www\wordpress\wp-load.php:50
+[25-Nov-2025 14:20:08 UTC] PHP   5. require_once() D:\wamp64\www\wordpress\wp-config.php:106
+[25-Nov-2025 14:20:08 UTC] PHP   6. do_action($hook_name = 'init') D:\wamp64\www\wordpress\wp-settings.php:727
+[25-Nov-2025 14:20:08 UTC] PHP   7. WP_Hook->do_action($args = [0 => '']) D:\wamp64\www\wordpress\wp-includes\plugin.php:517
+[25-Nov-2025 14:20:08 UTC] PHP   8. WP_Hook->apply_filters($value = '', $args = [0 => '']) D:\wamp64\www\wordpress\wp-includes\class-wp-hook.php:348
+[25-Nov-2025 14:20:08 UTC] PHP   9. WooCommerce->init('') D:\wamp64\www\wordpress\wp-includes\class-wp-hook.php:324
+[25-Nov-2025 14:20:08 UTC] PHP  10. wc_load_cart() D:\wamp64\www\wordpress\wp-content\plugins\woocommerce\includes\class-woocommerce.php:891
+[25-Nov-2025 14:20:08 UTC] PHP  11. WooCommerce->initialize_session() D:\wamp64\www\wordpress\wp-content\plugins\woocommerce\includes\wc-core-functions.php:2660
+[25-Nov-2025 14:20:08 UTC] PHP  12. WC_Session_Handler->init() D:\wamp64\www\wordpress\wp-content\plugins\woocommerce\includes\class-woocommerce.php:1100
+[25-Nov-2025 14:20:08 UTC] PHP  13. WC_Session_Handler->init_session() D:\wamp64\www\wordpress\wp-content\plugins\woocommerce\includes\class-wc-session-handler.php:84
+[25-Nov-2025 14:20:08 UTC] PHP  14. WC_Session_Handler->init_session_cookie() D:\wamp64\www\wordpress\wp-content\plugins\woocommerce\includes\class-wc-session-handler.php:107
+[25-Nov-2025 14:20:08 UTC] PHP  15. WC_Session_Handler->get_session_cookie() D:\wamp64\www\wordpress\wp-content\plugins\woocommerce\includes\class-wc-session-handler.php:165
+[25-Nov-2025 14:20:08 UTC] PHP  16. WC_Session_Handler->verify_hash($message = '1|1764552071', $hash = '$generic$D0JYQBO-xlAM55i7ZlUfK0Q5GgMz7ej5vRwWEhGB') D:\wamp64\www\wordpress\wp-content\plugins\woocommerce\includes\class-wc-session-handler.php:519
+[25-Nov-2025 14:20:08 UTC] PHP  17. wp_verify_fast_hash($message = '[Sensitive Parameter]', $hash = '$generic$D0JYQBO-xlAM55i7ZlUfK0Q5GgMz7ej5vRwWEhGB') D:\wamp64\www\wordpress\wp-content\plugins\woocommerce\includes\class-wc-session-handler.php:331
+[25-Nov-2025 14:20:08 UTC] PHP  18. wp_fast_hash($message = '[Sensitive Parameter]') D:\wamp64\www\wordpress\wp-includes\functions.php:9175
+[25-Nov-2025 14:20:08 UTC] PHP  19. sodium_crypto_generichash($message = '1|1764552071', $key = '[Sensitive Parameter]', $length = 30) D:\wamp64\www\wordpress\wp-includes\functions.php:9145
+[25-Nov-2025 14:20:08 UTC] PHP  20. ParagonIE_Sodium_Compat::crypto_generichash($message = '1|1764552071', $key = '[Sensitive Parameter]', $length = 30) D:\wamp64\www\wordpress\wp-includes\sodium_compat\lib\php72compat.php:702
+[25-Nov-2025 14:20:08 UTC] PHP  21. ParagonIE_Sodium_Crypto::generichash($message = '1|1764552071', $key = 'wp_fast_hash_6.8+', $outlen = 30) D:\wamp64\www\wordpress\wp-includes\sodium_compat\src\Compat.php:1734
+[25-Nov-2025 14:20:08 UTC] PHP  22. {closure:D:\wamp64\www\wordpress\wp-includes\sodium_compat\autoload-php7.php:9-31}($class = 'ParagonIE_Sodium_Core_BLAKE2b') D:\wamp64\www\wordpress\wp-includes\sodium_compat\src\Crypto.php:693
+[25-Nov-2025 14:20:08 UTC] PHP  23. require_once() D:\wamp64\www\wordpress\wp-includes\sodium_compat\autoload-php7.php:27
+[25-Nov-2025 14:20:12 UTC] PHP Fatal error:  Maximum execution time of 120 seconds exceeded in D:\wamp64\www\wordpress\wp-content\plugins\woocommerce\includes\widgets\class-wc-widget-brand-description.php on line 15
+[25-Nov-2025 14:20:12 UTC] PHP Stack trace:
+[25-Nov-2025 14:20:12 UTC] PHP   1. {main}() D:\wamp64\www\wordpress\index.php:0
+[25-Nov-2025 14:20:12 UTC] PHP   2. require() D:\wamp64\www\wordpress\index.php:17
+[25-Nov-2025 14:20:12 UTC] PHP   3. require_once() D:\wamp64\www\wordpress\wp-blog-header.php:13
+[25-Nov-2025 14:20:12 UTC] PHP   4. require_once() D:\wamp64\www\wordpress\wp-load.php:50
+[25-Nov-2025 14:20:12 UTC] PHP   5. require_once() D:\wamp64\www\wordpress\wp-config.php:106
+[25-Nov-2025 14:20:12 UTC] PHP   6. do_action($hook_name = 'init') D:\wamp64\www\wordpress\wp-settings.php:727
+[25-Nov-2025 14:20:12 UTC] PHP   7. WP_Hook->do_action($args = [0 => '']) D:\wamp64\www\wordpress\wp-includes\plugin.php:517
+[25-Nov-2025 14:20:12 UTC] PHP   8. WP_Hook->apply_filters($value = '', $args = [0 => '']) D:\wamp64\www\wordpress\wp-includes\class-wp-hook.php:348
+[25-Nov-2025 14:20:12 UTC] PHP   9. wp_widgets_init('') D:\wamp64\www\wordpress\wp-includes\class-wp-hook.php:324
+[25-Nov-2025 14:20:12 UTC] PHP  10. do_action($hook_name = 'widgets_init') D:\wamp64\www\wordpress\wp-includes\widgets.php:1870
+[25-Nov-2025 14:20:12 UTC] PHP  11. WP_Hook->do_action($args = [0 => '']) D:\wamp64\www\wordpress\wp-includes\plugin.php:517
+[25-Nov-2025 14:20:12 UTC] PHP  12. WP_Hook->apply_filters($value = '', $args = [0 => '']) D:\wamp64\www\wordpress\wp-includes\class-wp-hook.php:348
+[25-Nov-2025 14:20:12 UTC] PHP  13. WC_Brands->init_widgets('') D:\wamp64\www\wordpress\wp-includes\class-wp-hook.php:324
+[25-Nov-2025 14:20:12 UTC] PHP  14. require_once() D:\wamp64\www\wordpress\wp-content\plugins\woocommerce\includes\class-wc-brands.php:309
+[25-Nov-2025 14:20:32 UTC] PHP Fatal error:  Maximum execution time of 120 seconds exceeded in D:\wamp64\www\wordpress\wp-content\plugins\woocommerce\src\Blocks\BlockTypes\ProductPrice.php on line 11
+[25-Nov-2025 14:20:32 UTC] PHP Stack trace:
+[25-Nov-2025 14:20:32 UTC] PHP   1. {main}() D:\wamp64\www\wordpress\index.php:0
+[25-Nov-2025 14:20:32 UTC] PHP   2. require() D:\wamp64\www\wordpress\index.php:17
+[25-Nov-2025 14:20:32 UTC] PHP   3. require_once() D:\wamp64\www\wordpress\wp-blog-header.php:13
+[25-Nov-2025 14:20:32 UTC] PHP   4. require_once() D:\wamp64\www\wordpress\wp-load.php:50
+[25-Nov-2025 14:20:32 UTC] PHP   5. require_once() D:\wamp64\www\wordpress\wp-config.php:106
+[25-Nov-2025 14:20:32 UTC] PHP   6. do_action($hook_name = 'init') D:\wamp64\www\wordpress\wp-settings.php:727
+[25-Nov-2025 14:20:32 UTC] PHP   7. WP_Hook->do_action($args = [0 => '']) D:\wamp64\www\wordpress\wp-includes\plugin.php:517
+[25-Nov-2025 14:20:32 UTC] PHP   8. WP_Hook->apply_filters($value = '', $args = [0 => '']) D:\wamp64\www\wordpress\wp-includes\class-wp-hook.php:348
+[25-Nov-2025 14:20:32 UTC] PHP   9. Automattic\WooCommerce\Blocks\BlockTypesController->register_blocks('') D:\wamp64\www\wordpress\wp-includes\class-wp-hook.php:324
+[25-Nov-2025 14:20:32 UTC] PHP  10. Automattic\Jetpack\Autoloader\jp0655ac31b6f4857cb6fe63c205602218\al5_0_8\PHP_Autoloader::load_class($class_name = 'Automattic\\WooCommerce\\Blocks\\BlockTypes\\ProductPrice') D:\wamp64\www\wordpress\wp-content\plugins\woocommerce\src\Blocks\BlockTypesController.php:117
+[25-Nov-2025 14:20:32 UTC] PHP  11. require() D:\wamp64\www\wordpress\wp-content\plugins\mailpoet\vendor\jetpack-autoloader\class-php-autoloader.php:63
+[25-Nov-2025 14:21:01 UTC] Automatic updates starting...
+[25-Nov-2025 14:21:05 UTC]   Automatic plugin updates starting...
+[25-Nov-2025 14:21:05 UTC]   Automatic plugin updates complete.
+[25-Nov-2025 14:21:06 UTC]   Automatic theme updates starting...
+[25-Nov-2025 14:21:06 UTC]   Automatic theme updates complete.
+[25-Nov-2025 14:21:06 UTC] Automatic updates complete.
