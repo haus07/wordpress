@@ -2628,4 +2628,170 @@ function ma_pages_advanced_css()
             background-color: <?php echo get_theme_mod('ma_shop_btn_hover_color', '#7cb342'); ?> !important;
         }
     </style>
-<?php }
+<?php
+}
+
+?>
+<?php
+add_action('customize_register', 'ma_customize_faq_center');
+function ma_customize_faq_center($wp_customize)
+{
+
+    /* ================= FAQ Center ================= */
+    $wp_customize->add_section('ma_faq_section', [
+        'title' => 'FAQ Center (Nhóm4)',
+        'priority' => 40
+    ]);
+
+    // Background
+    $wp_customize->add_setting('ma_faq_bg_color', ['default' => '#f9f9f9', 'sanitize_callback' => 'sanitize_hex_color']);
+    $wp_customize->add_control(new WP_Customize_Color_Control($wp_customize, 'ma_faq_bg_color', ['label' => 'Background Color', 'section' => 'ma_faq_section']));
+    $wp_customize->add_setting('ma_faq_bg_image', ['sanitize_callback' => 'esc_url']);
+    $wp_customize->add_control(new WP_Customize_Image_Control($wp_customize, 'ma_faq_bg_image', ['label' => 'Background Image', 'section' => 'ma_faq_section']));
+
+    // Container padding/margin
+    $wp_customize->add_setting('ma_faq_padding', ['default' => 40, 'sanitize_callback' => 'absint']);
+    $wp_customize->add_control('ma_faq_padding', ['label' => 'Container Padding', 'section' => 'ma_faq_section', 'type' => 'range', 'input_attrs' => ['min' => 0, 'max' => 200]]);
+    $wp_customize->add_setting('ma_faq_margin', ['default' => 20, 'sanitize_callback' => 'absint']);
+    $wp_customize->add_control('ma_faq_margin', ['label' => 'Container Margin', 'section' => 'ma_faq_section', 'type' => 'range', 'input_attrs' => ['min' => 0, 'max' => 200]]);
+
+    // Title & Subtext
+    $wp_customize->add_setting('ma_faq_title_color', ['default' => '#4CAF50', 'sanitize_callback' => 'sanitize_hex_color']);
+    $wp_customize->add_control(new WP_Customize_Color_Control($wp_customize, 'ma_faq_title_color', ['label' => 'Title Color', 'section' => 'ma_faq_section']));
+    $wp_customize->add_setting('ma_faq_sub_color', ['default' => '#666', 'sanitize_callback' => 'sanitize_hex_color']);
+    $wp_customize->add_control(new WP_Customize_Color_Control($wp_customize, 'ma_faq_sub_color', ['label' => 'Subtitle Color', 'section' => 'ma_faq_section']));
+    $wp_customize->add_setting('ma_faq_title_size', ['default' => 40, 'sanitize_callback' => 'absint']);
+    $wp_customize->add_control('ma_faq_title_size', ['label' => 'Title Font Size', 'section' => 'ma_faq_section', 'type' => 'range', 'input_attrs' => ['min' => 20, 'max' => 80]]);
+    $wp_customize->add_setting('ma_faq_sub_size', ['default' => 18, 'sanitize_callback' => 'absint']);
+    $wp_customize->add_control('ma_faq_sub_size', ['label' => 'Subtitle Font Size', 'section' => 'ma_faq_section', 'type' => 'range', 'input_attrs' => ['min' => 12, 'max' => 50]]);
+
+    // Search bar
+    $wp_customize->add_setting('ma_faq_search_bg', ['default' => '#6FBF4A', 'sanitize_callback' => 'sanitize_hex_color']);
+    $wp_customize->add_control(new WP_Customize_Color_Control($wp_customize, 'ma_faq_search_bg', ['label' => 'Search Button Color', 'section' => 'ma_faq_section']));
+    $wp_customize->add_setting('ma_faq_search_hover', ['default' => '#4CAF50', 'sanitize_callback' => 'sanitize_hex_color']);
+    $wp_customize->add_control(new WP_Customize_Color_Control($wp_customize, 'ma_faq_search_hover', ['label' => 'Search Button Hover Color', 'section' => 'ma_faq_section']));
+    $wp_customize->add_setting('ma_faq_input_border', ['default' => '#6FBF4A', 'sanitize_callback' => 'sanitize_hex_color']);
+    $wp_customize->add_control(new WP_Customize_Color_Control($wp_customize, 'ma_faq_input_border', ['label' => 'Search Input Border', 'section' => 'ma_faq_section']));
+    $wp_customize->add_setting('ma_faq_input_bg', ['default' => '#fff', 'sanitize_callback' => 'sanitize_hex_color']);
+    $wp_customize->add_control(new WP_Customize_Color_Control($wp_customize, 'ma_faq_input_bg', ['label' => 'Search Input Background', 'section' => 'ma_faq_section']));
+
+    // Categories
+    $wp_customize->add_setting('ma_faq_cat_bg', ['default' => '#f0f9f0', 'sanitize_callback' => 'sanitize_hex_color']);
+    $wp_customize->add_control(new WP_Customize_Color_Control($wp_customize, 'ma_faq_cat_bg', ['label' => 'Category Background', 'section' => 'ma_faq_section']));
+    $wp_customize->add_setting('ma_faq_cat_color', ['default' => '#4CAF50', 'sanitize_callback' => 'sanitize_hex_color']);
+    $wp_customize->add_control(new WP_Customize_Color_Control($wp_customize, 'ma_faq_cat_color', ['label' => 'Category Text Color', 'section' => 'ma_faq_section']));
+    $wp_customize->add_setting('ma_faq_cat_hover', ['default' => '#6FBF4A', 'sanitize_callback' => 'sanitize_hex_color']);
+    $wp_customize->add_control(new WP_Customize_Color_Control($wp_customize, 'ma_faq_cat_hover', ['label' => 'Category Hover Color', 'section' => 'ma_faq_section']));
+
+    // FAQ item card
+    $wp_customize->add_setting('ma_faq_card_bg', ['default' => '#fff', 'sanitize_callback' => 'sanitize_hex_color']);
+    $wp_customize->add_control(new WP_Customize_Color_Control($wp_customize, 'ma_faq_card_bg', ['label' => 'FAQ Card Background', 'section' => 'ma_faq_section']));
+    $wp_customize->add_setting('ma_faq_card_border', ['default' => '#e2e2e2', 'sanitize_callback' => 'sanitize_hex_color']);
+    $wp_customize->add_control(new WP_Customize_Color_Control($wp_customize, 'ma_faq_card_border', ['label' => 'FAQ Card Border Color', 'section' => 'ma_faq_section']));
+    $wp_customize->add_setting('ma_faq_card_radius', ['default' => 10, 'sanitize_callback' => 'absint']);
+    $wp_customize->add_control('ma_faq_card_radius', ['label' => 'FAQ Card Border Radius', 'section' => 'ma_faq_section', 'type' => 'range', 'input_attrs' => ['min' => 0, 'max' => 50]]);
+    $wp_customize->add_setting('ma_faq_card_shadow', ['default' => '0 3px 10px rgba(0,0,0,0.05)', 'sanitize_callback' => 'sanitize_text_field']);
+    $wp_customize->add_control('ma_faq_card_shadow', ['label' => 'FAQ Card Shadow', 'section' => 'ma_faq_section']);
+
+    // Question & Answer
+    $wp_customize->add_setting('ma_faq_q_color', ['default' => '#333', 'sanitize_callback' => 'sanitize_hex_color']);
+    $wp_customize->add_control(new WP_Customize_Color_Control($wp_customize, 'ma_faq_q_color', ['label' => 'Question Color', 'section' => 'ma_faq_section']));
+    $wp_customize->add_setting('ma_faq_a_color', ['default' => '#555', 'sanitize_callback' => 'sanitize_hex_color']);
+    $wp_customize->add_control(new WP_Customize_Color_Control($wp_customize, 'ma_faq_a_color', ['label' => 'Answer Text Color', 'section' => 'ma_faq_section']));
+    $wp_customize->add_setting('ma_faq_icon_color', ['default' => '#6FBF4A', 'sanitize_callback' => 'sanitize_hex_color']);
+    $wp_customize->add_control(new WP_Customize_Color_Control($wp_customize, 'ma_faq_icon_color', ['label' => 'Icon Color', 'section' => 'ma_faq_section']));
+    $wp_customize->add_setting('ma_faq_toggle_rotate', ['default' => 45, 'sanitize_callback' => 'absint']);
+    $wp_customize->add_control('ma_faq_toggle_rotate', ['label' => 'Toggle Icon Rotate Degrees', 'section' => 'ma_faq_section', 'type' => 'range', 'input_attrs' => ['min' => 0, 'max' => 360]]);
+
+    // Reset button
+    $wp_customize->add_setting('ma_faq_reset_bg', ['default' => '#fff', 'sanitize_callback' => 'sanitize_hex_color']);
+    $wp_customize->add_control(new WP_Customize_Color_Control($wp_customize, 'ma_faq_reset_bg', ['label' => 'Reset Button Background', 'section' => 'ma_faq_section']));
+    $wp_customize->add_setting('ma_faq_reset_color', ['default' => '#4CAF50', 'sanitize_callback' => 'sanitize_hex_color']);
+    $wp_customize->add_control(new WP_Customize_Color_Control($wp_customize, 'ma_faq_reset_color', ['label' => 'Reset Button Color', 'section' => 'ma_faq_section']));
+    $wp_customize->add_setting('ma_faq_reset_hover_bg', ['default' => '#4CAF50', 'sanitize_callback' => 'sanitize_hex_color']);
+    $wp_customize->add_control(new WP_Customize_Color_Control($wp_customize, 'ma_faq_reset_hover_bg', ['label' => 'Reset Button Hover BG', 'section' => 'ma_faq_section']));
+    $wp_customize->add_setting('ma_faq_reset_hover_color', ['default' => '#fff', 'sanitize_callback' => 'sanitize_hex_color']);
+    $wp_customize->add_control(new WP_Customize_Color_Control($wp_customize, 'ma_faq_reset_hover_color', ['label' => 'Reset Button Hover Text', 'section' => 'ma_faq_section']));
+}
+
+// Xuất CSS ra front-end
+add_action('wp_head', 'ma_faq_center_css');
+function ma_faq_center_css()
+{ ?>
+    <style>
+        .faq-center {
+            background-color: <?php echo get_theme_mod('ma_faq_bg_color', '#f9f9f9'); ?>;
+            background-image: url('<?php echo get_theme_mod('ma_faq_bg_image', ''); ?>');
+            padding: <?php echo get_theme_mod('ma_faq_padding', 40); ?>px;
+            margin: <?php echo get_theme_mod('ma_faq_margin', 20); ?>px auto;
+        }
+
+        .faq-title {
+            color: <?php echo get_theme_mod('ma_faq_title_color', '#4CAF50'); ?>;
+            font-size: <?php echo get_theme_mod('ma_faq_title_size', 40); ?>px;
+        }
+
+        .faq-sub {
+            color: <?php echo get_theme_mod('ma_faq_sub_color', '#666'); ?>;
+            font-size: <?php echo get_theme_mod('ma_faq_sub_size', 18); ?>px;
+        }
+
+        .faq-search-btn {
+            background-color: <?php echo get_theme_mod('ma_faq_search_bg', '#6FBF4A'); ?>;
+        }
+
+        .faq-search-btn:hover {
+            background-color: <?php echo get_theme_mod('ma_faq_search_hover', '#4CAF50'); ?>;
+        }
+
+        .faq-search-input {
+            border-color: <?php echo get_theme_mod('ma_faq_input_border', '#6FBF4A'); ?>;
+            background-color: <?php echo get_theme_mod('ma_faq_input_bg', '#fff'); ?>;
+        }
+
+        .faq-cat {
+            background: <?php echo get_theme_mod('ma_faq_cat_bg', '#f0f9f0'); ?>;
+            color: <?php echo get_theme_mod('ma_faq_cat_color', '#4CAF50'); ?>;
+        }
+
+        .faq-cat:hover,
+        .faq-cat.active {
+            background: <?php echo get_theme_mod('ma_faq_cat_hover', '#6FBF4A'); ?>;
+            color: #fff;
+        }
+
+        .faq-item {
+            background: <?php echo get_theme_mod('ma_faq_card_bg', '#fff'); ?>;
+            border: 1px solid <?php echo get_theme_mod('ma_faq_card_border', '#e2e2e2'); ?>;
+            border-radius: <?php echo get_theme_mod('ma_faq_card_radius', 10); ?>px;
+            box-shadow: <?php echo get_theme_mod('ma_faq_card_shadow', '0 3px 10px rgba(0,0,0,0.05)'); ?>;
+        }
+
+        .faq-question {
+            color: <?php echo get_theme_mod('ma_faq_q_color', '#333'); ?>;
+        }
+
+        .faq-answer {
+            color: <?php echo get_theme_mod('ma_faq_a_color', '#555'); ?>;
+        }
+
+        .faq-icon {
+            color: <?php echo get_theme_mod('ma_faq_icon_color', '#6FBF4A'); ?>;
+        }
+
+        .faq-item.active .faq-toggle-icon {
+            transform: rotate(<?php echo get_theme_mod('ma_faq_toggle_rotate', 45); ?>deg);
+        }
+
+        .faq-reset-btn {
+            background-color: <?php echo get_theme_mod('ma_faq_reset_bg', '#fff'); ?>;
+            color: <?php echo get_theme_mod('ma_faq_reset_color', '#4CAF50'); ?>;
+            border-color: <?php echo get_theme_mod('ma_faq_reset_color', '#4CAF50'); ?>;
+        }
+
+        .faq-reset-btn:hover {
+            background-color: <?php echo get_theme_mod('ma_faq_reset_hover_bg', '#4CAF50'); ?>;
+            color: <?php echo get_theme_mod('ma_faq_reset_hover_color', '#fff'); ?>;
+        }
+    </style>
+<?php } ?>
