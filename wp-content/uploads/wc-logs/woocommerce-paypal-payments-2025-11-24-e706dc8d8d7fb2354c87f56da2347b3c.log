@@ -1,0 +1,24 @@
+2025-11-24T03:06:03+00:00 DEBUG #6659 - [New Request] GET /wordpress/wp-admin/admin.php
+2025-11-24T03:06:03+00:00 DEBUG #6659 - GET https://api.woocommerce.com/integrations/ppc/v1/customer/partners/K8SKZ36LQBWXJ/merchant-integrations/
+Response: Array
+(
+    [code] => 404
+    [message] => Not Found
+)
+
+Response Body: {"statusCode":404,"error":"Not Found","message":"Not Found"}
+
+2025-11-24T03:06:03+00:00 WARNING #6659 - [Error] Not Found CONTEXT: {"args":{"method":"GET","headers":{"Authorization":"Bearer token","Content-Type":"application/json"}},"response":{"headers":{},"body":"{"statusCode":404,"error":"Not Found","message":"Not Found"}","response":{"code":404,"message":"Not Found"},"cookies":[],"filename":null,"http_response":{"data":null,"headers":null,"status":null}}}
+2025-11-24T03:06:09+00:00 DEBUG #3492 - [New Request] GET /wordpress/wp-json/wc/v3/wc_paypal/webhooks
+2025-11-24T03:06:09+00:00 DEBUG #3492 - GET https://api.woocommerce.com/integrations/ppc/v1/notifications/webhooks
+Response: Array
+(
+    [code] => 404
+    [message] => Not Found
+)
+
+Response Body: {"statusCode":404,"error":"Not Found","message":"Not Found"}
+
+2025-11-24T03:06:11+00:00 DEBUG #3827 - [New Request] POST /wordpress/wp-json/wc/v3/wc_paypal/login_link
+2025-11-24T03:06:11+00:00 DEBUG #3827 - Loaded onboarding URL from cache: production-express_checkout-
+2025-11-24T03:06:11+00:00 INFO #3827 - Using cached onboarding URL for: production-express_checkout-

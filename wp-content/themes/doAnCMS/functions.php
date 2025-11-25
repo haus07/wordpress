@@ -751,81 +751,6 @@ function html_cms_widgets_init()
 }
 add_action('widgets_init', 'html_cms_widgets_init');
 
-// AJAX cập nhật số lượng
-// function update_cart_item_ajax()
-// {
-//     $cart_item_key = sanitize_text_field($_POST['cart_item_key']);
-//     $qty = intval($_POST['qty']);
-
-//     $cart = WC()->cart;
-
-//     if (isset($cart->get_cart()[$cart_item_key])) {
-//         if ($qty > 0) {
-//             $cart->set_quantity($cart_item_key, $qty, true); // true = recalc totals
-//         } else {
-//             $cart->remove_cart_item($cart_item_key);
-//         }
-//     }
-
-//     // Tính lại totals (tự động tính cả coupon nếu có)
-//     $cart->calculate_totals();
-
-//     $subtotal_html = $cart->get_cart_subtotal();
-//     $total_html    = $cart->get_total();
-//     $discount_total = $cart->get_cart_discount_total();
-//     $discount_html = wc_price($discount_total);
-
-//     wp_send_json_success([
-//         'removed'       => $qty === 0,
-//         'subtotal_html' => $subtotal_html,
-//         'total_html'    => $total_html,
-//         'discount_html' => $discount_html,
-//         'message'       => 'Cập nhật giỏ hàng thành công'
-//     ]);
-
-//     wp_die();
-// }
-// add_action('wp_ajax_update_cart_item', 'update_cart_item_ajax');
-// add_action('wp_ajax_nopriv_update_cart_item', 'update_cart_item_ajax');
-
-
-// add_action('wp_ajax_apply_coupon_ajax', 'apply_coupon_ajax');
-// add_action('wp_ajax_nopriv_apply_coupon_ajax', 'apply_coupon_ajax');
-
-// function apply_coupon_ajax()
-// {
-//     if (empty($_POST['coupon_code'])) {
-//         wp_send_json_error(['message' => 'Vui lòng nhập mã giảm giá']);
-//     }
-
-//     $coupon_code = sanitize_text_field($_POST['coupon_code']);
-
-//     // Áp mã
-//     $applied = WC()->cart->apply_coupon($coupon_code);
-
-//     // Lấy lỗi sau khi apply
-//     if (!$applied) {
-//         $errors = wc_get_notices('error');
-//         $err_msg = !empty($errors) ? $errors[0]['notice'] : 'Mã giảm giá không hợp lệ';
-//         wc_clear_notices();
-
-//         wp_send_json_error(['message' => $err_msg]);
-//     }
-
-//     // Tính lại tiền
-//     WC()->cart->calculate_totals();
-
-//     wp_send_json_success([
-//         'coupon_code'   => $coupon_code,
-//         'subtotal_html' => WC()->cart->get_cart_subtotal(),
-//         'discount_html' => wc_price(WC()->cart->get_cart_discount_total()),
-//         'total_html'    => WC()->cart->get_total(),
-//         'message'       => sprintf('Áp dụng mã "%s" thành công!', esc_html($coupon_code))
-//     ]);
-
-//     wp_die();
-// }
-
 // // =========================
 // // AJAX LIVE SEARCH PRODUCT
 // // =========================
@@ -978,6 +903,147 @@ function my_custom_related_products_args($args)
     return $args;
 }
 add_filter('woocommerce_output_related_products_args', 'my_custom_related_products_args', 20);
+
+// =========================
+// VIEW COUNT
+// =========================
+
+// Tăng view mỗi lần truy cập single
+function deluxe_set_post_views($postID)
+{
+    $count_key = 'post_view_count';
+    $count = get_post_meta($postID, $count_key, true);
+
+    if ($count == '') {
+        delete_post_meta($postID, $count_key);
+        add_post_meta($postID, $count_key, 1);
+    } else {
+        $count++;
+        update_post_meta($postID, $count_key, $count);
+    }
+}
+
+// Lấy số view
+function deluxe_get_post_views($postID)
+{
+    $count_key = 'post_view_count';
+    $count = get_post_meta($postID, $count_key, true);
+
+    if ($count == '') {
+        return 0;
+    }
+    return $count;
+}
+
+// Auto tăng view khi vào bài viết
+function deluxe_count_views_single()
+{
+    if (is_single()) {
+        $post_id = get_the_ID();
+        deluxe_set_post_views($post_id);
+    }
+}
+add_action('wp_head', 'deluxe_count_views_single');
+
+// ===== CUSTOM POST TYPE: FAQ =====
+function create_faq_post_type()
+{
+    $labels = array(
+        'name'               => 'FAQs',
+        'singular_name'      => 'FAQ',
+        'menu_name'          => 'FAQ Center',
+        'name_admin_bar'     => 'FAQ',
+        'add_new'            => 'Thêm câu hỏi',
+        'add_new_item'       => 'Thêm câu hỏi mới',
+        'edit_item'          => 'Sửa câu hỏi',
+        'new_item'           => 'Câu hỏi mới',
+        'view_item'          => 'Xem câu hỏi',
+        'search_items'       => 'Tìm câu hỏi',
+    );
+
+    $args = array(
+        'labels'             => $labels,
+        'public'             => true,
+        'menu_icon'          => 'dashicons-editor-help',
+        'supports'           => array('title', 'editor'),
+        'has_archive'        => false,
+        'rewrite'            => array('slug' => 'faq'),
+        'show_in_rest'       => true, // GutenBerg support
+    );
+
+    register_post_type('faq', $args);
+}
+add_action('init', 'create_faq_post_type');
+
+// ===== TAXONOMY FOR FAQ =====
+function faq_register_taxonomy()
+{
+    $labels = array(
+        'name'              => 'FAQ Categories',
+        'singular_name'     => 'FAQ Category',
+        'search_items'      => 'Tìm category',
+        'all_items'         => 'Tất cả category',
+        'edit_item'         => 'Sửa category',
+        'add_new_item'      => 'Thêm category mới',
+        'menu_name'         => 'FAQ Category',
+    );
+
+    $args = array(
+        'labels'            => $labels,
+        'hierarchical'      => true,
+        'rewrite'           => array('slug' => 'faq-category'),
+        'show_in_rest'      => true,
+    );
+
+    register_taxonomy('faq_category', array('faq'), $args);
+}
+add_action('init', 'faq_register_taxonomy');
+
+add_action('wp_ajax_faq_search', 'faq_search_ajax');
+add_action('wp_ajax_nopriv_faq_search', 'faq_search_ajax');
+
+function faq_search_ajax()
+{
+    if (!isset($_GET['keyword'])) {
+        wp_send_json([]);
+        wp_die();
+    }
+
+    $keyword = sanitize_text_field($_GET['keyword']);
+    $faq_cat = isset($_GET['faq_cat']) ? sanitize_text_field($_GET['faq_cat']) : '';
+
+    $args = [
+        'post_type' => 'faq',
+        'posts_per_page' => 5, // hiển thị 5 gợi ý
+        's' => $keyword
+    ];
+
+    if ($faq_cat) {
+        $args['tax_query'] = [
+            [
+                'taxonomy' => 'faq_category',
+                'field'    => 'slug',
+                'terms'    => $faq_cat
+            ]
+        ];
+    }
+
+    $query = new WP_Query($args);
+    $results = [];
+
+    if ($query->have_posts()) {
+        while ($query->have_posts()) {
+            $query->the_post();
+            $results[] = [
+                'title' => get_the_title(),
+                'link'  => get_permalink()
+            ];
+        }
+    }
+
+    wp_reset_postdata();
+    wp_send_json($results);
+}
 // Wishtlist
 add_action('woocommerce_after_add_to_cart_button', 'doAnCMS_add_wishlist_button');
 
@@ -1288,11 +1354,132 @@ function theme_customize_contact($wp_customize)
         'type'        => 'range',
         'input_attrs' => array(
             'min'  => 0,
+=======
+
+
+/**
+ * Enqueue CSS riêng cho trang View Order (Chi tiết đơn hàng)
+ */
+function custom_enqueue_view_order_style()
+{
+    // Chỉ load khi đang ở trang My Account VÀ là endpoint view-order
+    if (is_account_page() && is_wc_endpoint_url('view-order')) {
+
+        wp_enqueue_style(
+            'custom-view-order-css', // Handle name (đặt sao cũng dc)
+            get_template_directory_uri() . '/view-order.css', // Đường dẫn tới file
+            array(), // Dependencies
+            '1.0.0', // Version
+            'all' // Media
+        );
+    }
+}
+add_action('wp_enqueue_scripts', 'custom_enqueue_view_order_style');
+
+
+function ha_enqueue_custom_my_account_style()
+{
+    // Kiểm tra nếu đang dùng Template "Trang cá nhân"
+    if (is_page_template('page-my-account.php')) {
+        wp_enqueue_style(
+            'ha-modern-account',
+            get_template_directory_uri() . '/my-account.css',
+            array(),
+            '1.0.0'
+        );
+    }
+}
+add_action('wp_enqueue_scripts', 'ha_enqueue_custom_my_account_style');
+
+
+
+function ha_enqueue_edit_account_style()
+{
+    // Chỉ load CSS khi đang ở trang template "Chỉnh sửa thông tin"
+    if (is_page_template('page-edit-account.php')) {
+        wp_enqueue_style(
+            'ha-edit-account-css',
+            get_template_directory_uri() . '/edit-account.css',
+            array(),
+            '1.0.0'
+        );
+    }
+}
+add_action('wp_enqueue_scripts', 'ha_enqueue_edit_account_style');
+
+/**
+ * FORCE Redirect về lại trang Custom sau khi lưu thông tin
+ */
+/**
+ * Redirect dựa trên link được gửi kèm trong Form
+ */
+function ha_force_hard_redirect_custom_account($location)
+{
+    // 1. Kiểm tra xem người dùng có đang bấm nút Lưu thông tin không
+    if (isset($_POST['action']) && $_POST['action'] === 'save_account_details') {
+
+        // 2. Kiểm tra xem trong form có gửi kèm cái Link "bảo bối" của mình không
+        if (! empty($_POST['ha_redirect_url'])) {
+            // 3. Nếu có -> Bẻ lái ngay lập tức về link đó!
+            return esc_url_raw($_POST['ha_redirect_url']);
+        }
+    }
+
+    // Nếu không phải trường hợp trên, cho đi bình thường
+    return $location;
+}
+// Hook vào wp_redirect thay vì hook của WooCommerce
+add_filter('wp_redirect', 'ha_force_hard_redirect_custom_account', 999999);
+
+
+function n1_master_customizer_register($wp_customize)
+{
+
+    // ------------------------------------------------------------------------
+    // KHU VỰC 1: TÙY CHỈNH CƠ BẢN (Màu sắc, Font chữ)
+    // ------------------------------------------------------------------------
+    $wp_customize->add_section('n1_theme_options', array(
+        'title'    => __('1. Tùy chỉnh Giao diện (Cơ bản)', 'doAnCMS'),
+        'priority' => 30,
+        'description' => 'Chỉnh màu sắc chủ đạo, font chữ và bố cục chung.',
+    ));
+
+    // A. CHỌN MÀU CHỦ ĐẠO
+    $wp_customize->add_setting('main_theme_color', array(
+        'default'   => '#6b9d3e',
+        'transport' => 'refresh',
+    ));
+    $wp_customize->add_control(new WP_Customize_Color_Control($wp_customize, 'main_theme_color', array(
+        'label'    => __('Màu chủ đạo (Menu, Nút, Giá...)', 'doAnCMS'),
+        'section'  => 'n1_theme_options',
+    )));
+
+    // B. CHỌN MÀU HEADER
+    $wp_customize->add_setting('header_bg_color', array(
+        'default'   => '#ffffff',
+        'transport' => 'refresh',
+    ));
+    $wp_customize->add_control(new WP_Customize_Color_Control($wp_customize, 'header_bg_color', array(
+        'label'    => __('Màu nền Header', 'doAnCMS'),
+        'section'  => 'n1_theme_options',
+    )));
+
+    // C. KÉO CỠ CHỮ TÊN SẢN PHẨM (Slider)
+    $wp_customize->add_setting('product_name_size', array(
+        'default'   => '14',
+        'transport' => 'refresh',
+    ));
+    $wp_customize->add_control('product_name_size', array(
+        'label'       => __('Cỡ chữ Tên Sản phẩm (px)', 'doAnCMS'),
+        'section'     => 'n1_theme_options',
+        'type'        => 'range',
+        'input_attrs' => array(
+            'min'  => 10,
             'max'  => 30,
             'step' => 1,
         ),
     ));
-}
+    }
 add_action('customize_register', 'theme_customize_contact');
 
 /**
@@ -1452,6 +1639,265 @@ function theme_customize_single_product($wp_customize)
         'label'       => 'Cỡ chữ giá (px)',
         'section'     => 'single_product_style',
         'settings'    => 'sp_price_size',
+=======
+
+    // D. KÉO KHOẢNG CÁCH SẢN PHẨM (Slider Gap)
+    $wp_customize->add_setting('product_grid_gap', array(
+        'default'   => '20',
+        'transport' => 'refresh',
+    ));
+    $wp_customize->add_control('product_grid_gap', array(
+        'label'       => __('Khoảng cách giữa các sản phẩm', 'doAnCMS'),
+        'section'     => 'n1_theme_options',
+        'type'        => 'range',
+        'input_attrs' => array(
+            'min'  => 0,
+            'max'  => 50,
+            'step' => 5,
+        ),
+    ));
+
+    // E. MÀU NỀN FOOTER
+    $wp_customize->add_setting('footer_bg_color', array(
+        'default'   => '#333333',
+        'transport' => 'refresh',
+    ));
+    $wp_customize->add_control(new WP_Customize_Color_Control($wp_customize, 'footer_bg_color', array(
+        'label'    => __('Màu nền Footer', 'doAnCMS'),
+        'section'  => 'n1_theme_options',
+    )));
+
+
+    // ------------------------------------------------------------------------
+    // KHU VỰC 2: TÙY CHỈNH NÂNG CAO (Demo Chức năng cho Cô xem)
+    // ------------------------------------------------------------------------
+    $wp_customize->add_section('n1_advanced_options', array(
+        'title'    => __('2. Tùy biến Nâng cao (Demo Chức năng)', 'doAnCMS'),
+        'priority' => 31,
+        'description' => 'Demo các loại input khác nhau: Checkbox, Radio, Select, Range...',
+    ));
+
+    // 1. LOẠI CHECKBOX: Ẩn/Hiện Search Bar
+    $wp_customize->add_setting('show_search_bar', array(
+        'default'   => true,
+        'transport' => 'refresh',
+    ));
+    $wp_customize->add_control('show_search_bar', array(
+        'label'    => __('Hiển thị thanh tìm kiếm? (Checkbox)', 'doAnCMS'),
+        'section'  => 'n1_advanced_options',
+        'type'     => 'checkbox',
+    ));
+
+    // 2. LOẠI RANGE: Bo tròn góc Card
+    $wp_customize->add_setting('card_border_radius', array(
+        'default'   => '8',
+        'transport' => 'refresh',
+    ));
+    $wp_customize->add_control('card_border_radius', array(
+        'label'       => __('Độ bo góc sản phẩm (Range Slider)', 'doAnCMS'),
+        'section'     => 'n1_advanced_options',
+        'type'        => 'range',
+        'input_attrs' => array(
+            'min'  => 0,
+            'max'  => 50,
+            'step' => 1,
+        ),
+    ));
+
+    // 3. LOẠI RADIO: Căn lề Tiêu đề
+    $wp_customize->add_setting('title_alignment', array(
+        'default'   => 'left',
+        'transport' => 'refresh',
+    ));
+    $wp_customize->add_control('title_alignment', array(
+        'label'    => __('Vị trí tiêu đề Section (Radio)', 'doAnCMS'),
+        'section'  => 'n1_advanced_options',
+        'type'     => 'radio',
+        'choices'  => array(
+            'left'   => 'Căn trái',
+            'center' => 'Căn giữa',
+            'right'  => 'Căn phải',
+        ),
+    ));
+
+    // 4. LOẠI SELECT: Kiểu chữ Menu
+    $wp_customize->add_setting('menu_text_transform', array(
+        'default'   => 'uppercase',
+        'transport' => 'refresh',
+    ));
+    $wp_customize->add_control('menu_text_transform', array(
+        'label'    => __('Kiểu chữ Menu (Select Dropdown)', 'doAnCMS'),
+        'section'  => 'n1_advanced_options',
+        'type'     => 'select',
+        'choices'  => array(
+            'uppercase'  => 'IN HOA',
+            'capitalize' => 'Viết Hoa Chữ Đầu',
+            'lowercase'  => 'chữ thường',
+            'none'       => 'Bình thường',
+        ),
+    ));
+
+    // 5. LOẠI COLOR: Màu nền Badge Sale
+    $wp_customize->add_setting('sale_badge_color', array(
+        'default'   => '#ff4d4d',
+        'transport' => 'refresh',
+    ));
+    $wp_customize->add_control(new WP_Customize_Color_Control($wp_customize, 'sale_badge_color', array(
+        'label'    => __('Màu nhãn Sale (Color Picker)', 'doAnCMS'),
+        'section'  => 'n1_advanced_options',
+    )));
+}
+add_action('customize_register', 'n1_master_customizer_register');
+
+
+/**
+ * ============================================================================
+ * XUẤT TOÀN BỘ CSS RA HTML (HEAD)
+ * ============================================================================
+ */
+function n1_master_customizer_css()
+{
+?>
+    <style type="text/css">
+        /* ==================== PHẦN 1: CƠ BẢN ==================== */
+
+        /* 1. Màu chủ đạo */
+        .nav,
+        .btn-primary,
+        .flash-sale-section,
+        .swiper-button-next-testimonial:hover,
+        .swiper-button-prev-testimonial:hover,
+        .btn-quick-view:hover {
+            background-color: <?php echo get_theme_mod('main_theme_color', '#6b9d3e'); ?> !important;
+        }
+
+        .product-price,
+        .view-all,
+        .section-subtitle,
+        .btn-secondary,
+        .swiper-button-next-testimonial,
+        .swiper-button-prev-testimonial,
+        .btn-quick-view {
+            color: <?php echo get_theme_mod('main_theme_color', '#6b9d3e'); ?> !important;
+        }
+
+        .btn-quick-view {
+            border-color: <?php echo get_theme_mod('main_theme_color', '#6b9d3e'); ?> !important;
+        }
+
+        /* 2. Màu nền Header */
+        .header {
+            background-color: <?php echo get_theme_mod('header_bg_color', '#ffffff'); ?> !important;
+        }
+
+        /* 3. Cỡ chữ tên sản phẩm */
+        .product-name,
+        .product-name a {
+            font-size: <?php echo get_theme_mod('product_name_size', '14'); ?>px !important;
+        }
+
+        /* 4. Khoảng cách lưới */
+        .product-grid {
+            gap: <?php echo get_theme_mod('product_grid_gap', '20'); ?>px !important;
+        }
+
+        /* 5. Màu nền Footer */
+        .footer {
+            background-color: <?php echo get_theme_mod('footer_bg_color', '#333333'); ?> !important;
+        }
+
+        /* ==================== PHẦN 2: NÂNG CAO ==================== */
+
+        /* 1. Ẩn/Hiện Search Bar */
+        <?php if (get_theme_mod('show_search_bar', true) == false) : ?>.search-bar {
+            display: none !important;
+        }
+
+        <?php endif; ?>
+
+        /* 2. Bo tròn góc */
+        .product-card,
+        .category-card,
+        .banner-image,
+        .blog-card img {
+            border-radius: <?php echo get_theme_mod('card_border_radius', '8'); ?>px !important;
+        }
+
+        /* 3. Căn lề tiêu đề */
+        .section-title,
+        .section-header {
+            text-align: <?php echo get_theme_mod('title_alignment', 'left'); ?> !important;
+            justify-content: <?php echo (get_theme_mod('title_alignment', 'left') == 'center') ? 'center' : 'space-between'; ?>;
+        }
+
+        /* 4. Kiểu chữ Menu */
+        .nav a {
+            text-transform: <?php echo get_theme_mod('menu_text_transform', 'uppercase'); ?> !important;
+        }
+
+        /* 5. Màu Badge Sale */
+        .onsale,
+        .sale-badge {
+            background-color: <?php echo get_theme_mod('sale_badge_color', '#ff4d4d'); ?> !important;
+        }
+    </style>
+<?php
+}
+add_action('wp_head', 'n1_master_customizer_css');
+
+function n1_checkout_customizer_register($wp_customize)
+{
+
+    // 1. TẠO SECTION DUY NHẤT
+    $wp_customize->add_section('n1_checkout_options', array(
+        'title'       => __('Cấu hình Trang Checkout (Nhom1)', 'doAnCMS'),
+        'priority'    => 35, // Xếp sau mấy cái cũ
+        'description' => 'Chỉnh sửa toàn diện giao diện trang thanh toán.',
+    ));
+
+    // ================= GROUP A: MÀU SẮC CHỦ ĐẠO =================
+
+    // 1. Màu Chính (Màu xanh #4CAF50 - Dùng cho nút, viền, tiêu đề bảng...)
+    $wp_customize->add_setting('checkout_primary_color', array(
+        'default'   => '#4CAF50',
+        'transport' => 'refresh',
+    ));
+    $wp_customize->add_control(new WP_Customize_Color_Control($wp_customize, 'checkout_primary_color', array(
+        'label'    => __('Màu chủ đạo (Nút, Viền, Icon)', 'doAnCMS'),
+        'section'  => 'n1_checkout_options',
+    )));
+
+    // 2. Màu Nền Tổng Thể (Background trang)
+    $wp_customize->add_setting('checkout_page_bg', array(
+        'default'   => '#f0f7f4',
+        'transport' => 'refresh',
+    ));
+    $wp_customize->add_control(new WP_Customize_Color_Control($wp_customize, 'checkout_page_bg', array(
+        'label'    => __('Màu nền toàn trang', 'doAnCMS'),
+        'section'  => 'n1_checkout_options',
+    )));
+
+    // ================= GROUP B: TYPOGRAPHY (CHỮ) =================
+
+    // 3. Màu Tiêu Đề Chính (Checkout Title)
+    $wp_customize->add_setting('checkout_title_color', array(
+        'default'   => '#2e7d32',
+        'transport' => 'refresh',
+    ));
+    $wp_customize->add_control(new WP_Customize_Color_Control($wp_customize, 'checkout_title_color', array(
+        'label'    => __('Màu Tiêu đề chính & H3', 'doAnCMS'),
+        'section'  => 'n1_checkout_options',
+    )));
+
+    // 4. Cỡ chữ Tiêu Đề Chính (Slider)
+    $wp_customize->add_setting('checkout_title_size', array(
+        'default'   => '36',
+        'transport' => 'refresh',
+    ));
+    $wp_customize->add_control('checkout_title_size', array(
+        'label'       => __('Kích thước Tiêu đề chính (px)', 'doAnCMS'),
+        'section'     => 'n1_checkout_options',
+>>>>>>> origin/main
         'type'        => 'range',
         'input_attrs' => array('min' => 20, 'max' => 60, 'step' => 1),
     ));
@@ -1500,6 +1946,17 @@ function theme_customize_single_product($wp_customize)
         'label'       => 'Bo góc (px)',
         'section'     => 'single_product_style',
         'settings'    => 'sp_border_radius',
+=======
+    // ================= GROUP C: CARDS & INPUTS (HỘP & Ô NHẬP) =================
+
+    // 5. Độ bo góc của các Khung (Card Radius)
+    $wp_customize->add_setting('checkout_card_radius', array(
+        'default'   => '12',
+        'transport' => 'refresh',
+    ));
+    $wp_customize->add_control('checkout_card_radius', array(
+        'label'       => __('Độ bo tròn khung chứa (px)', 'doAnCMS'),
+        'section'     => 'n1_checkout_options',
         'type'        => 'range',
         'input_attrs' => array('min' => 0, 'max' => 30, 'step' => 1),
     ));
@@ -1737,3 +2194,1187 @@ function doAnCMS_customize_wishlist_preview()
     );
 }
 add_action('customize_preview_init', 'doAnCMS_customize_wishlist_preview');
+=======
+    // 6. Màu nền Ô nhập liệu (Input Background)
+    $wp_customize->add_setting('checkout_input_bg', array(
+        'default'   => '#f9fbf9',
+        'transport' => 'refresh',
+    ));
+    $wp_customize->add_control(new WP_Customize_Color_Control($wp_customize, 'checkout_input_bg', array(
+        'label'    => __('Màu nền ô nhập liệu', 'doAnCMS'),
+        'section'  => 'n1_checkout_options',
+    )));
+
+    // 7. Độ bo góc Ô nhập liệu (Input Radius)
+    $wp_customize->add_setting('checkout_input_radius', array(
+        'default'   => '6',
+        'transport' => 'refresh',
+    ));
+    $wp_customize->add_control('checkout_input_radius', array(
+        'label'       => __('Độ bo tròn ô nhập liệu (px)', 'doAnCMS'),
+        'section'     => 'n1_checkout_options',
+        'type'        => 'range',
+        'input_attrs' => array('min' => 0, 'max' => 25, 'step' => 1),
+    ));
+
+    // ================= GROUP D: NÚT ĐẶT HÀNG (BUTTON) =================
+
+    // 8. Màu Chữ Nút Đặt Hàng
+    $wp_customize->add_setting('checkout_btn_text_color', array(
+        'default'   => '#ffffff',
+        'transport' => 'refresh',
+    ));
+    $wp_customize->add_control(new WP_Customize_Color_Control($wp_customize, 'checkout_btn_text_color', array(
+        'label'    => __('Màu chữ Nút Đặt Hàng', 'doAnCMS'),
+        'section'  => 'n1_checkout_options',
+    )));
+
+    // 9. Độ bo góc Nút Đặt Hàng
+    $wp_customize->add_setting('checkout_btn_radius', array(
+        'default'   => '8',
+        'transport' => 'refresh',
+    ));
+    $wp_customize->add_control('checkout_btn_radius', array(
+        'label'       => __('Độ bo tròn Nút Đặt Hàng (px)', 'doAnCMS'),
+        'section'     => 'n1_checkout_options',
+        'type'        => 'range',
+        'input_attrs' => array('min' => 0, 'max' => 50, 'step' => 1),
+    ));
+
+    // 10. Màu giá Tổng tiền (Đỏ) - Thêm cái này cho phong phú
+    $wp_customize->add_setting('checkout_total_price_color', array(
+        'default'   => '#d32f2f',
+        'transport' => 'refresh',
+    ));
+    $wp_customize->add_control(new WP_Customize_Color_Control($wp_customize, 'checkout_total_price_color', array(
+        'label'    => __('Màu số tiền "Tổng cộng"', 'doAnCMS'),
+        'section'  => 'n1_checkout_options',
+    )));
+}
+add_action('customize_register', 'n1_checkout_customizer_register');
+
+
+/**
+ * XUẤT CSS RA HEADER
+ */
+function n1_checkout_customizer_css()
+{
+
+    // Lấy các giá trị (kèm mặc định)
+    $primary_color = get_theme_mod('checkout_primary_color', '#4CAF50');
+    $page_bg       = get_theme_mod('checkout_page_bg', '#f0f7f4');
+    $title_color   = get_theme_mod('checkout_title_color', '#2e7d32');
+    $title_size    = get_theme_mod('checkout_title_size', '36');
+    $card_radius   = get_theme_mod('checkout_card_radius', '12');
+    $input_bg      = get_theme_mod('checkout_input_bg', '#f9fbf9');
+    $input_radius  = get_theme_mod('checkout_input_radius', '6');
+    $btn_text      = get_theme_mod('checkout_btn_text_color', '#ffffff');
+    $btn_radius    = get_theme_mod('checkout_btn_radius', '8');
+    $total_color   = get_theme_mod('checkout_total_price_color', '#d32f2f');
+
+?>
+    <style type="text/css">
+        /* 1. MÀU NỀN TOÀN TRANG */
+        #custom-green-checkout {
+            background-color: <?php echo $page_bg; ?> !important;
+        }
+
+        /* 2. CÁC YẾU TỐ ĂN THEO MÀU CHỦ ĐẠO (GREEN) */
+        /* Gạch chân tiêu đề */
+        #custom-green-checkout .checkout-title::after {
+            background: <?php echo $primary_color; ?> !important;
+        }
+
+        /* Viền trên của bảng đơn hàng */
+        #custom-green-checkout .woocommerce-checkout-review-order {
+            border-top-color: <?php echo $primary_color; ?> !important;
+        }
+
+        /* Viền khi focus vào ô input */
+        #custom-green-checkout .input-text:focus,
+        #custom-green-checkout select:focus {
+            border-color: <?php echo $primary_color; ?> !important;
+            box-shadow: 0 0 0 4px <?php echo $primary_color; ?>26 !important;
+            /* Thêm độ trong suốt 15% */
+        }
+
+        /* Header bảng đơn hàng */
+        #custom-green-checkout table.shop_table thead th {
+            color: <?php echo $primary_color; ?> !important;
+        }
+
+        /* Viền trái payment box */
+        #custom-green-checkout #payment div.payment_box {
+            border-left-color: <?php echo $primary_color; ?> !important;
+        }
+
+        /* NỀN NÚT ĐẶT HÀNG */
+        #custom-green-checkout #place_order,
+        #custom-green-checkout #payment #place_order {
+            background: <?php echo $primary_color; ?> !important;
+            background-color: <?php echo $primary_color; ?> !important;
+        }
+
+        /* Các thông báo coupon/login */
+        #custom-green-checkout .woocommerce-form-coupon-toggle .woocommerce-info,
+        #custom-green-checkout .woocommerce-form-login-toggle .woocommerce-info {
+            border-top-color: <?php echo $primary_color; ?> !important;
+        }
+
+        #custom-green-checkout .woocommerce-form-coupon-toggle .woocommerce-info a:hover {
+            color: <?php echo $primary_color; ?> !important;
+        }
+
+        /* 3. TIÊU ĐỀ (MÀU & SIZE) */
+        #custom-green-checkout .checkout-title {
+            color: <?php echo $title_color; ?> !important;
+            font-size: <?php echo $title_size; ?>px !important;
+        }
+
+        #custom-green-checkout h3,
+        #custom-green-checkout .woocommerce-checkout-review-order::before {
+            color: <?php echo $title_color; ?> !important;
+        }
+
+        /* 4. CARDS (ĐỘ BO GÓC) */
+        #custom-green-checkout #customer_details .col2-set,
+        #custom-green-checkout .woocommerce-checkout-review-order,
+        #custom-green-checkout #payment,
+        #custom-green-checkout form.checkout_coupon {
+            border-radius: <?php echo $card_radius; ?>px !important;
+        }
+
+        /* 5. INPUTS (MÀU NỀN & BO GÓC) */
+        #custom-green-checkout .input-text,
+        #custom-green-checkout select,
+        #custom-green-checkout textarea {
+            background-color: <?php echo $input_bg; ?> !important;
+            border-radius: <?php echo $input_radius; ?>px !important;
+        }
+
+        /* 6. NÚT ĐẶT HÀNG (TEXT & RADIUS) */
+        #custom-green-checkout #place_order,
+        #custom-green-checkout #payment #place_order {
+            color: <?php echo $btn_text; ?> !important;
+            border-radius: <?php echo $btn_radius; ?>px !important;
+        }
+
+        /* 7. MÀU TỔNG TIỀN */
+        #custom-green-checkout table.shop_table .order-total td strong {
+            color: <?php echo $total_color; ?> !important;
+        }
+    </style>
+<?php
+}
+add_action('wp_head', 'n1_checkout_customizer_css');
+
+
+function n1_login_customizer_register($wp_customize)
+{
+
+    // 1. TẠO SECTION MỚI
+    $wp_customize->add_section('n1_login_options', array(
+        'title'       => __('Cấu hình Trang Đăng nhập (Nhom1)', 'doAnCMS'),
+        'priority'    => 40,
+        'description' => 'Chỉnh sửa màu sắc và bố cục form đăng nhập.',
+    ));
+
+    // --- A. MÀU CHỦ ĐẠO (Nút bấm, Link, Tab Active) ---
+    $wp_customize->add_setting('login_primary_color', array(
+        'default'   => '#2aa64f', // Màu xanh lá gốc
+        'transport' => 'refresh',
+    ));
+    $wp_customize->add_control(new WP_Customize_Color_Control($wp_customize, 'login_primary_color', array(
+        'label'    => __('Màu chủ đạo (Nút, Link)', 'doAnCMS'),
+        'section'  => 'n1_login_options',
+    )));
+
+    // --- B. MÀU NỀN CỘT TRÁI (GRADIENT) ---
+    // Màu bắt đầu (Top)
+    $wp_customize->add_setting('login_grad_top', array(
+        'default'   => '#e9f7ee',
+        'transport' => 'refresh',
+    ));
+    $wp_customize->add_control(new WP_Customize_Color_Control($wp_customize, 'login_grad_top', array(
+        'label'    => __('Màu nền trái - Trên (Gradient Start)', 'doAnCMS'),
+        'section'  => 'n1_login_options',
+    )));
+
+    // Màu kết thúc (Bottom)
+    $wp_customize->add_setting('login_grad_bottom', array(
+        'default'   => '#d6f0da',
+        'transport' => 'refresh',
+    ));
+    $wp_customize->add_control(new WP_Customize_Color_Control($wp_customize, 'login_grad_bottom', array(
+        'label'    => __('Màu nền trái - Dưới (Gradient End)', 'doAnCMS'),
+        'section'  => 'n1_login_options',
+    )));
+
+    // --- C. BO GÓC KHUNG CHÍNH ---
+    $wp_customize->add_setting('login_container_radius', array(
+        'default'   => '12',
+        'transport' => 'refresh',
+    ));
+    $wp_customize->add_control('login_container_radius', array(
+        'label'       => __('Độ bo góc khung Login (px)', 'doAnCMS'),
+        'section'     => 'n1_login_options',
+        'type'        => 'range',
+        'input_attrs' => array('min' => 0, 'max' => 50, 'step' => 1),
+    ));
+
+    // --- D. MÀU NỀN INPUT ---
+    $wp_customize->add_setting('login_input_bg', array(
+        'default'   => '#ffffff',
+        'transport' => 'refresh',
+    ));
+    $wp_customize->add_control(new WP_Customize_Color_Control($wp_customize, 'login_input_bg', array(
+        'label'    => __('Màu nền ô nhập liệu', 'doAnCMS'),
+        'section'  => 'n1_login_options',
+    )));
+}
+add_action('customize_register', 'n1_login_customizer_register');
+
+
+/**
+ * XUẤT CSS RA HEADER (DÙNG !IMPORTANT ĐỂ ĐÈ CODE CŨ)
+ */
+function n1_login_customizer_css()
+{
+
+    // Lấy giá trị từ Customizer
+    $primary_color = get_theme_mod('login_primary_color', '#2aa64f');
+    $grad_top      = get_theme_mod('login_grad_top', '#e9f7ee');
+    $grad_bottom   = get_theme_mod('login_grad_bottom', '#d6f0da');
+    $radius        = get_theme_mod('login_container_radius', '12');
+    $input_bg      = get_theme_mod('login_input_bg', '#ffffff');
+
+?>
+    <style type="text/css">
+        /* 1. MÀU CHỦ ĐẠO (Nút, Link, Tab Active, Chữ bên trái) */
+        .ca-btn {
+            background: <?php echo $primary_color; ?> !important;
+        }
+
+        .ca-link {
+            color: <?php echo $primary_color; ?> !important;
+        }
+
+        .ca-tab.active {
+            color: <?php echo $primary_color; ?> !important;
+            background-color: <?php echo $primary_color; ?>1A !important;
+            /* Thêm độ trong suốt 10% */
+            border-color: <?php echo $primary_color; ?>4D !important;
+            /* Thêm độ trong suốt 30% */
+        }
+
+        /* Đổi luôn màu chữ bên trái cho tông xuyệt tông */
+        .ca-left {
+            color: <?php echo $primary_color; ?> !important;
+            /* Chỉnh gradient nền cột trái */
+            background: linear-gradient(180deg, <?php echo $grad_top; ?> 0%, <?php echo $grad_bottom; ?> 100%) !important;
+        }
+
+        /* 2. BO GÓC KHUNG */
+        .ca-wrapper {
+            border-radius: <?php echo $radius; ?>px !important;
+        }
+
+        /* 3. INPUT FORM */
+        .ca-form input[type="text"],
+        .ca-form input[type="email"],
+        .ca-form input[type="password"] {
+            background-color: <?php echo $input_bg; ?> !important;
+        }
+
+        /* BONUS: Hiệu ứng focus input ăn theo màu chủ đạo */
+        .ca-form input:focus {
+            border-color: <?php echo $primary_color; ?> !important;
+            outline: none !important;
+            box-shadow: 0 0 0 3px <?php echo $primary_color; ?>33 !important;
+            /* Glow nhẹ */
+        }
+    </style>
+<?php
+}
+add_action('wp_head', 'n1_login_customizer_css');
+
+
+
+function n1_thankyou_customizer_register($wp_customize)
+{
+
+    // 1. TẠO SECTION "TRANG CẢM ƠN"
+    $wp_customize->add_section('n1_thankyou_options', array(
+        'title'       => __('Cấu hình Trang Cảm ơn (Nhom1)', 'doAnCMS'),
+        'priority'    => 45, // Xếp cuối cùng
+        'description' => 'Chỉnh sửa màu sắc trạng thái và giao diện trang Thank You.',
+    ));
+
+    // --- A. MÀU CHỦ ĐẠO (Magic Color) ---
+    // Cái này sẽ thay đổi biến --green-theme (Nút, Icon tích xanh, Viền bảng...)
+    $wp_customize->add_setting('ty_main_theme_color', array(
+        'default'   => '#2ecc71',
+        'transport' => 'refresh',
+    ));
+    $wp_customize->add_control(new WP_Customize_Color_Control($wp_customize, 'ty_main_theme_color', array(
+        'label'    => __('Màu chủ đạo (Icon tích, Nút, Viền)', 'doAnCMS'),
+        'section'  => 'n1_thankyou_options',
+    )));
+
+    // --- B. MÀU NỀN TRANG ---
+    $wp_customize->add_setting('ty_page_bg', array(
+        'default'   => '#f4f7f6',
+        'transport' => 'refresh',
+    ));
+    $wp_customize->add_control(new WP_Customize_Color_Control($wp_customize, 'ty_page_bg', array(
+        'label'    => __('Màu nền toàn trang', 'doAnCMS'),
+        'section'  => 'n1_thankyou_options',
+    )));
+
+    // --- C. BO GÓC CARD (HỘP GIỮA) ---
+    $wp_customize->add_setting('ty_card_radius', array(
+        'default'   => '12',
+        'transport' => 'refresh',
+    ));
+    $wp_customize->add_control('ty_card_radius', array(
+        'label'       => __('Độ bo góc khung nội dung (px)', 'doAnCMS'),
+        'section'     => 'n1_thankyou_options',
+        'type'        => 'range',
+        'input_attrs' => array('min' => 0, 'max' => 50, 'step' => 1),
+    ));
+
+    // --- D. TRẠNG THÁI CHỜ (PENDING - VÀNG) ---
+    // Cho phép đổi màu cái khung vàng "Pending" thành màu khác
+    $wp_customize->add_setting('ty_pending_bg', array(
+        'default'   => '#fff3cd',
+        'transport' => 'refresh',
+    ));
+    $wp_customize->add_control(new WP_Customize_Color_Control($wp_customize, 'ty_pending_bg', array(
+        'label'    => __('Màu nền trạng thái "Chờ xử lý"', 'doAnCMS'),
+        'section'  => 'n1_thankyou_options',
+    )));
+
+    $wp_customize->add_setting('ty_pending_text', array(
+        'default'   => '#856404',
+        'transport' => 'refresh',
+    ));
+    $wp_customize->add_control(new WP_Customize_Color_Control($wp_customize, 'ty_pending_text', array(
+        'label'    => __('Màu chữ trạng thái "Chờ xử lý"', 'doAnCMS'),
+        'section'  => 'n1_thankyou_options',
+    )));
+
+    // --- E. TIÊU ĐỀ CHÍNH ---
+    $wp_customize->add_setting('ty_title_color', array(
+        'default'   => '#333333',
+        'transport' => 'refresh',
+    ));
+    $wp_customize->add_control(new WP_Customize_Color_Control($wp_customize, 'ty_title_color', array(
+        'label'    => __('Màu Tiêu đề "Cảm ơn"', 'doAnCMS'),
+        'section'  => 'n1_thankyou_options',
+    )));
+}
+add_action('customize_register', 'n1_thankyou_customizer_register');
+
+
+/**
+ * XUẤT CSS RA HEADER
+ */
+function n1_thankyou_customizer_css()
+{
+
+    // Lấy giá trị
+    $main_color   = get_theme_mod('ty_main_theme_color', '#2ecc71');
+    $page_bg      = get_theme_mod('ty_page_bg', '#f4f7f6');
+    $card_radius  = get_theme_mod('ty_card_radius', '12');
+    $pending_bg   = get_theme_mod('ty_pending_bg', '#fff3cd');
+    $pending_text = get_theme_mod('ty_pending_text', '#856404');
+    $title_color  = get_theme_mod('ty_title_color', '#333333');
+
+?>
+    <style type="text/css">
+        /* 1. THAY ĐỔI BIẾN CSS GỐC (CHIÊU MỚI) */
+        /* Việc này sẽ đổi màu đồng loạt cho: .check-icon, .icon-line, .btn-green, .custom-table tr:last-child */
+        :root {
+            --green-theme: <?php echo $main_color; ?> !important;
+            --green-dark: <?php echo $main_color; ?> !important;
+            /* Dùng tạm màu chính cho dark luôn hoặc để mặc định */
+        }
+
+        /* 2. MÀU NỀN TRANG */
+        .thankyou-page-wrapper {
+            background-color: <?php echo $page_bg; ?> !important;
+        }
+
+        /* 3. BO GÓC CARD */
+        .thankyou-card {
+            border-radius: <?php echo $card_radius; ?>px !important;
+        }
+
+        /* 4. TRẠNG THÁI PENDING (CHỜ) */
+        .pending-header {
+            background: <?php echo $pending_bg; ?> !important;
+            color: <?php echo $pending_text; ?> !important;
+        }
+
+        /* 5. TIÊU ĐỀ */
+        .main-title {
+            color: <?php echo $title_color; ?> !important;
+        }
+
+        /* Fix màu nút Hover cho đẹp (làm tối đi 10% bằng filter) */
+        .btn-green:hover {
+            filter: brightness(0.9);
+        }
+    </style>
+<?php
+}
+add_action('wp_head', 'n1_thankyou_customizer_css');
+
+
+function n1_edit_account_customizer_register($wp_customize)
+{
+
+    // 1. TẠO SECTION MỚI
+    $wp_customize->add_section('n1_edit_account_options', array(
+        'title'       => __('Cấu hình Trang Sửa Tài khoản (Nhom1)', 'doAnCMS'),
+        'priority'    => 50, // Xếp sau trang Thankyou
+        'description' => 'Tùy chỉnh giao diện form chỉnh sửa thông tin cá nhân.',
+    ));
+
+    // --- A. MÀU CHỦ ĐẠO (Thay cho màu xanh lá #28a745) ---
+    $wp_customize->add_setting('ea_primary_color', array(
+        'default'   => '#28a745',
+        'transport' => 'refresh',
+    ));
+    $wp_customize->add_control(new WP_Customize_Color_Control($wp_customize, 'ea_primary_color', array(
+        'label'    => __('Màu chủ đạo (Tiêu đề, Nút, Viền)', 'doAnCMS'),
+        'section'  => 'n1_edit_account_options',
+    )));
+
+    // --- B. MÀU NỀN TRANG ---
+    $wp_customize->add_setting('ea_page_bg', array(
+        'default'   => '#f8f9fa',
+        'transport' => 'refresh',
+    ));
+    $wp_customize->add_control(new WP_Customize_Color_Control($wp_customize, 'ea_page_bg', array(
+        'label'    => __('Màu nền toàn trang', 'doAnCMS'),
+        'section'  => 'n1_edit_account_options',
+    )));
+
+    // --- C. BO GÓC KHUNG CHÍNH (CONTAINER) ---
+    $wp_customize->add_setting('ea_container_radius', array(
+        'default'   => '16',
+        'transport' => 'refresh',
+    ));
+    $wp_customize->add_control('ea_container_radius', array(
+        'label'       => __('Độ bo góc Khung chứa (px)', 'doAnCMS'),
+        'section'     => 'n1_edit_account_options',
+        'type'        => 'range',
+        'input_attrs' => array('min' => 0, 'max' => 50, 'step' => 1),
+    ));
+
+    // --- D. BO GÓC NÚT BẤM ---
+    $wp_customize->add_setting('ea_btn_radius', array(
+        'default'   => '50',
+        'transport' => 'refresh',
+    ));
+    $wp_customize->add_control('ea_btn_radius', array(
+        'label'       => __('Độ bo góc Nút Lưu (px)', 'doAnCMS'),
+        'section'     => 'n1_edit_account_options',
+        'type'        => 'range',
+        'input_attrs' => array('min' => 0, 'max' => 50, 'step' => 1),
+    ));
+
+    // --- E. MÀU NỀN INPUT ---
+    $wp_customize->add_setting('ea_input_bg', array(
+        'default'   => '#ffffff',
+        'transport' => 'refresh',
+    ));
+    $wp_customize->add_control(new WP_Customize_Color_Control($wp_customize, 'ea_input_bg', array(
+        'label'    => __('Màu nền ô nhập liệu', 'doAnCMS'),
+        'section'  => 'n1_edit_account_options',
+    )));
+}
+add_action('customize_register', 'n1_edit_account_customizer_register');
+
+
+/**
+ * XUẤT CSS RA HEADER
+ */
+function n1_edit_account_customizer_css()
+{
+
+    // Lấy giá trị
+    $primary_color    = get_theme_mod('ea_primary_color', '#28a745');
+    $page_bg          = get_theme_mod('ea_page_bg', '#f8f9fa');
+    $container_radius = get_theme_mod('ea_container_radius', '16');
+    $btn_radius       = get_theme_mod('ea_btn_radius', '50');
+    $input_bg         = get_theme_mod('ea_input_bg', '#ffffff');
+
+?>
+    <style type="text/css">
+        /* 1. MÀU NỀN TRANG */
+        .edit-account-page-wrapper {
+            background-color: <?php echo $page_bg; ?> !important;
+        }
+
+        /* 2. CÁC PHẦN TỬ ĂN THEO MÀU CHỦ ĐẠO */
+        /* Viền trên của hộp */
+        .edit-account-container {
+            border-top-color: <?php echo $primary_color; ?> !important;
+            border-radius: <?php echo $container_radius; ?>px !important;
+            /* Bo góc hộp */
+        }
+
+        /* Tiêu đề */
+        .edit-account-title,
+        .woocommerce-EditAccountForm fieldset legend {
+            color: <?php echo $primary_color; ?> !important;
+        }
+
+        /* Input khi focus (viền và shadow) */
+        .woocommerce-form-row .input-text:focus {
+            border-color: <?php echo $primary_color; ?> !important;
+            box-shadow: 0 0 0 4px <?php echo $primary_color; ?>1A !important;
+            /* Thêm độ trong suốt */
+        }
+
+        /* Nút bấm (Ghi đè Gradient bằng màu đơn sắc cho dễ chỉnh) */
+        .woocommerce-Button.button {
+            background: <?php echo $primary_color; ?> !important;
+            border-radius: <?php echo $btn_radius; ?>px !important;
+            /* Bo góc nút */
+            box-shadow: 0 5px 15px <?php echo $primary_color; ?>4D !important;
+            /* Bóng đổ cùng màu */
+        }
+
+        .woocommerce-Button.button:hover {
+            /* Làm tối đi 1 chút khi hover bằng filter */
+            filter: brightness(0.9);
+            transform: translateY(-2px);
+        }
+
+        /* Thông báo thành công */
+        .woocommerce-message {
+            border-left-color: <?php echo $primary_color; ?> !important;
+            color: <?php echo $primary_color; ?> !important;
+        }
+
+        /* 3. MÀU NỀN INPUT */
+        .woocommerce-form-row .input-text {
+            background: <?php echo $input_bg; ?> !important;
+        }
+    </style>
+<?php
+}
+add_action('wp_head', 'n1_edit_account_customizer_css');
+
+
+function n1_history_customizer_register($wp_customize)
+{
+
+    // 1. TẠO SECTION MỚI
+    $wp_customize->add_section('n1_history_options', array(
+        'title'       => __('Cấu hình Lịch sử Đơn hàng (Nhom1)', 'doAnCMS'),
+        'priority'    => 55, // Xếp sau trang Edit Account
+        'description' => 'Tùy chỉnh giao diện danh sách đơn hàng đã mua.',
+    ));
+
+    // --- A. MÀU CHỦ ĐẠO (Thay cho màu xanh #28a745) ---
+    $wp_customize->add_setting('hist_primary_color', array(
+        'default'   => '#28a745',
+        'transport' => 'refresh',
+    ));
+    $wp_customize->add_control(new WP_Customize_Color_Control($wp_customize, 'hist_primary_color', array(
+        'label'    => __('Màu chủ đạo (Tiêu đề, Nút, Viền)', 'doAnCMS'),
+        'section'  => 'n1_history_options',
+    )));
+
+    // --- B. MÀU NỀN TIÊU ĐỀ BẢNG (Table Header BG) ---
+    $wp_customize->add_setting('hist_table_head_bg', array(
+        'default'   => '#e8f5e9',
+        'transport' => 'refresh',
+    ));
+    $wp_customize->add_control(new WP_Customize_Color_Control($wp_customize, 'hist_table_head_bg', array(
+        'label'    => __('Màu nền Tiêu đề bảng', 'doAnCMS'),
+        'section'  => 'n1_history_options',
+    )));
+
+    // --- C. MÀU NỀN TRANG ---
+    $wp_customize->add_setting('hist_page_bg', array(
+        'default'   => '#f8f9fa',
+        'transport' => 'refresh',
+    ));
+    $wp_customize->add_control(new WP_Customize_Color_Control($wp_customize, 'hist_page_bg', array(
+        'label'    => __('Màu nền toàn trang', 'doAnCMS'),
+        'section'  => 'n1_history_options',
+    )));
+
+    // --- D. BO GÓC KHUNG ĐƠN HÀNG ---
+    $wp_customize->add_setting('hist_card_radius', array(
+        'default'   => '10',
+        'transport' => 'refresh',
+    ));
+    $wp_customize->add_control('hist_card_radius', array(
+        'label'       => __('Độ bo góc Khung đơn hàng (px)', 'doAnCMS'),
+        'section'     => 'n1_history_options',
+        'type'        => 'range',
+        'input_attrs' => array('min' => 0, 'max' => 30, 'step' => 1),
+    ));
+}
+add_action('customize_register', 'n1_history_customizer_register');
+
+
+/**
+ * XUẤT CSS RA HEADER
+ */
+function n1_history_customizer_css()
+{
+
+    // Lấy giá trị
+    $primary_color = get_theme_mod('hist_primary_color', '#28a745');
+    $head_bg       = get_theme_mod('hist_table_head_bg', '#e8f5e9');
+    $page_bg       = get_theme_mod('hist_page_bg', '#f8f9fa');
+    $radius        = get_theme_mod('hist_card_radius', '10');
+
+?>
+    <style type="text/css">
+        /* 1. MÀU NỀN TRANG */
+        .my-order-history-page {
+            background-color: <?php echo $page_bg; ?> !important;
+        }
+
+        /* 2. CÁC PHẦN TỬ ĂN THEO MÀU CHỦ ĐẠO */
+        /* Tiêu đề trang */
+        .page-title {
+            color: <?php echo $primary_color; ?> !important;
+        }
+
+        /* Viền trên của Card */
+        .order-card {
+            border-top-color: <?php echo $primary_color; ?> !important;
+            border-radius: <?php echo $radius; ?>px !important;
+        }
+
+        /* Viền dưới của Table Header */
+        .custom-table th {
+            border-bottom-color: <?php echo $primary_color; ?> !important;
+            color: <?php echo $primary_color; ?> !important;
+            /* Đổi màu chữ header luôn cho đồng bộ */
+            /* Màu nền header */
+            background-color: <?php echo $head_bg; ?> !important;
+        }
+
+        /* Nút Xem (Btn View) */
+        .btn-view {
+            background-color: <?php echo $primary_color; ?> !important;
+            border-color: <?php echo $primary_color; ?> !important;
+        }
+
+        .btn-view:hover {
+            filter: brightness(0.9);
+            /* Tối đi chút khi hover */
+        }
+
+        /* Responsive Mobile Label Color */
+        @media (max-width: 768px) {
+            .custom-table td::before {
+                color: <?php echo $primary_color; ?> !important;
+            }
+        }
+
+        /* Thông báo Woo */
+        .woocommerce-message {
+            border-left-color: <?php echo $primary_color; ?> !important;
+            color: <?php echo $primary_color; ?> !important;
+            background-color: <?php echo $head_bg; ?> !important;
+            /* Dùng chung màu nền nhạt */
+        }
+    </style>
+<?php
+}
+add_action('wp_head', 'n1_history_customizer_css');
+
+
+function n1_my_account_customizer_register($wp_customize)
+{
+
+    // 1. TẠO SECTION
+    $wp_customize->add_section('n1_my_account_options', array(
+        'title'       => __('Cấu hình Dashboard Tài khoản (Nhom1)', 'doAnCMS'),
+        'priority'    => 60, // Số lớn nhất để xếp cuối cùng
+        'description' => 'Tùy chỉnh giao diện trang quản lý tài khoản chính.',
+    ));
+
+    // --- A. MÀU GRADIENT HERO (NỀN TRÊN CÙNG) ---
+    // Màu bắt đầu
+    $wp_customize->add_setting('ma_hero_start', array(
+        'default'   => '#28a745',
+        'transport' => 'refresh',
+    ));
+    $wp_customize->add_control(new WP_Customize_Color_Control($wp_customize, 'ma_hero_start', array(
+        'label'    => __('Màu nền Hero - Bắt đầu (Gradient)', 'doAnCMS'),
+        'section'  => 'n1_my_account_options',
+    )));
+
+    // Màu kết thúc
+    $wp_customize->add_setting('ma_hero_end', array(
+        'default'   => '#218838',
+        'transport' => 'refresh',
+    ));
+    $wp_customize->add_control(new WP_Customize_Color_Control($wp_customize, 'ma_hero_end', array(
+        'label'    => __('Màu nền Hero - Kết thúc (Gradient)', 'doAnCMS'),
+        'section'  => 'n1_my_account_options',
+    )));
+
+    // --- B. MÀU ICON CHỦ ĐẠO ---
+    $wp_customize->add_setting('ma_icon_color', array(
+        'default'   => '#28a745',
+        'transport' => 'refresh',
+    ));
+    $wp_customize->add_control(new WP_Customize_Color_Control($wp_customize, 'ma_icon_color', array(
+        'label'    => __('Màu Icon Menu & Viền Hover', 'doAnCMS'),
+        'section'  => 'n1_my_account_options',
+    )));
+
+    // --- C. BO GÓC CARD MENU ---
+    $wp_customize->add_setting('ma_card_radius', array(
+        'default'   => '16',
+        'transport' => 'refresh',
+    ));
+    $wp_customize->add_control('ma_card_radius', array(
+        'label'       => __('Độ bo góc ô Menu (px)', 'doAnCMS'),
+        'section'     => 'n1_my_account_options',
+        'type'        => 'range',
+        'input_attrs' => array('min' => 0, 'max' => 50, 'step' => 1),
+    ));
+
+    // --- D. KHOẢNG CÁCH GRID (GAP) ---
+    $wp_customize->add_setting('ma_grid_gap', array(
+        'default'   => '25',
+        'transport' => 'refresh',
+    ));
+    $wp_customize->add_control('ma_grid_gap', array(
+        'label'       => __('Khoảng cách giữa các ô (px)', 'doAnCMS'),
+        'section'     => 'n1_my_account_options',
+        'type'        => 'range',
+        'input_attrs' => array('min' => 10, 'max' => 60, 'step' => 5),
+    ));
+
+    // --- E. HÌNH DÁNG AVATAR (VUÔNG/TRÒN) ---
+    $wp_customize->add_setting('ma_avatar_radius', array(
+        'default'   => '50', // 50% là tròn
+        'transport' => 'refresh',
+    ));
+    $wp_customize->add_control('ma_avatar_radius', array(
+        'label'       => __('Bo góc Avatar (50% là tròn)', 'doAnCMS'),
+        'section'     => 'n1_my_account_options',
+        'type'        => 'range',
+        'input_attrs' => array('min' => 0, 'max' => 50, 'step' => 10), // Đơn vị là %
+    ));
+}
+add_action('customize_register', 'n1_my_account_customizer_register');
+
+
+/**
+ * XUẤT CSS RA HEADER
+ */
+function n1_my_account_customizer_css()
+{
+
+    // Lấy giá trị
+    $hero_start    = get_theme_mod('ma_hero_start', '#28a745');
+    $hero_end      = get_theme_mod('ma_hero_end', '#218838');
+    $icon_color    = get_theme_mod('ma_icon_color', '#28a745');
+    $card_radius   = get_theme_mod('ma_card_radius', '16');
+    $grid_gap      = get_theme_mod('ma_grid_gap', '25');
+    $avatar_radius = get_theme_mod('ma_avatar_radius', '50');
+
+?>
+    <style type="text/css">
+        /* 1. HERO SECTION GRADIENT */
+        .ma-dashboard-hero {
+            background: linear-gradient(135deg, <?php echo $hero_start; ?> 0%, <?php echo $hero_end; ?> 100%) !important;
+            /* Đổ bóng cùng tông màu bắt đầu */
+            box-shadow: 0 10px 30px <?php echo $hero_start; ?>4D !important;
+        }
+
+        /* 2. ICON & HOVER COLOR */
+        .ma-card-icon {
+            color: <?php echo $icon_color; ?> !important;
+            /* Nền icon nhạt (lấy màu chính giảm độ đậm đi rất nhiều) */
+            background: <?php echo $icon_color; ?>1A !important;
+        }
+
+        /* Khi Hover vào Card */
+        .ma-card:hover {
+            border-color: <?php echo $icon_color; ?> !important;
+        }
+
+        .ma-card:hover .ma-card-icon {
+            background: <?php echo $icon_color; ?> !important;
+            /* Chữ chuyển sang trắng */
+            color: #fff !important;
+        }
+
+        /* 3. BO GÓC CARD */
+        .ma-card {
+            border-radius: <?php echo $card_radius; ?>px !important;
+        }
+
+        /* 4. KHOẢNG CÁCH GRID */
+        .ma-grid-menu {
+            gap: <?php echo $grid_gap; ?>px !important;
+        }
+
+        /* 5. AVATAR SHAPE */
+        .ma-avatar img {
+            border-radius: <?= $avatar_radius ?>% !important;
+        }
+    </style>
+<?php
+}
+add_action('wp_head', 'n1_my_account_customizer_css');
+?>
+
+<?php
+add_action('customize_register', 'ma_customize_pages_advanced');
+function ma_customize_pages_advanced($wp_customize)
+{
+
+    /* ================= About Us ================= */
+    $wp_customize->add_section('ma_about_section', [
+        'title' => 'About Us (Nhóm2)',
+        'priority' => 10
+    ]);
+
+    // Background color + image
+    $wp_customize->add_setting('ma_about_bg_color', ['default' => '#ffffff', 'sanitize_callback' => 'sanitize_hex_color']);
+    $wp_customize->add_control(new WP_Customize_Color_Control($wp_customize, 'ma_about_bg_color', [
+        'label' => 'Background Color',
+        'section' => 'ma_about_section'
+    ]));
+    $wp_customize->add_setting('ma_about_bg_image', ['sanitize_callback' => 'esc_url']);
+    $wp_customize->add_control(new WP_Customize_Image_Control($wp_customize, 'ma_about_bg_image', [
+        'label' => 'Background Image',
+        'section' => 'ma_about_section'
+    ]));
+
+    // Text
+    $wp_customize->add_setting('ma_about_text_color', ['default' => '#333', 'sanitize_callback' => 'sanitize_hex_color']);
+    $wp_customize->add_control(new WP_Customize_Color_Control($wp_customize, 'ma_about_text_color', [
+        'label' => 'Text Color',
+        'section' => 'ma_about_section'
+    ]));
+    $wp_customize->add_setting('ma_about_font_size', ['default' => 16, 'sanitize_callback' => 'absint']);
+    $wp_customize->add_control('ma_about_font_size', [
+        'label' => 'Font Size (px)',
+        'section' => 'ma_about_section',
+        'type' => 'range',
+        'input_attrs' => ['min' => 12, 'max' => 50]
+    ]);
+    $wp_customize->add_setting('ma_about_font_family', ['default' => 'Arial', 'sanitize_callback' => 'sanitize_text_field']);
+    $wp_customize->add_control('ma_about_font_family', [
+        'label' => 'Font Family',
+        'section' => 'ma_about_section',
+        'type' => 'select',
+        'choices' => ['Arial' => 'Arial', 'Helvetica' => 'Helvetica', 'Times New Roman' => 'Times New Roman', 'Roboto' => 'Roboto']
+    ]);
+
+    // Spacing
+    $wp_customize->add_setting('ma_about_padding', ['default' => 20, 'sanitize_callback' => 'absint']);
+    $wp_customize->add_control('ma_about_padding', ['label' => 'Padding', 'section' => 'ma_about_section', 'type' => 'range', 'input_attrs' => ['min' => 0, 'max' => 200]]);
+    $wp_customize->add_setting('ma_about_margin', ['default' => 20, 'sanitize_callback' => 'absint']);
+    $wp_customize->add_control('ma_about_margin', ['label' => 'Margin', 'section' => 'ma_about_section', 'type' => 'range', 'input_attrs' => ['min' => 0, 'max' => 200]]);
+
+    // Border & Shadow
+    $wp_customize->add_setting('ma_about_radius', ['default' => 10, 'sanitize_callback' => 'absint']);
+    $wp_customize->add_control('ma_about_radius', ['label' => 'Border Radius', 'section' => 'ma_about_section', 'type' => 'range', 'input_attrs' => ['min' => 0, 'max' => 100]]);
+    $wp_customize->add_setting('ma_about_shadow', ['default' => '0 4px 12px rgba(0,0,0,0.08)', 'sanitize_callback' => 'sanitize_text_field']);
+    $wp_customize->add_control('ma_about_shadow', ['label' => 'Box Shadow', 'section' => 'ma_about_section']);
+
+    /* ================= Blog ================= */
+    $wp_customize->add_section('ma_blog_section', ['title' => 'Blog (Nhóm1)', 'priority' => 20]);
+
+    $wp_customize->add_setting('ma_blog_bg_color', ['default' => '#fff', 'sanitize_callback' => 'sanitize_hex_color']);
+    $wp_customize->add_control(new WP_Customize_Color_Control($wp_customize, 'ma_blog_bg_color', ['label' => 'Background Color', 'section' => 'ma_blog_section']));
+    $wp_customize->add_setting('ma_blog_bg_image', ['sanitize_callback' => 'esc_url']);
+    $wp_customize->add_control(new WP_Customize_Image_Control($wp_customize, 'ma_blog_bg_image', ['label' => 'Background Image', 'section' => 'ma_blog_section']));
+
+    $wp_customize->add_setting('ma_blog_text_color', ['default' => '#333', 'sanitize_callback' => 'sanitize_hex_color']);
+    $wp_customize->add_control(new WP_Customize_Color_Control($wp_customize, 'ma_blog_text_color', ['label' => 'Text Color', 'section' => 'ma_blog_section']));
+    $wp_customize->add_setting('ma_blog_font_size', ['default' => 16, 'sanitize_callback' => 'absint']);
+    $wp_customize->add_control('ma_blog_font_size', ['label' => 'Font Size', 'section' => 'ma_blog_section', 'type' => 'range', 'input_attrs' => ['min' => 12, 'max' => 50]]);
+    $wp_customize->add_setting('ma_blog_font_family', ['default' => 'Arial', 'sanitize_callback' => 'sanitize_text_field']);
+    $wp_customize->add_control('ma_blog_font_family', ['label' => 'Font Family', 'section' => 'ma_blog_section', 'type' => 'select', 'choices' => ['Arial' => 'Arial', 'Helvetica' => 'Helvetica', 'Times New Roman' => 'Times New Roman', 'Roboto' => 'Roboto']]);
+
+    $wp_customize->add_setting('ma_blog_padding', ['default' => 20, 'sanitize_callback' => 'absint']);
+    $wp_customize->add_control('ma_blog_padding', ['label' => 'Padding', 'section' => 'ma_blog_section', 'type' => 'range', 'input_attrs' => ['min' => 0, 'max' => 200]]);
+    $wp_customize->add_setting('ma_blog_margin', ['default' => 20, 'sanitize_callback' => 'absint']);
+    $wp_customize->add_control('ma_blog_margin', ['label' => 'Margin', 'section' => 'ma_blog_section', 'type' => 'range', 'input_attrs' => ['min' => 0, 'max' => 200]]);
+
+    $wp_customize->add_setting('ma_blog_card_radius', ['default' => 10, 'sanitize_callback' => 'absint']);
+    $wp_customize->add_control('ma_blog_card_radius', ['label' => 'Post Card Border Radius', 'section' => 'ma_blog_section', 'type' => 'range', 'input_attrs' => ['min' => 0, 'max' => 50]]);
+    $wp_customize->add_setting('ma_blog_card_shadow', ['default' => '0 4px 12px rgba(0,0,0,0.08)', 'sanitize_callback' => 'sanitize_text_field']);
+    $wp_customize->add_control('ma_blog_card_shadow', ['label' => 'Post Card Shadow', 'section' => 'ma_blog_section']);
+
+    /* ================= Shop ================= */
+    $wp_customize->add_section('ma_shop_section', ['title' => 'Shop (Nhóm3)', 'priority' => 30]);
+
+    $wp_customize->add_setting('ma_shop_bg_color', ['default' => '#fff', 'sanitize_callback' => 'sanitize_hex_color']);
+    $wp_customize->add_control(new WP_Customize_Color_Control($wp_customize, 'ma_shop_bg_color', ['label' => 'Background Color', 'section' => 'ma_shop_section']));
+    $wp_customize->add_setting('ma_shop_bg_image', ['sanitize_callback' => 'esc_url']);
+    $wp_customize->add_control(new WP_Customize_Image_Control($wp_customize, 'ma_shop_bg_image', ['label' => 'Background Image', 'section' => 'ma_shop_section']));
+
+    $wp_customize->add_setting('ma_shop_text_color', ['default' => '#333', 'sanitize_callback' => 'sanitize_hex_color']);
+    $wp_customize->add_control(new WP_Customize_Color_Control($wp_customize, 'ma_shop_text_color', ['label' => 'Text Color', 'section' => 'ma_shop_section']));
+    $wp_customize->add_setting('ma_shop_font_size', ['default' => 16, 'sanitize_callback' => 'absint']);
+    $wp_customize->add_control('ma_shop_font_size', ['label' => 'Font Size', 'section' => 'ma_shop_section', 'type' => 'range', 'input_attrs' => ['min' => 12, 'max' => 50]]);
+    $wp_customize->add_setting('ma_shop_font_family', ['default' => 'Arial', 'sanitize_callback' => 'sanitize_text_field']);
+    $wp_customize->add_control('ma_shop_font_family', ['label' => 'Font Family', 'section' => 'ma_shop_section', 'type' => 'select', 'choices' => ['Arial' => 'Arial', 'Helvetica' => 'Helvetica', 'Times New Roman' => 'Times New Roman', 'Roboto' => 'Roboto']]);
+
+    $wp_customize->add_setting('ma_shop_padding', ['default' => 20, 'sanitize_callback' => 'absint']);
+    $wp_customize->add_control('ma_shop_padding', ['label' => 'Padding', 'section' => 'ma_shop_section', 'type' => 'range', 'input_attrs' => ['min' => 0, 'max' => 200]]);
+    $wp_customize->add_setting('ma_shop_margin', ['default' => 20, 'sanitize_callback' => 'absint']);
+    $wp_customize->add_control('ma_shop_margin', ['label' => 'Margin', 'section' => 'ma_shop_section', 'type' => 'range', 'input_attrs' => ['min' => 0, 'max' => 200]]);
+
+    $wp_customize->add_setting('ma_shop_card_radius', ['default' => 10, 'sanitize_callback' => 'absint']);
+    $wp_customize->add_control('ma_shop_card_radius', ['label' => 'Product Card Border Radius', 'section' => 'ma_shop_section', 'type' => 'range', 'input_attrs' => ['min' => 0, 'max' => 50]]);
+    $wp_customize->add_setting('ma_shop_card_shadow', ['default' => '0 4px 12px rgba(0,0,0,0.08)', 'sanitize_callback' => 'sanitize_text_field']);
+    $wp_customize->add_control('ma_shop_card_shadow', ['label' => 'Product Card Shadow', 'section' => 'ma_shop_section']);
+    $wp_customize->add_setting('ma_shop_btn_color', ['default' => '#8BC34A', 'sanitize_callback' => 'sanitize_hex_color']);
+    $wp_customize->add_control(new WP_Customize_Color_Control($wp_customize, 'ma_shop_btn_color', ['label' => 'Button Color', 'section' => 'ma_shop_section']));
+    $wp_customize->add_setting('ma_shop_btn_hover_color', ['default' => '#7cb342', 'sanitize_callback' => 'sanitize_hex_color']);
+    $wp_customize->add_control(new WP_Customize_Color_Control($wp_customize, 'ma_shop_btn_hover_color', ['label' => 'Button Hover Color', 'section' => 'ma_shop_section']));
+}
+
+// Xuất CSS trực tiếp ra front-end
+add_action('wp_head', 'ma_pages_advanced_css');
+function ma_pages_advanced_css()
+{ ?>
+    <style>
+        /* About Us */
+        .about-deluxe {
+            background-color: <?php echo get_theme_mod('ma_about_bg_color', '#fff'); ?>;
+            background-image: url('<?php echo get_theme_mod('ma_about_bg_image', ''); ?>');
+            color: <?php echo get_theme_mod('ma_about_text_color', '#333'); ?>;
+            font-size: <?php echo get_theme_mod('ma_about_font_size', 16); ?>px;
+            font-family: <?php echo get_theme_mod('ma_about_font_family', 'Arial'); ?>;
+            padding: <?php echo get_theme_mod('ma_about_padding', 20); ?>px;
+            margin: <?php echo get_theme_mod('ma_about_margin', 20); ?>px;
+        }
+
+        .about-deluxe img,
+        .about-deluxe .value-card,
+        .about-deluxe .team-card {
+            border-radius: <?php echo get_theme_mod('ma_about_radius', 10); ?>px;
+            box-shadow: <?php echo get_theme_mod('ma_about_shadow', '0 4px 12px rgba(0,0,0,0.08)'); ?>;
+        }
+
+        /* Blog */
+        .doAnCMS-blog-container {
+            background-color: <?php echo get_theme_mod('ma_blog_bg_color', '#fff'); ?>;
+            background-image: url('<?php echo get_theme_mod('ma_blog_bg_image', ''); ?>');
+            color: <?php echo get_theme_mod('ma_blog_text_color', '#333'); ?>;
+            font-size: <?php echo get_theme_mod('ma_blog_font_size', 16); ?>px;
+            font-family: <?php echo get_theme_mod('ma_blog_font_family', 'Arial'); ?>;
+            padding: <?php echo get_theme_mod('ma_blog_padding', 20); ?>px;
+            margin: <?php echo get_theme_mod('ma_blog_margin', 20); ?>px;
+        }
+
+        .doAnCMS-blog-item {
+            border-radius: <?php echo get_theme_mod('ma_blog_card_radius', 10); ?>px;
+            box-shadow: <?php echo get_theme_mod('ma_blog_card_shadow', '0 4px 12px rgba(0,0,0,0.08)'); ?>;
+        }
+
+        /* Shop */
+        .shop-container {
+            background-color: <?php echo get_theme_mod('ma_shop_bg_color', '#fff'); ?>;
+            background-image: url('<?php echo get_theme_mod('ma_shop_bg_image', ''); ?>');
+            color: <?php echo get_theme_mod('ma_shop_text_color', '#333'); ?>;
+            font-size: <?php echo get_theme_mod('ma_shop_font_size', 16); ?>px;
+            font-family: <?php echo get_theme_mod('ma_shop_font_family', 'Arial'); ?>;
+            padding: <?php echo get_theme_mod('ma_shop_padding', 20); ?>px;
+            margin: <?php echo get_theme_mod('ma_shop_margin', 20); ?>px;
+        }
+
+        .product-card {
+            border-radius: <?php echo get_theme_mod('ma_shop_card_radius', 10); ?>px;
+            box-shadow: <?php echo get_theme_mod('ma_shop_card_shadow', '0 4px 12px rgba(0,0,0,0.08)'); ?>;
+        }
+
+        .custom-cart-button {
+            background-color: <?php echo get_theme_mod('ma_shop_btn_color', '#8BC34A'); ?> !important;
+        }
+
+        .custom-cart-button:hover {
+            background-color: <?php echo get_theme_mod('ma_shop_btn_hover_color', '#7cb342'); ?> !important;
+        }
+    </style>
+<?php
+}
+
+?>
+<?php
+add_action('customize_register', 'ma_customize_faq_center');
+function ma_customize_faq_center($wp_customize)
+{
+
+    /* ================= FAQ Center ================= */
+    $wp_customize->add_section('ma_faq_section', [
+        'title' => 'FAQ Center (Nhóm4)',
+        'priority' => 40
+    ]);
+
+    // Background
+    $wp_customize->add_setting('ma_faq_bg_color', ['default' => '#f9f9f9', 'sanitize_callback' => 'sanitize_hex_color']);
+    $wp_customize->add_control(new WP_Customize_Color_Control($wp_customize, 'ma_faq_bg_color', ['label' => 'Background Color', 'section' => 'ma_faq_section']));
+    $wp_customize->add_setting('ma_faq_bg_image', ['sanitize_callback' => 'esc_url']);
+    $wp_customize->add_control(new WP_Customize_Image_Control($wp_customize, 'ma_faq_bg_image', ['label' => 'Background Image', 'section' => 'ma_faq_section']));
+
+    // Container padding/margin
+    $wp_customize->add_setting('ma_faq_padding', ['default' => 40, 'sanitize_callback' => 'absint']);
+    $wp_customize->add_control('ma_faq_padding', ['label' => 'Container Padding', 'section' => 'ma_faq_section', 'type' => 'range', 'input_attrs' => ['min' => 0, 'max' => 200]]);
+    $wp_customize->add_setting('ma_faq_margin', ['default' => 20, 'sanitize_callback' => 'absint']);
+    $wp_customize->add_control('ma_faq_margin', ['label' => 'Container Margin', 'section' => 'ma_faq_section', 'type' => 'range', 'input_attrs' => ['min' => 0, 'max' => 200]]);
+
+    // Title & Subtext
+    $wp_customize->add_setting('ma_faq_title_color', ['default' => '#4CAF50', 'sanitize_callback' => 'sanitize_hex_color']);
+    $wp_customize->add_control(new WP_Customize_Color_Control($wp_customize, 'ma_faq_title_color', ['label' => 'Title Color', 'section' => 'ma_faq_section']));
+    $wp_customize->add_setting('ma_faq_sub_color', ['default' => '#666', 'sanitize_callback' => 'sanitize_hex_color']);
+    $wp_customize->add_control(new WP_Customize_Color_Control($wp_customize, 'ma_faq_sub_color', ['label' => 'Subtitle Color', 'section' => 'ma_faq_section']));
+    $wp_customize->add_setting('ma_faq_title_size', ['default' => 40, 'sanitize_callback' => 'absint']);
+    $wp_customize->add_control('ma_faq_title_size', ['label' => 'Title Font Size', 'section' => 'ma_faq_section', 'type' => 'range', 'input_attrs' => ['min' => 20, 'max' => 80]]);
+    $wp_customize->add_setting('ma_faq_sub_size', ['default' => 18, 'sanitize_callback' => 'absint']);
+    $wp_customize->add_control('ma_faq_sub_size', ['label' => 'Subtitle Font Size', 'section' => 'ma_faq_section', 'type' => 'range', 'input_attrs' => ['min' => 12, 'max' => 50]]);
+
+    // Search bar
+    $wp_customize->add_setting('ma_faq_search_bg', ['default' => '#6FBF4A', 'sanitize_callback' => 'sanitize_hex_color']);
+    $wp_customize->add_control(new WP_Customize_Color_Control($wp_customize, 'ma_faq_search_bg', ['label' => 'Search Button Color', 'section' => 'ma_faq_section']));
+    $wp_customize->add_setting('ma_faq_search_hover', ['default' => '#4CAF50', 'sanitize_callback' => 'sanitize_hex_color']);
+    $wp_customize->add_control(new WP_Customize_Color_Control($wp_customize, 'ma_faq_search_hover', ['label' => 'Search Button Hover Color', 'section' => 'ma_faq_section']));
+    $wp_customize->add_setting('ma_faq_input_border', ['default' => '#6FBF4A', 'sanitize_callback' => 'sanitize_hex_color']);
+    $wp_customize->add_control(new WP_Customize_Color_Control($wp_customize, 'ma_faq_input_border', ['label' => 'Search Input Border', 'section' => 'ma_faq_section']));
+    $wp_customize->add_setting('ma_faq_input_bg', ['default' => '#fff', 'sanitize_callback' => 'sanitize_hex_color']);
+    $wp_customize->add_control(new WP_Customize_Color_Control($wp_customize, 'ma_faq_input_bg', ['label' => 'Search Input Background', 'section' => 'ma_faq_section']));
+
+    // Categories
+    $wp_customize->add_setting('ma_faq_cat_bg', ['default' => '#f0f9f0', 'sanitize_callback' => 'sanitize_hex_color']);
+    $wp_customize->add_control(new WP_Customize_Color_Control($wp_customize, 'ma_faq_cat_bg', ['label' => 'Category Background', 'section' => 'ma_faq_section']));
+    $wp_customize->add_setting('ma_faq_cat_color', ['default' => '#4CAF50', 'sanitize_callback' => 'sanitize_hex_color']);
+    $wp_customize->add_control(new WP_Customize_Color_Control($wp_customize, 'ma_faq_cat_color', ['label' => 'Category Text Color', 'section' => 'ma_faq_section']));
+    $wp_customize->add_setting('ma_faq_cat_hover', ['default' => '#6FBF4A', 'sanitize_callback' => 'sanitize_hex_color']);
+    $wp_customize->add_control(new WP_Customize_Color_Control($wp_customize, 'ma_faq_cat_hover', ['label' => 'Category Hover Color', 'section' => 'ma_faq_section']));
+
+    // FAQ item card
+    $wp_customize->add_setting('ma_faq_card_bg', ['default' => '#fff', 'sanitize_callback' => 'sanitize_hex_color']);
+    $wp_customize->add_control(new WP_Customize_Color_Control($wp_customize, 'ma_faq_card_bg', ['label' => 'FAQ Card Background', 'section' => 'ma_faq_section']));
+    $wp_customize->add_setting('ma_faq_card_border', ['default' => '#e2e2e2', 'sanitize_callback' => 'sanitize_hex_color']);
+    $wp_customize->add_control(new WP_Customize_Color_Control($wp_customize, 'ma_faq_card_border', ['label' => 'FAQ Card Border Color', 'section' => 'ma_faq_section']));
+    $wp_customize->add_setting('ma_faq_card_radius', ['default' => 10, 'sanitize_callback' => 'absint']);
+    $wp_customize->add_control('ma_faq_card_radius', ['label' => 'FAQ Card Border Radius', 'section' => 'ma_faq_section', 'type' => 'range', 'input_attrs' => ['min' => 0, 'max' => 50]]);
+    $wp_customize->add_setting('ma_faq_card_shadow', ['default' => '0 3px 10px rgba(0,0,0,0.05)', 'sanitize_callback' => 'sanitize_text_field']);
+    $wp_customize->add_control('ma_faq_card_shadow', ['label' => 'FAQ Card Shadow', 'section' => 'ma_faq_section']);
+
+    // Question & Answer
+    $wp_customize->add_setting('ma_faq_q_color', ['default' => '#333', 'sanitize_callback' => 'sanitize_hex_color']);
+    $wp_customize->add_control(new WP_Customize_Color_Control($wp_customize, 'ma_faq_q_color', ['label' => 'Question Color', 'section' => 'ma_faq_section']));
+    $wp_customize->add_setting('ma_faq_a_color', ['default' => '#555', 'sanitize_callback' => 'sanitize_hex_color']);
+    $wp_customize->add_control(new WP_Customize_Color_Control($wp_customize, 'ma_faq_a_color', ['label' => 'Answer Text Color', 'section' => 'ma_faq_section']));
+    $wp_customize->add_setting('ma_faq_icon_color', ['default' => '#6FBF4A', 'sanitize_callback' => 'sanitize_hex_color']);
+    $wp_customize->add_control(new WP_Customize_Color_Control($wp_customize, 'ma_faq_icon_color', ['label' => 'Icon Color', 'section' => 'ma_faq_section']));
+    $wp_customize->add_setting('ma_faq_toggle_rotate', ['default' => 45, 'sanitize_callback' => 'absint']);
+    $wp_customize->add_control('ma_faq_toggle_rotate', ['label' => 'Toggle Icon Rotate Degrees', 'section' => 'ma_faq_section', 'type' => 'range', 'input_attrs' => ['min' => 0, 'max' => 360]]);
+
+    // Reset button
+    $wp_customize->add_setting('ma_faq_reset_bg', ['default' => '#fff', 'sanitize_callback' => 'sanitize_hex_color']);
+    $wp_customize->add_control(new WP_Customize_Color_Control($wp_customize, 'ma_faq_reset_bg', ['label' => 'Reset Button Background', 'section' => 'ma_faq_section']));
+    $wp_customize->add_setting('ma_faq_reset_color', ['default' => '#4CAF50', 'sanitize_callback' => 'sanitize_hex_color']);
+    $wp_customize->add_control(new WP_Customize_Color_Control($wp_customize, 'ma_faq_reset_color', ['label' => 'Reset Button Color', 'section' => 'ma_faq_section']));
+    $wp_customize->add_setting('ma_faq_reset_hover_bg', ['default' => '#4CAF50', 'sanitize_callback' => 'sanitize_hex_color']);
+    $wp_customize->add_control(new WP_Customize_Color_Control($wp_customize, 'ma_faq_reset_hover_bg', ['label' => 'Reset Button Hover BG', 'section' => 'ma_faq_section']));
+    $wp_customize->add_setting('ma_faq_reset_hover_color', ['default' => '#fff', 'sanitize_callback' => 'sanitize_hex_color']);
+    $wp_customize->add_control(new WP_Customize_Color_Control($wp_customize, 'ma_faq_reset_hover_color', ['label' => 'Reset Button Hover Text', 'section' => 'ma_faq_section']));
+}
+
+// Xuất CSS ra front-end
+add_action('wp_head', 'ma_faq_center_css');
+function ma_faq_center_css()
+{ ?>
+    <style>
+        .faq-center {
+            background-color: <?php echo get_theme_mod('ma_faq_bg_color', '#f9f9f9'); ?>;
+            background-image: url('<?php echo get_theme_mod('ma_faq_bg_image', ''); ?>');
+            padding: <?php echo get_theme_mod('ma_faq_padding', 40); ?>px;
+            margin: <?php echo get_theme_mod('ma_faq_margin', 20); ?>px auto;
+        }
+
+        .faq-title {
+            color: <?php echo get_theme_mod('ma_faq_title_color', '#4CAF50'); ?>;
+            font-size: <?php echo get_theme_mod('ma_faq_title_size', 40); ?>px;
+        }
+
+        .faq-sub {
+            color: <?php echo get_theme_mod('ma_faq_sub_color', '#666'); ?>;
+            font-size: <?php echo get_theme_mod('ma_faq_sub_size', 18); ?>px;
+        }
+
+        .faq-search-btn {
+            background-color: <?php echo get_theme_mod('ma_faq_search_bg', '#6FBF4A'); ?>;
+        }
+
+        .faq-search-btn:hover {
+            background-color: <?php echo get_theme_mod('ma_faq_search_hover', '#4CAF50'); ?>;
+        }
+
+        .faq-search-input {
+            border-color: <?php echo get_theme_mod('ma_faq_input_border', '#6FBF4A'); ?>;
+            background-color: <?php echo get_theme_mod('ma_faq_input_bg', '#fff'); ?>;
+        }
+
+        .faq-cat {
+            background: <?php echo get_theme_mod('ma_faq_cat_bg', '#f0f9f0'); ?>;
+            color: <?php echo get_theme_mod('ma_faq_cat_color', '#4CAF50'); ?>;
+        }
+
+        .faq-cat:hover,
+        .faq-cat.active {
+            background: <?php echo get_theme_mod('ma_faq_cat_hover', '#6FBF4A'); ?>;
+            color: #fff;
+        }
+
+        .faq-item {
+            background: <?php echo get_theme_mod('ma_faq_card_bg', '#fff'); ?>;
+            border: 1px solid <?php echo get_theme_mod('ma_faq_card_border', '#e2e2e2'); ?>;
+            border-radius: <?php echo get_theme_mod('ma_faq_card_radius', 10); ?>px;
+            box-shadow: <?php echo get_theme_mod('ma_faq_card_shadow', '0 3px 10px rgba(0,0,0,0.05)'); ?>;
+        }
+
+        .faq-question {
+            color: <?php echo get_theme_mod('ma_faq_q_color', '#333'); ?>;
+        }
+
+        .faq-answer {
+            color: <?php echo get_theme_mod('ma_faq_a_color', '#555'); ?>;
+        }
+
+        .faq-icon {
+            color: <?php echo get_theme_mod('ma_faq_icon_color', '#6FBF4A'); ?>;
+        }
+
+        .faq-item.active .faq-toggle-icon {
+            transform: rotate(<?php echo get_theme_mod('ma_faq_toggle_rotate', 45); ?>deg);
+        }
+
+        .faq-reset-btn {
+            background-color: <?php echo get_theme_mod('ma_faq_reset_bg', '#fff'); ?>;
+            color: <?php echo get_theme_mod('ma_faq_reset_color', '#4CAF50'); ?>;
+            border-color: <?php echo get_theme_mod('ma_faq_reset_color', '#4CAF50'); ?>;
+        }
+
+        .faq-reset-btn:hover {
+            background-color: <?php echo get_theme_mod('ma_faq_reset_hover_bg', '#4CAF50'); ?>;
+            color: <?php echo get_theme_mod('ma_faq_reset_hover_color', '#fff'); ?>;
+        }
+    </style>
+<?php } ?>
